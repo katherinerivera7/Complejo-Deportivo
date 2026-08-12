@@ -166,5 +166,19 @@ namespace login
                 Application.Exit();
             }
         }
+
+        private void pictureBox2_Click_1(object sender, EventArgs e)
+        {
+            DialogResult resultado = MessageBox.Show(
+       "¿Está seguro de que desea salir del programa?",
+       "Confirmar salida",
+       MessageBoxButtons.YesNo,
+       MessageBoxIcon.Question);
+
+            if (resultado == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
+        }
     }
 }
