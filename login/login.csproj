@@ -539,5 +539,14 @@
   <ItemGroup>
     <None Include="Resources\icons8-calendario-96 %282%29.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ChatGPT Image 12 ago 2026, 08_15_32 a.m..png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-estrella-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-búsqueda-50 %281%29.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

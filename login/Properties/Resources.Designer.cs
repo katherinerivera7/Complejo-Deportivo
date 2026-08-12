@@ -113,6 +113,16 @@ namespace login.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ChatGPT_Image_12_ago_2026__08_15_32_a_m_ {
+            get {
+                object obj = ResourceManager.GetObject("ChatGPT Image 12 ago 2026, 08_15_32 a.m.", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap CLIENTESILUSTRACION {
             get {
                 object obj = ResourceManager.GetObject("CLIENTESILUSTRACION", resourceCulture);
@@ -206,6 +216,16 @@ namespace login.Properties {
         internal static System.Drawing.Bitmap icons8_buscar_48 {
             get {
                 object obj = ResourceManager.GetObject("icons8-buscar-48", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_búsqueda_50__1_ {
+            get {
+                object obj = ResourceManager.GetObject("icons8-búsqueda-50 (1)", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -316,6 +336,16 @@ namespace login.Properties {
         internal static System.Drawing.Bitmap icons8_estadio_48 {
             get {
                 object obj = ResourceManager.GetObject("icons8-estadio-48", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_estrella_48 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-estrella-48", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
