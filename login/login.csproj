@@ -108,6 +108,12 @@
     <Compile Include="FormMenuUsuario.Designer.cs">
       <DependentUpon>FormMenuUsuario.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmDisponiblidadDeCnchaUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDisponiblidadDeCnchaUsuario.Designer.cs">
+      <DependentUpon>frmDisponiblidadDeCnchaUsuario.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmGestionarReservas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -131,6 +137,12 @@
     </Compile>
     <Compile Include="frmVerPromociones.Designer.cs">
       <DependentUpon>frmVerPromociones.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmVerYGestionarReservas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmVerYGestionarReservas.Designer.cs">
+      <DependentUpon>frmVerYGestionarReservas.cs</DependentUpon>
     </Compile>
     <Compile Include="GestionDeUsuarios\frmRegistrarCliente.cs">
       <SubType>Form</SubType>
@@ -224,6 +236,12 @@
     <Compile Include="Usuarios.Designer.cs">
       <DependentUpon>Usuarios.cs</DependentUpon>
     </Compile>
+    <Compile Include="VerPromocionesUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VerPromocionesUsuario.Designer.cs">
+      <DependentUpon>VerPromocionesUsuario.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Bar\frmBar.resx">
       <DependentUpon>frmBar.cs</DependentUpon>
     </EmbeddedResource>
@@ -248,6 +266,9 @@
     <EmbeddedResource Include="FormMenuUsuario.resx">
       <DependentUpon>FormMenuUsuario.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmDisponiblidadDeCnchaUsuario.resx">
+      <DependentUpon>frmDisponiblidadDeCnchaUsuario.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmGestionarReservas.resx">
       <DependentUpon>frmGestionarReservas.cs</DependentUpon>
     </EmbeddedResource>
@@ -259,6 +280,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmVerPromociones.resx">
       <DependentUpon>frmVerPromociones.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmVerYGestionarReservas.resx">
+      <DependentUpon>frmVerYGestionarReservas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GestionDeUsuarios\frmRegistrarCliente.resx">
       <DependentUpon>frmRegistrarCliente.cs</DependentUpon>
@@ -314,6 +338,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Usuarios.resx">
       <DependentUpon>Usuarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VerPromocionesUsuario.resx">
+      <DependentUpon>VerPromocionesUsuario.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

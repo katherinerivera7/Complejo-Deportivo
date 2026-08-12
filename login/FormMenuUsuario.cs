@@ -71,5 +71,24 @@ namespace login
         {
 
         }
+
+        private void pictureBox5_Click(object sender, EventArgs e)
+        {
+            pnlContenido.Controls.Clear();
+            FormMenuUsuario menu = new FormMenuUsuario();
+            menu.Show();
+        }
+
+        private void guna2CircleButton2_Click(object sender, EventArgs e)
+        {
+            DialogResult resultado = MessageBox.Show("¿Está seguro de que desea cerrar sesión?", "Cerrar Sesión", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (resultado == DialogResult.Yes)
+            {
+                frmLogin login = new frmLogin();
+                login.Show();
+                this.Close();
+            }
+        }
     }
 }
