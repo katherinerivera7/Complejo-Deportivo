@@ -62,8 +62,8 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.btnBuscar = new Guna.UI2.WinForms.Guna2Button();
-            this.txtNombre = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2Button7 = new Guna.UI2.WinForms.Guna2Button();
+            this.txtNombre = new Guna.UI2.WinForms.Guna2TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.guna2CircleButton3 = new Guna.UI2.WinForms.Guna2CircleButton();
             this.guna2Button10 = new Guna.UI2.WinForms.Guna2Button();
@@ -92,8 +92,6 @@
             // 
             // guna2Panel1
             // 
-            this.guna2Panel1.Controls.Add(this.btnBuscar);
-            this.guna2Panel1.Controls.Add(this.txtNombre);
             this.guna2Panel1.Controls.Add(this.guna2Panel2);
             this.guna2Panel1.Controls.Add(this.label9);
             this.guna2Panel1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -120,7 +118,9 @@
             this.guna2Panel2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(231)))), ((int)(((byte)(245)))));
             this.guna2Panel2.BorderRadius = 35;
             this.guna2Panel2.BorderThickness = 1;
+            this.guna2Panel2.Controls.Add(this.btnBuscar);
             this.guna2Panel2.Controls.Add(this.guna2Button7);
+            this.guna2Panel2.Controls.Add(this.txtNombre);
             this.guna2Panel2.Controls.Add(this.guna2Panel9);
             this.guna2Panel2.Controls.Add(this.guna2Panel11);
             this.guna2Panel2.Controls.Add(this.guna2Panel3);
@@ -175,7 +175,7 @@
             this.label7.Location = new System.Drawing.Point(98, 61);
             this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(206, 80);
+            this.label7.Size = new System.Drawing.Size(206, 70);
             this.label7.TabIndex = 2;
             this.label7.Text = "Gestiona los productos del bar y mantén actualizado el stock disponible.";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -345,13 +345,13 @@
             this.guna2Panel9.Controls.Add(this.guna2CircleButton3);
             this.guna2Panel9.Controls.Add(this.guna2Panel10);
             this.guna2Panel9.FillColor = System.Drawing.Color.White;
-            this.guna2Panel9.Location = new System.Drawing.Point(779, 139);
+            this.guna2Panel9.Location = new System.Drawing.Point(779, 101);
             this.guna2Panel9.Margin = new System.Windows.Forms.Padding(2);
             this.guna2Panel9.Name = "guna2Panel9";
             this.guna2Panel9.ShadowDecoration.BorderRadius = 15;
             this.guna2Panel9.ShadowDecoration.Depth = 4;
             this.guna2Panel9.ShadowDecoration.Enabled = true;
-            this.guna2Panel9.Size = new System.Drawing.Size(325, 423);
+            this.guna2Panel9.Size = new System.Drawing.Size(325, 461);
             this.guna2Panel9.TabIndex = 13;
             // 
             // guna2Panel10
@@ -363,7 +363,7 @@
             this.guna2Panel10.Controls.Add(this.guna2Button12);
             this.guna2Panel10.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.guna2Panel10.FillColor = System.Drawing.Color.White;
-            this.guna2Panel10.Location = new System.Drawing.Point(0, 351);
+            this.guna2Panel10.Location = new System.Drawing.Point(0, 389);
             this.guna2Panel10.Margin = new System.Windows.Forms.Padding(2);
             this.guna2Panel10.Name = "guna2Panel10";
             this.guna2Panel10.ShadowDecoration.BorderRadius = 15;
@@ -593,7 +593,7 @@
             this.label4.Location = new System.Drawing.Point(105, 80);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(222, 57);
+            this.label4.Size = new System.Drawing.Size(199, 57);
             this.label4.TabIndex = 10;
             this.label4.Text = "de descuento en canchas";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -602,7 +602,7 @@
             // 
             this.label5.Font = new System.Drawing.Font("Segoe UI", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.label5.Location = new System.Drawing.Point(95, 21);
+            this.label5.Location = new System.Drawing.Point(105, 23);
             this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(222, 57);
@@ -622,12 +622,32 @@
             this.btnBuscar.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBuscar.ForeColor = System.Drawing.Color.White;
             this.btnBuscar.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscar.Image")));
-            this.btnBuscar.Location = new System.Drawing.Point(962, 60);
+            this.btnBuscar.Location = new System.Drawing.Point(520, 23);
             this.btnBuscar.Margin = new System.Windows.Forms.Padding(2);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(194, 39);
             this.btnBuscar.TabIndex = 76;
             this.btnBuscar.Text = "Buscar";
+            // 
+            // guna2Button7
+            // 
+            this.guna2Button7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(248)))), ((int)(((byte)(231)))));
+            this.guna2Button7.BorderColor = System.Drawing.Color.Gainsboro;
+            this.guna2Button7.BorderRadius = 14;
+            this.guna2Button7.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button7.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button7.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2Button7.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2Button7.FillColor = System.Drawing.Color.White;
+            this.guna2Button7.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2Button7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(152)))), ((int)(((byte)(105)))));
+            this.guna2Button7.Image = global::login.Properties.Resources.icons8_estrella_48;
+            this.guna2Button7.Location = new System.Drawing.Point(781, 57);
+            this.guna2Button7.Margin = new System.Windows.Forms.Padding(2);
+            this.guna2Button7.Name = "guna2Button7";
+            this.guna2Button7.Size = new System.Drawing.Size(325, 29);
+            this.guna2Button7.TabIndex = 86;
+            this.guna2Button7.Text = "Promoción destacada";
             // 
             // txtNombre
             // 
@@ -643,7 +663,7 @@
             this.txtNombre.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNombre.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtNombre.IconLeft = global::login.Properties.Resources.icons8_búsqueda_50__1_;
-            this.txtNombre.Location = new System.Drawing.Point(630, 60);
+            this.txtNombre.Location = new System.Drawing.Point(39, 23);
             this.txtNombre.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.PlaceholderText = "Buscar promociones";
@@ -651,35 +671,15 @@
             this.txtNombre.ShadowDecoration.BorderRadius = 12;
             this.txtNombre.ShadowDecoration.Depth = 4;
             this.txtNombre.ShadowDecoration.Enabled = true;
-            this.txtNombre.Size = new System.Drawing.Size(318, 39);
+            this.txtNombre.Size = new System.Drawing.Size(443, 39);
             this.txtNombre.TabIndex = 75;
-            // 
-            // guna2Button7
-            // 
-            this.guna2Button7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(248)))), ((int)(((byte)(231)))));
-            this.guna2Button7.BorderColor = System.Drawing.Color.Gainsboro;
-            this.guna2Button7.BorderRadius = 14;
-            this.guna2Button7.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button7.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button7.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button7.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button7.FillColor = System.Drawing.Color.White;
-            this.guna2Button7.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2Button7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(152)))), ((int)(((byte)(105)))));
-            this.guna2Button7.Image = global::login.Properties.Resources.icons8_estrella_48;
-            this.guna2Button7.Location = new System.Drawing.Point(779, 81);
-            this.guna2Button7.Margin = new System.Windows.Forms.Padding(2);
-            this.guna2Button7.Name = "guna2Button7";
-            this.guna2Button7.Size = new System.Drawing.Size(325, 29);
-            this.guna2Button7.TabIndex = 86;
-            this.guna2Button7.Text = "Promoción destacada";
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::login.Properties.Resources.ChatGPT_Image_12_ago_2026__08_15_32_a_m_;
-            this.pictureBox1.Location = new System.Drawing.Point(26, 140);
+            this.pictureBox1.Location = new System.Drawing.Point(41, 140);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(253, 195);
+            this.pictureBox1.Size = new System.Drawing.Size(281, 233);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 9;
             this.pictureBox1.TabStop = false;
@@ -693,13 +693,13 @@
             this.guna2CircleButton3.FillColor = System.Drawing.Color.LightGreen;
             this.guna2CircleButton3.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.guna2CircleButton3.ForeColor = System.Drawing.Color.White;
-            this.guna2CircleButton3.Image = ((System.Drawing.Image)(resources.GetObject("guna2CircleButton3.Image")));
+            this.guna2CircleButton3.Image = global::login.Properties.Resources.icons8_oferta_96;
             this.guna2CircleButton3.ImageSize = new System.Drawing.Size(50, 50);
-            this.guna2CircleButton3.Location = new System.Drawing.Point(11, 12);
+            this.guna2CircleButton3.Location = new System.Drawing.Point(11, 23);
             this.guna2CircleButton3.Margin = new System.Windows.Forms.Padding(2);
             this.guna2CircleButton3.Name = "guna2CircleButton3";
             this.guna2CircleButton3.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.guna2CircleButton3.Size = new System.Drawing.Size(80, 81);
+            this.guna2CircleButton3.Size = new System.Drawing.Size(90, 81);
             this.guna2CircleButton3.TabIndex = 7;
             // 
             // guna2Button10
@@ -751,7 +751,7 @@
             this.guna2Button14.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2Button14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(155)))), ((int)(((byte)(75)))));
             this.guna2Button14.Image = global::login.Properties.Resources.icons8_calendario_96__2_;
-            this.guna2Button14.Location = new System.Drawing.Point(4, -10);
+            this.guna2Button14.Location = new System.Drawing.Point(4, 0);
             this.guna2Button14.Margin = new System.Windows.Forms.Padding(2);
             this.guna2Button14.Name = "guna2Button14";
             this.guna2Button14.Size = new System.Drawing.Size(321, 29);

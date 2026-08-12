@@ -483,6 +483,16 @@ namespace login.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_oferta_96 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-oferta-96", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_ojo_30 {
             get {
                 object obj = ResourceManager.GetObject("icons8-ojo-30", resourceCulture);

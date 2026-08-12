@@ -51,6 +51,10 @@
             this.guna2Panel10 = new Guna.UI2.WinForms.Guna2Panel();
             this.label14 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
+            this.guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.guna2CircleButton1 = new Guna.UI2.WinForms.Guna2CircleButton();
             this.guna2CircleButton2 = new Guna.UI2.WinForms.Guna2CircleButton();
             this.guna2CircleButton8 = new Guna.UI2.WinForms.Guna2CircleButton();
             this.guna2CircleButton6 = new Guna.UI2.WinForms.Guna2CircleButton();
@@ -60,10 +64,6 @@
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
-            this.label5 = new System.Windows.Forms.Label();
-            this.guna2CircleButton1 = new Guna.UI2.WinForms.Guna2CircleButton();
-            this.label6 = new System.Windows.Forms.Label();
             this.pnlContenedor.SuspendLayout();
             this.pnlContenido.SuspendLayout();
             this.guna2Panel2.SuspendLayout();
@@ -74,13 +74,13 @@
             this.guna2Panel7.SuspendLayout();
             this.guna2Panel8.SuspendLayout();
             this.guna2Panel10.SuspendLayout();
+            this.guna2Panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.guna2Panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlContenedor
@@ -261,7 +261,7 @@
             this.guna2Panel4.Controls.Add(this.guna2CircleButton8);
             this.guna2Panel4.Controls.Add(this.label8);
             this.guna2Panel4.FillColor = System.Drawing.Color.White;
-            this.guna2Panel4.Location = new System.Drawing.Point(533, 32);
+            this.guna2Panel4.Location = new System.Drawing.Point(558, 36);
             this.guna2Panel4.Margin = new System.Windows.Forms.Padding(2);
             this.guna2Panel4.Name = "guna2Panel4";
             this.guna2Panel4.ShadowDecoration.BorderRadius = 15;
@@ -302,7 +302,7 @@
             this.guna2Panel7.Controls.Add(this.guna2CircleButton6);
             this.guna2Panel7.Controls.Add(this.label11);
             this.guna2Panel7.FillColor = System.Drawing.Color.White;
-            this.guna2Panel7.Location = new System.Drawing.Point(25, 32);
+            this.guna2Panel7.Location = new System.Drawing.Point(50, 36);
             this.guna2Panel7.Margin = new System.Windows.Forms.Padding(2);
             this.guna2Panel7.Name = "guna2Panel7";
             this.guna2Panel7.ShadowDecoration.BorderRadius = 15;
@@ -331,7 +331,7 @@
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(114, 52);
             this.label11.TabIndex = 0;
-            this.label11.Text = "Ver y Crear Reservas";
+            this.label11.Text = "Crear Reservas";
             this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // guna2Panel8
@@ -354,7 +354,7 @@
             this.guna2Panel10.Controls.Add(this.guna2CircleButton2);
             this.guna2Panel10.Controls.Add(this.label15);
             this.guna2Panel10.FillColor = System.Drawing.Color.White;
-            this.guna2Panel10.Location = new System.Drawing.Point(779, 32);
+            this.guna2Panel10.Location = new System.Drawing.Point(804, 36);
             this.guna2Panel10.Margin = new System.Windows.Forms.Padding(2);
             this.guna2Panel10.Name = "guna2Panel10";
             this.guna2Panel10.ShadowDecoration.BorderRadius = 15;
@@ -385,6 +385,66 @@
             this.label15.TabIndex = 2;
             this.label15.Text = "Finaliza la sesión de forma segura.";
             this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // guna2Panel3
+            // 
+            this.guna2Panel3.BackColor = System.Drawing.Color.Transparent;
+            this.guna2Panel3.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(234)))), ((int)(((byte)(242)))));
+            this.guna2Panel3.BorderRadius = 15;
+            this.guna2Panel3.Controls.Add(this.label5);
+            this.guna2Panel3.Controls.Add(this.guna2CircleButton1);
+            this.guna2Panel3.Controls.Add(this.label6);
+            this.guna2Panel3.FillColor = System.Drawing.Color.White;
+            this.guna2Panel3.Location = new System.Drawing.Point(302, 36);
+            this.guna2Panel3.Margin = new System.Windows.Forms.Padding(2);
+            this.guna2Panel3.Name = "guna2Panel3";
+            this.guna2Panel3.ShadowDecoration.BorderRadius = 15;
+            this.guna2Panel3.ShadowDecoration.Depth = 4;
+            this.guna2Panel3.ShadowDecoration.Enabled = true;
+            this.guna2Panel3.Size = new System.Drawing.Size(183, 269);
+            this.guna2Panel3.TabIndex = 10;
+            // 
+            // label5
+            // 
+            this.label5.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold);
+            this.label5.Location = new System.Drawing.Point(24, 167);
+            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(136, 65);
+            this.label5.TabIndex = 1;
+            this.label5.Text = "Consulta las canchas y horarios disponibles para reservar.";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label6
+            // 
+            this.label6.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(93)))), ((int)(((byte)(132)))));
+            this.label6.Location = new System.Drawing.Point(2, 102);
+            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(179, 52);
+            this.label6.TabIndex = 0;
+            this.label6.Text = "Disponibilidad de Canchas";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // guna2CircleButton1
+            // 
+            this.guna2CircleButton1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2CircleButton1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2CircleButton1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2CircleButton1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2CircleButton1.FillColor = System.Drawing.Color.LightBlue;
+            this.guna2CircleButton1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.guna2CircleButton1.ForeColor = System.Drawing.Color.White;
+            this.guna2CircleButton1.Image = ((System.Drawing.Image)(resources.GetObject("guna2CircleButton1.Image")));
+            this.guna2CircleButton1.ImageSize = new System.Drawing.Size(50, 50);
+            this.guna2CircleButton1.Location = new System.Drawing.Point(52, 17);
+            this.guna2CircleButton1.Margin = new System.Windows.Forms.Padding(2);
+            this.guna2CircleButton1.Name = "guna2CircleButton1";
+            this.guna2CircleButton1.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.guna2CircleButton1.Size = new System.Drawing.Size(80, 80);
+            this.guna2CircleButton1.TabIndex = 4;
+            this.guna2CircleButton1.Click += new System.EventHandler(this.guna2CircleButton1_Click);
             // 
             // guna2CircleButton2
             // 
@@ -520,66 +580,6 @@
             this.pictureBox1.TabIndex = 35;
             this.pictureBox1.TabStop = false;
             // 
-            // guna2Panel3
-            // 
-            this.guna2Panel3.BackColor = System.Drawing.Color.Transparent;
-            this.guna2Panel3.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(234)))), ((int)(((byte)(242)))));
-            this.guna2Panel3.BorderRadius = 15;
-            this.guna2Panel3.Controls.Add(this.label5);
-            this.guna2Panel3.Controls.Add(this.guna2CircleButton1);
-            this.guna2Panel3.Controls.Add(this.label6);
-            this.guna2Panel3.FillColor = System.Drawing.Color.White;
-            this.guna2Panel3.Location = new System.Drawing.Point(277, 32);
-            this.guna2Panel3.Margin = new System.Windows.Forms.Padding(2);
-            this.guna2Panel3.Name = "guna2Panel3";
-            this.guna2Panel3.ShadowDecoration.BorderRadius = 15;
-            this.guna2Panel3.ShadowDecoration.Depth = 4;
-            this.guna2Panel3.ShadowDecoration.Enabled = true;
-            this.guna2Panel3.Size = new System.Drawing.Size(183, 269);
-            this.guna2Panel3.TabIndex = 10;
-            // 
-            // label5
-            // 
-            this.label5.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold);
-            this.label5.Location = new System.Drawing.Point(24, 167);
-            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(136, 65);
-            this.label5.TabIndex = 1;
-            this.label5.Text = "Consulta las canchas y horarios disponibles para reservar.";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // guna2CircleButton1
-            // 
-            this.guna2CircleButton1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2CircleButton1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2CircleButton1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2CircleButton1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2CircleButton1.FillColor = System.Drawing.Color.LightBlue;
-            this.guna2CircleButton1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2CircleButton1.ForeColor = System.Drawing.Color.White;
-            this.guna2CircleButton1.Image = ((System.Drawing.Image)(resources.GetObject("guna2CircleButton1.Image")));
-            this.guna2CircleButton1.ImageSize = new System.Drawing.Size(50, 50);
-            this.guna2CircleButton1.Location = new System.Drawing.Point(52, 17);
-            this.guna2CircleButton1.Margin = new System.Windows.Forms.Padding(2);
-            this.guna2CircleButton1.Name = "guna2CircleButton1";
-            this.guna2CircleButton1.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.guna2CircleButton1.Size = new System.Drawing.Size(80, 80);
-            this.guna2CircleButton1.TabIndex = 4;
-            this.guna2CircleButton1.Click += new System.EventHandler(this.guna2CircleButton1_Click);
-            // 
-            // label6
-            // 
-            this.label6.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(93)))), ((int)(((byte)(132)))));
-            this.label6.Location = new System.Drawing.Point(2, 102);
-            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(179, 52);
-            this.label6.TabIndex = 0;
-            this.label6.Text = "Disponibilidad de Canchas";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // FormMenuUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -601,13 +601,13 @@
             this.guna2Panel7.ResumeLayout(false);
             this.guna2Panel8.ResumeLayout(false);
             this.guna2Panel10.ResumeLayout(false);
+            this.guna2Panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.guna2Panel3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
