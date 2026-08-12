@@ -31,5 +31,10 @@ namespace login.Bar
         {
 
         }
+
+        private void guna2Button16_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
