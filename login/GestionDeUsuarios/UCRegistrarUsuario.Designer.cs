@@ -29,122 +29,19 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UCRegistrarUsuario));
-            this.txtNombre = new Guna.UI2.WinForms.Guna2TextBox();
-            this.txtApellidos = new Guna.UI2.WinForms.Guna2TextBox();
-            this.txtCorreo = new Guna.UI2.WinForms.Guna2TextBox();
-            this.txtTelefono = new Guna.UI2.WinForms.Guna2TextBox();
-            this.txtCiudad = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2ContextMenuStrip1 = new Guna.UI2.WinForms.Guna2ContextMenuStrip();
-            this.txtDireccion = new Guna.UI2.WinForms.Guna2TextBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.dtpFechaNacimiento = new Guna.UI2.WinForms.Guna2DateTimePicker();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtCedula = new Guna.UI2.WinForms.Guna2TextBox();
             this.btnCrear = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2DateTimePicker1 = new Guna.UI2.WinForms.Guna2DateTimePicker();
+            this.txtDireccion = new Guna.UI2.WinForms.Guna2TextBox();
+            this.txtCiudad = new Guna.UI2.WinForms.Guna2TextBox();
+            this.txtTelefono = new Guna.UI2.WinForms.Guna2TextBox();
+            this.txtCorreo = new Guna.UI2.WinForms.Guna2TextBox();
+            this.txtApellidos = new Guna.UI2.WinForms.Guna2TextBox();
+            this.txtNombres = new Guna.UI2.WinForms.Guna2TextBox();
             this.SuspendLayout();
-            // 
-            // txtNombre
-            // 
-            this.txtNombre.BorderRadius = 12;
-            this.txtNombre.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtNombre.DefaultText = "";
-            this.txtNombre.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtNombre.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtNombre.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtNombre.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtNombre.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtNombre.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txtNombre.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtNombre.IconLeft = ((System.Drawing.Image)(resources.GetObject("txtNombre.IconLeft")));
-            this.txtNombre.Location = new System.Drawing.Point(152, 271);
-            this.txtNombre.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txtNombre.Name = "txtNombre";
-            this.txtNombre.PlaceholderText = "Nombres Completos";
-            this.txtNombre.SelectedText = "";
-            this.txtNombre.Size = new System.Drawing.Size(424, 46);
-            this.txtNombre.TabIndex = 19;
-            // 
-            // txtApellidos
-            // 
-            this.txtApellidos.BorderRadius = 12;
-            this.txtApellidos.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtApellidos.DefaultText = "";
-            this.txtApellidos.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtApellidos.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtApellidos.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtApellidos.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtApellidos.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtApellidos.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txtApellidos.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtApellidos.IconLeft = ((System.Drawing.Image)(resources.GetObject("txtApellidos.IconLeft")));
-            this.txtApellidos.Location = new System.Drawing.Point(152, 341);
-            this.txtApellidos.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txtApellidos.Name = "txtApellidos";
-            this.txtApellidos.PlaceholderText = "Apellidos Completos";
-            this.txtApellidos.SelectedText = "";
-            this.txtApellidos.Size = new System.Drawing.Size(424, 46);
-            this.txtApellidos.TabIndex = 20;
-            // 
-            // txtCorreo
-            // 
-            this.txtCorreo.BorderRadius = 12;
-            this.txtCorreo.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtCorreo.DefaultText = "";
-            this.txtCorreo.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtCorreo.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtCorreo.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtCorreo.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtCorreo.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtCorreo.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txtCorreo.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtCorreo.IconLeft = ((System.Drawing.Image)(resources.GetObject("txtCorreo.IconLeft")));
-            this.txtCorreo.Location = new System.Drawing.Point(152, 411);
-            this.txtCorreo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txtCorreo.Name = "txtCorreo";
-            this.txtCorreo.PlaceholderText = "Correo electronico";
-            this.txtCorreo.SelectedText = "";
-            this.txtCorreo.Size = new System.Drawing.Size(424, 46);
-            this.txtCorreo.TabIndex = 21;
-            // 
-            // txtTelefono
-            // 
-            this.txtTelefono.BorderRadius = 12;
-            this.txtTelefono.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtTelefono.DefaultText = "";
-            this.txtTelefono.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtTelefono.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtTelefono.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtTelefono.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtTelefono.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtTelefono.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txtTelefono.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtTelefono.IconLeft = ((System.Drawing.Image)(resources.GetObject("txtTelefono.IconLeft")));
-            this.txtTelefono.Location = new System.Drawing.Point(152, 489);
-            this.txtTelefono.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txtTelefono.Name = "txtTelefono";
-            this.txtTelefono.PlaceholderText = "Telefono";
-            this.txtTelefono.SelectedText = "";
-            this.txtTelefono.Size = new System.Drawing.Size(424, 46);
-            this.txtTelefono.TabIndex = 27;
-            // 
-            // txtCiudad
-            // 
-            this.txtCiudad.BorderRadius = 12;
-            this.txtCiudad.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtCiudad.DefaultText = "";
-            this.txtCiudad.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtCiudad.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtCiudad.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtCiudad.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtCiudad.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtCiudad.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txtCiudad.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtCiudad.IconLeft = ((System.Drawing.Image)(resources.GetObject("txtCiudad.IconLeft")));
-            this.txtCiudad.Location = new System.Drawing.Point(152, 553);
-            this.txtCiudad.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txtCiudad.Name = "txtCiudad";
-            this.txtCiudad.PlaceholderText = "Ciudad";
-            this.txtCiudad.SelectedText = "";
-            this.txtCiudad.Size = new System.Drawing.Size(424, 46);
-            this.txtCiudad.TabIndex = 28;
             // 
             // guna2ContextMenuStrip1
             // 
@@ -161,6 +58,90 @@
             this.guna2ContextMenuStrip1.RenderStyle.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
             this.guna2ContextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(135, 26);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(195, 41);
+            this.label4.TabIndex = 32;
+            this.label4.Text = "Crear cliente";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // dtpFechaNacimiento
+            // 
+            this.dtpFechaNacimiento.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
+            this.dtpFechaNacimiento.BorderRadius = 12;
+            this.dtpFechaNacimiento.BorderStyle = System.Drawing.Drawing2D.DashStyle.Dash;
+            this.dtpFechaNacimiento.Checked = true;
+            this.dtpFechaNacimiento.FillColor = System.Drawing.Color.White;
+            this.dtpFechaNacimiento.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.dtpFechaNacimiento.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.dtpFechaNacimiento.Format = System.Windows.Forms.DateTimePickerFormat.Long;
+            this.dtpFechaNacimiento.Location = new System.Drawing.Point(79, 418);
+            this.dtpFechaNacimiento.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
+            this.dtpFechaNacimiento.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
+            this.dtpFechaNacimiento.Name = "dtpFechaNacimiento";
+            this.dtpFechaNacimiento.Size = new System.Drawing.Size(318, 45);
+            this.dtpFechaNacimiento.TabIndex = 31;
+            this.dtpFechaNacimiento.Value = new System.DateTime(2026, 7, 26, 17, 33, 57, 972);
+            this.dtpFechaNacimiento.ValueChanged += new System.EventHandler(this.guna2DateTimePicker1_ValueChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(75, 395);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(152, 20);
+            this.label1.TabIndex = 47;
+            this.label1.Text = "Fecha de nacimiento";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // txtCedula
+            // 
+            this.txtCedula.BorderRadius = 12;
+            this.txtCedula.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtCedula.DefaultText = "";
+            this.txtCedula.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtCedula.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtCedula.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtCedula.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtCedula.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtCedula.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtCedula.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtCedula.IconLeft = ((System.Drawing.Image)(resources.GetObject("txtCedula.IconLeft")));
+            this.txtCedula.Location = new System.Drawing.Point(79, 165);
+            this.txtCedula.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.txtCedula.Name = "txtCedula";
+            this.txtCedula.PlaceholderText = "Número de cédula";
+            this.txtCedula.SelectedText = "";
+            this.txtCedula.Size = new System.Drawing.Size(318, 37);
+            this.txtCedula.TabIndex = 46;
+            // 
+            // btnCrear
+            // 
+            this.btnCrear.BorderColor = System.Drawing.Color.Gainsboro;
+            this.btnCrear.BorderRadius = 14;
+            this.btnCrear.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnCrear.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnCrear.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnCrear.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnCrear.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(155)))), ((int)(((byte)(75)))));
+            this.btnCrear.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.btnCrear.ForeColor = System.Drawing.Color.White;
+            this.btnCrear.Image = ((System.Drawing.Image)(resources.GetObject("btnCrear.Image")));
+            this.btnCrear.Location = new System.Drawing.Point(143, 493);
+            this.btnCrear.Margin = new System.Windows.Forms.Padding(2);
+            this.btnCrear.Name = "btnCrear";
+            this.btnCrear.Size = new System.Drawing.Size(188, 39);
+            this.btnCrear.TabIndex = 33;
+            this.btnCrear.Text = "Crear";
+            this.btnCrear.Click += new System.EventHandler(this.btnCrear_Click);
+            // 
             // txtDireccion
             // 
             this.txtDireccion.BorderRadius = 12;
@@ -174,81 +155,137 @@
             this.txtDireccion.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtDireccion.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtDireccion.IconLeft = ((System.Drawing.Image)(resources.GetObject("txtDireccion.IconLeft")));
-            this.txtDireccion.Location = new System.Drawing.Point(152, 618);
-            this.txtDireccion.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtDireccion.Location = new System.Drawing.Point(79, 337);
+            this.txtDireccion.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.txtDireccion.Name = "txtDireccion";
             this.txtDireccion.PlaceholderText = "Dirección";
             this.txtDireccion.SelectedText = "";
-            this.txtDireccion.Size = new System.Drawing.Size(424, 46);
+            this.txtDireccion.Size = new System.Drawing.Size(318, 37);
             this.txtDireccion.TabIndex = 30;
             // 
-            // label4
+            // txtCiudad
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(180, 167);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(323, 50);
-            this.label4.TabIndex = 32;
-            this.label4.Text = "Registrar Usuario";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.txtCiudad.BorderRadius = 12;
+            this.txtCiudad.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtCiudad.DefaultText = "";
+            this.txtCiudad.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtCiudad.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtCiudad.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtCiudad.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtCiudad.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtCiudad.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtCiudad.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtCiudad.IconLeft = ((System.Drawing.Image)(resources.GetObject("txtCiudad.IconLeft")));
+            this.txtCiudad.Location = new System.Drawing.Point(79, 294);
+            this.txtCiudad.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.txtCiudad.Name = "txtCiudad";
+            this.txtCiudad.PlaceholderText = "Ciudad";
+            this.txtCiudad.SelectedText = "";
+            this.txtCiudad.Size = new System.Drawing.Size(318, 37);
+            this.txtCiudad.TabIndex = 28;
             // 
-            // btnCrear
+            // txtTelefono
             // 
-            this.btnCrear.BorderColor = System.Drawing.Color.Gainsboro;
-            this.btnCrear.BorderRadius = 14;
-            this.btnCrear.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnCrear.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnCrear.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnCrear.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnCrear.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(155)))), ((int)(((byte)(75)))));
-            this.btnCrear.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnCrear.ForeColor = System.Drawing.Color.White;
-            this.btnCrear.Image = ((System.Drawing.Image)(resources.GetObject("btnCrear.Image")));
-            this.btnCrear.Location = new System.Drawing.Point(189, 775);
-            this.btnCrear.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnCrear.Name = "btnCrear";
-            this.btnCrear.Size = new System.Drawing.Size(340, 48);
-            this.btnCrear.TabIndex = 33;
-            this.btnCrear.Text = "Registrar";
+            this.txtTelefono.BorderRadius = 12;
+            this.txtTelefono.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtTelefono.DefaultText = "";
+            this.txtTelefono.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtTelefono.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtTelefono.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtTelefono.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtTelefono.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtTelefono.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtTelefono.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtTelefono.IconLeft = ((System.Drawing.Image)(resources.GetObject("txtTelefono.IconLeft")));
+            this.txtTelefono.Location = new System.Drawing.Point(79, 251);
+            this.txtTelefono.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.txtTelefono.Name = "txtTelefono";
+            this.txtTelefono.PlaceholderText = "Telefono";
+            this.txtTelefono.SelectedText = "";
+            this.txtTelefono.Size = new System.Drawing.Size(318, 37);
+            this.txtTelefono.TabIndex = 27;
             // 
-            // guna2DateTimePicker1
+            // txtCorreo
             // 
-            this.guna2DateTimePicker1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
-            this.guna2DateTimePicker1.BorderRadius = 12;
-            this.guna2DateTimePicker1.BorderStyle = System.Drawing.Drawing2D.DashStyle.Dash;
-            this.guna2DateTimePicker1.Checked = true;
-            this.guna2DateTimePicker1.FillColor = System.Drawing.Color.White;
-            this.guna2DateTimePicker1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2DateTimePicker1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.guna2DateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Long;
-            this.guna2DateTimePicker1.Location = new System.Drawing.Point(152, 685);
-            this.guna2DateTimePicker1.Margin = new System.Windows.Forms.Padding(4);
-            this.guna2DateTimePicker1.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
-            this.guna2DateTimePicker1.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
-            this.guna2DateTimePicker1.Name = "guna2DateTimePicker1";
-            this.guna2DateTimePicker1.Size = new System.Drawing.Size(424, 55);
-            this.guna2DateTimePicker1.TabIndex = 31;
-            this.guna2DateTimePicker1.Value = new System.DateTime(2026, 7, 26, 17, 33, 57, 972);
-            this.guna2DateTimePicker1.ValueChanged += new System.EventHandler(this.guna2DateTimePicker1_ValueChanged);
+            this.txtCorreo.BorderRadius = 12;
+            this.txtCorreo.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtCorreo.DefaultText = "";
+            this.txtCorreo.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtCorreo.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtCorreo.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtCorreo.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtCorreo.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtCorreo.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtCorreo.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtCorreo.IconLeft = ((System.Drawing.Image)(resources.GetObject("txtCorreo.IconLeft")));
+            this.txtCorreo.Location = new System.Drawing.Point(79, 208);
+            this.txtCorreo.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.txtCorreo.Name = "txtCorreo";
+            this.txtCorreo.PlaceholderText = "Correo electronico";
+            this.txtCorreo.SelectedText = "";
+            this.txtCorreo.Size = new System.Drawing.Size(318, 37);
+            this.txtCorreo.TabIndex = 21;
+            // 
+            // txtApellidos
+            // 
+            this.txtApellidos.BorderRadius = 12;
+            this.txtApellidos.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtApellidos.DefaultText = "";
+            this.txtApellidos.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtApellidos.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtApellidos.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtApellidos.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtApellidos.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtApellidos.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtApellidos.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtApellidos.IconLeft = ((System.Drawing.Image)(resources.GetObject("txtApellidos.IconLeft")));
+            this.txtApellidos.Location = new System.Drawing.Point(79, 122);
+            this.txtApellidos.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.txtApellidos.Name = "txtApellidos";
+            this.txtApellidos.PlaceholderText = "Apellidos";
+            this.txtApellidos.SelectedText = "";
+            this.txtApellidos.Size = new System.Drawing.Size(318, 37);
+            this.txtApellidos.TabIndex = 20;
+            // 
+            // txtNombres
+            // 
+            this.txtNombres.BorderRadius = 12;
+            this.txtNombres.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtNombres.DefaultText = "";
+            this.txtNombres.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtNombres.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtNombres.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtNombres.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtNombres.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtNombres.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtNombres.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtNombres.IconLeft = ((System.Drawing.Image)(resources.GetObject("txtNombres.IconLeft")));
+            this.txtNombres.Location = new System.Drawing.Point(79, 79);
+            this.txtNombres.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.txtNombres.Name = "txtNombres";
+            this.txtNombres.PlaceholderText = "Nombres";
+            this.txtNombres.SelectedText = "";
+            this.txtNombres.Size = new System.Drawing.Size(318, 37);
+            this.txtNombres.TabIndex = 19;
             // 
             // UCRegistrarUsuario
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(249)))), ((int)(((byte)(251)))));
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.txtCedula);
             this.Controls.Add(this.btnCrear);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.guna2DateTimePicker1);
+            this.Controls.Add(this.dtpFechaNacimiento);
             this.Controls.Add(this.txtDireccion);
             this.Controls.Add(this.txtCiudad);
             this.Controls.Add(this.txtTelefono);
             this.Controls.Add(this.txtCorreo);
             this.Controls.Add(this.txtApellidos);
-            this.Controls.Add(this.txtNombre);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Controls.Add(this.txtNombres);
             this.Name = "UCRegistrarUsuario";
-            this.Size = new System.Drawing.Size(739, 977);
+            this.Size = new System.Drawing.Size(492, 600);
             this.Load += new System.EventHandler(this.UCRegistrarUsuario_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -257,7 +294,7 @@
 
         #endregion
 
-        private Guna.UI2.WinForms.Guna2TextBox txtNombre;
+        private Guna.UI2.WinForms.Guna2TextBox txtNombres;
         private Guna.UI2.WinForms.Guna2TextBox txtApellidos;
         private Guna.UI2.WinForms.Guna2TextBox txtCorreo;
         private Guna.UI2.WinForms.Guna2TextBox txtTelefono;
@@ -266,6 +303,8 @@
         private Guna.UI2.WinForms.Guna2TextBox txtDireccion;
         private System.Windows.Forms.Label label4;
         private Guna.UI2.WinForms.Guna2Button btnCrear;
-        private Guna.UI2.WinForms.Guna2DateTimePicker guna2DateTimePicker1;
+        private Guna.UI2.WinForms.Guna2DateTimePicker dtpFechaNacimiento;
+        private Guna.UI2.WinForms.Guna2TextBox txtCedula;
+        private System.Windows.Forms.Label label1;
     }
 }

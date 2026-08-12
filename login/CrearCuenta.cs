@@ -16,6 +16,14 @@ namespace login
         public CrearCuenta()
         {
             InitializeComponent();
+            this.DoubleBuffered = true;
+            this.SetStyle(
+                ControlStyles.OptimizedDoubleBuffer |
+                ControlStyles.AllPaintingInWmPaint |
+                ControlStyles.UserPaint,
+                true);
+
+            this.UpdateStyles();
         }
 
         private void txtRegistrarse_Click(object sender, EventArgs e)
@@ -27,71 +35,224 @@ namespace login
 
         private void btnCrear_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(txtNombre.Text) || string.IsNullOrEmpty(txtCorreo.Text) ||
-                string.IsNullOrEmpty(txtTelefono.Text) || string.IsNullOrEmpty(txtClave.Text) ||
-                string.IsNullOrEmpty(txtConfirmarClave.Text))
+            // ==========================================
+            // 1. VALIDAR CAMPOS VACÍOS
+            // ==========================================
+
+            if (string.IsNullOrWhiteSpace(txtUsuario.Text) ||
+                string.IsNullOrWhiteSpace(txtClave.Text) ||
+                string.IsNullOrWhiteSpace(txtConfirmarClave.Text))
             {
-                MessageBox.Show("Por favor, llene todos los campos del formulario.", "Campos Vacíos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(
+                    "Por favor, llene todos los campos del formulario.",
+                    "Campos Vacíos",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+
                 return;
             }
+
+            if (txtClave.Text.Length < 8)
+            {
+                MessageBox.Show(
+                    "La contraseña debe tener al menos 8 caracteres.",
+                    "Contraseña inválida",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+
+                txtClave.Focus();
+                return;
+            }
+
+            if (!txtClave.Text.Any(char.IsUpper))
+            {
+                MessageBox.Show(
+                    "La contraseña debe contener al menos una letra mayúscula.",
+                    "Contraseña inválida",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+
+                txtClave.Focus();
+                return;
+            }
+
+            if (!txtClave.Text.Any(char.IsLower))
+            {
+                MessageBox.Show(
+                    "La contraseña debe contener al menos una letra minúscula.",
+                    "Contraseña inválida",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+
+                txtClave.Focus();
+                return;
+            }
+
+            if (!txtClave.Text.Any(char.IsDigit))
+            {
+                MessageBox.Show(
+                    "La contraseña debe contener al menos un número.",
+                    "Contraseña inválida",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+
+                txtClave.Focus();
+                return;
+            }
+
+
+            // ==========================================
+            // 9. CONFIRMAR CONTRASEÑA
+            // ==========================================
 
             if (txtClave.Text != txtConfirmarClave.Text)
             {
-                MessageBox.Show("Las contraseñas ingresadas no coinciden. Inténtelo de nuevo.", "Error de Contraseña", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(
+                    "Las contraseñas ingresadas no coinciden.",
+                    "Error de Contraseña",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+
+                txtConfirmarClave.Focus();
                 return;
             }
 
-            string conexionString = "Server=LAPTOP-J5U2QS20\\SQLEXPRESS01; Database=ComplejoDeportivo; Integrated Security=True;";
-            string query = "INSERT INTO Usuarios (NombreCompleto, Correo, Telefono, Clave) VALUES (@nombre, @correo, @telefono, @clave)";
+
+            // ==========================================
+            // 10. CONEXIÓN CON SQL SERVER
+            // ==========================================
 
             try
             {
+                string conexionString = @"Server=LAPTOP-J5U2QS20\SQLEXPRESS01;Database=ComplejoDeportivo;Integrated Security=True;TrustServerCertificate=True;";
+
                 using (SqlConnection conexion = new SqlConnection(conexionString))
                 {
-                    using (SqlCommand comando = new SqlCommand(query, conexion))
+                    // Primero comprobamos si ya existe el usuario
+                    string verificar = @"
+                SELECT COUNT(*)
+                FROM Usuarios
+                WHERE NombreUsuario = @NombreUsuario";
+
+                    using (SqlCommand cmdVerificar = new SqlCommand(verificar, conexion))
                     {
-                        comando.Parameters.AddWithValue("@nombre", txtNombre.Text.Trim());
-                        comando.Parameters.AddWithValue("@correo", txtCorreo.Text.Trim());
-                        comando.Parameters.AddWithValue("@telefono", txtTelefono.Text.Trim());
-                        comando.Parameters.AddWithValue("@clave", txtClave.Text);
+                        cmdVerificar.Parameters.AddWithValue(
+                            "@NombreUsuario",
+                            txtUsuario.Text.Trim());
 
                         conexion.Open();
-                        comando.ExecuteNonQuery();
 
-                        MessageBox.Show("¡Cuenta creada con éxito! Ya puedes iniciar sesión.", "Registro Exitoso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        int existe = (int)cmdVerificar.ExecuteScalar();
 
-                        LimpiarCampos();
-                        
-                        frmLogin a = new frmLogin();
-                        a.Show();
-                        this.Close();
+                        if (existe > 0)
+                        {
+                            MessageBox.Show("Ese nombre de usuario ya está registrado.",
+                                "Usuario existente",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Warning);
+
+                            txtUsuario.Focus();
+                            return;
+                        }
+                    }
+
+                    // Insertar usuario
+                    string consulta = @"
+                INSERT INTO Usuarios
+                (
+                    NombreUsuario,
+                    Clave,
+                    Rol
+                )
+                VALUES
+                (
+                    @NombreUsuario,
+                    @Clave,
+                    @Rol
+                )";
+
+                    using (SqlCommand cmd = new SqlCommand(consulta, conexion))
+                    {
+                        cmd.Parameters.AddWithValue(
+                            "@NombreUsuario",
+                            txtUsuario.Text.Trim());
+
+                        cmd.Parameters.AddWithValue(
+                            "@Clave",
+                            txtClave.Text);
+
+                        cmd.Parameters.AddWithValue(
+                            "@Rol",
+                            "Usuario");
+
+                        cmd.ExecuteNonQuery();
                     }
                 }
+
+                MessageBox.Show("Usuario creado correctamente.",
+                    "Registro exitoso",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
+
+                // Limpiar campos
+                txtUsuario.Clear();
+                txtClave.Clear();
+                txtConfirmarClave.Clear();
+
             }
-            catch (SqlException ex)
+            catch (Exception ex)
             {
-                if (ex.Number == 2627)
-                {
-                    MessageBox.Show("Este correo electrónico ya se encuentra registrado.", "Error de Registro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                else
-                {
-                    MessageBox.Show("Error al conectar con la base de datos: " + ex.Message, "Error Crítico", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                MessageBox.Show(
+                    "Error al crear el usuario:\n\n" + ex.Message,
+                    "Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
             }
         }
+            
+        
         private void LimpiarCampos()
         {
-            txtNombre.Clear();
-            txtCorreo.Clear();
-            txtTelefono.Clear();
+            txtUsuario.Clear();
             txtClave.Clear();
             txtConfirmarClave.Clear();
+
         }
 
         private void txtNombre_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void txtConfirmarClave_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+    
+
+        private void guna2Panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+         DialogResult resultado = MessageBox.Show(
+        "¿Está seguro de que desea salir del programa?",
+        "Confirmar salida",
+        MessageBoxButtons.YesNo,
+        MessageBoxIcon.Question);
+
+            if (resultado == DialogResult.Yes)
+            {
+                                Application.Exit();
+            }
+        }
+
+        private void chkMostrar_CheckedChanged(object sender, EventArgs e)
+        {
+            txtClave.UseSystemPasswordChar = !chkMostrar.Checked;
+            txtConfirmarClave.UseSystemPasswordChar = !chkMostrar.Checked;
         }
     }
 }

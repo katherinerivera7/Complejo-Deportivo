@@ -30,121 +30,205 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMenu));
+            this.tmSidebar = new System.Windows.Forms.Timer(this.components);
             this.pnlSidebar = new Guna.UI2.WinForms.Guna2Panel();
             this.btnCerrarSesion = new Guna.UI2.WinForms.Guna2Button();
-            this.btnMenu = new Guna.UI2.WinForms.Guna2Button();
-            this.btnUsuarios = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2CirclePictureBox1 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
-            this.btnPromociones = new Guna.UI2.WinForms.Guna2Button();
-            this.btnCafeteria = new Guna.UI2.WinForms.Guna2Button();
             this.btnInicio = new Guna.UI2.WinForms.Guna2Button();
-            this.btnFacturacion = new Guna.UI2.WinForms.Guna2Button();
             this.btnReservas = new Guna.UI2.WinForms.Guna2Button();
-            this.tmSidebar = new System.Windows.Forms.Timer(this.components);
-            this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            this.btnCafeteria = new Guna.UI2.WinForms.Guna2Button();
+            this.btnUsuarios = new Guna.UI2.WinForms.Guna2Button();
+            this.btnPromociones = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2CirclePictureBox1 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
+            this.btnFacturacion = new Guna.UI2.WinForms.Guna2Button();
+            this.pictureBox8 = new System.Windows.Forms.PictureBox();
+            this.pnlSuperior = new Guna.UI2.WinForms.Guna2Panel();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.picLogin = new Guna.UI2.WinForms.Guna2CirclePictureBox();
+            this.pnlContenedor = new Guna.UI2.WinForms.Guna2Panel();
+            this.pnlContenido = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
-            this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.guna2Panel6 = new Guna.UI2.WinForms.Guna2Panel();
             this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.guna2Panel5 = new Guna.UI2.WinForms.Guna2Panel();
+            this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.pnlAdmin = new System.Windows.Forms.TableLayoutPanel();
             this.pnlUsuariosRegistrados = new Guna.UI2.WinForms.Guna2GradientPanel();
+            this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.label7 = new System.Windows.Forms.Label();
             this.pnlEstadoCanchas = new Guna.UI2.WinForms.Guna2GradientPanel();
+            this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.label6 = new System.Windows.Forms.Label();
             this.pnlIngresosDiarios = new Guna.UI2.WinForms.Guna2GradientPanel();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.pnlContenido = new Guna.UI2.WinForms.Guna2Panel();
-            this.pnlUsuario = new System.Windows.Forms.TableLayoutPanel();
-            this.guna2GradientPanel1 = new Guna.UI2.WinForms.Guna2GradientPanel();
-            this.label8 = new System.Windows.Forms.Label();
-            this.guna2GradientPanel2 = new Guna.UI2.WinForms.Guna2GradientPanel();
-            this.label9 = new System.Windows.Forms.Label();
             this.pnlSidebar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).BeginInit();
-            this.guna2Panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picLogin)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
+            this.pnlSuperior.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.pnlContenedor.SuspendLayout();
+            this.pnlContenido.SuspendLayout();
             this.guna2Panel2.SuspendLayout();
+            this.guna2Panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
-            this.panel1.SuspendLayout();
             this.pnlAdmin.SuspendLayout();
             this.pnlUsuariosRegistrados.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             this.pnlEstadoCanchas.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             this.pnlIngresosDiarios.SuspendLayout();
-            this.pnlContenido.SuspendLayout();
-            this.pnlUsuario.SuspendLayout();
-            this.guna2GradientPanel1.SuspendLayout();
-            this.guna2GradientPanel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.SuspendLayout();
+            // 
+            // tmSidebar
+            // 
+            this.tmSidebar.Interval = 10;
+            this.tmSidebar.Tick += new System.EventHandler(this.tmSidebar_Tick);
             // 
             // pnlSidebar
             // 
             this.pnlSidebar.BackColor = System.Drawing.Color.White;
             this.pnlSidebar.Controls.Add(this.btnCerrarSesion);
-            this.pnlSidebar.Controls.Add(this.btnMenu);
-            this.pnlSidebar.Controls.Add(this.btnUsuarios);
-            this.pnlSidebar.Controls.Add(this.guna2CirclePictureBox1);
-            this.pnlSidebar.Controls.Add(this.btnPromociones);
-            this.pnlSidebar.Controls.Add(this.btnCafeteria);
             this.pnlSidebar.Controls.Add(this.btnInicio);
-            this.pnlSidebar.Controls.Add(this.btnFacturacion);
             this.pnlSidebar.Controls.Add(this.btnReservas);
+            this.pnlSidebar.Controls.Add(this.btnCafeteria);
+            this.pnlSidebar.Controls.Add(this.btnUsuarios);
+            this.pnlSidebar.Controls.Add(this.btnPromociones);
+            this.pnlSidebar.Controls.Add(this.guna2CirclePictureBox1);
+            this.pnlSidebar.Controls.Add(this.btnFacturacion);
+            this.pnlSidebar.Controls.Add(this.pictureBox8);
             this.pnlSidebar.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pnlSidebar.FillColor = System.Drawing.Color.White;
             this.pnlSidebar.Location = new System.Drawing.Point(0, 0);
             this.pnlSidebar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnlSidebar.Name = "pnlSidebar";
-            this.pnlSidebar.Size = new System.Drawing.Size(53, 977);
+            this.pnlSidebar.ShadowDecoration.BorderRadius = 20;
+            this.pnlSidebar.ShadowDecoration.Depth = 8;
+            this.pnlSidebar.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(0);
+            this.pnlSidebar.Size = new System.Drawing.Size(217, 980);
             this.pnlSidebar.TabIndex = 1;
+            this.pnlSidebar.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlSidebar_Paint);
             // 
             // btnCerrarSesion
             // 
+            this.btnCerrarSesion.BackColor = System.Drawing.Color.Transparent;
             this.btnCerrarSesion.BorderColor = System.Drawing.Color.Gainsboro;
             this.btnCerrarSesion.BorderRadius = 14;
+            this.btnCerrarSesion.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(245)))), ((int)(((byte)(239)))));
+            this.btnCerrarSesion.CheckedState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(151)))), ((int)(((byte)(73)))));
             this.btnCerrarSesion.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnCerrarSesion.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnCerrarSesion.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnCerrarSesion.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnCerrarSesion.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.btnCerrarSesion.FillColor = System.Drawing.Color.Transparent;
+            this.btnCerrarSesion.FocusedColor = System.Drawing.Color.Transparent;
             this.btnCerrarSesion.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold);
             this.btnCerrarSesion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(84)))), ((int)(((byte)(116)))));
             this.btnCerrarSesion.Image = ((System.Drawing.Image)(resources.GetObject("btnCerrarSesion.Image")));
             this.btnCerrarSesion.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnCerrarSesion.Location = new System.Drawing.Point(0, 929);
+            this.btnCerrarSesion.Location = new System.Drawing.Point(0, 932);
             this.btnCerrarSesion.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnCerrarSesion.Name = "btnCerrarSesion";
-            this.btnCerrarSesion.Size = new System.Drawing.Size(53, 48);
+            this.btnCerrarSesion.Size = new System.Drawing.Size(217, 48);
             this.btnCerrarSesion.TabIndex = 35;
             this.btnCerrarSesion.Text = "   Cerrar Sesión";
             this.btnCerrarSesion.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnCerrarSesion.UseTransparentBackground = true;
             this.btnCerrarSesion.Click += new System.EventHandler(this.btnCerrarSesion_Click);
             // 
-            // btnMenu
+            // btnInicio
             // 
-            this.btnMenu.BorderColor = System.Drawing.Color.Gainsboro;
-            this.btnMenu.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnMenu.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnMenu.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnMenu.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnMenu.FillColor = System.Drawing.Color.White;
-            this.btnMenu.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnMenu.ForeColor = System.Drawing.Color.White;
-            this.btnMenu.Image = ((System.Drawing.Image)(resources.GetObject("btnMenu.Image")));
-            this.btnMenu.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnMenu.Location = new System.Drawing.Point(3, 12);
-            this.btnMenu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnMenu.Name = "btnMenu";
-            this.btnMenu.Size = new System.Drawing.Size(44, 62);
-            this.btnMenu.TabIndex = 33;
-            this.btnMenu.Click += new System.EventHandler(this.btnMenu_Click);
+            this.btnInicio.BorderColor = System.Drawing.Color.Gainsboro;
+            this.btnInicio.BorderRadius = 14;
+            this.btnInicio.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
+            this.btnInicio.Checked = true;
+            this.btnInicio.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(245)))), ((int)(((byte)(239)))));
+            this.btnInicio.CheckedState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(151)))), ((int)(((byte)(73)))));
+            this.btnInicio.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnInicio.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnInicio.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnInicio.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnInicio.FillColor = System.Drawing.Color.Transparent;
+            this.btnInicio.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold);
+            this.btnInicio.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(84)))), ((int)(((byte)(116)))));
+            this.btnInicio.Image = ((System.Drawing.Image)(resources.GetObject("btnInicio.Image")));
+            this.btnInicio.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnInicio.Location = new System.Drawing.Point(12, 160);
+            this.btnInicio.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnInicio.Name = "btnInicio";
+            this.btnInicio.Size = new System.Drawing.Size(196, 48);
+            this.btnInicio.TabIndex = 27;
+            this.btnInicio.Text = "   Inicio";
+            this.btnInicio.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnInicio.Click += new System.EventHandler(this.btnInicio_Click);
+            // 
+            // btnReservas
+            // 
+            this.btnReservas.BorderColor = System.Drawing.Color.Gainsboro;
+            this.btnReservas.BorderRadius = 14;
+            this.btnReservas.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
+            this.btnReservas.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(245)))), ((int)(((byte)(239)))));
+            this.btnReservas.CheckedState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(151)))), ((int)(((byte)(73)))));
+            this.btnReservas.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnReservas.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnReservas.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnReservas.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnReservas.FillColor = System.Drawing.Color.Transparent;
+            this.btnReservas.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold);
+            this.btnReservas.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(84)))), ((int)(((byte)(116)))));
+            this.btnReservas.Image = ((System.Drawing.Image)(resources.GetObject("btnReservas.Image")));
+            this.btnReservas.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnReservas.Location = new System.Drawing.Point(12, 212);
+            this.btnReservas.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnReservas.Name = "btnReservas";
+            this.btnReservas.Size = new System.Drawing.Size(196, 48);
+            this.btnReservas.TabIndex = 29;
+            this.btnReservas.Text = "   Reservas";
+            this.btnReservas.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnReservas.Click += new System.EventHandler(this.btnReservas_Click);
+            // 
+            // btnCafeteria
+            // 
+            this.btnCafeteria.BorderColor = System.Drawing.Color.Gainsboro;
+            this.btnCafeteria.BorderRadius = 14;
+            this.btnCafeteria.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
+            this.btnCafeteria.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(245)))), ((int)(((byte)(239)))));
+            this.btnCafeteria.CheckedState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(151)))), ((int)(((byte)(73)))));
+            this.btnCafeteria.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnCafeteria.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnCafeteria.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnCafeteria.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnCafeteria.FillColor = System.Drawing.Color.Transparent;
+            this.btnCafeteria.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold);
+            this.btnCafeteria.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(84)))), ((int)(((byte)(116)))));
+            this.btnCafeteria.Image = ((System.Drawing.Image)(resources.GetObject("btnCafeteria.Image")));
+            this.btnCafeteria.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnCafeteria.Location = new System.Drawing.Point(12, 370);
+            this.btnCafeteria.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnCafeteria.Name = "btnCafeteria";
+            this.btnCafeteria.Size = new System.Drawing.Size(196, 48);
+            this.btnCafeteria.TabIndex = 31;
+            this.btnCafeteria.Text = "   Bar";
+            this.btnCafeteria.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnCafeteria.Click += new System.EventHandler(this.btnCafeteria_Click);
             // 
             // btnUsuarios
             // 
             this.btnUsuarios.BorderColor = System.Drawing.Color.Gainsboro;
             this.btnUsuarios.BorderRadius = 14;
+            this.btnUsuarios.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
+            this.btnUsuarios.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(245)))), ((int)(((byte)(239)))));
+            this.btnUsuarios.CheckedState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(151)))), ((int)(((byte)(73)))));
             this.btnUsuarios.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnUsuarios.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnUsuarios.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -154,14 +238,39 @@
             this.btnUsuarios.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(84)))), ((int)(((byte)(116)))));
             this.btnUsuarios.Image = ((System.Drawing.Image)(resources.GetObject("btnUsuarios.Image")));
             this.btnUsuarios.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnUsuarios.Location = new System.Drawing.Point(16, 368);
+            this.btnUsuarios.Location = new System.Drawing.Point(12, 318);
             this.btnUsuarios.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnUsuarios.Name = "btnUsuarios";
-            this.btnUsuarios.Size = new System.Drawing.Size(243, 48);
+            this.btnUsuarios.Size = new System.Drawing.Size(196, 48);
             this.btnUsuarios.TabIndex = 34;
-            this.btnUsuarios.Text = "   Usuarios";
+            this.btnUsuarios.Text = "   Clientes";
             this.btnUsuarios.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnUsuarios.Click += new System.EventHandler(this.btnUsuarios_Click);
+            // 
+            // btnPromociones
+            // 
+            this.btnPromociones.BorderColor = System.Drawing.Color.Gainsboro;
+            this.btnPromociones.BorderRadius = 14;
+            this.btnPromociones.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
+            this.btnPromociones.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(245)))), ((int)(((byte)(239)))));
+            this.btnPromociones.CheckedState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(151)))), ((int)(((byte)(73)))));
+            this.btnPromociones.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnPromociones.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnPromociones.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnPromociones.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnPromociones.FillColor = System.Drawing.Color.Transparent;
+            this.btnPromociones.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold);
+            this.btnPromociones.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(84)))), ((int)(((byte)(116)))));
+            this.btnPromociones.Image = ((System.Drawing.Image)(resources.GetObject("btnPromociones.Image")));
+            this.btnPromociones.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnPromociones.Location = new System.Drawing.Point(12, 265);
+            this.btnPromociones.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnPromociones.Name = "btnPromociones";
+            this.btnPromociones.Size = new System.Drawing.Size(196, 48);
+            this.btnPromociones.TabIndex = 32;
+            this.btnPromociones.Text = "   Promociones";
+            this.btnPromociones.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnPromociones.Click += new System.EventHandler(this.btnPromociones_Click);
             // 
             // guna2CirclePictureBox1
             // 
@@ -173,74 +282,10 @@
             this.guna2CirclePictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.guna2CirclePictureBox1.Name = "guna2CirclePictureBox1";
             this.guna2CirclePictureBox1.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.guna2CirclePictureBox1.Size = new System.Drawing.Size(53, 162);
+            this.guna2CirclePictureBox1.Size = new System.Drawing.Size(217, 162);
             this.guna2CirclePictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.guna2CirclePictureBox1.TabIndex = 28;
             this.guna2CirclePictureBox1.TabStop = false;
-            // 
-            // btnPromociones
-            // 
-            this.btnPromociones.BorderColor = System.Drawing.Color.Gainsboro;
-            this.btnPromociones.BorderRadius = 14;
-            this.btnPromociones.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnPromociones.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnPromociones.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnPromociones.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnPromociones.FillColor = System.Drawing.Color.Transparent;
-            this.btnPromociones.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold);
-            this.btnPromociones.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(84)))), ((int)(((byte)(116)))));
-            this.btnPromociones.Image = ((System.Drawing.Image)(resources.GetObject("btnPromociones.Image")));
-            this.btnPromociones.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnPromociones.Location = new System.Drawing.Point(12, 318);
-            this.btnPromociones.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnPromociones.Name = "btnPromociones";
-            this.btnPromociones.Size = new System.Drawing.Size(243, 48);
-            this.btnPromociones.TabIndex = 32;
-            this.btnPromociones.Text = "   Promociones";
-            this.btnPromociones.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            // 
-            // btnCafeteria
-            // 
-            this.btnCafeteria.BorderColor = System.Drawing.Color.Gainsboro;
-            this.btnCafeteria.BorderRadius = 14;
-            this.btnCafeteria.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnCafeteria.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnCafeteria.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnCafeteria.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnCafeteria.FillColor = System.Drawing.Color.Transparent;
-            this.btnCafeteria.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold);
-            this.btnCafeteria.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(84)))), ((int)(((byte)(116)))));
-            this.btnCafeteria.Image = ((System.Drawing.Image)(resources.GetObject("btnCafeteria.Image")));
-            this.btnCafeteria.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnCafeteria.Location = new System.Drawing.Point(12, 423);
-            this.btnCafeteria.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnCafeteria.Name = "btnCafeteria";
-            this.btnCafeteria.Size = new System.Drawing.Size(243, 48);
-            this.btnCafeteria.TabIndex = 31;
-            this.btnCafeteria.Text = "   Bar";
-            this.btnCafeteria.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnCafeteria.Click += new System.EventHandler(this.btnCafeteria_Click);
-            // 
-            // btnInicio
-            // 
-            this.btnInicio.BorderColor = System.Drawing.Color.Gainsboro;
-            this.btnInicio.BorderRadius = 14;
-            this.btnInicio.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnInicio.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnInicio.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnInicio.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnInicio.FillColor = System.Drawing.Color.Transparent;
-            this.btnInicio.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold);
-            this.btnInicio.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(84)))), ((int)(((byte)(116)))));
-            this.btnInicio.Image = ((System.Drawing.Image)(resources.GetObject("btnInicio.Image")));
-            this.btnInicio.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnInicio.Location = new System.Drawing.Point(15, 212);
-            this.btnInicio.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnInicio.Name = "btnInicio";
-            this.btnInicio.Size = new System.Drawing.Size(243, 48);
-            this.btnInicio.TabIndex = 27;
-            this.btnInicio.Text = "   Inicio";
-            this.btnInicio.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             // 
             // btnFacturacion
             // 
@@ -263,150 +308,228 @@
             this.btnFacturacion.Text = "Facturación";
             this.btnFacturacion.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             // 
-            // btnReservas
+            // pictureBox8
             // 
-            this.btnReservas.BorderColor = System.Drawing.Color.Gainsboro;
-            this.btnReservas.BorderRadius = 14;
-            this.btnReservas.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnReservas.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnReservas.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnReservas.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnReservas.FillColor = System.Drawing.Color.Transparent;
-            this.btnReservas.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold);
-            this.btnReservas.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(84)))), ((int)(((byte)(116)))));
-            this.btnReservas.Image = ((System.Drawing.Image)(resources.GetObject("btnReservas.Image")));
-            this.btnReservas.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnReservas.Location = new System.Drawing.Point(12, 265);
-            this.btnReservas.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnReservas.Name = "btnReservas";
-            this.btnReservas.Size = new System.Drawing.Size(243, 48);
-            this.btnReservas.TabIndex = 29;
-            this.btnReservas.Text = "   Reservas";
-            this.btnReservas.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnReservas.Click += new System.EventHandler(this.btnReservas_Click);
+            this.pictureBox8.Image = global::login.Properties.Resources.ondaazul;
+            this.pictureBox8.Location = new System.Drawing.Point(0, 688);
+            this.pictureBox8.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox8.Name = "pictureBox8";
+            this.pictureBox8.Size = new System.Drawing.Size(217, 292);
+            this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox8.TabIndex = 37;
+            this.pictureBox8.TabStop = false;
             // 
-            // tmSidebar
+            // pnlSuperior
             // 
-            this.tmSidebar.Interval = 10;
-            this.tmSidebar.Tick += new System.EventHandler(this.tmSidebar_Tick);
+            this.pnlSuperior.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(249)))), ((int)(((byte)(251)))));
+            this.pnlSuperior.BorderRadius = 14;
+            this.pnlSuperior.Controls.Add(this.pictureBox4);
+            this.pnlSuperior.Controls.Add(this.pictureBox3);
+            this.pnlSuperior.Controls.Add(this.pictureBox2);
+            this.pnlSuperior.Controls.Add(this.label10);
+            this.pnlSuperior.Controls.Add(this.pictureBox1);
+            this.pnlSuperior.Controls.Add(this.label1);
+            this.pnlSuperior.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlSuperior.Location = new System.Drawing.Point(0, 0);
+            this.pnlSuperior.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pnlSuperior.Name = "pnlSuperior";
+            this.pnlSuperior.Padding = new System.Windows.Forms.Padding(29, 30, 0, 0);
+            this.pnlSuperior.Size = new System.Drawing.Size(1339, 78);
+            this.pnlSuperior.TabIndex = 0;
+            this.pnlSuperior.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2Panel1_Paint);
             // 
-            // guna2Panel1
+            // pictureBox4
             // 
-            this.guna2Panel1.BackColor = System.Drawing.Color.White;
-            this.guna2Panel1.BorderRadius = 14;
-            this.guna2Panel1.Controls.Add(this.label1);
-            this.guna2Panel1.Controls.Add(this.picLogin);
-            this.guna2Panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.guna2Panel1.Location = new System.Drawing.Point(0, 0);
-            this.guna2Panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.guna2Panel1.Name = "guna2Panel1";
-            this.guna2Panel1.Padding = new System.Windows.Forms.Padding(29, 30, 0, 0);
-            this.guna2Panel1.Size = new System.Drawing.Size(1432, 100);
-            this.guna2Panel1.TabIndex = 0;
-            this.guna2Panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2Panel1_Paint);
+            this.pictureBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox4.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox4.Image = global::login.Properties.Resources.icons8_full_screen_50;
+            this.pictureBox4.Location = new System.Drawing.Point(1240, 2);
+            this.pictureBox4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(45, 34);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox4.TabIndex = 49;
+            this.pictureBox4.TabStop = false;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox3.Image = global::login.Properties.Resources.icons8_subtract_50;
+            this.pictureBox3.Location = new System.Drawing.Point(1189, 2);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(45, 34);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox3.TabIndex = 48;
+            this.pictureBox3.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox2.Image = global::login.Properties.Resources.icons8_eliminar_24;
+            this.pictureBox2.Location = new System.Drawing.Point(1291, 2);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(45, 34);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 44;
+            this.pictureBox2.TabStop = false;
+            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click_1);
+            // 
+            // label10
+            // 
+            this.label10.BackColor = System.Drawing.Color.Transparent;
+            this.label10.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(37)))), ((int)(((byte)(87)))));
+            this.label10.Location = new System.Drawing.Point(63, 12);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(321, 49);
+            this.label10.TabIndex = 43;
+            this.label10.Text = "Bienvenido, admin";
+            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::login.Properties.Resources.Usuario;
+            this.pictureBox1.Location = new System.Drawing.Point(13, 14);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(43, 48);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 35;
+            this.pictureBox1.TabStop = false;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Dock = System.Windows.Forms.DockStyle.Left;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(136, 30);
+            this.label1.Location = new System.Drawing.Point(29, 30);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(232, 31);
+            this.label1.Size = new System.Drawing.Size(0, 31);
             this.label1.TabIndex = 28;
-            this.label1.Text = "Complejo Deportivo";
             // 
-            // picLogin
+            // pnlContenedor
             // 
-            this.picLogin.BackColor = System.Drawing.Color.Transparent;
-            this.picLogin.Dock = System.Windows.Forms.DockStyle.Left;
-            this.picLogin.Image = ((System.Drawing.Image)(resources.GetObject("picLogin.Image")));
-            this.picLogin.ImageRotate = 4F;
-            this.picLogin.Location = new System.Drawing.Point(29, 30);
-            this.picLogin.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.picLogin.Name = "picLogin";
-            this.picLogin.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.picLogin.Size = new System.Drawing.Size(107, 70);
-            this.picLogin.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picLogin.TabIndex = 27;
-            this.picLogin.TabStop = false;
+            this.pnlContenedor.BackColor = System.Drawing.Color.Transparent;
+            this.pnlContenedor.BorderRadius = 20;
+            this.pnlContenedor.BorderThickness = 30;
+            this.pnlContenedor.Controls.Add(this.pnlContenido);
+            this.pnlContenedor.Controls.Add(this.pnlSuperior);
+            this.pnlContenedor.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlContenedor.FillColor = System.Drawing.Color.Transparent;
+            this.pnlContenedor.Location = new System.Drawing.Point(217, 0);
+            this.pnlContenedor.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pnlContenedor.Name = "pnlContenedor";
+            this.pnlContenedor.Size = new System.Drawing.Size(1339, 980);
+            this.pnlContenedor.TabIndex = 1;
+            this.pnlContenedor.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlContenido_Paint);
+            // 
+            // pnlContenido
+            // 
+            this.pnlContenido.Controls.Add(this.guna2Panel2);
+            this.pnlContenido.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlContenido.Location = new System.Drawing.Point(0, 78);
+            this.pnlContenido.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pnlContenido.Name = "pnlContenido";
+            this.pnlContenido.Size = new System.Drawing.Size(1339, 902);
+            this.pnlContenido.TabIndex = 1;
             // 
             // guna2Panel2
             // 
-            this.guna2Panel2.BackColor = System.Drawing.Color.Transparent;
-            this.guna2Panel2.BorderRadius = 12;
-            this.guna2Panel2.Controls.Add(this.guna2PictureBox1);
-            this.guna2Panel2.Controls.Add(this.panel1);
-            this.guna2Panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.guna2Panel2.FillColor = System.Drawing.SystemColors.InactiveBorder;
-            this.guna2Panel2.Location = new System.Drawing.Point(0, 100);
+            this.guna2Panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(249)))), ((int)(((byte)(251)))));
+            this.guna2Panel2.Controls.Add(this.guna2Panel6);
+            this.guna2Panel2.Controls.Add(this.pnlAdmin);
+            this.guna2Panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.guna2Panel2.Location = new System.Drawing.Point(0, 0);
             this.guna2Panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.guna2Panel2.Name = "guna2Panel2";
-            this.guna2Panel2.Padding = new System.Windows.Forms.Padding(100, 10, 40, 10);
-            this.guna2Panel2.Size = new System.Drawing.Size(1432, 478);
+            this.guna2Panel2.Size = new System.Drawing.Size(1339, 902);
             this.guna2Panel2.TabIndex = 2;
             // 
-            // guna2PictureBox1
+            // guna2Panel6
             // 
-            this.guna2PictureBox1.BorderRadius = 40;
-            this.guna2PictureBox1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.guna2PictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox1.Image")));
-            this.guna2PictureBox1.ImageRotate = 0F;
-            this.guna2PictureBox1.Location = new System.Drawing.Point(617, 10);
-            this.guna2PictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.guna2PictureBox1.Name = "guna2PictureBox1";
-            this.guna2PictureBox1.Size = new System.Drawing.Size(775, 458);
-            this.guna2PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.guna2PictureBox1.TabIndex = 33;
-            this.guna2PictureBox1.TabStop = false;
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.label4);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel1.Location = new System.Drawing.Point(100, 10);
-            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(555, 458);
-            this.panel1.TabIndex = 32;
+            this.guna2Panel6.BackColor = System.Drawing.Color.Transparent;
+            this.guna2Panel6.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(231)))), ((int)(((byte)(245)))));
+            this.guna2Panel6.BorderRadius = 35;
+            this.guna2Panel6.BorderThickness = 1;
+            this.guna2Panel6.Controls.Add(this.label2);
+            this.guna2Panel6.Controls.Add(this.label4);
+            this.guna2Panel6.Controls.Add(this.label3);
+            this.guna2Panel6.Controls.Add(this.guna2Panel5);
+            this.guna2Panel6.Controls.Add(this.guna2PictureBox1);
+            this.guna2Panel6.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(242)))), ((int)(((byte)(251)))));
+            this.guna2Panel6.Location = new System.Drawing.Point(47, 50);
+            this.guna2Panel6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.guna2Panel6.Name = "guna2Panel6";
+            this.guna2Panel6.ShadowDecoration.BorderRadius = 35;
+            this.guna2Panel6.ShadowDecoration.Depth = 4;
+            this.guna2Panel6.ShadowDecoration.Enabled = true;
+            this.guna2Panel6.Size = new System.Drawing.Size(1256, 423);
+            this.guna2Panel6.TabIndex = 30;
             // 
             // label2
             // 
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(37)))), ((int)(((byte)(87)))));
-            this.label2.Location = new System.Drawing.Point(5, 80);
+            this.label2.Location = new System.Drawing.Point(31, 32);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(483, 81);
             this.label2.TabIndex = 32;
             this.label2.Text = "¡Bienvenido!";
-            // 
-            // label3
-            // 
-            this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold);
-            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(37)))), ((int)(((byte)(87)))));
-            this.label3.Location = new System.Drawing.Point(3, 188);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(501, 70);
-            this.label3.TabIndex = 33;
-            this.label3.Text = "Sistema de Gestión del Complejo \r\nDeportivo";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label4
             // 
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(110)))), ((int)(((byte)(138)))));
-            this.label4.Location = new System.Drawing.Point(3, 278);
+            this.label4.Location = new System.Drawing.Point(28, 231);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(535, 50);
+            this.label4.Size = new System.Drawing.Size(453, 82);
             this.label4.TabIndex = 34;
             this.label4.Text = "Administra reservas, usuarios, facturación, \r\npromociones y mucho más desde una s" +
     "ola plataforma.";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label3
+            // 
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold);
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(155)))), ((int)(((byte)(75)))));
+            this.label3.Location = new System.Drawing.Point(27, 114);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(487, 70);
+            this.label3.TabIndex = 33;
+            this.label3.Text = "Sistema de Gestión del Complejo \r\nDeportivo";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // guna2Panel5
+            // 
+            this.guna2Panel5.BorderRadius = 5;
+            this.guna2Panel5.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(173)))), ((int)(((byte)(53)))));
+            this.guna2Panel5.Location = new System.Drawing.Point(33, 199);
+            this.guna2Panel5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.guna2Panel5.Name = "guna2Panel5";
+            this.guna2Panel5.Size = new System.Drawing.Size(235, 14);
+            this.guna2Panel5.TabIndex = 36;
+            // 
+            // guna2PictureBox1
+            // 
+            this.guna2PictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.guna2PictureBox1.BorderRadius = 35;
+            this.guna2PictureBox1.Dock = System.Windows.Forms.DockStyle.Right;
+            this.guna2PictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox1.Image")));
+            this.guna2PictureBox1.ImageRotate = 0F;
+            this.guna2PictureBox1.Location = new System.Drawing.Point(413, 0);
+            this.guna2PictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.guna2PictureBox1.Name = "guna2PictureBox1";
+            this.guna2PictureBox1.Size = new System.Drawing.Size(843, 423);
+            this.guna2PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.guna2PictureBox1.TabIndex = 30;
+            this.guna2PictureBox1.TabStop = false;
             // 
             // pnlAdmin
             // 
@@ -420,73 +543,99 @@
             this.pnlAdmin.Controls.Add(this.pnlUsuariosRegistrados, 2, 0);
             this.pnlAdmin.Controls.Add(this.pnlEstadoCanchas, 1, 0);
             this.pnlAdmin.Controls.Add(this.pnlIngresosDiarios, 0, 0);
-            this.pnlAdmin.Location = new System.Drawing.Point(64, 601);
+            this.pnlAdmin.Location = new System.Drawing.Point(35, 505);
             this.pnlAdmin.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnlAdmin.Name = "pnlAdmin";
             this.pnlAdmin.RowCount = 1;
             this.pnlAdmin.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.pnlAdmin.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 374F));
-            this.pnlAdmin.Size = new System.Drawing.Size(1368, 374);
-            this.pnlAdmin.TabIndex = 3;
+            this.pnlAdmin.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 378F));
+            this.pnlAdmin.Size = new System.Drawing.Size(1275, 378);
+            this.pnlAdmin.TabIndex = 5;
             // 
             // pnlUsuariosRegistrados
             // 
+            this.pnlUsuariosRegistrados.BackColor = System.Drawing.Color.Transparent;
             this.pnlUsuariosRegistrados.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(155)))), ((int)(((byte)(95)))));
             this.pnlUsuariosRegistrados.BorderRadius = 20;
-            this.pnlUsuariosRegistrados.BorderThickness = 1;
+            this.pnlUsuariosRegistrados.Controls.Add(this.pictureBox7);
             this.pnlUsuariosRegistrados.Controls.Add(this.label7);
             this.pnlUsuariosRegistrados.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pnlUsuariosRegistrados.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlUsuariosRegistrados.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(247)))), ((int)(((byte)(237)))));
-            this.pnlUsuariosRegistrados.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(247)))), ((int)(((byte)(237)))));
-            this.pnlUsuariosRegistrados.Location = new System.Drawing.Point(968, 10);
+            this.pnlUsuariosRegistrados.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(249)))), ((int)(((byte)(245)))));
+            this.pnlUsuariosRegistrados.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(249)))), ((int)(((byte)(245)))));
+            this.pnlUsuariosRegistrados.Location = new System.Drawing.Point(903, 10);
             this.pnlUsuariosRegistrados.Margin = new System.Windows.Forms.Padding(11, 10, 20, 10);
             this.pnlUsuariosRegistrados.Name = "pnlUsuariosRegistrados";
-            this.pnlUsuariosRegistrados.Size = new System.Drawing.Size(380, 354);
+            this.pnlUsuariosRegistrados.ShadowDecoration.BorderRadius = 20;
+            this.pnlUsuariosRegistrados.ShadowDecoration.Depth = 6;
+            this.pnlUsuariosRegistrados.ShadowDecoration.Enabled = true;
+            this.pnlUsuariosRegistrados.Size = new System.Drawing.Size(352, 358);
             this.pnlUsuariosRegistrados.TabIndex = 2;
-            this.pnlUsuariosRegistrados.MouseEnter += new System.EventHandler(this.pnlUsuariosRegistrados_MouseEnter);
-            this.pnlUsuariosRegistrados.MouseLeave += new System.EventHandler(this.pnlUsuariosRegistrados_MouseLeave);
+            // 
+            // pictureBox7
+            // 
+            this.pictureBox7.Image = global::login.Properties.Resources.USUARIOSREGISTRADOS;
+            this.pictureBox7.Location = new System.Drawing.Point(20, 68);
+            this.pictureBox7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pictureBox7.Name = "pictureBox7";
+            this.pictureBox7.Size = new System.Drawing.Size(329, 256);
+            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox7.TabIndex = 35;
+            this.pictureBox7.TabStop = false;
             // 
             // label7
             // 
             this.label7.BackColor = System.Drawing.Color.Transparent;
             this.label7.Dock = System.Windows.Forms.DockStyle.Top;
             this.label7.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold);
-            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(37)))), ((int)(((byte)(87)))));
+            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(149)))), ((int)(((byte)(38)))));
             this.label7.Location = new System.Drawing.Point(0, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(380, 34);
+            this.label7.Size = new System.Drawing.Size(352, 34);
             this.label7.TabIndex = 34;
             this.label7.Text = "Usuarios registrados";
             this.label7.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // pnlEstadoCanchas
             // 
+            this.pnlEstadoCanchas.BackColor = System.Drawing.Color.Transparent;
             this.pnlEstadoCanchas.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(137)))), ((int)(((byte)(74)))));
             this.pnlEstadoCanchas.BorderRadius = 20;
-            this.pnlEstadoCanchas.BorderThickness = 1;
+            this.pnlEstadoCanchas.Controls.Add(this.pictureBox6);
             this.pnlEstadoCanchas.Controls.Add(this.label6);
             this.pnlEstadoCanchas.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pnlEstadoCanchas.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlEstadoCanchas.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(249)))), ((int)(((byte)(244)))));
-            this.pnlEstadoCanchas.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(249)))), ((int)(((byte)(244)))));
-            this.pnlEstadoCanchas.Location = new System.Drawing.Point(421, 10);
+            this.pnlEstadoCanchas.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(248)))), ((int)(((byte)(253)))));
+            this.pnlEstadoCanchas.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(248)))), ((int)(((byte)(253)))));
+            this.pnlEstadoCanchas.Location = new System.Drawing.Point(393, 10);
             this.pnlEstadoCanchas.Margin = new System.Windows.Forms.Padding(11, 10, 11, 10);
             this.pnlEstadoCanchas.Name = "pnlEstadoCanchas";
-            this.pnlEstadoCanchas.Size = new System.Drawing.Size(525, 354);
+            this.pnlEstadoCanchas.ShadowDecoration.BorderRadius = 20;
+            this.pnlEstadoCanchas.ShadowDecoration.Depth = 4;
+            this.pnlEstadoCanchas.ShadowDecoration.Enabled = true;
+            this.pnlEstadoCanchas.Size = new System.Drawing.Size(488, 358);
             this.pnlEstadoCanchas.TabIndex = 1;
-            this.pnlEstadoCanchas.MouseEnter += new System.EventHandler(this.pnlEstadoCanchas_MouseEnter);
-            this.pnlEstadoCanchas.MouseLeave += new System.EventHandler(this.pnlEstadoCanchas_MouseLeave);
+            // 
+            // pictureBox6
+            // 
+            this.pictureBox6.Image = global::login.Properties.Resources.OCUPACIONCANCHAS;
+            this.pictureBox6.Location = new System.Drawing.Point(95, 57);
+            this.pictureBox6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.Size = new System.Drawing.Size(321, 279);
+            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox6.TabIndex = 34;
+            this.pictureBox6.TabStop = false;
             // 
             // label6
             // 
             this.label6.BackColor = System.Drawing.Color.Transparent;
             this.label6.Dock = System.Windows.Forms.DockStyle.Top;
             this.label6.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold);
-            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(37)))), ((int)(((byte)(87)))));
+            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(114)))), ((int)(((byte)(250)))));
             this.label6.Location = new System.Drawing.Point(0, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(525, 34);
+            this.label6.Size = new System.Drawing.Size(488, 34);
             this.label6.TabIndex = 33;
             this.label6.Text = "Estado de canchas";
             this.label6.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -496,197 +645,121 @@
             this.pnlIngresosDiarios.BackColor = System.Drawing.Color.Transparent;
             this.pnlIngresosDiarios.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(116)))), ((int)(((byte)(212)))));
             this.pnlIngresosDiarios.BorderRadius = 20;
-            this.pnlIngresosDiarios.BorderThickness = 1;
+            this.pnlIngresosDiarios.Controls.Add(this.pictureBox5);
             this.pnlIngresosDiarios.Controls.Add(this.label5);
             this.pnlIngresosDiarios.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pnlIngresosDiarios.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlIngresosDiarios.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(247)))), ((int)(((byte)(254)))));
-            this.pnlIngresosDiarios.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(247)))), ((int)(((byte)(254)))));
+            this.pnlIngresosDiarios.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(250)))), ((int)(((byte)(246)))));
+            this.pnlIngresosDiarios.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(250)))), ((int)(((byte)(246)))));
             this.pnlIngresosDiarios.Location = new System.Drawing.Point(20, 10);
             this.pnlIngresosDiarios.Margin = new System.Windows.Forms.Padding(20, 10, 11, 10);
             this.pnlIngresosDiarios.Name = "pnlIngresosDiarios";
             this.pnlIngresosDiarios.ShadowDecoration.BorderRadius = 20;
-            this.pnlIngresosDiarios.ShadowDecoration.Depth = 2;
-            this.pnlIngresosDiarios.Size = new System.Drawing.Size(379, 354);
+            this.pnlIngresosDiarios.ShadowDecoration.Depth = 4;
+            this.pnlIngresosDiarios.ShadowDecoration.Enabled = true;
+            this.pnlIngresosDiarios.Size = new System.Drawing.Size(351, 358);
             this.pnlIngresosDiarios.TabIndex = 0;
-            this.pnlIngresosDiarios.MouseEnter += new System.EventHandler(this.pnlIngresosDiarios_MouseEnter);
-            this.pnlIngresosDiarios.MouseLeave += new System.EventHandler(this.pnlIngresosDiarios_MouseLeave);
+            // 
+            // pictureBox5
+            // 
+            this.pictureBox5.Image = global::login.Properties.Resources.INGRESOS;
+            this.pictureBox5.Location = new System.Drawing.Point(25, 80);
+            this.pictureBox5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(304, 229);
+            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox5.TabIndex = 33;
+            this.pictureBox5.TabStop = false;
             // 
             // label5
             // 
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Dock = System.Windows.Forms.DockStyle.Top;
             this.label5.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold);
-            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(37)))), ((int)(((byte)(87)))));
+            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(153)))), ((int)(((byte)(63)))));
             this.label5.Location = new System.Drawing.Point(0, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(379, 34);
+            this.label5.Size = new System.Drawing.Size(351, 34);
             this.label5.TabIndex = 32;
             this.label5.Text = "Ingresos diarios";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.label5.Click += new System.EventHandler(this.label5_Click);
-            // 
-            // pnlContenido
-            // 
-            this.pnlContenido.BackColor = System.Drawing.Color.White;
-            this.pnlContenido.Controls.Add(this.pnlUsuario);
-            this.pnlContenido.Controls.Add(this.pnlAdmin);
-            this.pnlContenido.Controls.Add(this.guna2Panel2);
-            this.pnlContenido.Controls.Add(this.guna2Panel1);
-            this.pnlContenido.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlContenido.Location = new System.Drawing.Point(53, 0);
-            this.pnlContenido.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pnlContenido.Name = "pnlContenido";
-            this.pnlContenido.Size = new System.Drawing.Size(1432, 977);
-            this.pnlContenido.TabIndex = 1;
-            this.pnlContenido.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlContenido_Paint);
-            // 
-            // pnlUsuario
-            // 
-            this.pnlUsuario.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnlUsuario.ColumnCount = 2;
-            this.pnlUsuario.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.pnlUsuario.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.pnlUsuario.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.pnlUsuario.Controls.Add(this.guna2GradientPanel1, 1, 0);
-            this.pnlUsuario.Controls.Add(this.guna2GradientPanel2, 0, 0);
-            this.pnlUsuario.Location = new System.Drawing.Point(64, 601);
-            this.pnlUsuario.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pnlUsuario.Name = "pnlUsuario";
-            this.pnlUsuario.RowCount = 1;
-            this.pnlUsuario.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.pnlUsuario.Size = new System.Drawing.Size(1368, 374);
-            this.pnlUsuario.TabIndex = 5;
-            // 
-            // guna2GradientPanel1
-            // 
-            this.guna2GradientPanel1.BorderColor = System.Drawing.Color.Gray;
-            this.guna2GradientPanel1.BorderRadius = 20;
-            this.guna2GradientPanel1.BorderThickness = 1;
-            this.guna2GradientPanel1.Controls.Add(this.label8);
-            this.guna2GradientPanel1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.guna2GradientPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.guna2GradientPanel1.FillColor = System.Drawing.Color.White;
-            this.guna2GradientPanel1.FillColor2 = System.Drawing.Color.White;
-            this.guna2GradientPanel1.Location = new System.Drawing.Point(695, 10);
-            this.guna2GradientPanel1.Margin = new System.Windows.Forms.Padding(11, 10, 11, 10);
-            this.guna2GradientPanel1.Name = "guna2GradientPanel1";
-            this.guna2GradientPanel1.Size = new System.Drawing.Size(662, 354);
-            this.guna2GradientPanel1.TabIndex = 1;
-            // 
-            // label8
-            // 
-            this.label8.BackColor = System.Drawing.Color.Transparent;
-            this.label8.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label8.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold);
-            this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(37)))), ((int)(((byte)(87)))));
-            this.label8.Location = new System.Drawing.Point(0, 0);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(662, 34);
-            this.label8.TabIndex = 33;
-            this.label8.Text = "Promociones destacadas";
-            this.label8.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // guna2GradientPanel2
-            // 
-            this.guna2GradientPanel2.BackColor = System.Drawing.Color.Transparent;
-            this.guna2GradientPanel2.BorderColor = System.Drawing.Color.Gray;
-            this.guna2GradientPanel2.BorderRadius = 20;
-            this.guna2GradientPanel2.BorderThickness = 1;
-            this.guna2GradientPanel2.Controls.Add(this.label9);
-            this.guna2GradientPanel2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.guna2GradientPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.guna2GradientPanel2.FillColor = System.Drawing.Color.White;
-            this.guna2GradientPanel2.FillColor2 = System.Drawing.Color.White;
-            this.guna2GradientPanel2.Location = new System.Drawing.Point(20, 10);
-            this.guna2GradientPanel2.Margin = new System.Windows.Forms.Padding(20, 10, 11, 10);
-            this.guna2GradientPanel2.Name = "guna2GradientPanel2";
-            this.guna2GradientPanel2.ShadowDecoration.BorderRadius = 20;
-            this.guna2GradientPanel2.ShadowDecoration.Depth = 2;
-            this.guna2GradientPanel2.Size = new System.Drawing.Size(653, 354);
-            this.guna2GradientPanel2.TabIndex = 0;
-            // 
-            // label9
-            // 
-            this.label9.BackColor = System.Drawing.Color.Transparent;
-            this.label9.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label9.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold);
-            this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(37)))), ((int)(((byte)(87)))));
-            this.label9.Location = new System.Drawing.Point(0, 0);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(653, 34);
-            this.label9.TabIndex = 32;
-            this.label9.Text = "Mis reservas";
-            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // FrmMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1485, 977);
-            this.Controls.Add(this.pnlContenido);
+            this.ClientSize = new System.Drawing.Size(1556, 980);
+            this.Controls.Add(this.pnlContenedor);
             this.Controls.Add(this.pnlSidebar);
+            this.DoubleBuffered = true;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FrmMenu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmMenu";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.FrmMenu_Load);
             this.pnlSidebar.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).EndInit();
-            this.guna2Panel1.ResumeLayout(false);
-            this.guna2Panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picLogin)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
+            this.pnlSuperior.ResumeLayout(false);
+            this.pnlSuperior.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.pnlContenedor.ResumeLayout(false);
+            this.pnlContenido.ResumeLayout(false);
             this.guna2Panel2.ResumeLayout(false);
+            this.guna2Panel6.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
-            this.panel1.ResumeLayout(false);
             this.pnlAdmin.ResumeLayout(false);
             this.pnlUsuariosRegistrados.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             this.pnlEstadoCanchas.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             this.pnlIngresosDiarios.ResumeLayout(false);
-            this.pnlContenido.ResumeLayout(false);
-            this.pnlUsuario.ResumeLayout(false);
-            this.guna2GradientPanel1.ResumeLayout(false);
-            this.guna2GradientPanel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        private Guna.UI2.WinForms.Guna2Panel pnlSidebar;
-        private Guna.UI2.WinForms.Guna2Button btnPromociones;
-        private Guna.UI2.WinForms.Guna2Button btnCafeteria;
-        private Guna.UI2.WinForms.Guna2Button btnInicio;
-        private Guna.UI2.WinForms.Guna2Button btnFacturacion;
-        private Guna.UI2.WinForms.Guna2Button btnReservas;
-        private Guna.UI2.WinForms.Guna2CirclePictureBox guna2CirclePictureBox1;
-        private Guna.UI2.WinForms.Guna2Button btnMenu;
         private System.Windows.Forms.Timer tmSidebar;
+        private Guna.UI2.WinForms.Guna2Button btnReservas;
+        private Guna.UI2.WinForms.Guna2Button btnFacturacion;
+        private Guna.UI2.WinForms.Guna2Button btnInicio;
+        private Guna.UI2.WinForms.Guna2Button btnCafeteria;
+        private Guna.UI2.WinForms.Guna2Button btnPromociones;
+        private Guna.UI2.WinForms.Guna2CirclePictureBox guna2CirclePictureBox1;
         private Guna.UI2.WinForms.Guna2Button btnUsuarios;
-        private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
+        private Guna.UI2.WinForms.Guna2Panel pnlSidebar;
+        private Guna.UI2.WinForms.Guna2Panel pnlSuperior;
+        private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label1;
-        private Guna.UI2.WinForms.Guna2CirclePictureBox picLogin;
-        private Guna.UI2.WinForms.Guna2Panel guna2Panel2;
-        private System.Windows.Forms.TableLayoutPanel pnlAdmin;
+        private Guna.UI2.WinForms.Guna2Panel pnlContenedor;
         private Guna.UI2.WinForms.Guna2Panel pnlContenido;
-        private Guna.UI2.WinForms.Guna2GradientPanel pnlUsuariosRegistrados;
-        private Guna.UI2.WinForms.Guna2GradientPanel pnlEstadoCanchas;
-        private Guna.UI2.WinForms.Guna2GradientPanel pnlIngresosDiarios;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.PictureBox pictureBox8;
+        private Guna.UI2.WinForms.Guna2Panel guna2Panel2;
+        private Guna.UI2.WinForms.Guna2Panel guna2Panel6;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label3;
+        private Guna.UI2.WinForms.Guna2Panel guna2Panel5;
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox1;
+        private System.Windows.Forms.TableLayoutPanel pnlAdmin;
+        private Guna.UI2.WinForms.Guna2GradientPanel pnlUsuariosRegistrados;
+        private System.Windows.Forms.PictureBox pictureBox7;
+        private System.Windows.Forms.Label label7;
+        private Guna.UI2.WinForms.Guna2GradientPanel pnlEstadoCanchas;
+        private System.Windows.Forms.PictureBox pictureBox6;
+        private System.Windows.Forms.Label label6;
+        private Guna.UI2.WinForms.Guna2GradientPanel pnlIngresosDiarios;
+        private System.Windows.Forms.PictureBox pictureBox5;
+        private System.Windows.Forms.Label label5;
         private Guna.UI2.WinForms.Guna2Button btnCerrarSesion;
-        private System.Windows.Forms.TableLayoutPanel pnlUsuario;
-        private Guna.UI2.WinForms.Guna2GradientPanel guna2GradientPanel1;
-        private System.Windows.Forms.Label label8;
-        private Guna.UI2.WinForms.Guna2GradientPanel guna2GradientPanel2;
-        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label10;
     }
 }

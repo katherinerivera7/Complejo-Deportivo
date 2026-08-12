@@ -16,79 +16,137 @@ namespace login
         public frmLogin()
         {
             InitializeComponent();
+            this.DoubleBuffered = true;
+            this.SetStyle(
+                ControlStyles.OptimizedDoubleBuffer |
+                ControlStyles.AllPaintingInWmPaint |
+                ControlStyles.UserPaint,
+                true);
+
+            this.UpdateStyles();
+
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnIngresar_Click(object sender, EventArgs e)
-        {
-            if (string.IsNullOrEmpty(txtCorreo.Text) || string.IsNullOrEmpty(txtClave.Text))
-            {
-                MessageBox.Show("Por favor, ingrese su correo electrónico y contraseña.", "Campos Vacíos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
-            string conexionString = "Server=LAPTOP-J5U2QS20\\SQLEXPRESS01; Database=ComplejoDeportivo; Integrated Security=True;";
-
-            string query = "SELECT Rol FROM Usuarios WHERE Correo = @correo AND Clave = @clave";
-
-            try
-            {
-                using (SqlConnection conexion = new SqlConnection(conexionString))
-                {
-                    using (SqlCommand comando = new SqlCommand(query, conexion))
-                    {
-                        comando.Parameters.AddWithValue("@correo", txtCorreo.Text.Trim());
-                        comando.Parameters.AddWithValue("@clave", txtClave.Text);
-
-                        conexion.Open();
-
-                        object resultado = comando.ExecuteScalar();
-
-                        if (resultado != null)
-                        {
-                            string rolUsuario = resultado.ToString();
-
-                            MessageBox.Show($"¡Bienvenido al sistema! Ingresando como: {rolUsuario}", "Inicio de Sesión Exitoso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            FrmMenu menuPrincipal = new FrmMenu();
-                            menuPrincipal.CargarInterfazPorRol(rolUsuario);
-                            menuPrincipal.Show();
-                            this.Hide();
-                        }
-                        else
-                        {
-                            MessageBox.Show("El correo electrónico o la contraseña son incorrectos.", "Error de Acceso", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error al conectar con la base de datos: " + ex.Message, "Error Crítico", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void txtRegistrarse_Click(object sender, EventArgs e)
-        {
-            CrearCuenta x = new CrearCuenta();
-            x.Show();
-            Hide();
-        }
 
         private void guna2Panel1_Paint(object sender, PaintEventArgs e)
         {
 
         }
 
-        private void chkMostrar_CheckedChanged(object sender, EventArgs e)
+      
+
+        private void frmLogin_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            DialogResult resultado = MessageBox.Show(
+        "¿Está seguro de que desea salir del programa?",
+        "Confirmar salida",
+        MessageBoxButtons.YesNo,
+        MessageBoxIcon.Question);
+
+            if (resultado == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
+        }
+
+        private void btnIngresar_Click_1(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtUsuario.Text))
+            {
+                MessageBox.Show("Ingrese su usuario.",
+                    "Aviso",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+
+                txtUsuario.Focus();
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(txtClave.Text))
+            {
+                MessageBox.Show("Ingrese su contraseña.",
+                    "Aviso",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+
+                txtClave.Focus();
+                return;
+            }
+
+            string conexionString = @"Server=LAPTOP-J5U2QS20\SQLEXPRESS01;Database=ComplejoDeportivo;Integrated Security=True;TrustServerCertificate=True;";
+
+            try
+            {
+                using (SqlConnection conexion = new SqlConnection(conexionString))
+                {
+                    string consulta = @"
+                SELECT UsuarioID, NombreUsuario, Rol
+                FROM Usuarios
+                WHERE NombreUsuario = @Usuario
+                AND Clave = @Clave";
+
+                    using (SqlCommand cmd = new SqlCommand(consulta, conexion))
+                    {
+                        cmd.Parameters.AddWithValue("@Usuario", txtUsuario.Text.Trim());
+                        cmd.Parameters.AddWithValue("@Clave", txtClave.Text);
+
+                        conexion.Open();
+
+                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                int usuarioID = Convert.ToInt32(reader["UsuarioID"]);
+                                string nombreUsuario = reader["NombreUsuario"].ToString();
+                                string rol = reader["Rol"].ToString();
+
+                                MessageBox.Show(
+                                    "Bienvenido, " + nombreUsuario,
+                                    "Inicio de sesión",
+                                    MessageBoxButtons.OK,
+                                    MessageBoxIcon.Information);
+
+                                if (rol == "Admin")
+                                {
+                                    FrmMenu menuAdmin = new FrmMenu();
+                                    menuAdmin.Show();
+                                }
+                                else if (rol == "Usuario")
+                                {
+                                    FormMenuUsuario menuUsuario = new FormMenuUsuario();
+                                    menuUsuario.Show();
+                                }
+
+                                this.Hide();
+                            }
+                            else
+                            {
+                                MessageBox.Show(
+                                    "Usuario o contraseña incorrectos.",
+                                    "Error de inicio de sesión",
+                                    MessageBoxButtons.OK,
+                                    MessageBoxIcon.Error);
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(
+                    "Error al iniciar sesión:\n\n" + ex.Message,
+                    "Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
+        }
+
+        private void chkMostrar_CheckedChanged_1(object sender, EventArgs e)
         {
             if (chkMostrar.Checked)
             {
@@ -101,6 +159,21 @@ namespace login
         }
 
         private void button1_Click(object sender, EventArgs e)
+        {
+            FormMenuUsuario menuPrincipal = new FormMenuUsuario();
+            menuPrincipal.Show();
+            this.Hide();
+        }
+
+        private void btnRegistrarse_Click(object sender, EventArgs e)
+        {
+
+            CrearCuenta x = new CrearCuenta();
+            x.Show();
+            Hide();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
         {
             FrmMenu menuPrincipal = new FrmMenu();
             menuPrincipal.Show();

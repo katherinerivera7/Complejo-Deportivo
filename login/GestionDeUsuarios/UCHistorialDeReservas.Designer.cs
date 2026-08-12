@@ -83,9 +83,10 @@
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.guna2DataGridView1.DefaultCellStyle = dataGridViewCellStyle3;
             this.guna2DataGridView1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.guna2DataGridView1.Location = new System.Drawing.Point(25, 314);
+            this.guna2DataGridView1.Location = new System.Drawing.Point(25, 323);
             this.guna2DataGridView1.Name = "guna2DataGridView1";
             this.guna2DataGridView1.RowHeadersVisible = false;
+            this.guna2DataGridView1.RowHeadersWidth = 51;
             this.guna2DataGridView1.Size = new System.Drawing.Size(505, 107);
             this.guna2DataGridView1.TabIndex = 35;
             this.guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
@@ -99,26 +100,31 @@
             // ID
             // 
             this.ID.HeaderText = "ID";
+            this.ID.MinimumWidth = 6;
             this.ID.Name = "ID";
             // 
             // Column1
             // 
             this.Column1.HeaderText = "Fecha de Juego";
+            this.Column1.MinimumWidth = 6;
             this.Column1.Name = "Column1";
             // 
             // Hora
             // 
             this.Hora.HeaderText = "Hora";
+            this.Hora.MinimumWidth = 6;
             this.Hora.Name = "Hora";
             // 
             // Instalación
             // 
             this.Instalación.HeaderText = "Instalación";
+            this.Instalación.MinimumWidth = 6;
             this.Instalación.Name = "Instalación";
             // 
             // EstadodePago
             // 
             this.EstadodePago.HeaderText = "Estado de Pago";
+            this.EstadodePago.MinimumWidth = 6;
             this.EstadodePago.Name = "EstadodePago";
             // 
             // txtNombre
@@ -155,7 +161,7 @@
             this.btnCrear.ForeColor = System.Drawing.Color.White;
             this.btnCrear.Image = ((System.Drawing.Image)(resources.GetObject("btnCrear.Image")));
             this.btnCrear.Location = new System.Drawing.Point(364, 260);
-            this.btnCrear.Margin = new System.Windows.Forms.Padding(2);
+            this.btnCrear.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnCrear.Name = "btnCrear";
             this.btnCrear.Size = new System.Drawing.Size(166, 39);
             this.btnCrear.TabIndex = 37;
@@ -165,7 +171,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(249)))), ((int)(((byte)(251)))));
             this.Controls.Add(this.btnCrear);
             this.Controls.Add(this.txtNombre);
             this.Controls.Add(this.guna2DataGridView1);
