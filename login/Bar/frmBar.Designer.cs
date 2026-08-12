@@ -242,7 +242,6 @@
             this.guna2Panel3.ShadowDecoration.Enabled = true;
             this.guna2Panel3.Size = new System.Drawing.Size(183, 269);
             this.guna2Panel3.TabIndex = 6;
-            this.guna2Panel3.Visible = false;
             // 
             // label2
             // 
@@ -284,6 +283,7 @@
             this.guna2CircleButton7.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.guna2CircleButton7.Size = new System.Drawing.Size(77, 80);
             this.guna2CircleButton7.TabIndex = 5;
+            this.guna2CircleButton7.Click += new System.EventHandler(this.guna2CircleButton7_Click);
             // 
             // guna2CircleButton8
             // 

@@ -76,5 +76,21 @@ namespace login.Reservas
 
             frm.Show();
         }
+
+        private void guna2CircleButton2_Click(object sender, EventArgs e)
+        {
+            pnlContenido.Controls.Clear();
+            frmCanchas frm = new frmCanchas();
+
+            frm.TopLevel = false;
+            frm.FormBorderStyle = FormBorderStyle.None;
+            frm.Dock = DockStyle.Fill;
+
+            pnlContenido.Controls.Clear();
+            pnlContenido.Controls.Add(frm);
+            pnlContenido.Tag = frm;
+
+            frm.Show();
+        }
     }
 }

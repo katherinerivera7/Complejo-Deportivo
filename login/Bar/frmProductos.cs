@@ -35,6 +35,7 @@ namespace login.Bar
             {
                 CargarProducto();
                 btnCrear.Text = "Guardar cambios";
+                lblProducto.Text = "Editar producto";
             }
         }
 

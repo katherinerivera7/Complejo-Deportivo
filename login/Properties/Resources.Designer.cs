@@ -193,6 +193,16 @@ namespace login.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ICONOCANCHAA {
+            get {
+                object obj = ResourceManager.GetObject("ICONOCANCHAA", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_add_bookmark_480 {
             get {
                 object obj = ResourceManager.GetObject("icons8-add-bookmark-480", resourceCulture);
@@ -373,6 +383,16 @@ namespace login.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_informaciónazul_100 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-informaciónazul-100", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_masgris_100 {
             get {
                 object obj = ResourceManager.GetObject("icons8-masgris-100", resourceCulture);
@@ -476,6 +496,16 @@ namespace login.Properties {
         internal static System.Drawing.Bitmap ILUSTRACIÓN_INVENTARIO {
             get {
                 object obj = ResourceManager.GetObject("ILUSTRACIÓN INVENTARIO", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap IMAGENCATEGORIAS {
+            get {
+                object obj = ResourceManager.GetObject("IMAGENCATEGORIAS", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
