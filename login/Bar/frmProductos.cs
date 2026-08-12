@@ -34,6 +34,7 @@ namespace login.Bar
             if (tipo == 2)
             {
                 CargarProducto();
+                lblCrearProducto.Text = "Editar producto";
                 btnCrear.Text = "Guardar cambios";
             }
         }

@@ -578,5 +578,17 @@
   <ItemGroup>
     <None Include="Resources\icons8-canchaa-1001.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-estrella-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-búsqueda-100.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ChatGPT Image 12 ago 2026, 14_28_00.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ChatGPT Image 12 ago 2026, 14_34_36.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
