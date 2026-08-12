@@ -16,5 +16,10 @@ namespace login
         {
             InitializeComponent();
         }
+
+        private void guna2Panel5_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
