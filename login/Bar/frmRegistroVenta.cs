@@ -26,5 +26,15 @@ namespace login.Bar
         {
 
         }
+
+        private void label14_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2Button16_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
