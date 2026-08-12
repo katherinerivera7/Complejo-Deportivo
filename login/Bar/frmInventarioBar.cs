@@ -80,7 +80,7 @@ namespace login.Bar
             if (respuesta != DialogResult.Yes)
                 return;
 
-            if (conSQL.deleteDatos("Productos", "ProductoID = " + productoID))
+            if (conSQL.borrarDatos("Productos", "ProductoID = " + productoID))
             {
                 MessageBox.Show("Producto eliminado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 CargarProductos();

@@ -94,8 +94,7 @@ namespace login
             return oDT;
         }
 
-        // ELIMINAR
-        public bool deleteDatos(string tabla, string condicion)
+        public bool borrarDatos(string tabla, string condicion)
         {
             try
             {
@@ -125,7 +124,6 @@ namespace login
             }
         }
 
-        // INSERTAR PRODUCTO CON IMAGEN
         public bool insertarProducto(
             int categoriaID,
             string nombre,
@@ -202,7 +200,6 @@ namespace login
             }
         }
 
-        // ACTUALIZAR PRODUCTO
         public bool actualizarProducto(
             int productoID,
             int categoriaID,
@@ -271,6 +268,108 @@ namespace login
                 MessageBox.Show(ex.Message);
                 cerrarConexion();
 
+                return false;
+            }
+        }
+        public bool insertarCategoria(string nombre)
+        {
+            try
+            {
+                if (abrirConexion())
+                {
+                    string consulta = "INSERT INTO Categorias (Nombre) VALUES (@Nombre)";
+                    oCom = new SqlCommand(consulta, oCon);
+                    oCom.Parameters.AddWithValue("@Nombre", nombre);
+                    oCom.ExecuteNonQuery();
+                    cerrarConexion();
+                    return true;
+                }
+
+                return false;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                cerrarConexion();
+                return false;
+            }
+        }
+
+        public bool actualizarCategoria(int categoriaID, string nombre)
+        {
+            try
+            {
+                if (abrirConexion())
+                {
+                    string consulta = "UPDATE Categorias SET Nombre = @Nombre WHERE CategoriaID = @CategoriaID";
+                    oCom = new SqlCommand(consulta, oCon);
+                    oCom.Parameters.AddWithValue("@CategoriaID", categoriaID);
+                    oCom.Parameters.AddWithValue("@Nombre", nombre);
+                    oCom.ExecuteNonQuery();
+                    cerrarConexion();
+                    return true;
+                }
+
+                return false;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                cerrarConexion();
+                return false;
+            }
+        }
+        public bool insertarCancha(string nombre, string tipo, decimal precioHora, string estado)
+        {
+            try
+            {
+                if (abrirConexion())
+                {
+                    string consulta = "INSERT INTO Canchas (Nombre, Tipo, PrecioHora, Estado) VALUES (@Nombre, @Tipo, @PrecioHora, @Estado)";
+                    oCom = new SqlCommand(consulta, oCon);
+                    oCom.Parameters.AddWithValue("@Nombre", nombre);
+                    oCom.Parameters.AddWithValue("@Tipo", tipo);
+                    oCom.Parameters.AddWithValue("@PrecioHora", precioHora);
+                    oCom.Parameters.AddWithValue("@Estado", estado);
+                    oCom.ExecuteNonQuery();
+                    cerrarConexion();
+                    return true;
+                }
+
+                return false;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                cerrarConexion();
+                return false;
+            }
+        }
+
+        public bool actualizarCancha(int canchaID, string nombre, string tipo, decimal precioHora, string estado)
+        {
+            try
+            {
+                if (abrirConexion())
+                {
+                    string consulta = "UPDATE Canchas SET Nombre = @Nombre, Tipo = @Tipo, PrecioHora = @PrecioHora, Estado = @Estado WHERE CanchaID = @CanchaID";
+                    oCom = new SqlCommand(consulta, oCon);
+                    oCom.Parameters.AddWithValue("@CanchaID", canchaID);
+                    oCom.Parameters.AddWithValue("@Nombre", nombre);
+                    oCom.Parameters.AddWithValue("@Tipo", tipo);
+                    oCom.Parameters.AddWithValue("@PrecioHora", precioHora);
+                    oCom.Parameters.AddWithValue("@Estado", estado);
+                    oCom.ExecuteNonQuery();
+                    cerrarConexion();
+                    return true;
+                }
+
+                return false;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                cerrarConexion();
                 return false;
             }
         }

@@ -93,6 +93,16 @@ namespace login.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap categoriaaim {
+            get {
+                object obj = ResourceManager.GetObject("categoriaaim", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap cerrar {
             get {
                 object obj = ResourceManager.GetObject("cerrar", resourceCulture);
@@ -236,6 +246,26 @@ namespace login.Properties {
         internal static System.Drawing.Bitmap icons8_calendario_96__2_ {
             get {
                 object obj = ResourceManager.GetObject("icons8-calendario-96 (2)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_canchaa_100 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-canchaa-100", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_canchaa_1001 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-canchaa-1001", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -406,6 +436,16 @@ namespace login.Properties {
         internal static System.Drawing.Bitmap icons8_información_64 {
             get {
                 object obj = ResourceManager.GetObject("icons8-información-64", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_informaciónazul_64 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-informaciónazul-64", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

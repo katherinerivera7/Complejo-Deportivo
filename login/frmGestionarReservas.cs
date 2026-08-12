@@ -16,5 +16,10 @@ namespace login
         {
             InitializeComponent();
         }
+
+        private void pnlContenidoo_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

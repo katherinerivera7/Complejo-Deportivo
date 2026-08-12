@@ -72,6 +72,12 @@
     <Compile Include="Bar\frmCategorias.Designer.cs">
       <DependentUpon>frmCategorias.cs</DependentUpon>
     </Compile>
+    <Compile Include="Bar\frmCrearCategoria.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Bar\frmCrearCategoria.Designer.cs">
+      <DependentUpon>frmCrearCategoria.cs</DependentUpon>
+    </Compile>
     <Compile Include="Bar\frmInventarioBar.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -194,6 +200,18 @@
     <Compile Include="Reservas\frmCalendario.Designer.cs">
       <DependentUpon>frmCalendario.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reservas\frmCanchas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reservas\frmCanchas.Designer.cs">
+      <DependentUpon>frmCanchas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reservas\frmCrearCancha.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reservas\frmCrearCancha.Designer.cs">
+      <DependentUpon>frmCrearCancha.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reservas\frmDisponibilidad.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -247,6 +265,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Bar\frmCategorias.resx">
       <DependentUpon>frmCategorias.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Bar\frmCrearCategoria.resx">
+      <DependentUpon>frmCrearCategoria.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Bar\frmInventarioBar.resx">
       <DependentUpon>frmInventarioBar.cs</DependentUpon>
@@ -317,6 +338,12 @@
     </Compile>
     <EmbeddedResource Include="Reservas\frmCalendario.resx">
       <DependentUpon>frmCalendario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reservas\frmCanchas.resx">
+      <DependentUpon>frmCanchas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reservas\frmCrearCancha.resx">
+      <DependentUpon>frmCrearCancha.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reservas\frmDisponibilidad.resx">
       <DependentUpon>frmDisponibilidad.cs</DependentUpon>
@@ -538,6 +565,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\icons8-calendario-96 %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\categoriaaim.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-informaciónazul-64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-canchaa-100.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-canchaa-1001.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

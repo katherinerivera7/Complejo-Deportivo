@@ -1,6 +1,6 @@
-﻿namespace login.Bar
+﻿namespace login.Reservas
 {
-    partial class frmInventarioBar
+    partial class frmCanchas
     {
         /// <summary>
         /// Required designer variable.
@@ -28,56 +28,32 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmInventarioBar));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.pnlContenidoo = new Guna.UI2.WinForms.Guna2Panel();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCanchas));
             this.label1 = new System.Windows.Forms.Label();
             this.cmbFiltro = new Guna.UI2.WinForms.Guna2ComboBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.pnlContenido = new System.Windows.Forms.Panel();
+            this.dgvCanchas = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.colCanchaID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colTipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colPrecioHora = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colEstado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnBuscar = new Guna.UI2.WinForms.Guna2Button();
             this.txtNombre = new Guna.UI2.WinForms.Guna2TextBox();
-            this.label11 = new System.Windows.Forms.Label();
             this.btnImprimir = new Guna.UI2.WinForms.Guna2Button();
             this.btnCrear = new Guna.UI2.WinForms.Guna2Button();
             this.btnEditar = new Guna.UI2.WinForms.Guna2Button();
             this.btnEliminar = new Guna.UI2.WinForms.Guna2Button();
-            this.pnlContenido = new System.Windows.Forms.Panel();
-            this.dgvProductos = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.colProductoID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colPrecio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colStock = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pnlContenidoo.SuspendLayout();
             this.pnlContenido.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCanchas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // pnlContenidoo
-            // 
-            this.pnlContenidoo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(249)))), ((int)(((byte)(251)))));
-            this.pnlContenidoo.Controls.Add(this.label1);
-            this.pnlContenidoo.Controls.Add(this.cmbFiltro);
-            this.pnlContenidoo.Controls.Add(this.label2);
-            this.pnlContenidoo.Controls.Add(this.btnBuscar);
-            this.pnlContenidoo.Controls.Add(this.txtNombre);
-            this.pnlContenidoo.Controls.Add(this.label11);
-            this.pnlContenidoo.Controls.Add(this.btnImprimir);
-            this.pnlContenidoo.Controls.Add(this.btnCrear);
-            this.pnlContenidoo.Controls.Add(this.btnEditar);
-            this.pnlContenidoo.Controls.Add(this.btnEliminar);
-            this.pnlContenidoo.Controls.Add(this.pnlContenido);
-            this.pnlContenidoo.Controls.Add(this.pictureBox1);
-            this.pnlContenidoo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlContenidoo.Location = new System.Drawing.Point(0, 0);
-            this.pnlContenidoo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pnlContenidoo.Name = "pnlContenidoo";
-            this.pnlContenidoo.Size = new System.Drawing.Size(1416, 980);
-            this.pnlContenidoo.TabIndex = 1;
             // 
             // label1
             // 
@@ -85,10 +61,10 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(37)))), ((int)(((byte)(87)))));
-            this.label1.Location = new System.Drawing.Point(333, 185);
+            this.label1.Location = new System.Drawing.Point(339, 196);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(113, 28);
-            this.label1.TabIndex = 64;
+            this.label1.TabIndex = 76;
             this.label1.Text = "Filtrar por:";
             // 
             // cmbFiltro
@@ -103,10 +79,10 @@
             this.cmbFiltro.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.cmbFiltro.ItemHeight = 30;
             this.cmbFiltro.Items.AddRange(new object[] {
-            "ID Producto",
-            "Categoría",
-            "Nombre"});
-            this.cmbFiltro.Location = new System.Drawing.Point(472, 185);
+            "ID Cancha",
+            "Tipo",
+            "Fecha"});
+            this.cmbFiltro.Location = new System.Drawing.Point(478, 196);
             this.cmbFiltro.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cmbFiltro.Name = "cmbFiltro";
             this.cmbFiltro.ShadowDecoration.BorderRadius = 14;
@@ -114,18 +90,122 @@
             this.cmbFiltro.ShadowDecoration.Enabled = true;
             this.cmbFiltro.Size = new System.Drawing.Size(257, 36);
             this.cmbFiltro.StartIndex = 0;
-            this.cmbFiltro.TabIndex = 63;
+            this.cmbFiltro.TabIndex = 75;
             // 
             // label2
             // 
             this.label2.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.label2.Location = new System.Drawing.Point(21, 74);
+            this.label2.Location = new System.Drawing.Point(27, 85);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(559, 30);
-            this.label2.TabIndex = 65;
-            this.label2.Text = "Crea, elimina o modifica productos del bar";
+            this.label2.TabIndex = 77;
+            this.label2.Text = "Crea, elimina o modifica las canchas del complejo deportivo";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.BackColor = System.Drawing.Color.Transparent;
+            this.label11.Font = new System.Drawing.Font("Segoe UI", 28F, System.Drawing.FontStyle.Bold);
+            this.label11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(37)))), ((int)(((byte)(87)))));
+            this.label11.Location = new System.Drawing.Point(21, 22);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(447, 62);
+            this.label11.TabIndex = 72;
+            this.label11.Text = "Gestión de canchas";
+            // 
+            // pnlContenido
+            // 
+            this.pnlContenido.BackColor = System.Drawing.Color.White;
+            this.pnlContenido.Controls.Add(this.dgvCanchas);
+            this.pnlContenido.Location = new System.Drawing.Point(22, 258);
+            this.pnlContenido.Margin = new System.Windows.Forms.Padding(4);
+            this.pnlContenido.Name = "pnlContenido";
+            this.pnlContenido.Size = new System.Drawing.Size(1288, 566);
+            this.pnlContenido.TabIndex = 67;
+            // 
+            // dgvCanchas
+            // 
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            this.dgvCanchas.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(155)))), ((int)(((byte)(75)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(155)))), ((int)(((byte)(75)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvCanchas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvCanchas.ColumnHeadersHeight = 50;
+            this.dgvCanchas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            this.dgvCanchas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.colCanchaID,
+            this.colNombre,
+            this.colTipo,
+            this.colPrecioHora,
+            this.colEstado});
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 10F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(233)))), ((int)(((byte)(251)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvCanchas.DefaultCellStyle = dataGridViewCellStyle3;
+            this.dgvCanchas.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvCanchas.GridColor = System.Drawing.SystemColors.Control;
+            this.dgvCanchas.Location = new System.Drawing.Point(0, 0);
+            this.dgvCanchas.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dgvCanchas.Name = "dgvCanchas";
+            this.dgvCanchas.RowHeadersVisible = false;
+            this.dgvCanchas.RowHeadersWidth = 51;
+            this.dgvCanchas.RowTemplate.Height = 24;
+            this.dgvCanchas.Size = new System.Drawing.Size(1288, 566);
+            this.dgvCanchas.TabIndex = 0;
+            this.dgvCanchas.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
+            this.dgvCanchas.ThemeStyle.GridColor = System.Drawing.SystemColors.Control;
+            this.dgvCanchas.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(155)))), ((int)(((byte)(75)))));
+            this.dgvCanchas.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvCanchas.ThemeStyle.HeaderStyle.Height = 50;
+            this.dgvCanchas.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.dgvCanchas.ThemeStyle.RowsStyle.Height = 24;
+            this.dgvCanchas.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(233)))), ((int)(((byte)(251)))));
+            // 
+            // colCanchaID
+            // 
+            this.colCanchaID.DataPropertyName = "CanchaID";
+            this.colCanchaID.HeaderText = "ID";
+            this.colCanchaID.MinimumWidth = 6;
+            this.colCanchaID.Name = "colCanchaID";
+            // 
+            // colNombre
+            // 
+            this.colNombre.DataPropertyName = "Nombre";
+            this.colNombre.HeaderText = "Nombre";
+            this.colNombre.MinimumWidth = 6;
+            this.colNombre.Name = "colNombre";
+            // 
+            // colTipo
+            // 
+            this.colTipo.DataPropertyName = "Tipo";
+            this.colTipo.HeaderText = "Tipo";
+            this.colTipo.MinimumWidth = 6;
+            this.colTipo.Name = "colTipo";
+            // 
+            // colPrecioHora
+            // 
+            this.colPrecioHora.DataPropertyName = "PrecioHora";
+            this.colPrecioHora.HeaderText = "Precio por hora";
+            this.colPrecioHora.MinimumWidth = 6;
+            this.colPrecioHora.Name = "colPrecioHora";
+            // 
+            // colEstado
+            // 
+            this.colEstado.DataPropertyName = "Estado";
+            this.colEstado.HeaderText = "Estado";
+            this.colEstado.MinimumWidth = 6;
+            this.colEstado.Name = "colEstado";
             // 
             // btnBuscar
             // 
@@ -139,11 +219,11 @@
             this.btnBuscar.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBuscar.ForeColor = System.Drawing.Color.White;
             this.btnBuscar.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscar.Image")));
-            this.btnBuscar.Location = new System.Drawing.Point(472, 121);
+            this.btnBuscar.Location = new System.Drawing.Point(478, 132);
             this.btnBuscar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(259, 48);
-            this.btnBuscar.TabIndex = 62;
+            this.btnBuscar.TabIndex = 74;
             this.btnBuscar.Text = "Buscar";
             // 
             // txtNombre
@@ -160,28 +240,16 @@
             this.txtNombre.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNombre.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtNombre.IconLeft = ((System.Drawing.Image)(resources.GetObject("txtNombre.IconLeft")));
-            this.txtNombre.Location = new System.Drawing.Point(29, 121);
+            this.txtNombre.Location = new System.Drawing.Point(35, 132);
             this.txtNombre.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtNombre.Name = "txtNombre";
-            this.txtNombre.PlaceholderText = "Buscar por ID Producto, categoría o nombre";
+            this.txtNombre.PlaceholderText = "Buscar por ID Cancha, tipo o fecha";
             this.txtNombre.SelectedText = "";
             this.txtNombre.ShadowDecoration.BorderRadius = 12;
             this.txtNombre.ShadowDecoration.Depth = 4;
             this.txtNombre.ShadowDecoration.Enabled = true;
             this.txtNombre.Size = new System.Drawing.Size(424, 48);
-            this.txtNombre.TabIndex = 61;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.BackColor = System.Drawing.Color.Transparent;
-            this.label11.Font = new System.Drawing.Font("Segoe UI", 28F, System.Drawing.FontStyle.Bold);
-            this.label11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(37)))), ((int)(((byte)(87)))));
-            this.label11.Location = new System.Drawing.Point(15, 11);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(339, 62);
-            this.label11.TabIndex = 60;
-            this.label11.Text = "Productos Bar";
+            this.txtNombre.TabIndex = 73;
             // 
             // btnImprimir
             // 
@@ -196,11 +264,11 @@
             this.btnImprimir.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnImprimir.ForeColor = System.Drawing.Color.White;
             this.btnImprimir.Image = ((System.Drawing.Image)(resources.GetObject("btnImprimir.Image")));
-            this.btnImprimir.Location = new System.Drawing.Point(760, 833);
+            this.btnImprimir.Location = new System.Drawing.Point(766, 844);
             this.btnImprimir.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnImprimir.Name = "btnImprimir";
             this.btnImprimir.Size = new System.Drawing.Size(221, 48);
-            this.btnImprimir.TabIndex = 59;
+            this.btnImprimir.TabIndex = 71;
             this.btnImprimir.Text = "Imprimir";
             // 
             // btnCrear
@@ -216,11 +284,11 @@
             this.btnCrear.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCrear.ForeColor = System.Drawing.Color.White;
             this.btnCrear.Image = ((System.Drawing.Image)(resources.GetObject("btnCrear.Image")));
-            this.btnCrear.Location = new System.Drawing.Point(521, 833);
+            this.btnCrear.Location = new System.Drawing.Point(527, 844);
             this.btnCrear.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnCrear.Name = "btnCrear";
             this.btnCrear.Size = new System.Drawing.Size(221, 48);
-            this.btnCrear.TabIndex = 58;
+            this.btnCrear.TabIndex = 70;
             this.btnCrear.Text = "Crear";
             this.btnCrear.Click += new System.EventHandler(this.btnCrear_Click);
             // 
@@ -237,11 +305,11 @@
             this.btnEditar.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEditar.ForeColor = System.Drawing.Color.White;
             this.btnEditar.Image = ((System.Drawing.Image)(resources.GetObject("btnEditar.Image")));
-            this.btnEditar.Location = new System.Drawing.Point(283, 833);
+            this.btnEditar.Location = new System.Drawing.Point(289, 844);
             this.btnEditar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(221, 48);
-            this.btnEditar.TabIndex = 57;
+            this.btnEditar.TabIndex = 69;
             this.btnEditar.Text = "Editar";
             this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
@@ -258,141 +326,57 @@
             this.btnEliminar.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEliminar.ForeColor = System.Drawing.Color.White;
             this.btnEliminar.Image = ((System.Drawing.Image)(resources.GetObject("btnEliminar.Image")));
-            this.btnEliminar.Location = new System.Drawing.Point(36, 833);
+            this.btnEliminar.Location = new System.Drawing.Point(42, 844);
             this.btnEliminar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(221, 48);
-            this.btnEliminar.TabIndex = 56;
+            this.btnEliminar.TabIndex = 68;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
-            // pnlContenido
-            // 
-            this.pnlContenido.BackColor = System.Drawing.Color.White;
-            this.pnlContenido.Controls.Add(this.dgvProductos);
-            this.pnlContenido.Location = new System.Drawing.Point(16, 247);
-            this.pnlContenido.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.pnlContenido.Name = "pnlContenido";
-            this.pnlContenido.Size = new System.Drawing.Size(1288, 566);
-            this.pnlContenido.TabIndex = 50;
-            // 
-            // dgvProductos
-            // 
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            this.dgvProductos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(155)))), ((int)(((byte)(75)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(155)))), ((int)(((byte)(75)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvProductos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvProductos.ColumnHeadersHeight = 50;
-            this.dgvProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            this.dgvProductos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.colProductoID,
-            this.colCategoria,
-            this.colNombre,
-            this.colPrecio,
-            this.colStock});
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 10F);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(233)))), ((int)(((byte)(251)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvProductos.DefaultCellStyle = dataGridViewCellStyle3;
-            this.dgvProductos.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvProductos.GridColor = System.Drawing.SystemColors.Control;
-            this.dgvProductos.Location = new System.Drawing.Point(0, 0);
-            this.dgvProductos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.dgvProductos.Name = "dgvProductos";
-            this.dgvProductos.RowHeadersVisible = false;
-            this.dgvProductos.RowHeadersWidth = 51;
-            this.dgvProductos.RowTemplate.Height = 24;
-            this.dgvProductos.Size = new System.Drawing.Size(1288, 566);
-            this.dgvProductos.TabIndex = 0;
-            this.dgvProductos.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
-            this.dgvProductos.ThemeStyle.GridColor = System.Drawing.SystemColors.Control;
-            this.dgvProductos.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(155)))), ((int)(((byte)(75)))));
-            this.dgvProductos.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvProductos.ThemeStyle.HeaderStyle.Height = 50;
-            this.dgvProductos.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.dgvProductos.ThemeStyle.RowsStyle.Height = 24;
-            this.dgvProductos.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(233)))), ((int)(((byte)(251)))));
-            // 
-            // colProductoID
-            // 
-            this.colProductoID.DataPropertyName = "ProductoID";
-            this.colProductoID.HeaderText = "ID Producto";
-            this.colProductoID.MinimumWidth = 6;
-            this.colProductoID.Name = "colProductoID";
-            // 
-            // colCategoria
-            // 
-            this.colCategoria.DataPropertyName = "CategoriaID";
-            this.colCategoria.HeaderText = "Categoría";
-            this.colCategoria.MinimumWidth = 6;
-            this.colCategoria.Name = "colCategoria";
-            // 
-            // colNombre
-            // 
-            this.colNombre.DataPropertyName = "Nombre";
-            this.colNombre.HeaderText = "Nombre";
-            this.colNombre.MinimumWidth = 6;
-            this.colNombre.Name = "colNombre";
-            // 
-            // colPrecio
-            // 
-            this.colPrecio.DataPropertyName = "Precio";
-            this.colPrecio.HeaderText = "Precio";
-            this.colPrecio.MinimumWidth = 6;
-            this.colPrecio.Name = "colPrecio";
-            // 
-            // colStock
-            // 
-            this.colStock.DataPropertyName = "Stock";
-            this.colStock.HeaderText = "Stock";
-            this.colStock.MinimumWidth = 6;
-            this.colStock.Name = "colStock";
-            // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::login.Properties.Resources.ILUSTRACIÓN_INVENTARIO;
-            this.pictureBox1.Location = new System.Drawing.Point(780, -15);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox1.Image = global::login.Properties.Resources.RESERVAS_ILUSTRACION;
+            this.pictureBox1.Location = new System.Drawing.Point(750, 0);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(560, 289);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 66;
+            this.pictureBox1.TabIndex = 78;
             this.pictureBox1.TabStop = false;
             // 
-            // frmInventarioBar
+            // frmCanchas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(249)))), ((int)(((byte)(251)))));
             this.ClientSize = new System.Drawing.Size(1416, 980);
-            this.Controls.Add(this.pnlContenidoo);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.cmbFiltro);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.btnBuscar);
+            this.Controls.Add(this.txtNombre);
+            this.Controls.Add(this.label11);
+            this.Controls.Add(this.btnImprimir);
+            this.Controls.Add(this.btnCrear);
+            this.Controls.Add(this.btnEditar);
+            this.Controls.Add(this.btnEliminar);
+            this.Controls.Add(this.pnlContenido);
+            this.Controls.Add(this.pictureBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.Name = "frmInventarioBar";
-            this.Text = "frmInventarioBar";
-            this.Load += new System.EventHandler(this.frmInventarioBar_Load);
-            this.pnlContenidoo.ResumeLayout(false);
-            this.pnlContenidoo.PerformLayout();
+            this.Name = "frmCanchas";
+            this.Text = "frmCanchas";
+            this.Load += new System.EventHandler(this.frmCanchas_Load);
             this.pnlContenido.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCanchas)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
-        private Guna.UI2.WinForms.Guna2Panel pnlContenidoo;
         private System.Windows.Forms.Label label1;
         private Guna.UI2.WinForms.Guna2ComboBox cmbFiltro;
         private System.Windows.Forms.Label label2;
@@ -404,12 +388,12 @@
         private Guna.UI2.WinForms.Guna2Button btnEditar;
         private Guna.UI2.WinForms.Guna2Button btnEliminar;
         private System.Windows.Forms.Panel pnlContenido;
-        private Guna.UI2.WinForms.Guna2DataGridView dgvProductos;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colProductoID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colCategoria;
+        private Guna.UI2.WinForms.Guna2DataGridView dgvCanchas;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colCanchaID;
         private System.Windows.Forms.DataGridViewTextBoxColumn colNombre;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colPrecio;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colStock;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colTipo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colPrecioHora;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colEstado;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
