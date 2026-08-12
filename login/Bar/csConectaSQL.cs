@@ -69,7 +69,6 @@ namespace login
             }
         }
 
-        // SELECT
         public DataTable retornaRegistros(string sentencia)
         {
             oDT = new DataTable();

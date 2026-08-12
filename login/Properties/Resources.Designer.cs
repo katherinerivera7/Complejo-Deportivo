@@ -83,6 +83,16 @@ namespace login.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap categoria {
+            get {
+                object obj = ResourceManager.GetObject("categoria", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap cerrar {
             get {
                 object obj = ResourceManager.GetObject("cerrar", resourceCulture);
@@ -176,6 +186,16 @@ namespace login.Properties {
         internal static System.Drawing.Bitmap HistorialDeReservas {
             get {
                 object obj = ResourceManager.GetObject("HistorialDeReservas", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_add_bookmark_480 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-add-bookmark-480", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
