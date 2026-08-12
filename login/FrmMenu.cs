@@ -1,4 +1,5 @@
 ﻿using Guna.UI2.WinForms;
+using login.Promciones;
 using login.Reservas;
 using System;
 using System.Collections.Generic;
@@ -14,70 +15,39 @@ namespace login
 {
     public partial class FrmMenu : Form
     {
-        public void CargarInterfazPorRol(string rol)
-        {
-            if (rol == "Usuario")
-            {
-                btnUsuarios.Visible = false;
-                btnCafeteria.Visible = false;
-
-                pnlAdmin.Visible = false;
-                pnlUsuario.Visible = true;
-
-                pnlUsuario.BringToFront();
-            }
-            else if (rol == "Admin")
-            {
-                btnUsuarios.Visible = true;
-                btnPromociones.Visible = true;
-                btnCafeteria.Visible = true;
-
-                pnlUsuario.Visible = false;
-                pnlAdmin.Visible = true;
-
-                pnlAdmin.BringToFront();
-            }
-        }
+       
         public FrmMenu()
         {
             InitializeComponent();
+            this.DoubleBuffered = true;
+            this.SetStyle(
+                ControlStyles.AllPaintingInWmPaint |
+                ControlStyles.UserPaint |
+                ControlStyles.OptimizedDoubleBuffer,
+                true);
+
+            this.UpdateStyles();
+
         }
-       
+        public class DoubleBufferedPanel : Panel
+        {
+            public DoubleBufferedPanel()
+            {
+                DoubleBuffered = true;
+
+                SetStyle(
+                    ControlStyles.AllPaintingInWmPaint |
+                    ControlStyles.UserPaint |
+                    ControlStyles.OptimizedDoubleBuffer,
+                    true);
+
+                UpdateStyles();
+            }
+        }
+
         private void pnlContenido_Paint(object sender, PaintEventArgs e)
         {
 
-        }
-
-
-        private void btnMenu_Click(object sender, EventArgs e)
-        {
-           
-
-            if (pnlSidebar.Width == 200)
-            {
-                pnlSidebar.Width = 50;
-
-                btnInicio.Text = "";
-                btnUsuarios.Text = "";
-                btnReservas.Text = "";
-                btnFacturacion.Text = "";
-                btnCafeteria.Text = "";
-                btnPromociones.Text = "";
-              
-            }
-            else
-            {
-                pnlSidebar.Width = 200;
-
-                btnInicio.Text = "Inicio";
-                btnUsuarios.Text = "Usuarios";
-                btnReservas.Text = "Reservas";
-                btnFacturacion.Text = "Facturación";
-                btnCafeteria.Text = "Cafetería";
-                btnPromociones.Text = "Promociones";
-               
-            }
-        
         }
 
         private void tmSidebar_Tick(object sender, EventArgs e)
@@ -89,12 +59,23 @@ namespace login
 
         private void FrmMenu_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         private void btnCafeteria_Click(object sender, EventArgs e)
         {
+            pnlContenido.Controls.Clear();
+            Bar.frmBar frm = new Bar.frmBar();
 
+            frm.TopLevel = false;
+            frm.FormBorderStyle = FormBorderStyle.None;
+            frm.Dock = DockStyle.Fill;
+
+            pnlContenido.Controls.Clear();
+            pnlContenido.Controls.Add(frm);
+            pnlContenido.Tag = frm;
+
+            frm.Show();
         }
 
         private void pnlIngresosDiarios_MouseEnter(object sender, EventArgs e)
@@ -144,17 +125,6 @@ namespace login
             this.ResumeLayout();
         }
 
-        private void btnCerrarSesion_Click(object sender, EventArgs e)
-        {
-            DialogResult resultado = MessageBox.Show("¿Está seguro de que desea cerrar sesión?", "Cerrar Sesión", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-            if (resultado == DialogResult.Yes)
-            {
-                frmLogin login = new frmLogin();
-                login.Show();
-                this.Close();
-            }
-        }
 
         private void btnUsuarios_Click(object sender, EventArgs e)
         {
@@ -173,7 +143,29 @@ namespace login
 
         private void btnReservas_Click(object sender, EventArgs e)
         {
+            pnlContenido.Controls.Clear();
             frmReservas frm = new frmReservas();
+
+            frm.TopLevel = false;
+            frm.FormBorderStyle = FormBorderStyle.None;
+            frm.Dock = DockStyle.Fill;
+            
+            pnlContenido.Controls.Clear();
+            pnlContenido.Controls.Add(frm);
+            pnlContenido.Tag = frm;
+
+            frm.Show();
+        }
+
+        private void guna2Panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void btnPromociones_Click(object sender, EventArgs e)
+        {
+            pnlContenido.Controls.Clear();
+            frmMenuPromociones frm = new frmMenuPromociones();
 
             frm.TopLevel = false;
             frm.FormBorderStyle = FormBorderStyle.None;
@@ -186,9 +178,50 @@ namespace login
             frm.Show();
         }
 
-        private void guna2Panel1_Paint(object sender, PaintEventArgs e)
+        private void btnInicio_Click(object sender, EventArgs e)
+        {
+            pnlContenido.Controls.Clear();
+            FrmMenu menu= new FrmMenu();
+            menu.Show();
+
+        }
+
+
+        private void pnlSidebar_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void pictureBox2_Click_1(object sender, EventArgs e)
+        {
+            DialogResult resultado = MessageBox.Show(
+        "¿Está seguro de que desea salir del programa?",
+        "Confirmar salida",
+        MessageBoxButtons.YesNo,
+        MessageBoxIcon.Question);
+
+            if (resultado == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
+            
+        }
+
+        private void cmbBienvenida_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnCerrarSesion_Click(object sender, EventArgs e)
+        {
+            DialogResult resultado = MessageBox.Show("¿Está seguro de que desea cerrar sesión?", "Cerrar Sesión", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (resultado == DialogResult.Yes)
+            {
+                frmLogin login = new frmLogin();
+                login.Show();
+                this.Close();
+            }
         }
     }
 

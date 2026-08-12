@@ -1,7 +1,9 @@
-﻿using System;
+﻿using login.Reservas;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -17,15 +19,30 @@ namespace login.GestionDeUsuarios
             InitializeComponent();
         }
 
-        private void guna2DateTimePicker1_ValueChanged(object sender, EventArgs e)
-        {
-            guna2DateTimePicker1.CustomFormat = "dd/MM/yyyy";
-        }
 
         private void UCEditarInformacion_Load(object sender, EventArgs e)
         {
-            guna2DateTimePicker1.Format = DateTimePickerFormat.Custom;
-            guna2DateTimePicker1.CustomFormat = "'Fecha de nacimiento'";
+           
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void dgvUsuarios_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void dgvUsuarios_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }

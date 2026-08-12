@@ -1,4 +1,5 @@
 ﻿using login.GestionDeUsuarios;
+using login.Promciones;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -28,36 +29,69 @@ namespace login.Reservas
 
         }
 
-        private void btnNueva_Click(object sender, EventArgs e)
-        {
-           
-        }
-
-        private void guna2CircleButton6_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void guna2CircleButton6_Click_1(object sender, EventArgs e)
         {
             pnlContenido.Controls.Clear();
+            UCNuevaReserva frm = new UCNuevaReserva();
 
-            UCNuevaReserva uc = new UCNuevaReserva();
-            uc.Dock = DockStyle.Fill;
+            frm.Dock = DockStyle.Fill;
 
-            pnlContenido.Controls.Add(uc);
-            uc.BringToFront();
+            pnlContenido.Controls.Clear();
+            pnlContenido.Controls.Add(frm);
+            pnlContenido.Tag = frm;
+
+            frm.Show();
+           
         }
 
-        private void btnNueva_Click_1(object sender, EventArgs e)
+        private void guna2CircleButton1_Click(object sender, EventArgs e)
         {
             pnlContenido.Controls.Clear();
+            frmGestionarReservas frm = new frmGestionarReservas();
 
-            UCNuevaReserva uc = new UCNuevaReserva();
-            uc.Dock = DockStyle.Fill;
+            frm.TopLevel = false;
+            frm.FormBorderStyle = FormBorderStyle.None;
+            frm.Dock = DockStyle.Fill;
 
-            pnlContenido.Controls.Add(uc);
-            uc.BringToFront();
+            pnlContenido.Controls.Clear();
+            pnlContenido.Controls.Add(frm);
+            pnlContenido.Tag = frm;
+
+            frm.Show();
+        }
+
+        private void guna2CircleButton1_Click_1(object sender, EventArgs e)
+        {
+            pnlContenido.Controls.Clear();
+            frmCalendario frm = new frmCalendario();
+
+            frm.TopLevel = false;
+            frm.FormBorderStyle = FormBorderStyle.None;
+            frm.Dock = DockStyle.Fill;
+
+            pnlContenido.Controls.Clear();
+            pnlContenido.Controls.Add(frm);
+            pnlContenido.Tag = frm;
+
+            frm.Show();
+        }
+
+        private void guna2CircleButton7_Click(object sender, EventArgs e)
+        {
+
+            pnlContenido.Controls.Clear();
+            frmDisponibilidad frm = new frmDisponibilidad();
+
+            frm.TopLevel = false;
+            frm.FormBorderStyle = FormBorderStyle.None;
+            frm.Dock = DockStyle.Fill;
+
+            pnlContenido.Controls.Clear();
+            pnlContenido.Controls.Add(frm);
+            pnlContenido.Tag = frm;
+
+            frm.Show();
         }
     }
 }
