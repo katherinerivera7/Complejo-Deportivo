@@ -97,21 +97,5 @@ namespace login.Bar
 
             frm.Show();
         }
-
-        private void guna2CircleButton7_Click(object sender, EventArgs e)
-        {
-            pnlContenido.Controls.Clear();
-            frmCategorias frm = new frmCategorias();
-
-            frm.TopLevel = false;
-            frm.FormBorderStyle = FormBorderStyle.None;
-            frm.Dock = DockStyle.Fill;
-
-            pnlContenido.Controls.Clear();
-            pnlContenido.Controls.Add(frm);
-            pnlContenido.Tag = frm;
-
-            frm.Show();
-        }
     }
 }
