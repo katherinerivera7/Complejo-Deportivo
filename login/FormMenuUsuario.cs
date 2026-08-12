@@ -66,5 +66,10 @@ namespace login
                 this.Close();
             }
         }
+
+        private void guna2CircleButton8_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
