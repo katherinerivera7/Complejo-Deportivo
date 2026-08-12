@@ -59,6 +59,7 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Bar\csConectaSQL.cs" />
     <Compile Include="Bar\frmBar.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -187,6 +188,12 @@
     <Compile Include="Reservas\frmEditarUsuario.Designer.cs">
       <DependentUpon>frmEditarUsuario.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reservas\frmFacturaReserva.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reservas\frmFacturaReserva.Designer.cs">
+      <DependentUpon>frmFacturaReserva.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reservas\frmReservas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -283,6 +290,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Reservas\frmEditarUsuario.resx">
       <DependentUpon>frmEditarUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reservas\frmFacturaReserva.resx">
+      <DependentUpon>frmFacturaReserva.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reservas\frmReservas.resx">
       <DependentUpon>frmReservas.cs</DependentUpon>
@@ -420,6 +430,39 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\ILUSTRACIÓN INVENTARIO.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-silbato-100.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-hora-100.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-estadio-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-cliente-100.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\masss.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cancha.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\nuevaresserva.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-factura-100.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-multiplicar-100.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-imprimirverde-100.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FACTURAA.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -27,6 +27,7 @@ namespace login.GestionDeUsuarios
             clienteID = id;
 
             btnCrear.Text = "Guardar cambios";
+            lblCrearCliente.Text = "Editar cliente";
 
             CargarCliente();
         }

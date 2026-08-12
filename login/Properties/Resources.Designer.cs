@@ -73,6 +73,16 @@ namespace login.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap cancha {
+            get {
+                object obj = ResourceManager.GetObject("cancha", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap cerrar {
             get {
                 object obj = ResourceManager.GetObject("cerrar", resourceCulture);
@@ -106,6 +116,16 @@ namespace login.Properties {
         internal static System.Drawing.Bitmap EditarInformacion {
             get {
                 object obj = ResourceManager.GetObject("EditarInformacion", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap FACTURAA {
+            get {
+                object obj = ResourceManager.GetObject("FACTURAA", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -163,6 +183,16 @@ namespace login.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_cliente_100 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-cliente-100", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_documento_100 {
             get {
                 object obj = ResourceManager.GetObject("icons8-documento-100", resourceCulture);
@@ -203,9 +233,29 @@ namespace login.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_estadio_48 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-estadio-48", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_etiqueta_48 {
             get {
                 object obj = ResourceManager.GetObject("icons8-etiqueta-48", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_factura_100 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-factura-100", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -233,6 +283,16 @@ namespace login.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_hora_100 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-hora-100", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_horas_extras_32 {
             get {
                 object obj = ResourceManager.GetObject("icons8-horas-extras-32", resourceCulture);
@@ -243,9 +303,29 @@ namespace login.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_imprimirverde_100 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-imprimirverde-100", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_información_64 {
             get {
                 object obj = ResourceManager.GetObject("icons8-información-64", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_multiplicar_100 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-multiplicar-100", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -276,6 +356,16 @@ namespace login.Properties {
         internal static System.Drawing.Bitmap icons8_proteccion_100 {
             get {
                 object obj = ResourceManager.GetObject("icons8-proteccion-100", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_silbato_100 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-silbato-100", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -336,6 +426,26 @@ namespace login.Properties {
         internal static System.Drawing.Bitmap ListaDeUsuarios {
             get {
                 object obj = ResourceManager.GetObject("ListaDeUsuarios", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap masss {
+            get {
+                object obj = ResourceManager.GetObject("masss", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap nuevaresserva {
+            get {
+                object obj = ResourceManager.GetObject("nuevaresserva", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

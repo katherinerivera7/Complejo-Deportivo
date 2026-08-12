@@ -38,7 +38,7 @@
             this.ClientSize = new System.Drawing.Size(476, 561);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "frmRegistrarCliente";
-            this.Text = "Crear cliente";
+            this.Text = "Cliente";
             this.ResumeLayout(false);
 
         }

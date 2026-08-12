@@ -92,9 +92,7 @@ namespace login
                 return;
             }
 
-            int clienteID = Convert.ToInt32(
-                dgvClientes.SelectedRows[0]
-                .Cells["colClienteID"].Value
+            int clienteID = Convert.ToInt32(dgvClientes.SelectedRows[0].Cells["colClienteID"].Value
             );
 
             frmRegistrarCliente ventana =

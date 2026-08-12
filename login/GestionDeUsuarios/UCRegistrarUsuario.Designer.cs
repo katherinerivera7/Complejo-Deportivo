@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UCRegistrarUsuario));
             this.guna2ContextMenuStrip1 = new Guna.UI2.WinForms.Guna2ContextMenuStrip();
-            this.label4 = new System.Windows.Forms.Label();
+            this.lblCrearCliente = new System.Windows.Forms.Label();
             this.dtpFechaNacimiento = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
             this.txtCedula = new Guna.UI2.WinForms.Guna2TextBox();
@@ -58,17 +58,17 @@
             this.guna2ContextMenuStrip1.RenderStyle.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
             this.guna2ContextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
-            // label4
+            // lblCrearCliente
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(135, 26);
-            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(195, 41);
-            this.label4.TabIndex = 32;
-            this.label4.Text = "Crear cliente";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblCrearCliente.AutoSize = true;
+            this.lblCrearCliente.Font = new System.Drawing.Font("Segoe UI", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCrearCliente.Location = new System.Drawing.Point(135, 26);
+            this.lblCrearCliente.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblCrearCliente.Name = "lblCrearCliente";
+            this.lblCrearCliente.Size = new System.Drawing.Size(195, 41);
+            this.lblCrearCliente.TabIndex = 32;
+            this.lblCrearCliente.Text = "Crear cliente";
+            this.lblCrearCliente.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // dtpFechaNacimiento
             // 
@@ -276,7 +276,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtCedula);
             this.Controls.Add(this.btnCrear);
-            this.Controls.Add(this.label4);
+            this.Controls.Add(this.lblCrearCliente);
             this.Controls.Add(this.dtpFechaNacimiento);
             this.Controls.Add(this.txtDireccion);
             this.Controls.Add(this.txtCiudad);
@@ -301,10 +301,10 @@
         private Guna.UI2.WinForms.Guna2TextBox txtCiudad;
         private Guna.UI2.WinForms.Guna2ContextMenuStrip guna2ContextMenuStrip1;
         private Guna.UI2.WinForms.Guna2TextBox txtDireccion;
-        private System.Windows.Forms.Label label4;
         private Guna.UI2.WinForms.Guna2Button btnCrear;
         private Guna.UI2.WinForms.Guna2DateTimePicker dtpFechaNacimiento;
         private Guna.UI2.WinForms.Guna2TextBox txtCedula;
         private System.Windows.Forms.Label label1;
+        public System.Windows.Forms.Label lblCrearCliente;
     }
 }

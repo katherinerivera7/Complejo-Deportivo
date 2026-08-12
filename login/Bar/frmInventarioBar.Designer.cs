@@ -28,32 +28,32 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmInventarioBar));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmInventarioBar));
             this.pnlContenidoo = new Guna.UI2.WinForms.Guna2Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.cmbFiltro = new Guna.UI2.WinForms.Guna2ComboBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.pnlContenido = new System.Windows.Forms.Panel();
-            this.dgvReservas = new Guna.UI2.WinForms.Guna2DataGridView();
             this.btnBuscar = new Guna.UI2.WinForms.Guna2Button();
             this.txtNombre = new Guna.UI2.WinForms.Guna2TextBox();
+            this.label11 = new System.Windows.Forms.Label();
             this.btnImprimir = new Guna.UI2.WinForms.Guna2Button();
             this.btnCrear = new Guna.UI2.WinForms.Guna2Button();
             this.btnEditar = new Guna.UI2.WinForms.Guna2Button();
             this.btnEliminar = new Guna.UI2.WinForms.Guna2Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pnlContenido = new System.Windows.Forms.Panel();
+            this.dgvProductos = new Guna.UI2.WinForms.Guna2DataGridView();
             this.colProductoID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colPrecio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colStock = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pnlContenidoo.SuspendLayout();
             this.pnlContenido.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvReservas)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -104,9 +104,9 @@
             this.cmbFiltro.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.cmbFiltro.ItemHeight = 30;
             this.cmbFiltro.Items.AddRange(new object[] {
-            "Nombres",
-            "Apellidos",
-            "Teléfono"});
+            "ID Producto",
+            "Categoría",
+            "Nombre"});
             this.cmbFiltro.Location = new System.Drawing.Point(354, 150);
             this.cmbFiltro.Margin = new System.Windows.Forms.Padding(2);
             this.cmbFiltro.Name = "cmbFiltro";
@@ -128,75 +128,6 @@
             this.label2.TabIndex = 65;
             this.label2.Text = "Crea, elimina o modifica productos del bar";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.BackColor = System.Drawing.Color.Transparent;
-            this.label11.Font = new System.Drawing.Font("Segoe UI", 28F, System.Drawing.FontStyle.Bold);
-            this.label11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(37)))), ((int)(((byte)(87)))));
-            this.label11.Location = new System.Drawing.Point(11, 9);
-            this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(275, 51);
-            this.label11.TabIndex = 60;
-            this.label11.Text = "Inventario Bar";
-            // 
-            // pnlContenido
-            // 
-            this.pnlContenido.BackColor = System.Drawing.Color.White;
-            this.pnlContenido.Controls.Add(this.dgvReservas);
-            this.pnlContenido.Location = new System.Drawing.Point(12, 201);
-            this.pnlContenido.Name = "pnlContenido";
-            this.pnlContenido.Size = new System.Drawing.Size(966, 460);
-            this.pnlContenido.TabIndex = 50;
-            // 
-            // dgvReservas
-            // 
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
-            this.dgvReservas.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(155)))), ((int)(((byte)(75)))));
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(245)))), ((int)(((byte)(239)))));
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(155)))), ((int)(((byte)(75)))));
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvReservas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
-            this.dgvReservas.ColumnHeadersHeight = 50;
-            this.dgvReservas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            this.dgvReservas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.colProductoID,
-            this.colCategoria,
-            this.colNombre,
-            this.colPrecio,
-            this.colStock});
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Segoe UI", 10F);
-            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(233)))), ((int)(((byte)(251)))));
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvReservas.DefaultCellStyle = dataGridViewCellStyle9;
-            this.dgvReservas.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvReservas.GridColor = System.Drawing.SystemColors.Control;
-            this.dgvReservas.Location = new System.Drawing.Point(0, 0);
-            this.dgvReservas.Margin = new System.Windows.Forms.Padding(2);
-            this.dgvReservas.Name = "dgvReservas";
-            this.dgvReservas.RowHeadersVisible = false;
-            this.dgvReservas.RowHeadersWidth = 51;
-            this.dgvReservas.RowTemplate.Height = 24;
-            this.dgvReservas.Size = new System.Drawing.Size(966, 460);
-            this.dgvReservas.TabIndex = 0;
-            this.dgvReservas.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
-            this.dgvReservas.ThemeStyle.GridColor = System.Drawing.SystemColors.Control;
-            this.dgvReservas.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(155)))), ((int)(((byte)(75)))));
-            this.dgvReservas.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvReservas.ThemeStyle.HeaderStyle.Height = 50;
-            this.dgvReservas.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.dgvReservas.ThemeStyle.RowsStyle.Height = 24;
-            this.dgvReservas.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(233)))), ((int)(((byte)(251)))));
             // 
             // btnBuscar
             // 
@@ -234,13 +165,26 @@
             this.txtNombre.Location = new System.Drawing.Point(22, 98);
             this.txtNombre.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.txtNombre.Name = "txtNombre";
-            this.txtNombre.PlaceholderText = "Buscar por nombres, apellidos o teléfono";
+            this.txtNombre.PlaceholderText = "Buscar por ID Producto, categoría o nombre";
             this.txtNombre.SelectedText = "";
             this.txtNombre.ShadowDecoration.BorderRadius = 12;
             this.txtNombre.ShadowDecoration.Depth = 4;
             this.txtNombre.ShadowDecoration.Enabled = true;
             this.txtNombre.Size = new System.Drawing.Size(318, 39);
             this.txtNombre.TabIndex = 61;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.BackColor = System.Drawing.Color.Transparent;
+            this.label11.Font = new System.Drawing.Font("Segoe UI", 28F, System.Drawing.FontStyle.Bold);
+            this.label11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(37)))), ((int)(((byte)(87)))));
+            this.label11.Location = new System.Drawing.Point(11, 9);
+            this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(272, 51);
+            this.label11.TabIndex = 60;
+            this.label11.Text = "Productos Bar";
             // 
             // btnImprimir
             // 
@@ -281,6 +225,7 @@
             this.btnCrear.Size = new System.Drawing.Size(166, 39);
             this.btnCrear.TabIndex = 58;
             this.btnCrear.Text = "Crear";
+            this.btnCrear.Click += new System.EventHandler(this.btnCrear_Click);
             // 
             // btnEditar
             // 
@@ -322,15 +267,61 @@
             this.btnEliminar.TabIndex = 56;
             this.btnEliminar.Text = "Eliminar";
             // 
-            // pictureBox1
+            // pnlContenido
             // 
-            this.pictureBox1.Image = global::login.Properties.Resources.ILUSTRACIÓN_INVENTARIO;
-            this.pictureBox1.Location = new System.Drawing.Point(584, -12);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(420, 235);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 66;
-            this.pictureBox1.TabStop = false;
+            this.pnlContenido.BackColor = System.Drawing.Color.White;
+            this.pnlContenido.Controls.Add(this.dgvProductos);
+            this.pnlContenido.Location = new System.Drawing.Point(12, 201);
+            this.pnlContenido.Name = "pnlContenido";
+            this.pnlContenido.Size = new System.Drawing.Size(966, 460);
+            this.pnlContenido.TabIndex = 50;
+            // 
+            // dgvProductos
+            // 
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
+            this.dgvProductos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(155)))), ((int)(((byte)(75)))));
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(245)))), ((int)(((byte)(239)))));
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(155)))), ((int)(((byte)(75)))));
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvProductos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            this.dgvProductos.ColumnHeadersHeight = 50;
+            this.dgvProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            this.dgvProductos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.colProductoID,
+            this.colCategoria,
+            this.colNombre,
+            this.colPrecio,
+            this.colStock});
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Segoe UI", 10F);
+            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(233)))), ((int)(((byte)(251)))));
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvProductos.DefaultCellStyle = dataGridViewCellStyle9;
+            this.dgvProductos.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvProductos.GridColor = System.Drawing.SystemColors.Control;
+            this.dgvProductos.Location = new System.Drawing.Point(0, 0);
+            this.dgvProductos.Margin = new System.Windows.Forms.Padding(2);
+            this.dgvProductos.Name = "dgvProductos";
+            this.dgvProductos.RowHeadersVisible = false;
+            this.dgvProductos.RowHeadersWidth = 51;
+            this.dgvProductos.RowTemplate.Height = 24;
+            this.dgvProductos.Size = new System.Drawing.Size(966, 460);
+            this.dgvProductos.TabIndex = 0;
+            this.dgvProductos.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
+            this.dgvProductos.ThemeStyle.GridColor = System.Drawing.SystemColors.Control;
+            this.dgvProductos.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(155)))), ((int)(((byte)(75)))));
+            this.dgvProductos.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvProductos.ThemeStyle.HeaderStyle.Height = 50;
+            this.dgvProductos.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.dgvProductos.ThemeStyle.RowsStyle.Height = 24;
+            this.dgvProductos.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(233)))), ((int)(((byte)(251)))));
             // 
             // colProductoID
             // 
@@ -367,6 +358,16 @@
             this.colStock.MinimumWidth = 6;
             this.colStock.Name = "colStock";
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::login.Properties.Resources.ILUSTRACIÓN_INVENTARIO;
+            this.pictureBox1.Location = new System.Drawing.Point(584, -12);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(420, 235);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 66;
+            this.pictureBox1.TabStop = false;
+            // 
             // frmInventarioBar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -377,10 +378,11 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmInventarioBar";
             this.Text = "frmInventarioBar";
+            this.Load += new System.EventHandler(this.frmInventarioBar_Load);
             this.pnlContenidoo.ResumeLayout(false);
             this.pnlContenidoo.PerformLayout();
             this.pnlContenido.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvReservas)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
@@ -400,7 +402,7 @@
         private Guna.UI2.WinForms.Guna2Button btnEditar;
         private Guna.UI2.WinForms.Guna2Button btnEliminar;
         private System.Windows.Forms.Panel pnlContenido;
-        private Guna.UI2.WinForms.Guna2DataGridView dgvReservas;
+        private Guna.UI2.WinForms.Guna2DataGridView dgvProductos;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.DataGridViewTextBoxColumn colProductoID;
         private System.Windows.Forms.DataGridViewTextBoxColumn colCategoria;
