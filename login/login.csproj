@@ -464,5 +464,23 @@
   <ItemGroup>
     <None Include="Resources\FACTURAA.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-editar-96.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-dólar-64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-vender-stock-100.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-etiqueta-100.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-masgris-100.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\imagengris.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

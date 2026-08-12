@@ -60,12 +60,12 @@
             // 
             // lblCrearCliente
             // 
-            this.lblCrearCliente.AutoSize = true;
             this.lblCrearCliente.Font = new System.Drawing.Font("Segoe UI", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCrearCliente.Location = new System.Drawing.Point(135, 26);
+            this.lblCrearCliente.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(37)))), ((int)(((byte)(87)))));
+            this.lblCrearCliente.Location = new System.Drawing.Point(79, 26);
             this.lblCrearCliente.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblCrearCliente.Name = "lblCrearCliente";
-            this.lblCrearCliente.Size = new System.Drawing.Size(195, 41);
+            this.lblCrearCliente.Size = new System.Drawing.Size(318, 41);
             this.lblCrearCliente.TabIndex = 32;
             this.lblCrearCliente.Text = "Crear cliente";
             this.lblCrearCliente.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -93,6 +93,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(37)))), ((int)(((byte)(87)))));
             this.label1.Location = new System.Drawing.Point(75, 395);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";

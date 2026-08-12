@@ -1,15 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace login.Bar
+namespace login
 {
-    internal class csConectaSQL
+    class csConectaSQL
     {
         public SqlConnection oCon;
         SqlCommand oCom;
@@ -24,7 +20,7 @@ namespace login.Bar
 
         public csConectaSQL()
         {
-            Server = "LAPTOP-J5U2QS20\\SQLEXPRESS01";
+            Server = @"LAPTOP-J5U2QS20\SQLEXPRESS01";
             Database = "ComplejoDeportivo";
             Usuario = "Basados777";
             Clave = "Basados888";
@@ -36,7 +32,11 @@ namespace login.Bar
 
             try
             {
-                Cadena = @"Server=" + Server +";Database=" + Database +";Integrated Security=True;" +"TrustServerCertificate=True;";
+                Cadena =
+                    "Server=" + Server +
+                    ";Database=" + Database +
+                    ";Integrated Security=True;" +
+                    "TrustServerCertificate=True;";
 
                 oCon.ConnectionString = Cadena;
                 oCon.Open();
@@ -54,7 +54,12 @@ namespace login.Bar
         {
             try
             {
-                oCon.Close();
+                if (oCon != null &&
+                    oCon.State == ConnectionState.Open)
+                {
+                    oCon.Close();
+                }
+
                 return true;
             }
             catch (Exception ex)
@@ -64,15 +69,16 @@ namespace login.Bar
             }
         }
 
-        public DataTable retornaRegistros(string Sentencia)
+        // SELECT
+        public DataTable retornaRegistros(string sentencia)
         {
             oDT = new DataTable();
 
-            if (Sentencia.Length > 0)
+            try
             {
-                if (abrirConexion())
+                if (sentencia.Length > 0 && abrirConexion())
                 {
-                    oCom = new SqlCommand(Sentencia, oCon);
+                    oCom = new SqlCommand(sentencia, oCon);
                     oDA = new SqlDataAdapter(oCom);
 
                     oDA.Fill(oDT);
@@ -80,19 +86,28 @@ namespace login.Bar
                     cerrarConexion();
                 }
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                cerrarConexion();
+            }
 
             return oDT;
         }
 
-        public bool insertDatos(string tabla, string campos, string datos)
+        // ELIMINAR
+        public bool deleteDatos(string tabla, string condicion)
         {
             try
             {
                 if (abrirConexion())
                 {
-                    Cadena = "INSERT INTO " + tabla +"(" + campos + ")" +" VALUES (" + datos + ")";
+                    string consulta =
+                        "DELETE FROM " + tabla +
+                        " WHERE " + condicion;
 
-                    oCom = new SqlCommand(Cadena, oCon);
+                    oCom = new SqlCommand(consulta, oCon);
+
                     oCom.ExecuteNonQuery();
 
                     cerrarConexion();
@@ -105,21 +120,71 @@ namespace login.Bar
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+                cerrarConexion();
+
                 return false;
             }
         }
 
-        public bool editarDatos(string tabla, string datos, string condicion)
+        // INSERTAR PRODUCTO CON IMAGEN
+        public bool insertarProducto(
+            int categoriaID,
+            string nombre,
+            decimal precio,
+            int stock,
+            byte[] imagen)
         {
             try
             {
                 if (abrirConexion())
                 {
-                    Cadena = "UPDATE " + tabla +
-                             " SET " + datos +
-                             " WHERE " + condicion;
+                    string consulta = @"
+                        INSERT INTO Productos
+                        (
+                            CategoriaID,
+                            Nombre,
+                            Precio,
+                            Stock,
+                            Imagen
+                        )
+                        VALUES
+                        (
+                            @CategoriaID,
+                            @Nombre,
+                            @Precio,
+                            @Stock,
+                            @Imagen
+                        )";
 
-                    oCom = new SqlCommand(Cadena, oCon);
+                    oCom = new SqlCommand(consulta, oCon);
+
+                    oCom.Parameters.AddWithValue(
+                        "@CategoriaID", categoriaID);
+
+                    oCom.Parameters.AddWithValue(
+                        "@Nombre", nombre);
+
+                    oCom.Parameters.AddWithValue(
+                        "@Precio", precio);
+
+                    oCom.Parameters.AddWithValue(
+                        "@Stock", stock);
+
+                    if (imagen != null)
+                    {
+                        oCom.Parameters.Add(
+                            "@Imagen",
+                            SqlDbType.VarBinary,
+                            -1).Value = imagen;
+                    }
+                    else
+                    {
+                        oCom.Parameters.Add(
+                            "@Imagen",
+                            SqlDbType.VarBinary,
+                            -1).Value = DBNull.Value;
+                    }
+
                     oCom.ExecuteNonQuery();
 
                     cerrarConexion();
@@ -132,20 +197,67 @@ namespace login.Bar
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+                cerrarConexion();
+
                 return false;
             }
         }
 
-        public bool eliminarDatos(string tabla, string condicion)
+        // ACTUALIZAR PRODUCTO
+        public bool actualizarProducto(
+            int productoID,
+            int categoriaID,
+            string nombre,
+            decimal precio,
+            int stock,
+            byte[] imagen)
         {
             try
             {
                 if (abrirConexion())
                 {
-                    Cadena = "DELETE FROM " + tabla +
-                             " WHERE " + condicion;
+                    string consulta = @"
+                        UPDATE Productos
+                        SET
+                            CategoriaID = @CategoriaID,
+                            Nombre = @Nombre,
+                            Precio = @Precio,
+                            Stock = @Stock,
+                            Imagen = @Imagen
+                        WHERE ProductoID = @ProductoID";
 
-                    oCom = new SqlCommand(Cadena, oCon);
+                    oCom = new SqlCommand(consulta, oCon);
+
+                    oCom.Parameters.AddWithValue(
+                        "@ProductoID", productoID);
+
+                    oCom.Parameters.AddWithValue(
+                        "@CategoriaID", categoriaID);
+
+                    oCom.Parameters.AddWithValue(
+                        "@Nombre", nombre);
+
+                    oCom.Parameters.AddWithValue(
+                        "@Precio", precio);
+
+                    oCom.Parameters.AddWithValue(
+                        "@Stock", stock);
+
+                    if (imagen != null)
+                    {
+                        oCom.Parameters.Add(
+                            "@Imagen",
+                            SqlDbType.VarBinary,
+                            -1).Value = imagen;
+                    }
+                    else
+                    {
+                        oCom.Parameters.Add(
+                            "@Imagen",
+                            SqlDbType.VarBinary,
+                            -1).Value = DBNull.Value;
+                    }
+
                     oCom.ExecuteNonQuery();
 
                     cerrarConexion();
@@ -158,6 +270,8 @@ namespace login.Bar
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+                cerrarConexion();
+
                 return false;
             }
         }
