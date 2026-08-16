@@ -373,5 +373,77 @@ namespace login
                 return false;
             }
         }
+        public bool registrarMovimientoInventario(int productoID, int usuarioID, string tipoMovimiento, int cantidad, string motivo)
+        {
+            SqlTransaction transaccion = null;
+
+            try
+            {
+                if (!abrirConexion())
+                    return false;
+
+                transaccion = oCon.BeginTransaction();
+
+                string consultaStock = "SELECT Stock FROM Productos WHERE ProductoID = @ProductoID";
+                SqlCommand cmdStock = new SqlCommand(consultaStock, oCon, transaccion);
+                cmdStock.Parameters.AddWithValue("@ProductoID", productoID);
+
+                object resultado = cmdStock.ExecuteScalar();
+
+                if (resultado == null)
+                {
+                    transaccion.Rollback();
+                    cerrarConexion();
+                    MessageBox.Show("El producto no existe.");
+                    return false;
+                }
+
+                int stockActual = Convert.ToInt32(resultado);
+                int nuevoStock = stockActual;
+
+                if (tipoMovimiento == "Entrada")
+                    nuevoStock = stockActual + cantidad;
+                else if (tipoMovimiento == "Salida")
+                {
+                    if (cantidad > stockActual)
+                    {
+                        transaccion.Rollback();
+                        cerrarConexion();
+                        MessageBox.Show("No hay suficiente stock disponible.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return false;
+                    }
+
+                    nuevoStock = stockActual - cantidad;
+                }
+
+                string consultaMovimiento = "INSERT INTO MovimientosInventario (ProductoID, UsuarioID, TipoMovimiento, Cantidad, FechaMovimiento, Motivo) VALUES (@ProductoID, @UsuarioID, @TipoMovimiento, @Cantidad, GETDATE(), @Motivo)";
+                SqlCommand cmdMovimiento = new SqlCommand(consultaMovimiento, oCon, transaccion);
+                cmdMovimiento.Parameters.AddWithValue("@ProductoID", productoID);
+                cmdMovimiento.Parameters.AddWithValue("@UsuarioID", usuarioID);
+                cmdMovimiento.Parameters.AddWithValue("@TipoMovimiento", tipoMovimiento);
+                cmdMovimiento.Parameters.AddWithValue("@Cantidad", cantidad);
+                cmdMovimiento.Parameters.AddWithValue("@Motivo", motivo);
+                cmdMovimiento.ExecuteNonQuery();
+
+                string consultaActualizar = "UPDATE Productos SET Stock = @Stock WHERE ProductoID = @ProductoID";
+                SqlCommand cmdActualizar = new SqlCommand(consultaActualizar, oCon, transaccion);
+                cmdActualizar.Parameters.AddWithValue("@Stock", nuevoStock);
+                cmdActualizar.Parameters.AddWithValue("@ProductoID", productoID);
+                cmdActualizar.ExecuteNonQuery();
+
+                transaccion.Commit();
+                cerrarConexion();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                if (transaccion != null)
+                    transaccion.Rollback();
+
+                cerrarConexion();
+                MessageBox.Show(ex.Message);
+                return false;
+            }
+        }
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace login.Bar
 {
-    partial class frmInventarioBar
+    partial class frmHistorialMovimientos
     {
         /// <summary>
         /// Required designer variable.
@@ -31,39 +31,36 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmInventarioBar));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmHistorialMovimientos));
             this.pnlContenidoo = new Guna.UI2.WinForms.Guna2Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.cmbFiltro = new Guna.UI2.WinForms.Guna2ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.pnlContenido = new System.Windows.Forms.Panel();
-            this.dgvProductos = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.colProductoID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colPrecio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colStock = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label3 = new System.Windows.Forms.Label();
-            this.btnMovimiento = new Guna.UI2.WinForms.Guna2Button();
+            this.dgvMovimientos = new Guna.UI2.WinForms.Guna2DataGridView();
             this.btnBuscar = new Guna.UI2.WinForms.Guna2Button();
             this.txtNombre = new Guna.UI2.WinForms.Guna2TextBox();
             this.btnImprimir = new Guna.UI2.WinForms.Guna2Button();
-            this.btnCrear = new Guna.UI2.WinForms.Guna2Button();
-            this.btnEditar = new Guna.UI2.WinForms.Guna2Button();
-            this.btnEliminar = new Guna.UI2.WinForms.Guna2Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.colMovimientoID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colUsuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colTipoMovimiento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colCantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colFechaMovimiento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colMotivo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             this.pnlContenidoo.SuspendLayout();
             this.pnlContenido.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMovimientos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlContenidoo
             // 
             this.pnlContenidoo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(249)))), ((int)(((byte)(251)))));
-            this.pnlContenidoo.Controls.Add(this.label3);
-            this.pnlContenidoo.Controls.Add(this.btnMovimiento);
+            this.pnlContenidoo.Controls.Add(this.guna2Button1);
             this.pnlContenidoo.Controls.Add(this.label1);
             this.pnlContenidoo.Controls.Add(this.cmbFiltro);
             this.pnlContenidoo.Controls.Add(this.label2);
@@ -71,17 +68,15 @@
             this.pnlContenidoo.Controls.Add(this.txtNombre);
             this.pnlContenidoo.Controls.Add(this.label11);
             this.pnlContenidoo.Controls.Add(this.btnImprimir);
-            this.pnlContenidoo.Controls.Add(this.btnCrear);
-            this.pnlContenidoo.Controls.Add(this.btnEditar);
-            this.pnlContenidoo.Controls.Add(this.btnEliminar);
             this.pnlContenidoo.Controls.Add(this.pnlContenido);
             this.pnlContenidoo.Controls.Add(this.pictureBox1);
             this.pnlContenidoo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlContenidoo.Location = new System.Drawing.Point(0, 0);
-            this.pnlContenidoo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnlContenidoo.Margin = new System.Windows.Forms.Padding(2);
             this.pnlContenidoo.Name = "pnlContenidoo";
             this.pnlContenidoo.Size = new System.Drawing.Size(1062, 796);
-            this.pnlContenidoo.TabIndex = 1;
+            this.pnlContenidoo.TabIndex = 2;
+            this.pnlContenidoo.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlContenidoo_Paint);
             // 
             // label1
             // 
@@ -112,7 +107,7 @@
             "Categoría",
             "Nombre"});
             this.cmbFiltro.Location = new System.Drawing.Point(354, 150);
-            this.cmbFiltro.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cmbFiltro.Margin = new System.Windows.Forms.Padding(2);
             this.cmbFiltro.Name = "cmbFiltro";
             this.cmbFiltro.ShadowDecoration.BorderRadius = 14;
             this.cmbFiltro.ShadowDecoration.Depth = 4;
@@ -130,7 +125,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(419, 24);
             this.label2.TabIndex = 65;
-            this.label2.Text = "Crea, elimina o modifica productos del bar";
+            this.label2.Text = "Revisa las entradas/salidas de stocks de productos";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label11
@@ -142,23 +137,23 @@
             this.label11.Location = new System.Drawing.Point(11, 9);
             this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(272, 51);
+            this.label11.Size = new System.Drawing.Size(474, 51);
             this.label11.TabIndex = 60;
-            this.label11.Text = "Productos Bar";
+            this.label11.Text = "Historial de movimientos";
             // 
             // pnlContenido
             // 
             this.pnlContenido.BackColor = System.Drawing.Color.White;
-            this.pnlContenido.Controls.Add(this.dgvProductos);
+            this.pnlContenido.Controls.Add(this.dgvMovimientos);
             this.pnlContenido.Location = new System.Drawing.Point(12, 201);
             this.pnlContenido.Name = "pnlContenido";
             this.pnlContenido.Size = new System.Drawing.Size(966, 460);
             this.pnlContenido.TabIndex = 50;
             // 
-            // dgvProductos
+            // dgvMovimientos
             // 
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            this.dgvProductos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvMovimientos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(155)))), ((int)(((byte)(75)))));
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -166,15 +161,17 @@
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(155)))), ((int)(((byte)(75)))));
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvProductos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvProductos.ColumnHeadersHeight = 50;
-            this.dgvProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            this.dgvProductos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.colProductoID,
-            this.colCategoria,
-            this.colNombre,
-            this.colPrecio,
-            this.colStock});
+            this.dgvMovimientos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvMovimientos.ColumnHeadersHeight = 50;
+            this.dgvMovimientos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            this.dgvMovimientos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.colMovimientoID,
+            this.colProducto,
+            this.colUsuario,
+            this.colTipoMovimiento,
+            this.colCantidad,
+            this.colFechaMovimiento,
+            this.colMotivo});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 10F);
@@ -182,94 +179,25 @@
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(233)))), ((int)(((byte)(251)))));
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvProductos.DefaultCellStyle = dataGridViewCellStyle3;
-            this.dgvProductos.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvProductos.GridColor = System.Drawing.SystemColors.Control;
-            this.dgvProductos.Location = new System.Drawing.Point(0, 0);
-            this.dgvProductos.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.dgvProductos.Name = "dgvProductos";
-            this.dgvProductos.RowHeadersVisible = false;
-            this.dgvProductos.RowHeadersWidth = 51;
-            this.dgvProductos.RowTemplate.Height = 24;
-            this.dgvProductos.Size = new System.Drawing.Size(966, 460);
-            this.dgvProductos.TabIndex = 0;
-            this.dgvProductos.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
-            this.dgvProductos.ThemeStyle.GridColor = System.Drawing.SystemColors.Control;
-            this.dgvProductos.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(155)))), ((int)(((byte)(75)))));
-            this.dgvProductos.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvProductos.ThemeStyle.HeaderStyle.Height = 50;
-            this.dgvProductos.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.dgvProductos.ThemeStyle.RowsStyle.Height = 24;
-            this.dgvProductos.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(233)))), ((int)(((byte)(251)))));
-            // 
-            // colProductoID
-            // 
-            this.colProductoID.DataPropertyName = "ProductoID";
-            this.colProductoID.HeaderText = "ID Producto";
-            this.colProductoID.MinimumWidth = 6;
-            this.colProductoID.Name = "colProductoID";
-            // 
-            // colCategoria
-            // 
-            this.colCategoria.DataPropertyName = "CategoriaID";
-            this.colCategoria.HeaderText = "Categoría";
-            this.colCategoria.MinimumWidth = 6;
-            this.colCategoria.Name = "colCategoria";
-            // 
-            // colNombre
-            // 
-            this.colNombre.DataPropertyName = "Nombre";
-            this.colNombre.HeaderText = "Nombre";
-            this.colNombre.MinimumWidth = 6;
-            this.colNombre.Name = "colNombre";
-            // 
-            // colPrecio
-            // 
-            this.colPrecio.DataPropertyName = "Precio";
-            this.colPrecio.HeaderText = "Precio";
-            this.colPrecio.MinimumWidth = 6;
-            this.colPrecio.Name = "colPrecio";
-            // 
-            // colStock
-            // 
-            this.colStock.DataPropertyName = "Stock";
-            this.colStock.HeaderText = "Stock";
-            this.colStock.MinimumWidth = 6;
-            this.colStock.Name = "colStock";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.Green;
-            this.label3.Location = new System.Drawing.Point(18, 170);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(175, 16);
-            this.label3.TabIndex = 1;
-            this.label3.Text = "Ver historial de movimientos";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
-            // 
-            // btnMovimiento
-            // 
-            this.btnMovimiento.BackColor = System.Drawing.Color.Transparent;
-            this.btnMovimiento.BorderColor = System.Drawing.Color.Gainsboro;
-            this.btnMovimiento.BorderRadius = 14;
-            this.btnMovimiento.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnMovimiento.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnMovimiento.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnMovimiento.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnMovimiento.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(143)))), ((int)(((byte)(189)))), ((int)(((byte)(252)))));
-            this.btnMovimiento.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMovimiento.ForeColor = System.Drawing.Color.White;
-            this.btnMovimiento.Image = global::login.Properties.Resources.icons8_inventario_100;
-            this.btnMovimiento.Location = new System.Drawing.Point(768, 677);
-            this.btnMovimiento.Margin = new System.Windows.Forms.Padding(2);
-            this.btnMovimiento.Name = "btnMovimiento";
-            this.btnMovimiento.Size = new System.Drawing.Size(210, 39);
-            this.btnMovimiento.TabIndex = 67;
-            this.btnMovimiento.Text = "Registrar movimiento";
-            this.btnMovimiento.Click += new System.EventHandler(this.btnMovimiento_Click);
+            this.dgvMovimientos.DefaultCellStyle = dataGridViewCellStyle3;
+            this.dgvMovimientos.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvMovimientos.GridColor = System.Drawing.SystemColors.Control;
+            this.dgvMovimientos.Location = new System.Drawing.Point(0, 0);
+            this.dgvMovimientos.Margin = new System.Windows.Forms.Padding(2);
+            this.dgvMovimientos.Name = "dgvMovimientos";
+            this.dgvMovimientos.RowHeadersVisible = false;
+            this.dgvMovimientos.RowHeadersWidth = 51;
+            this.dgvMovimientos.RowTemplate.Height = 24;
+            this.dgvMovimientos.Size = new System.Drawing.Size(966, 460);
+            this.dgvMovimientos.TabIndex = 0;
+            this.dgvMovimientos.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
+            this.dgvMovimientos.ThemeStyle.GridColor = System.Drawing.SystemColors.Control;
+            this.dgvMovimientos.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(155)))), ((int)(((byte)(75)))));
+            this.dgvMovimientos.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvMovimientos.ThemeStyle.HeaderStyle.Height = 50;
+            this.dgvMovimientos.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.dgvMovimientos.ThemeStyle.RowsStyle.Height = 24;
+            this.dgvMovimientos.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(233)))), ((int)(((byte)(251)))));
             // 
             // btnBuscar
             // 
@@ -328,75 +256,12 @@
             this.btnImprimir.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnImprimir.ForeColor = System.Drawing.Color.White;
             this.btnImprimir.Image = ((System.Drawing.Image)(resources.GetObject("btnImprimir.Image")));
-            this.btnImprimir.Location = new System.Drawing.Point(585, 677);
+            this.btnImprimir.Location = new System.Drawing.Point(22, 677);
             this.btnImprimir.Margin = new System.Windows.Forms.Padding(2);
             this.btnImprimir.Name = "btnImprimir";
             this.btnImprimir.Size = new System.Drawing.Size(166, 39);
             this.btnImprimir.TabIndex = 59;
             this.btnImprimir.Text = "Imprimir";
-            // 
-            // btnCrear
-            // 
-            this.btnCrear.BackColor = System.Drawing.Color.Transparent;
-            this.btnCrear.BorderColor = System.Drawing.Color.Gainsboro;
-            this.btnCrear.BorderRadius = 14;
-            this.btnCrear.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnCrear.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnCrear.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnCrear.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnCrear.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(143)))), ((int)(((byte)(189)))), ((int)(((byte)(252)))));
-            this.btnCrear.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCrear.ForeColor = System.Drawing.Color.White;
-            this.btnCrear.Image = ((System.Drawing.Image)(resources.GetObject("btnCrear.Image")));
-            this.btnCrear.Location = new System.Drawing.Point(401, 677);
-            this.btnCrear.Margin = new System.Windows.Forms.Padding(2);
-            this.btnCrear.Name = "btnCrear";
-            this.btnCrear.Size = new System.Drawing.Size(166, 39);
-            this.btnCrear.TabIndex = 58;
-            this.btnCrear.Text = "Crear";
-            this.btnCrear.Click += new System.EventHandler(this.btnCrear_Click);
-            // 
-            // btnEditar
-            // 
-            this.btnEditar.BackColor = System.Drawing.Color.Transparent;
-            this.btnEditar.BorderColor = System.Drawing.Color.Gainsboro;
-            this.btnEditar.BorderRadius = 14;
-            this.btnEditar.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnEditar.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnEditar.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnEditar.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnEditar.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(155)))), ((int)(((byte)(75)))));
-            this.btnEditar.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEditar.ForeColor = System.Drawing.Color.White;
-            this.btnEditar.Image = ((System.Drawing.Image)(resources.GetObject("btnEditar.Image")));
-            this.btnEditar.Location = new System.Drawing.Point(212, 677);
-            this.btnEditar.Margin = new System.Windows.Forms.Padding(2);
-            this.btnEditar.Name = "btnEditar";
-            this.btnEditar.Size = new System.Drawing.Size(166, 39);
-            this.btnEditar.TabIndex = 57;
-            this.btnEditar.Text = "Editar";
-            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
-            // 
-            // btnEliminar
-            // 
-            this.btnEliminar.BackColor = System.Drawing.Color.Transparent;
-            this.btnEliminar.BorderColor = System.Drawing.Color.Gainsboro;
-            this.btnEliminar.BorderRadius = 14;
-            this.btnEliminar.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnEliminar.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnEliminar.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnEliminar.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnEliminar.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(143)))), ((int)(((byte)(189)))), ((int)(((byte)(252)))));
-            this.btnEliminar.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEliminar.ForeColor = System.Drawing.Color.White;
-            this.btnEliminar.Image = ((System.Drawing.Image)(resources.GetObject("btnEliminar.Image")));
-            this.btnEliminar.Location = new System.Drawing.Point(27, 677);
-            this.btnEliminar.Margin = new System.Windows.Forms.Padding(2);
-            this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(166, 39);
-            this.btnEliminar.TabIndex = 56;
-            this.btnEliminar.Text = "Eliminar";
-            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // pictureBox1
             // 
@@ -408,7 +273,77 @@
             this.pictureBox1.TabIndex = 66;
             this.pictureBox1.TabStop = false;
             // 
-            // frmInventarioBar
+            // colMovimientoID
+            // 
+            this.colMovimientoID.DataPropertyName = "MovimientoID";
+            this.colMovimientoID.HeaderText = "ID";
+            this.colMovimientoID.MinimumWidth = 6;
+            this.colMovimientoID.Name = "colMovimientoID";
+            // 
+            // colProducto
+            // 
+            this.colProducto.DataPropertyName = "Producto";
+            this.colProducto.HeaderText = "Producto";
+            this.colProducto.MinimumWidth = 6;
+            this.colProducto.Name = "colProducto";
+            // 
+            // colUsuario
+            // 
+            this.colUsuario.DataPropertyName = "Usuario";
+            this.colUsuario.HeaderText = "Usuario";
+            this.colUsuario.MinimumWidth = 6;
+            this.colUsuario.Name = "colUsuario";
+            // 
+            // colTipoMovimiento
+            // 
+            this.colTipoMovimiento.DataPropertyName = "TipoMovimiento";
+            this.colTipoMovimiento.HeaderText = "Tipo";
+            this.colTipoMovimiento.MinimumWidth = 6;
+            this.colTipoMovimiento.Name = "colTipoMovimiento";
+            // 
+            // colCantidad
+            // 
+            this.colCantidad.DataPropertyName = "Cantidad";
+            this.colCantidad.HeaderText = "Cantidad";
+            this.colCantidad.MinimumWidth = 6;
+            this.colCantidad.Name = "colCantidad";
+            // 
+            // colFechaMovimiento
+            // 
+            this.colFechaMovimiento.DataPropertyName = "FechaMovimiento";
+            this.colFechaMovimiento.HeaderText = "Fecha";
+            this.colFechaMovimiento.Name = "colFechaMovimiento";
+            // 
+            // colMotivo
+            // 
+            this.colMotivo.DataPropertyName = "Motivo";
+            this.colMotivo.HeaderText = "Motivo";
+            this.colMotivo.Name = "colMotivo";
+            // 
+            // guna2Button1
+            // 
+            this.guna2Button1.BackColor = System.Drawing.Color.Transparent;
+            this.guna2Button1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.guna2Button1.BorderRadius = 14;
+            this.guna2Button1.BorderThickness = 1;
+            this.guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2Button1.FillColor = System.Drawing.Color.White;
+            this.guna2Button1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2Button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.guna2Button1.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.guna2Button1.Image = ((System.Drawing.Image)(resources.GetObject("guna2Button1.Image")));
+            this.guna2Button1.Location = new System.Drawing.Point(218, 677);
+            this.guna2Button1.Margin = new System.Windows.Forms.Padding(2);
+            this.guna2Button1.Name = "guna2Button1";
+            this.guna2Button1.Size = new System.Drawing.Size(166, 39);
+            this.guna2Button1.TabIndex = 85;
+            this.guna2Button1.Text = "Volver";
+            this.guna2Button1.Click += new System.EventHandler(this.guna2Button1_Click);
+            // 
+            // frmHistorialMovimientos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -416,13 +351,13 @@
             this.ClientSize = new System.Drawing.Size(1062, 796);
             this.Controls.Add(this.pnlContenidoo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "frmInventarioBar";
-            this.Text = "frmInventarioBar";
-            this.Load += new System.EventHandler(this.frmInventarioBar_Load);
+            this.Name = "frmHistorialMovimientos";
+            this.Text = "frmHistorialMovimientos";
+            this.Load += new System.EventHandler(this.frmHistorialMovimientos_Load);
             this.pnlContenidoo.ResumeLayout(false);
             this.pnlContenidoo.PerformLayout();
             this.pnlContenido.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMovimientos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
@@ -438,18 +373,16 @@
         private Guna.UI2.WinForms.Guna2TextBox txtNombre;
         private System.Windows.Forms.Label label11;
         private Guna.UI2.WinForms.Guna2Button btnImprimir;
-        private Guna.UI2.WinForms.Guna2Button btnCrear;
-        private Guna.UI2.WinForms.Guna2Button btnEditar;
-        private Guna.UI2.WinForms.Guna2Button btnEliminar;
         private System.Windows.Forms.Panel pnlContenido;
-        private Guna.UI2.WinForms.Guna2DataGridView dgvProductos;
+        private Guna.UI2.WinForms.Guna2DataGridView dgvMovimientos;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colProductoID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colCategoria;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colNombre;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colPrecio;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colStock;
-        private Guna.UI2.WinForms.Guna2Button btnMovimiento;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colMovimientoID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colProducto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colUsuario;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colTipoMovimiento;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colCantidad;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colFechaMovimiento;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colMotivo;
+        private Guna.UI2.WinForms.Guna2Button guna2Button1;
     }
 }

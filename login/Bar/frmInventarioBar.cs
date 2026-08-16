@@ -1,12 +1,13 @@
-﻿using System;
+﻿using login.Promciones;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Data.SqlClient;
-using System.Data;
 using System.Windows.Forms;
 
 namespace login.Bar
@@ -85,6 +86,30 @@ namespace login.Bar
                 MessageBox.Show("Producto eliminado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 CargarProductos();
             }
+        }
+
+        private void btnMovimiento_Click(object sender, EventArgs e)
+        {
+            frmRegistrarMovimiento frm = new frmRegistrarMovimiento();
+            frm.StartPosition = FormStartPosition.CenterParent;
+            frm.ShowDialog(this);
+            CargarProductos();
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+            pnlContenidoo.Controls.Clear();
+            frmHistorialMovimientos frm = new frmHistorialMovimientos();
+
+            frm.TopLevel = false;
+            frm.FormBorderStyle = FormBorderStyle.None;
+            frm.Dock = DockStyle.Fill;
+
+            pnlContenidoo.Controls.Clear();
+            pnlContenidoo.Controls.Add(frm);
+            pnlContenidoo.Tag = frm;
+
+            frm.Show();
         }
     }
 }

@@ -66,7 +66,7 @@
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
             this.txtDescuento = new Guna.UI2.WinForms.Guna2TextBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.guna2ComboBox1 = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.cmbUnidadDescuento = new Guna.UI2.WinForms.Guna2ComboBox();
             this.cmbTipoPromocion = new Guna.UI2.WinForms.Guna2ComboBox();
             this.label9 = new System.Windows.Forms.Label();
             this.txtDescripcion = new Guna.UI2.WinForms.Guna2TextBox();
@@ -105,10 +105,10 @@
             this.pnlContenido.Controls.Add(this.guna2Panel2);
             this.pnlContenido.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlContenido.Location = new System.Drawing.Point(0, 0);
-            this.pnlContenido.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pnlContenido.Name = "pnlContenido";
-            this.pnlContenido.Size = new System.Drawing.Size(1272, 869);
+            this.pnlContenido.Size = new System.Drawing.Size(954, 706);
             this.pnlContenido.TabIndex = 0;
+            this.pnlContenido.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlContenido_Paint);
             // 
             // btnGuardar
             // 
@@ -123,10 +123,10 @@
             this.btnGuardar.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
             this.btnGuardar.ForeColor = System.Drawing.Color.White;
             this.btnGuardar.Image = global::login.Properties.Resources.icons8_guardar_50;
-            this.btnGuardar.Location = new System.Drawing.Point(943, 785);
-            this.btnGuardar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnGuardar.Location = new System.Drawing.Point(707, 638);
+            this.btnGuardar.Margin = new System.Windows.Forms.Padding(2);
             this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(272, 48);
+            this.btnGuardar.Size = new System.Drawing.Size(204, 39);
             this.btnGuardar.TabIndex = 69;
             this.btnGuardar.Text = "Guardar promoción";
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardarPromocion_Click);
@@ -144,10 +144,10 @@
             this.btnCancelar.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
             this.btnCancelar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.btnCancelar.Image = global::login.Properties.Resources.icons8_x_48;
-            this.btnCancelar.Location = new System.Drawing.Point(736, 785);
-            this.btnCancelar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnCancelar.Location = new System.Drawing.Point(552, 638);
+            this.btnCancelar.Margin = new System.Windows.Forms.Padding(2);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(169, 48);
+            this.btnCancelar.Size = new System.Drawing.Size(127, 39);
             this.btnCancelar.TabIndex = 68;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
@@ -161,12 +161,12 @@
             this.guna2Panel7.Controls.Add(this.pictureBox6);
             this.guna2Panel7.Controls.Add(this.label19);
             this.guna2Panel7.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(245)))), ((int)(((byte)(239)))));
-            this.guna2Panel7.Location = new System.Drawing.Point(736, 562);
-            this.guna2Panel7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.guna2Panel7.Location = new System.Drawing.Point(552, 457);
+            this.guna2Panel7.Margin = new System.Windows.Forms.Padding(2);
             this.guna2Panel7.Name = "guna2Panel7";
             this.guna2Panel7.ShadowDecoration.BorderRadius = 15;
             this.guna2Panel7.ShadowDecoration.Depth = 4;
-            this.guna2Panel7.Size = new System.Drawing.Size(488, 158);
+            this.guna2Panel7.Size = new System.Drawing.Size(366, 128);
             this.guna2Panel7.TabIndex = 67;
             // 
             // label20
@@ -175,19 +175,19 @@
             this.label20.BackColor = System.Drawing.Color.Transparent;
             this.label20.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold);
             this.label20.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.label20.Location = new System.Drawing.Point(64, 16);
+            this.label20.Location = new System.Drawing.Point(48, 13);
+            this.label20.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(145, 32);
+            this.label20.Size = new System.Drawing.Size(117, 25);
             this.label20.TabIndex = 67;
             this.label20.Text = "Información";
             // 
             // pictureBox6
             // 
             this.pictureBox6.Image = global::login.Properties.Resources.icons8_información_64;
-            this.pictureBox6.Location = new System.Drawing.Point(17, 16);
-            this.pictureBox6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox6.Location = new System.Drawing.Point(13, 13);
             this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(44, 28);
+            this.pictureBox6.Size = new System.Drawing.Size(33, 23);
             this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox6.TabIndex = 67;
             this.pictureBox6.TabStop = false;
@@ -197,9 +197,10 @@
             this.label19.BackColor = System.Drawing.Color.Transparent;
             this.label19.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
             this.label19.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.label19.Location = new System.Drawing.Point(24, 59);
+            this.label19.Location = new System.Drawing.Point(18, 48);
+            this.label19.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(449, 55);
+            this.label19.Size = new System.Drawing.Size(337, 45);
             this.label19.TabIndex = 65;
             this.label19.Text = "Verifica que el descuento y las condiciones sean correctos antes de guardar.";
             // 
@@ -207,9 +208,10 @@
             // 
             this.lblSubtitulo.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold);
             this.lblSubtitulo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.lblSubtitulo.Location = new System.Drawing.Point(41, 57);
+            this.lblSubtitulo.Location = new System.Drawing.Point(31, 46);
+            this.lblSubtitulo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblSubtitulo.Name = "lblSubtitulo";
-            this.lblSubtitulo.Size = new System.Drawing.Size(667, 38);
+            this.lblSubtitulo.Size = new System.Drawing.Size(500, 31);
             this.lblSubtitulo.TabIndex = 36;
             this.lblSubtitulo.Text = "Crea una nueva promoción para tus clientes";
             this.lblSubtitulo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -221,9 +223,10 @@
             this.lblTitulo.BackColor = System.Drawing.Color.Transparent;
             this.lblTitulo.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitulo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(37)))), ((int)(((byte)(87)))));
-            this.lblTitulo.Location = new System.Drawing.Point(40, 11);
+            this.lblTitulo.Location = new System.Drawing.Point(30, 9);
+            this.lblTitulo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(306, 46);
+            this.lblTitulo.Size = new System.Drawing.Size(247, 37);
             this.lblTitulo.TabIndex = 35;
             this.lblTitulo.Text = "Nueva Promoción";
             // 
@@ -237,13 +240,13 @@
             this.guna2Panel6.Controls.Add(this.pictureBox2);
             this.guna2Panel6.Controls.Add(this.label5);
             this.guna2Panel6.FillColor = System.Drawing.Color.White;
-            this.guna2Panel6.Location = new System.Drawing.Point(736, 389);
-            this.guna2Panel6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.guna2Panel6.Location = new System.Drawing.Point(552, 316);
+            this.guna2Panel6.Margin = new System.Windows.Forms.Padding(2);
             this.guna2Panel6.Name = "guna2Panel6";
             this.guna2Panel6.ShadowDecoration.BorderRadius = 15;
             this.guna2Panel6.ShadowDecoration.Depth = 4;
             this.guna2Panel6.ShadowDecoration.Enabled = true;
-            this.guna2Panel6.Size = new System.Drawing.Size(488, 158);
+            this.guna2Panel6.Size = new System.Drawing.Size(366, 128);
             this.guna2Panel6.TabIndex = 3;
             // 
             // cmbEstado
@@ -261,10 +264,10 @@
             this.cmbEstado.Items.AddRange(new object[] {
             "Activa",
             "Inactiva"});
-            this.cmbEstado.Location = new System.Drawing.Point(17, 91);
-            this.cmbEstado.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cmbEstado.Location = new System.Drawing.Point(13, 74);
+            this.cmbEstado.Margin = new System.Windows.Forms.Padding(2);
             this.cmbEstado.Name = "cmbEstado";
-            this.cmbEstado.Size = new System.Drawing.Size(443, 31);
+            this.cmbEstado.Size = new System.Drawing.Size(333, 31);
             this.cmbEstado.StartIndex = 0;
             this.cmbEstado.TabIndex = 66;
             // 
@@ -274,19 +277,19 @@
             this.label18.BackColor = System.Drawing.Color.Transparent;
             this.label18.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
             this.label18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(37)))), ((int)(((byte)(87)))));
-            this.label18.Location = new System.Drawing.Point(12, 63);
+            this.label18.Location = new System.Drawing.Point(9, 51);
+            this.label18.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(191, 23);
+            this.label18.Size = new System.Drawing.Size(156, 19);
             this.label18.TabIndex = 65;
             this.label18.Text = "Estado de la promoción";
             // 
             // pictureBox2
             // 
             this.pictureBox2.Image = global::login.Properties.Resources.icons8_proteccion_100;
-            this.pictureBox2.Location = new System.Drawing.Point(17, 16);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox2.Location = new System.Drawing.Point(13, 13);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(44, 28);
+            this.pictureBox2.Size = new System.Drawing.Size(33, 23);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 41;
             this.pictureBox2.TabStop = false;
@@ -297,9 +300,10 @@
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold);
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.label5.Location = new System.Drawing.Point(56, 16);
+            this.label5.Location = new System.Drawing.Point(42, 13);
+            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(112, 32);
+            this.label5.Size = new System.Drawing.Size(90, 25);
             this.label5.TabIndex = 41;
             this.label5.Text = "5. Estado";
             // 
@@ -313,13 +317,13 @@
             this.guna2Panel5.Controls.Add(this.pictureBox1);
             this.guna2Panel5.Controls.Add(this.label4);
             this.guna2Panel5.FillColor = System.Drawing.Color.White;
-            this.guna2Panel5.Location = new System.Drawing.Point(736, 100);
-            this.guna2Panel5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.guna2Panel5.Location = new System.Drawing.Point(552, 81);
+            this.guna2Panel5.Margin = new System.Windows.Forms.Padding(2);
             this.guna2Panel5.Name = "guna2Panel5";
             this.guna2Panel5.ShadowDecoration.BorderRadius = 15;
             this.guna2Panel5.ShadowDecoration.Depth = 4;
             this.guna2Panel5.ShadowDecoration.Enabled = true;
-            this.guna2Panel5.Size = new System.Drawing.Size(488, 271);
+            this.guna2Panel5.Size = new System.Drawing.Size(366, 220);
             this.guna2Panel5.TabIndex = 2;
             // 
             // txtCondiciones
@@ -334,12 +338,12 @@
             this.txtCondiciones.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.txtCondiciones.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.txtCondiciones.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtCondiciones.Location = new System.Drawing.Point(17, 91);
-            this.txtCondiciones.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.txtCondiciones.Location = new System.Drawing.Point(13, 74);
+            this.txtCondiciones.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.txtCondiciones.Name = "txtCondiciones";
             this.txtCondiciones.PlaceholderText = "Ej. No acumulable con otras promociones";
             this.txtCondiciones.SelectedText = "";
-            this.txtCondiciones.Size = new System.Drawing.Size(444, 161);
+            this.txtCondiciones.Size = new System.Drawing.Size(333, 131);
             this.txtCondiciones.TabIndex = 60;
             // 
             // label17
@@ -348,19 +352,19 @@
             this.label17.BackColor = System.Drawing.Color.Transparent;
             this.label17.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
             this.label17.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(37)))), ((int)(((byte)(87)))));
-            this.label17.Location = new System.Drawing.Point(12, 64);
+            this.label17.Location = new System.Drawing.Point(9, 52);
+            this.label17.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(298, 23);
+            this.label17.Size = new System.Drawing.Size(248, 19);
             this.label17.TabIndex = 59;
             this.label17.Text = "Condiciones y restricciones (opcional)";
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::login.Properties.Resources.icons8_documento_100;
-            this.pictureBox1.Location = new System.Drawing.Point(17, 20);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox1.Location = new System.Drawing.Point(13, 16);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(44, 28);
+            this.pictureBox1.Size = new System.Drawing.Size(33, 23);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 38;
             this.pictureBox1.TabStop = false;
@@ -371,9 +375,10 @@
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold);
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.label4.Location = new System.Drawing.Point(56, 17);
+            this.label4.Location = new System.Drawing.Point(42, 14);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(172, 32);
+            this.label4.Size = new System.Drawing.Size(137, 25);
             this.label4.TabIndex = 40;
             this.label4.Text = "4. Condiciones";
             // 
@@ -389,13 +394,13 @@
             this.guna2Panel4.Controls.Add(this.pictureBox5);
             this.guna2Panel4.Controls.Add(this.label3);
             this.guna2Panel4.FillColor = System.Drawing.Color.White;
-            this.guna2Panel4.Location = new System.Drawing.Point(49, 693);
-            this.guna2Panel4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.guna2Panel4.Location = new System.Drawing.Point(37, 563);
+            this.guna2Panel4.Margin = new System.Windows.Forms.Padding(2);
             this.guna2Panel4.Name = "guna2Panel4";
             this.guna2Panel4.ShadowDecoration.BorderRadius = 15;
             this.guna2Panel4.ShadowDecoration.Depth = 4;
             this.guna2Panel4.ShadowDecoration.Enabled = true;
-            this.guna2Panel4.Size = new System.Drawing.Size(663, 143);
+            this.guna2Panel4.Size = new System.Drawing.Size(497, 116);
             this.guna2Panel4.TabIndex = 3;
             // 
             // label16
@@ -404,9 +409,10 @@
             this.label16.BackColor = System.Drawing.Color.Transparent;
             this.label16.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
             this.label16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(37)))), ((int)(((byte)(87)))));
-            this.label16.Location = new System.Drawing.Point(332, 54);
+            this.label16.Location = new System.Drawing.Point(249, 44);
+            this.label16.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(170, 23);
+            this.label16.Size = new System.Drawing.Size(141, 19);
             this.label16.TabIndex = 68;
             this.label16.Text = "Fecha de finalización";
             // 
@@ -420,12 +426,11 @@
             this.dtpFechaFin.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.dtpFechaFin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
             this.dtpFechaFin.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpFechaFin.Location = new System.Drawing.Point(337, 81);
-            this.dtpFechaFin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dtpFechaFin.Location = new System.Drawing.Point(253, 66);
             this.dtpFechaFin.MaxDate = new System.DateTime(2026, 12, 31, 0, 0, 0, 0);
             this.dtpFechaFin.MinDate = new System.DateTime(2026, 8, 9, 0, 0, 0, 0);
             this.dtpFechaFin.Name = "dtpFechaFin";
-            this.dtpFechaFin.Size = new System.Drawing.Size(273, 37);
+            this.dtpFechaFin.Size = new System.Drawing.Size(205, 30);
             this.dtpFechaFin.TabIndex = 67;
             this.dtpFechaFin.Value = new System.DateTime(2026, 8, 9, 0, 0, 0, 0);
             // 
@@ -439,14 +444,14 @@
             this.dtpFechaInicio.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.dtpFechaInicio.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
             this.dtpFechaInicio.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpFechaInicio.Location = new System.Drawing.Point(31, 81);
-            this.dtpFechaInicio.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dtpFechaInicio.Location = new System.Drawing.Point(23, 66);
             this.dtpFechaInicio.MaxDate = new System.DateTime(2026, 12, 31, 0, 0, 0, 0);
             this.dtpFechaInicio.MinDate = new System.DateTime(2026, 8, 9, 0, 0, 0, 0);
             this.dtpFechaInicio.Name = "dtpFechaInicio";
-            this.dtpFechaInicio.Size = new System.Drawing.Size(273, 37);
+            this.dtpFechaInicio.Size = new System.Drawing.Size(205, 30);
             this.dtpFechaInicio.TabIndex = 66;
             this.dtpFechaInicio.Value = new System.DateTime(2026, 8, 9, 0, 0, 0, 0);
+            this.dtpFechaInicio.ValueChanged += new System.EventHandler(this.dtpFechaInicio_ValueChanged);
             // 
             // label15
             // 
@@ -454,19 +459,19 @@
             this.label15.BackColor = System.Drawing.Color.Transparent;
             this.label15.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
             this.label15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(37)))), ((int)(((byte)(87)))));
-            this.label15.Location = new System.Drawing.Point(25, 54);
+            this.label15.Location = new System.Drawing.Point(19, 44);
+            this.label15.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(124, 23);
+            this.label15.Size = new System.Drawing.Size(103, 19);
             this.label15.TabIndex = 65;
             this.label15.Text = "Fecha de inicio";
             // 
             // pictureBox5
             // 
             this.pictureBox5.Image = global::login.Properties.Resources.icons8_horas_extras_32;
-            this.pictureBox5.Location = new System.Drawing.Point(17, 15);
-            this.pictureBox5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox5.Location = new System.Drawing.Point(13, 12);
             this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(44, 28);
+            this.pictureBox5.Size = new System.Drawing.Size(33, 23);
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox5.TabIndex = 41;
             this.pictureBox5.TabStop = false;
@@ -477,9 +482,10 @@
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold);
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.label3.Location = new System.Drawing.Point(68, 12);
+            this.label3.Location = new System.Drawing.Point(51, 10);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(132, 32);
+            this.label3.Size = new System.Drawing.Size(106, 25);
             this.label3.TabIndex = 39;
             this.label3.Text = "3. Vigencia";
             // 
@@ -497,13 +503,13 @@
             this.guna2Panel3.Controls.Add(this.pictureBox4);
             this.guna2Panel3.Controls.Add(this.label2);
             this.guna2Panel3.FillColor = System.Drawing.Color.White;
-            this.guna2Panel3.Location = new System.Drawing.Point(49, 464);
-            this.guna2Panel3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.guna2Panel3.Location = new System.Drawing.Point(37, 377);
+            this.guna2Panel3.Margin = new System.Windows.Forms.Padding(2);
             this.guna2Panel3.Name = "guna2Panel3";
             this.guna2Panel3.ShadowDecoration.BorderRadius = 15;
             this.guna2Panel3.ShadowDecoration.Depth = 4;
             this.guna2Panel3.ShadowDecoration.Enabled = true;
-            this.guna2Panel3.Size = new System.Drawing.Size(663, 213);
+            this.guna2Panel3.Size = new System.Drawing.Size(497, 173);
             this.guna2Panel3.TabIndex = 2;
             // 
             // cmbServicio
@@ -519,13 +525,15 @@
             this.cmbServicio.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.cmbServicio.ItemHeight = 25;
             this.cmbServicio.Items.AddRange(new object[] {
+            "Ninguno",
             "Árbitro"});
-            this.cmbServicio.Location = new System.Drawing.Point(31, 158);
-            this.cmbServicio.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cmbServicio.Location = new System.Drawing.Point(23, 128);
+            this.cmbServicio.Margin = new System.Windows.Forms.Padding(2);
             this.cmbServicio.Name = "cmbServicio";
-            this.cmbServicio.Size = new System.Drawing.Size(593, 31);
+            this.cmbServicio.Size = new System.Drawing.Size(446, 31);
             this.cmbServicio.StartIndex = 0;
             this.cmbServicio.TabIndex = 64;
+            this.cmbServicio.SelectedIndexChanged += new System.EventHandler(this.cmbServicio_SelectedIndexChanged);
             // 
             // label14
             // 
@@ -533,9 +541,10 @@
             this.label14.BackColor = System.Drawing.Color.Transparent;
             this.label14.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
             this.label14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(37)))), ((int)(((byte)(87)))));
-            this.label14.Location = new System.Drawing.Point(25, 132);
+            this.label14.Location = new System.Drawing.Point(19, 107);
+            this.label14.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(231, 23);
+            this.label14.Size = new System.Drawing.Size(195, 19);
             this.label14.TabIndex = 63;
             this.label14.Text = "Servicios incluidos (opcional)";
             // 
@@ -556,10 +565,10 @@
             "Canchas de fútbol",
             "Canchas de básquet",
             "Canchas de voley"});
-            this.cmbAplicarA.Location = new System.Drawing.Point(337, 85);
-            this.cmbAplicarA.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cmbAplicarA.Location = new System.Drawing.Point(253, 69);
+            this.cmbAplicarA.Margin = new System.Windows.Forms.Padding(2);
             this.cmbAplicarA.Name = "cmbAplicarA";
-            this.cmbAplicarA.Size = new System.Drawing.Size(287, 31);
+            this.cmbAplicarA.Size = new System.Drawing.Size(216, 31);
             this.cmbAplicarA.StartIndex = 0;
             this.cmbAplicarA.TabIndex = 62;
             // 
@@ -569,9 +578,10 @@
             this.label13.BackColor = System.Drawing.Color.Transparent;
             this.label13.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
             this.label13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(37)))), ((int)(((byte)(87)))));
-            this.label13.Location = new System.Drawing.Point(341, 59);
+            this.label13.Location = new System.Drawing.Point(256, 48);
+            this.label13.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(76, 23);
+            this.label13.Size = new System.Drawing.Size(64, 19);
             this.label13.TabIndex = 61;
             this.label13.Text = "Aplicar a";
             // 
@@ -590,10 +600,10 @@
             this.cmbTipoCliente.Items.AddRange(new object[] {
             "Todos los clientes",
             "Clientes frecuentes"});
-            this.cmbTipoCliente.Location = new System.Drawing.Point(31, 85);
-            this.cmbTipoCliente.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cmbTipoCliente.Location = new System.Drawing.Point(23, 69);
+            this.cmbTipoCliente.Margin = new System.Windows.Forms.Padding(2);
             this.cmbTipoCliente.Name = "cmbTipoCliente";
-            this.cmbTipoCliente.Size = new System.Drawing.Size(284, 31);
+            this.cmbTipoCliente.Size = new System.Drawing.Size(214, 31);
             this.cmbTipoCliente.StartIndex = 0;
             this.cmbTipoCliente.TabIndex = 60;
             // 
@@ -603,19 +613,19 @@
             this.label12.BackColor = System.Drawing.Color.Transparent;
             this.label12.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
             this.label12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(37)))), ((int)(((byte)(87)))));
-            this.label12.Location = new System.Drawing.Point(25, 59);
+            this.label12.Location = new System.Drawing.Point(19, 48);
+            this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(122, 23);
+            this.label12.Size = new System.Drawing.Size(102, 19);
             this.label12.TabIndex = 59;
             this.label12.Text = "Tipo de cliente";
             // 
             // pictureBox4
             // 
             this.pictureBox4.Image = global::login.Properties.Resources.icons8_objetivo_100;
-            this.pictureBox4.Location = new System.Drawing.Point(17, 16);
-            this.pictureBox4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox4.Location = new System.Drawing.Point(13, 13);
             this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(44, 28);
+            this.pictureBox4.Size = new System.Drawing.Size(33, 23);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox4.TabIndex = 40;
             this.pictureBox4.TabStop = false;
@@ -626,9 +636,10 @@
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold);
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.label2.Location = new System.Drawing.Point(68, 14);
+            this.label2.Location = new System.Drawing.Point(51, 11);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(151, 32);
+            this.label2.Size = new System.Drawing.Size(122, 25);
             this.label2.TabIndex = 38;
             this.label2.Text = "2. Aplicación";
             // 
@@ -639,7 +650,7 @@
             this.guna2Panel2.BorderRadius = 15;
             this.guna2Panel2.Controls.Add(this.txtDescuento);
             this.guna2Panel2.Controls.Add(this.label10);
-            this.guna2Panel2.Controls.Add(this.guna2ComboBox1);
+            this.guna2Panel2.Controls.Add(this.cmbUnidadDescuento);
             this.guna2Panel2.Controls.Add(this.cmbTipoPromocion);
             this.guna2Panel2.Controls.Add(this.label9);
             this.guna2Panel2.Controls.Add(this.txtDescripcion);
@@ -649,13 +660,13 @@
             this.guna2Panel2.Controls.Add(this.pictureBox3);
             this.guna2Panel2.Controls.Add(this.label1);
             this.guna2Panel2.FillColor = System.Drawing.Color.White;
-            this.guna2Panel2.Location = new System.Drawing.Point(47, 100);
-            this.guna2Panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.guna2Panel2.Location = new System.Drawing.Point(35, 81);
+            this.guna2Panel2.Margin = new System.Windows.Forms.Padding(2);
             this.guna2Panel2.Name = "guna2Panel2";
             this.guna2Panel2.ShadowDecoration.BorderRadius = 15;
             this.guna2Panel2.ShadowDecoration.Depth = 4;
             this.guna2Panel2.ShadowDecoration.Enabled = true;
-            this.guna2Panel2.Size = new System.Drawing.Size(663, 346);
+            this.guna2Panel2.Size = new System.Drawing.Size(497, 281);
             this.guna2Panel2.TabIndex = 1;
             // 
             // txtDescuento
@@ -670,13 +681,14 @@
             this.txtDescuento.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.txtDescuento.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.txtDescuento.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtDescuento.Location = new System.Drawing.Point(385, 273);
-            this.txtDescuento.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.txtDescuento.Location = new System.Drawing.Point(289, 222);
+            this.txtDescuento.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.txtDescuento.Name = "txtDescuento";
             this.txtDescuento.PlaceholderText = "Ej. 10";
             this.txtDescuento.SelectedText = "";
-            this.txtDescuento.Size = new System.Drawing.Size(165, 38);
+            this.txtDescuento.Size = new System.Drawing.Size(124, 31);
             this.txtDescuento.TabIndex = 58;
+            this.txtDescuento.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDescuento_KeyPress);
             // 
             // label10
             // 
@@ -684,33 +696,35 @@
             this.label10.BackColor = System.Drawing.Color.Transparent;
             this.label10.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
             this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(37)))), ((int)(((byte)(87)))));
-            this.label10.Location = new System.Drawing.Point(380, 246);
+            this.label10.Location = new System.Drawing.Point(285, 200);
+            this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(91, 23);
+            this.label10.Size = new System.Drawing.Size(75, 19);
             this.label10.TabIndex = 57;
             this.label10.Text = "Descuento";
             // 
-            // guna2ComboBox1
+            // cmbUnidadDescuento
             // 
-            this.guna2ComboBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.guna2ComboBox1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2ComboBox1.BorderRadius = 8;
-            this.guna2ComboBox1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.guna2ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.guna2ComboBox1.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.guna2ComboBox1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.guna2ComboBox1.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.guna2ComboBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
-            this.guna2ComboBox1.ItemHeight = 25;
-            this.guna2ComboBox1.Items.AddRange(new object[] {
+            this.cmbUnidadDescuento.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cmbUnidadDescuento.BackColor = System.Drawing.Color.Transparent;
+            this.cmbUnidadDescuento.BorderRadius = 8;
+            this.cmbUnidadDescuento.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cmbUnidadDescuento.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbUnidadDescuento.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.cmbUnidadDescuento.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.cmbUnidadDescuento.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.cmbUnidadDescuento.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.cmbUnidadDescuento.ItemHeight = 25;
+            this.cmbUnidadDescuento.Items.AddRange(new object[] {
             "%",
             "$"});
-            this.guna2ComboBox1.Location = new System.Drawing.Point(557, 273);
-            this.guna2ComboBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.guna2ComboBox1.Name = "guna2ComboBox1";
-            this.guna2ComboBox1.Size = new System.Drawing.Size(69, 31);
-            this.guna2ComboBox1.StartIndex = 0;
-            this.guna2ComboBox1.TabIndex = 56;
+            this.cmbUnidadDescuento.Location = new System.Drawing.Point(418, 222);
+            this.cmbUnidadDescuento.Margin = new System.Windows.Forms.Padding(2);
+            this.cmbUnidadDescuento.Name = "cmbUnidadDescuento";
+            this.cmbUnidadDescuento.Size = new System.Drawing.Size(53, 31);
+            this.cmbUnidadDescuento.StartIndex = 0;
+            this.cmbUnidadDescuento.TabIndex = 56;
+            this.cmbUnidadDescuento.SelectedIndexChanged += new System.EventHandler(this.cmbUnidadDescuento_SelectedIndexChanged);
             // 
             // cmbTipoPromocion
             // 
@@ -727,10 +741,10 @@
             this.cmbTipoPromocion.Items.AddRange(new object[] {
             "Descuento porcentual",
             "Descuento fijo"});
-            this.cmbTipoPromocion.Location = new System.Drawing.Point(33, 273);
-            this.cmbTipoPromocion.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cmbTipoPromocion.Location = new System.Drawing.Point(25, 222);
+            this.cmbTipoPromocion.Margin = new System.Windows.Forms.Padding(2);
             this.cmbTipoPromocion.Name = "cmbTipoPromocion";
-            this.cmbTipoPromocion.Size = new System.Drawing.Size(331, 31);
+            this.cmbTipoPromocion.Size = new System.Drawing.Size(249, 31);
             this.cmbTipoPromocion.StartIndex = 0;
             this.cmbTipoPromocion.TabIndex = 55;
             // 
@@ -740,9 +754,10 @@
             this.label9.BackColor = System.Drawing.Color.Transparent;
             this.label9.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
             this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(37)))), ((int)(((byte)(87)))));
-            this.label9.Location = new System.Drawing.Point(28, 247);
+            this.label9.Location = new System.Drawing.Point(21, 201);
+            this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(155, 23);
+            this.label9.Size = new System.Drawing.Size(128, 19);
             this.label9.TabIndex = 47;
             this.label9.Text = "Tipo de promoción";
             // 
@@ -758,12 +773,12 @@
             this.txtDescripcion.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.txtDescripcion.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.txtDescripcion.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtDescripcion.Location = new System.Drawing.Point(33, 156);
-            this.txtDescripcion.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.txtDescripcion.Location = new System.Drawing.Point(25, 127);
+            this.txtDescripcion.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.txtDescripcion.Name = "txtDescripcion";
             this.txtDescripcion.PlaceholderText = "Describe los detalles de la promoción...";
             this.txtDescripcion.SelectedText = "";
-            this.txtDescripcion.Size = new System.Drawing.Size(601, 75);
+            this.txtDescripcion.Size = new System.Drawing.Size(451, 61);
             this.txtDescripcion.TabIndex = 46;
             // 
             // label8
@@ -772,9 +787,10 @@
             this.label8.BackColor = System.Drawing.Color.Transparent;
             this.label8.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
             this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(37)))), ((int)(((byte)(87)))));
-            this.label8.Location = new System.Drawing.Point(28, 129);
+            this.label8.Location = new System.Drawing.Point(21, 105);
+            this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(98, 23);
+            this.label8.Size = new System.Drawing.Size(83, 19);
             this.label8.TabIndex = 45;
             this.label8.Text = "Descripción";
             // 
@@ -790,12 +806,12 @@
             this.txtNombre.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.txtNombre.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.txtNombre.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtNombre.Location = new System.Drawing.Point(33, 91);
-            this.txtNombre.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.txtNombre.Location = new System.Drawing.Point(25, 74);
+            this.txtNombre.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.PlaceholderText = "Ej. 15% de descuento en canchas";
             this.txtNombre.SelectedText = "";
-            this.txtNombre.Size = new System.Drawing.Size(601, 33);
+            this.txtNombre.Size = new System.Drawing.Size(451, 27);
             this.txtNombre.TabIndex = 44;
             // 
             // label7
@@ -804,19 +820,19 @@
             this.label7.BackColor = System.Drawing.Color.Transparent;
             this.label7.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
             this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(37)))), ((int)(((byte)(87)))));
-            this.label7.Location = new System.Drawing.Point(28, 64);
+            this.label7.Location = new System.Drawing.Point(21, 52);
+            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(203, 23);
+            this.label7.Size = new System.Drawing.Size(166, 19);
             this.label7.TabIndex = 37;
             this.label7.Text = "Nombre de la promoción";
             // 
             // pictureBox3
             // 
             this.pictureBox3.Image = global::login.Properties.Resources.icons8_etiqueta_48;
-            this.pictureBox3.Location = new System.Drawing.Point(20, 20);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox3.Location = new System.Drawing.Point(15, 16);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(44, 28);
+            this.pictureBox3.Size = new System.Drawing.Size(33, 23);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox3.TabIndex = 39;
             this.pictureBox3.TabStop = false;
@@ -827,21 +843,22 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold);
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.label1.Location = new System.Drawing.Point(71, 17);
+            this.label1.Location = new System.Drawing.Point(53, 14);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(352, 32);
+            this.label1.Size = new System.Drawing.Size(279, 25);
             this.label1.TabIndex = 37;
             this.label1.Text = "1. Información de la promoción";
             // 
             // frmCrearPromocion
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1272, 869);
+            this.ClientSize = new System.Drawing.Size(954, 706);
             this.Controls.Add(this.pnlContenido);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmCrearPromocion";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmCrearPromocion";
@@ -900,7 +917,7 @@
         private System.Windows.Forms.Label label12;
         private Guna.UI2.WinForms.Guna2TextBox txtDescuento;
         private System.Windows.Forms.Label label10;
-        private Guna.UI2.WinForms.Guna2ComboBox guna2ComboBox1;
+        private Guna.UI2.WinForms.Guna2ComboBox cmbUnidadDescuento;
         private System.Windows.Forms.Label label15;
         private Guna.UI2.WinForms.Guna2ComboBox cmbServicio;
         private System.Windows.Forms.Label label14;

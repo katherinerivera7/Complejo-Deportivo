@@ -1,4 +1,5 @@
-﻿using System;
+﻿using login.Bar;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -104,6 +105,9 @@ namespace login
                                 int usuarioID = Convert.ToInt32(reader["UsuarioID"]);
                                 string nombreUsuario = reader["NombreUsuario"].ToString();
                                 string rol = reader["Rol"].ToString();
+                                csSesionUsuario.UsuarioID = usuarioID;
+                                csSesionUsuario.NombreUsuario = nombreUsuario;
+                                csSesionUsuario.Rol = rol;
 
                                 MessageBox.Show(
                                     "Bienvenido, " + nombreUsuario,
