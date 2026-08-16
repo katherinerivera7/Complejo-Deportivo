@@ -109,6 +109,12 @@
     <Compile Include="Bar\frmRegistroVenta.Designer.cs">
       <DependentUpon>frmRegistroVenta.cs</DependentUpon>
     </Compile>
+    <Compile Include="Bar\UCTarjetaProducto.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Bar\UCTarjetaProducto.Designer.cs">
+      <DependentUpon>UCTarjetaProducto.cs</DependentUpon>
+    </Compile>
     <Compile Include="CrearCuenta.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -296,6 +302,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Bar\frmRegistroVenta.resx">
       <DependentUpon>frmRegistroVenta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Bar\UCTarjetaProducto.resx">
+      <DependentUpon>UCTarjetaProducto.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CrearCuenta.resx">
       <DependentUpon>CrearCuenta.cs</DependentUpon>

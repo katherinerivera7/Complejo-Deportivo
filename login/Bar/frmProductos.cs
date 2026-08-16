@@ -13,6 +13,7 @@ namespace login.Bar
         int tipo = 1;
         int productoID = 0;
         private byte[] imagenProducto = null;
+        public static event Action ProductoGuardado;
 
         public frmProductos()
         {
@@ -117,7 +118,9 @@ namespace login.Bar
                 if (oCon.insertarProducto(categoriaID, nombre, precio, stock, imagenProducto))
                 {
                     MessageBox.Show("Producto registrado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    this.Close();
+                    ProductoGuardado?.Invoke();
+                    DialogResult = DialogResult.OK;
+                    Close();
                 }
             }
             else if (tipo == 2)
@@ -125,7 +128,9 @@ namespace login.Bar
                 if (oCon.actualizarProducto(productoID, categoriaID, nombre, precio, stock, imagenProducto))
                 {
                     MessageBox.Show("Producto actualizado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    this.Close();
+                    ProductoGuardado?.Invoke();
+                    DialogResult = DialogResult.OK;
+                    Close();
                 }
             }
         }
