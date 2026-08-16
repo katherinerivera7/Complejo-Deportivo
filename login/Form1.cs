@@ -179,5 +179,10 @@ namespace login
             menuPrincipal.Show();
             this.Hide();
         }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
     }
 }
