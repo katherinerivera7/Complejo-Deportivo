@@ -174,6 +174,12 @@
     <Compile Include="GestionDeUsuarios\UCRegistrarUsuario.Designer.cs">
       <DependentUpon>UCRegistrarUsuario.cs</DependentUpon>
     </Compile>
+    <Compile Include="NuevaReservaUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NuevaReservaUsuario.Designer.cs">
+      <DependentUpon>NuevaReservaUsuario.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Promciones\Form1.cs">
       <SubType>Form</SubType>
@@ -242,6 +248,12 @@
     <Compile Include="VerPromocionesUsuario.Designer.cs">
       <DependentUpon>VerPromocionesUsuario.cs</DependentUpon>
     </Compile>
+    <Compile Include="VerReservas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VerReservas.Designer.cs">
+      <DependentUpon>VerReservas.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Bar\frmBar.resx">
       <DependentUpon>frmBar.cs</DependentUpon>
     </EmbeddedResource>
@@ -299,6 +311,9 @@
     <EmbeddedResource Include="GestionDeUsuarios\UCRegistrarUsuario.resx">
       <DependentUpon>UCRegistrarUsuario.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="NuevaReservaUsuario.resx">
+      <DependentUpon>NuevaReservaUsuario.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Promciones\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -341,6 +356,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="VerPromocionesUsuario.resx">
       <DependentUpon>VerPromocionesUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VerReservas.resx">
+      <DependentUpon>VerReservas.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -550,6 +568,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\icons8-oferta-96.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-calendario-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-más-de-30.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-baloncesto-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-tenis-64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-fútbol-2-50.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
