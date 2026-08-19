@@ -67,6 +67,7 @@
             this.pnlIngresosDiarios = new Guna.UI2.WinForms.Guna2GradientPanel();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.label5 = new System.Windows.Forms.Label();
+            this.btnCrearUsuario = new Guna.UI2.WinForms.Guna2Button();
             this.pnlSidebar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
@@ -97,6 +98,7 @@
             // pnlSidebar
             // 
             this.pnlSidebar.BackColor = System.Drawing.Color.White;
+            this.pnlSidebar.Controls.Add(this.btnCrearUsuario);
             this.pnlSidebar.Controls.Add(this.btnCerrarSesion);
             this.pnlSidebar.Controls.Add(this.btnInicio);
             this.pnlSidebar.Controls.Add(this.btnReservas);
@@ -691,6 +693,31 @@
             this.label5.Text = "Ingresos diarios";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // btnCrearUsuario
+            // 
+            this.btnCrearUsuario.BorderColor = System.Drawing.Color.Gainsboro;
+            this.btnCrearUsuario.BorderRadius = 14;
+            this.btnCrearUsuario.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
+            this.btnCrearUsuario.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(245)))), ((int)(((byte)(239)))));
+            this.btnCrearUsuario.CheckedState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(151)))), ((int)(((byte)(73)))));
+            this.btnCrearUsuario.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnCrearUsuario.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnCrearUsuario.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnCrearUsuario.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnCrearUsuario.FillColor = System.Drawing.Color.Transparent;
+            this.btnCrearUsuario.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold);
+            this.btnCrearUsuario.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(84)))), ((int)(((byte)(116)))));
+            this.btnCrearUsuario.Image = ((System.Drawing.Image)(resources.GetObject("btnCrearUsuario.Image")));
+            this.btnCrearUsuario.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnCrearUsuario.Location = new System.Drawing.Point(9, 344);
+            this.btnCrearUsuario.Margin = new System.Windows.Forms.Padding(2);
+            this.btnCrearUsuario.Name = "btnCrearUsuario";
+            this.btnCrearUsuario.Size = new System.Drawing.Size(147, 39);
+            this.btnCrearUsuario.TabIndex = 38;
+            this.btnCrearUsuario.Text = "   Crear usuario";
+            this.btnCrearUsuario.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnCrearUsuario.Click += new System.EventHandler(this.guna2Button1_Click);
+            // 
             // FrmMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -768,5 +795,6 @@
         private System.Windows.Forms.Label label5;
         private Guna.UI2.WinForms.Guna2Button btnCerrarSesion;
         private System.Windows.Forms.Label label10;
+        private Guna.UI2.WinForms.Guna2Button btnCrearUsuario;
     }
 }

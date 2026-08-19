@@ -223,6 +223,21 @@ namespace login
                 this.Close();
             }
         }
+
+        private void guna2Button1_Click(object sender, EventArgs e)
+        {
+            pnlContenido.Controls.Clear();
+
+            CrearCuenta x = new CrearCuenta();
+            x.TopLevel = false;
+            x.FormBorderStyle = FormBorderStyle.None;
+            x.Dock = DockStyle.Fill;
+
+            pnlContenido.Controls.Add(x);
+            pnlContenido.Tag = x;
+
+            x.Show();
+        }
     }
 
 }

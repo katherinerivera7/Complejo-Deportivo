@@ -37,9 +37,7 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pnlLogin = new Guna.UI2.WinForms.Guna2Panel();
             this.button2 = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
-            this.btnRegistrarse = new Guna.UI2.WinForms.Guna2Button();
             this.label4 = new System.Windows.Forms.Label();
             this.chkMostrar = new Guna.UI2.WinForms.Guna2CheckBox();
             this.picLogin = new Guna.UI2.WinForms.Guna2CirclePictureBox();
@@ -142,9 +140,7 @@
             // 
             this.pnlLogin.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pnlLogin.Controls.Add(this.button2);
-            this.pnlLogin.Controls.Add(this.label1);
             this.pnlLogin.Controls.Add(this.button1);
-            this.pnlLogin.Controls.Add(this.btnRegistrarse);
             this.pnlLogin.Controls.Add(this.label4);
             this.pnlLogin.Controls.Add(this.chkMostrar);
             this.pnlLogin.Controls.Add(this.picLogin);
@@ -170,17 +166,6 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(35, 563);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(179, 21);
-            this.label1.TabIndex = 51;
-            this.label1.Text = "¿No tiene una cuenta?";
-            // 
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(27, 599);
@@ -190,26 +175,6 @@
             this.button1.Text = "usuario";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // btnRegistrarse
-            // 
-            this.btnRegistrarse.BorderColor = System.Drawing.Color.Gainsboro;
-            this.btnRegistrarse.BorderRadius = 14;
-            this.btnRegistrarse.BorderThickness = 1;
-            this.btnRegistrarse.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnRegistrarse.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnRegistrarse.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnRegistrarse.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnRegistrarse.FillColor = System.Drawing.Color.Transparent;
-            this.btnRegistrarse.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRegistrarse.ForeColor = System.Drawing.Color.CornflowerBlue;
-            this.btnRegistrarse.Location = new System.Drawing.Point(215, 556);
-            this.btnRegistrarse.Margin = new System.Windows.Forms.Padding(2);
-            this.btnRegistrarse.Name = "btnRegistrarse";
-            this.btnRegistrarse.Size = new System.Drawing.Size(174, 39);
-            this.btnRegistrarse.TabIndex = 48;
-            this.btnRegistrarse.Text = "Registrarse";
-            this.btnRegistrarse.Click += new System.EventHandler(this.btnRegistrarse_Click);
             // 
             // label4
             // 
@@ -388,7 +353,6 @@
         private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
         private Guna.UI2.WinForms.Guna2Panel pnlLogin;
         private System.Windows.Forms.Button button1;
-        private Guna.UI2.WinForms.Guna2Button btnRegistrarse;
         private System.Windows.Forms.Label label4;
         private Guna.UI2.WinForms.Guna2CheckBox chkMostrar;
         private Guna.UI2.WinForms.Guna2CirclePictureBox picLogin;
@@ -398,7 +362,6 @@
         private System.Windows.Forms.Label lblClave;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label lblCorreo;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.PictureBox pictureBox1;

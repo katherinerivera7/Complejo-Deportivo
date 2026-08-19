@@ -254,5 +254,10 @@ namespace login
             txtClave.UseSystemPasswordChar = !chkMostrar.Checked;
             txtConfirmarClave.UseSystemPasswordChar = !chkMostrar.Checked;
         }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
