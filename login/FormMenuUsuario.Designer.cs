@@ -95,7 +95,7 @@
             this.pnlContenedor.Location = new System.Drawing.Point(0, 0);
             this.pnlContenedor.Margin = new System.Windows.Forms.Padding(2);
             this.pnlContenedor.Name = "pnlContenedor";
-            this.pnlContenedor.Size = new System.Drawing.Size(1167, 796);
+            this.pnlContenedor.Size = new System.Drawing.Size(1167, 788);
             this.pnlContenedor.TabIndex = 3;
             // 
             // pnlContenido
@@ -105,7 +105,7 @@
             this.pnlContenido.Location = new System.Drawing.Point(0, 58);
             this.pnlContenido.Margin = new System.Windows.Forms.Padding(2);
             this.pnlContenido.Name = "pnlContenido";
-            this.pnlContenido.Size = new System.Drawing.Size(1167, 738);
+            this.pnlContenido.Size = new System.Drawing.Size(1167, 730);
             this.pnlContenido.TabIndex = 1;
             // 
             // guna2Panel2
@@ -116,7 +116,7 @@
             this.guna2Panel2.Location = new System.Drawing.Point(0, 0);
             this.guna2Panel2.Margin = new System.Windows.Forms.Padding(2);
             this.guna2Panel2.Name = "guna2Panel2";
-            this.guna2Panel2.Size = new System.Drawing.Size(1167, 738);
+            this.guna2Panel2.Size = new System.Drawing.Size(1167, 730);
             this.guna2Panel2.TabIndex = 2;
             // 
             // guna2Panel8
@@ -127,7 +127,7 @@
             this.guna2Panel8.ForeColor = System.Drawing.Color.LightBlue;
             this.guna2Panel8.Location = new System.Drawing.Point(0, 0);
             this.guna2Panel8.Name = "guna2Panel8";
-            this.guna2Panel8.Size = new System.Drawing.Size(1167, 738);
+            this.guna2Panel8.Size = new System.Drawing.Size(1167, 730);
             this.guna2Panel8.TabIndex = 53;
             // 
             // guna2Panel1
@@ -493,6 +493,7 @@
             this.pnlSuperior.Padding = new System.Windows.Forms.Padding(22, 24, 0, 0);
             this.pnlSuperior.Size = new System.Drawing.Size(1167, 58);
             this.pnlSuperior.TabIndex = 0;
+            this.pnlSuperior.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlSuperior_Paint);
             // 
             // pictureBox5
             // 
@@ -585,7 +586,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1167, 796);
+            this.ClientSize = new System.Drawing.Size(1167, 788);
             this.Controls.Add(this.pnlContenedor);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormMenuUsuario";

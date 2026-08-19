@@ -53,5 +53,15 @@ namespace login.Reservas
 
             frm.Show();
         }
+
+        private void btnGuardarPDF_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pnlContenido_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

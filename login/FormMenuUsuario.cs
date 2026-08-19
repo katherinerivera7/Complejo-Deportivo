@@ -185,5 +185,10 @@ namespace login
         {
             this.WindowState = FormWindowState.Minimized;
         }
+
+        private void pnlSuperior_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
