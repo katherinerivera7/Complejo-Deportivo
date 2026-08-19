@@ -1,5 +1,8 @@
 ﻿using System;
 using System.Data;
+using System.Drawing;
+using System.Drawing.Printing;
+using System.Reflection;
 using System.Windows.Forms;
 
 namespace login.Bar
@@ -10,6 +13,8 @@ namespace login.Bar
 
         private bool configurandoFiltro = false;
         private bool busquedaAutomaticaAplicada = false;
+        int CategoriasxPag = 40;
+        int Bandera = 0;//este es el contador de los clientes
 
         public frmCategorias()
         {
@@ -178,6 +183,53 @@ namespace login.Bar
                 CargarCategorias();
                 e.SuppressKeyPress = true;
             }
+        }
+
+        private void btnImprimir_Click(object sender, EventArgs e)
+        {
+            prdImprimir = new PrintDocument();
+            PrinterSettings pd = new PrinterSettings();
+            prdImprimir.PrinterSettings = pd;
+            prdImprimir.PrintPage += imprimePagina;
+            prdImprimir.Print();
+        }
+        private void imprimePagina(object sender, PrintPageEventArgs e)
+        {
+            SolidBrush verdeProyecto = new SolidBrush(Color.FromArgb(139, 195, 74));
+
+            e.Graphics.DrawImage(imlImagenes.Images[0], 20, 20, 60, 60);
+            Font fuente = new Font("Tahoma", 18, FontStyle.Bold);
+            e.Graphics.DrawString("Olimpo Sport Club", fuente, Brushes.DarkBlue, new Rectangle(95, 25, 400, 35));
+            fuente = new Font("Tahoma", 14, FontStyle.Bold);
+            e.Graphics.DrawString("Listado de categorías", fuente, verdeProyecto, new Rectangle(95, 65, 300, 30));
+
+            fuente = new Font("Tahoma", 12, FontStyle.Bold);
+            e.Graphics.DrawString("Nª.", fuente, Brushes.Black, new Rectangle(20, 135, 50, 20));
+            e.Graphics.DrawString("Código", fuente, Brushes.Black, new Rectangle(70, 135, 100, 20));
+            e.Graphics.DrawString("Nombre de la categoría", fuente, Brushes.Black, new Rectangle(170, 135, 400, 20));
+            e.Graphics.DrawString("Estado", fuente, Brushes.Black, new Rectangle(570, 135, 200, 20));
+
+            Pen lineaVerde = new Pen(Color.FromArgb(139, 195, 74), 2);
+            e.Graphics.DrawLine(lineaVerde, 20, 158, 770, 158);
+
+            int y = 168;
+            fuente = new Font("Tahoma", 12, FontStyle.Regular);
+            csConectaSQL sqlCon = new csConectaSQL();
+            string cadena = @"SELECT CategoriaID, Nombre, CASE WHEN Estado = 1 THEN 'Activa' ELSE 'Inactiva' END AS Estado FROM Categorias ORDER BY Nombre";
+            DataTable dt = sqlCon.retornaRegistros(cadena);
+
+            for (int i = 0; i < CategoriasxPag && Bandera < dt.Rows.Count && y < e.MarginBounds.Bottom - 25; i++, Bandera++)
+            {
+                e.Graphics.DrawString((Bandera + 1).ToString(), fuente, Brushes.Black, new Rectangle(20, y, 50, 18));
+                e.Graphics.DrawString(dt.Rows[Bandera]["CategoriaID"].ToString(), fuente, Brushes.Black, new Rectangle(70, y, 100, 18));
+                e.Graphics.DrawString(dt.Rows[Bandera]["Nombre"].ToString(), fuente, Brushes.Black, new Rectangle(170, y, 400, 18));
+                e.Graphics.DrawString(dt.Rows[Bandera]["Estado"].ToString(), fuente, Brushes.Black, new Rectangle(570, y, 200, 18));
+                y += 18;
+            }
+
+            e.HasMorePages = Bandera < dt.Rows.Count;
+            lineaVerde.Dispose();
+            verdeProyecto.Dispose();
         }
     }
 }

@@ -1,8 +1,11 @@
-﻿using System;
+﻿using login.GestionDeUsuarios;
+using System;
 using System.Data;
 using System.Data.SqlClient;
+using System.Drawing;
+using System.Drawing.Printing;
+using System.Reflection;
 using System.Windows.Forms;
-using login.GestionDeUsuarios;
 
 namespace login
 {
@@ -10,6 +13,8 @@ namespace login
     {
         csConectaSQL oCon = new csConectaSQL();
         private bool busquedaAutomaticaAplicada = false;
+        int ClientexPag = 40;
+        int Bandera = 0;//este es el contador de los clientes
 
         string conexionString = @"Server=LAPTOP-J5U2QS20\SQLEXPRESS01;Database=ComplejoDeportivo;Integrated Security=True;TrustServerCertificate=True;";
 
@@ -208,6 +213,63 @@ namespace login
             {
                 CargarClientes();
             }
+        }
+
+        private void btnImprimir_Click(object sender, EventArgs e)
+        {
+            prdImprimir = new PrintDocument();
+            PrinterSettings pd = new PrinterSettings();
+            prdImprimir.PrinterSettings = pd;
+            prdImprimir.PrintPage += imprimePagina;
+            prdImprimir.Print();
+        }
+        private void imprimePagina(object sender, PrintPageEventArgs e)
+        {
+            SolidBrush verdeProyecto = new SolidBrush(Color.FromArgb(139, 195, 74));
+
+            e.Graphics.DrawImage(imlImagenes.Images[0], 20, 20, 60, 60);
+            Font fuente = new Font("Tahoma", 18, FontStyle.Bold);
+            e.Graphics.DrawString("Olimpo Sport Club", fuente, Brushes.DarkBlue, new Rectangle(95, 25, 400, 35));
+            fuente = new Font("Tahoma", 14, FontStyle.Bold);
+            e.Graphics.DrawString("Listado de clientes", fuente, verdeProyecto, new Rectangle(95, 65, 300, 30));
+
+            fuente = new Font("Tahoma", 8, FontStyle.Bold);
+            e.Graphics.DrawString("N°", fuente, Brushes.Black, new Rectangle(20, 135, 30, 20));
+            e.Graphics.DrawString("Cédula", fuente, Brushes.Black, new Rectangle(50, 135, 70, 20));
+            e.Graphics.DrawString("Nombres", fuente, Brushes.Black, new Rectangle(120, 135, 80, 20));
+            e.Graphics.DrawString("Apellido", fuente, Brushes.Black, new Rectangle(200, 135, 75, 20));
+            e.Graphics.DrawString("Correo", fuente, Brushes.Black, new Rectangle(275, 135, 145, 20));
+            e.Graphics.DrawString("Teléfono", fuente, Brushes.Black, new Rectangle(420, 135, 75, 20));
+            e.Graphics.DrawString("Ciudad", fuente, Brushes.Black, new Rectangle(495, 135, 65, 20));
+            e.Graphics.DrawString("Dirección", fuente, Brushes.Black, new Rectangle(560, 135, 135, 20));
+            e.Graphics.DrawString("F. Nacimiento", fuente, Brushes.Black, new Rectangle(695, 135, 90, 20));
+
+            Pen lineaVerde = new Pen(Color.FromArgb(139, 195, 74), 2);
+            e.Graphics.DrawLine(lineaVerde, 20, 158, 785, 158);
+
+            int y = 168;
+            fuente = new Font("Tahoma", 7.5f, FontStyle.Regular);
+            csConectaSQL sqlCon = new csConectaSQL();
+            string cadena = "SELECT Cedula, Nombre, Apellido, Correo, Telefono, Ciudad, Direccion, FechaNacimiento FROM Clientes";
+            DataTable dt = sqlCon.retornaRegistros(cadena);
+
+            for (int i = 0; i < ClientexPag && Bandera < dt.Rows.Count && y < e.MarginBounds.Bottom - 25; i++, Bandera++)
+            {
+                e.Graphics.DrawString((Bandera + 1).ToString(), fuente, Brushes.Black, new Rectangle(20, y, 30, 18));
+                e.Graphics.DrawString(dt.Rows[Bandera]["Cedula"].ToString(), fuente, Brushes.Black, new Rectangle(50, y, 70, 18));
+                e.Graphics.DrawString(dt.Rows[Bandera]["Nombre"].ToString(), fuente, Brushes.Black, new Rectangle(120, y, 80, 18));
+                e.Graphics.DrawString(dt.Rows[Bandera]["Apellido"].ToString(), fuente, Brushes.Black, new Rectangle(200, y, 75, 18));
+                e.Graphics.DrawString(dt.Rows[Bandera]["Correo"].ToString(), fuente, Brushes.Black, new Rectangle(275, y, 145, 18));
+                e.Graphics.DrawString(dt.Rows[Bandera]["Telefono"].ToString(), fuente, Brushes.Black, new Rectangle(420, y, 75, 18));
+                e.Graphics.DrawString(dt.Rows[Bandera]["Ciudad"].ToString(), fuente, Brushes.Black, new Rectangle(495, y, 65, 18));
+                e.Graphics.DrawString(dt.Rows[Bandera]["Direccion"].ToString(), fuente, Brushes.Black, new Rectangle(560, y, 135, 18));
+                e.Graphics.DrawString(dt.Rows[Bandera]["FechaNacimiento"] == DBNull.Value ? "" : Convert.ToDateTime(dt.Rows[Bandera]["FechaNacimiento"]).ToString("dd/MM/yyyy"), fuente, Brushes.Black, new Rectangle(695, y, 90, 18));
+                y += 18;
+            }
+
+            e.HasMorePages = Bandera < dt.Rows.Count;
+            lineaVerde.Dispose();
+            verdeProyecto.Dispose();
         }
     }
 }

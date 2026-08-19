@@ -1,5 +1,8 @@
 ﻿using System;
 using System.Data;
+using System.Drawing;
+using System.Drawing.Printing;
+using System.Reflection;
 using System.Windows.Forms;
 
 namespace login.Reservas
@@ -10,6 +13,9 @@ namespace login.Reservas
 
         private bool configurandoFiltro = false;
         private bool busquedaAutomaticaAplicada = false;
+        int ClientexPag = 40;
+        int Bandera = 0;//este es el contador de los clientes
+
 
         public frmCanchas()
         {
@@ -210,6 +216,57 @@ namespace login.Reservas
                 MessageBox.Show("Cancha eliminada correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 CargarCanchas();
             }
+        }
+
+        private void btnImprimir_Click(object sender, EventArgs e)
+        {
+            prdImprimir = new PrintDocument();
+            PrinterSettings pd = new PrinterSettings();
+            prdImprimir.PrinterSettings = pd;
+            prdImprimir.PrintPage += imprimePagina;
+            prdImprimir.Print();
+        }
+        private void imprimePagina(object sender, PrintPageEventArgs e)
+        {
+            SolidBrush verdeProyecto = new SolidBrush(Color.FromArgb(139, 195, 74));
+
+            e.Graphics.DrawImage(imlImagenes.Images[0], 20, 20, 60, 60);
+            Font fuente = new Font("Tahoma", 18, FontStyle.Bold);
+            e.Graphics.DrawString("Olimpo Sport Club", fuente, Brushes.DarkBlue, new Rectangle(95, 25, 400, 35));
+            fuente = new Font("Tahoma", 14, FontStyle.Bold);
+            e.Graphics.DrawString("Listado de canchas", fuente, verdeProyecto, new Rectangle(95, 65, 300, 30));
+
+            fuente = new Font("Tahoma", 9, FontStyle.Bold);
+            e.Graphics.DrawString("N°.", fuente, Brushes.Black, new Rectangle(20, 135, 40, 20));
+            e.Graphics.DrawString("Código", fuente, Brushes.Black, new Rectangle(60, 135, 80, 20));
+            e.Graphics.DrawString("Nombre", fuente, Brushes.Black, new Rectangle(140, 135, 190, 20));
+            e.Graphics.DrawString("Tipo", fuente, Brushes.Black, new Rectangle(330, 135, 170, 20));
+            e.Graphics.DrawString("Precio por hora", fuente, Brushes.Black, new Rectangle(500, 135, 140, 20));
+            e.Graphics.DrawString("Estado", fuente, Brushes.Black, new Rectangle(640, 135, 130, 20));
+
+            Pen lineaVerde = new Pen(Color.FromArgb(139, 195, 74), 2);
+            e.Graphics.DrawLine(lineaVerde, 20, 158, 770, 158);
+
+            int y = 168;
+            fuente = new Font("Tahoma", 8.5f, FontStyle.Regular);
+            csConectaSQL sqlCon = new csConectaSQL();
+            string cadena = "SELECT CanchaID, Nombre, Tipo, PrecioHora, Estado FROM Canchas ORDER BY Nombre";
+            DataTable dt = sqlCon.retornaRegistros(cadena);
+
+            for (int i = 0; i < ClientexPag && Bandera < dt.Rows.Count && y < e.MarginBounds.Bottom - 25; i++, Bandera++)
+            {
+                e.Graphics.DrawString((Bandera + 1).ToString(), fuente, Brushes.Black, new Rectangle(20, y, 40, 18));
+                e.Graphics.DrawString(dt.Rows[Bandera]["CanchaID"].ToString(), fuente, Brushes.Black, new Rectangle(60, y, 80, 18));
+                e.Graphics.DrawString(dt.Rows[Bandera]["Nombre"].ToString(), fuente, Brushes.Black, new Rectangle(140, y, 190, 18));
+                e.Graphics.DrawString(dt.Rows[Bandera]["Tipo"].ToString(), fuente, Brushes.Black, new Rectangle(330, y, 170, 18));
+                e.Graphics.DrawString(dt.Rows[Bandera]["PrecioHora"] == DBNull.Value ? "$0.00" : "$" + Convert.ToDecimal(dt.Rows[Bandera]["PrecioHora"]).ToString("N2"), fuente, Brushes.Black, new Rectangle(500, y, 140, 18));
+                e.Graphics.DrawString(dt.Rows[Bandera]["Estado"].ToString(), fuente, Brushes.Black, new Rectangle(640, y, 130, 18));
+                y += 18;
+            }
+
+            e.HasMorePages = Bandera < dt.Rows.Count;
+            lineaVerde.Dispose();
+            verdeProyecto.Dispose();
         }
     }
 }
