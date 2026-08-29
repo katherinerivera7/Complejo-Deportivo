@@ -1,6 +1,6 @@
-﻿namespace login.GestionDeUsuarios
+﻿namespace login.Bar
 {
-    partial class frmListadoCategorias
+    partial class frmListadoCanchas
     {
         /// <summary>
         /// Required designer variable.
@@ -28,20 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmListadoCategorias));
-            this.rvwCategorias = new Microsoft.Reporting.WinForms.ReportViewer();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmListadoCanchas));
+            this.rvwCanchas = new Microsoft.Reporting.WinForms.ReportViewer();
             this.btnVolver = new Guna.UI2.WinForms.Guna2Button();
             this.SuspendLayout();
             // 
-            // rvwCategorias
+            // rvwCanchas
             // 
-            this.rvwCategorias.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.rvwCategorias.Location = new System.Drawing.Point(0, 0);
-            this.rvwCategorias.Name = "rvwCategorias";
-            this.rvwCategorias.ServerReport.BearerToken = null;
-            this.rvwCategorias.Size = new System.Drawing.Size(800, 450);
-            this.rvwCategorias.TabIndex = 0;
-            this.rvwCategorias.Load += new System.EventHandler(this.rvwCategorias_Load);
+            this.rvwCanchas.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.rvwCanchas.Location = new System.Drawing.Point(0, 0);
+            this.rvwCanchas.Name = "rvwCanchas";
+            this.rvwCanchas.ServerReport.BearerToken = null;
+            this.rvwCanchas.Size = new System.Drawing.Size(830, 494);
+            this.rvwCanchas.TabIndex = 0;
+            this.rvwCanchas.Load += new System.EventHandler(this.rvwCanchas_Load);
             // 
             // btnVolver
             // 
@@ -60,33 +60,33 @@
             this.btnVolver.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.btnVolver.HoverState.FillColor = System.Drawing.Color.Transparent;
             this.btnVolver.Image = ((System.Drawing.Image)(resources.GetObject("btnVolver.Image")));
-            this.btnVolver.Location = new System.Drawing.Point(672, 57);
+            this.btnVolver.Location = new System.Drawing.Point(691, 48);
             this.btnVolver.Margin = new System.Windows.Forms.Padding(2);
             this.btnVolver.Name = "btnVolver";
             this.btnVolver.ShadowDecoration.BorderRadius = 14;
             this.btnVolver.Size = new System.Drawing.Size(128, 39);
             this.btnVolver.TabIndex = 88;
             this.btnVolver.Text = "Volver";
-            this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
             // 
-            // frmListadoCategorias
+            // frmListadoCanchas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(830, 494);
             this.Controls.Add(this.btnVolver);
-            this.Controls.Add(this.rvwCategorias);
+            this.Controls.Add(this.rvwCanchas);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "frmListadoCategorias";
-            this.Text = "frmListadoCategorias";
-            this.Load += new System.EventHandler(this.frmListadoCategorias_Load);
+            this.Name = "frmListadoCanchas";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "frmListadoCanchas";
+            this.Load += new System.EventHandler(this.frmListadoCanchas_Load);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private Microsoft.Reporting.WinForms.ReportViewer rvwCategorias;
+        private Microsoft.Reporting.WinForms.ReportViewer rvwCanchas;
         private Guna.UI2.WinForms.Guna2Button btnVolver;
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Guna.UI2.WinForms;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -281,6 +282,76 @@ namespace login.Promciones
         }
 
         private void cmbServicio_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtNombre_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                txtDescripcion.Focus();
+                e.SuppressKeyPress = true;
+            }
+        }
+
+        private void txtNombre_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtDescripcion_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtDescripcion_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                cmbTipoPromocion.Focus();
+                e.SuppressKeyPress = true;
+            }
+        }
+
+        private void cmbTipoPromocion_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void txtDescuento_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                cmbUnidadDescuento.Focus();
+                e.SuppressKeyPress = true;
+            }
+        }
+
+        private void cmbTipoPromocion_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                txtDescuento.Focus();
+                e.SuppressKeyPress = true;
+            }
+        }
+
+        private void txtDescuento_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmbUnidadDescuento_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                cmbTipoCliente.Focus();
+                e.SuppressKeyPress = true;
+            }
+        }
+
+        private void cmbTipoCliente_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }

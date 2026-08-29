@@ -259,7 +259,7 @@
             this.cmbEstado.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.cmbEstado.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.cmbEstado.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.cmbEstado.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.cmbEstado.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.cmbEstado.ItemHeight = 25;
             this.cmbEstado.Items.AddRange(new object[] {
             "Activa",
@@ -337,6 +337,7 @@
             this.txtCondiciones.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtCondiciones.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.txtCondiciones.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.txtCondiciones.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.txtCondiciones.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtCondiciones.Location = new System.Drawing.Point(13, 74);
             this.txtCondiciones.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
@@ -522,7 +523,7 @@
             this.cmbServicio.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.cmbServicio.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.cmbServicio.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.cmbServicio.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.cmbServicio.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.cmbServicio.ItemHeight = 25;
             this.cmbServicio.Items.AddRange(new object[] {
             "Ninguno",
@@ -558,7 +559,7 @@
             this.cmbAplicarA.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.cmbAplicarA.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.cmbAplicarA.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.cmbAplicarA.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.cmbAplicarA.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.cmbAplicarA.ItemHeight = 25;
             this.cmbAplicarA.Items.AddRange(new object[] {
             "Todas las canchas",
@@ -595,7 +596,7 @@
             this.cmbTipoCliente.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.cmbTipoCliente.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.cmbTipoCliente.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.cmbTipoCliente.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.cmbTipoCliente.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.cmbTipoCliente.ItemHeight = 25;
             this.cmbTipoCliente.Items.AddRange(new object[] {
             "Todos los clientes",
@@ -606,6 +607,7 @@
             this.cmbTipoCliente.Size = new System.Drawing.Size(214, 31);
             this.cmbTipoCliente.StartIndex = 0;
             this.cmbTipoCliente.TabIndex = 60;
+            this.cmbTipoCliente.SelectedIndexChanged += new System.EventHandler(this.cmbTipoCliente_SelectedIndexChanged);
             // 
             // label12
             // 
@@ -680,6 +682,7 @@
             this.txtDescuento.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtDescuento.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.txtDescuento.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.txtDescuento.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.txtDescuento.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtDescuento.Location = new System.Drawing.Point(289, 222);
             this.txtDescuento.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
@@ -688,6 +691,8 @@
             this.txtDescuento.SelectedText = "";
             this.txtDescuento.Size = new System.Drawing.Size(124, 31);
             this.txtDescuento.TabIndex = 58;
+            this.txtDescuento.TextChanged += new System.EventHandler(this.txtDescuento_TextChanged);
+            this.txtDescuento.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtDescuento_KeyDown);
             this.txtDescuento.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDescuento_KeyPress);
             // 
             // label10
@@ -713,7 +718,7 @@
             this.cmbUnidadDescuento.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.cmbUnidadDescuento.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.cmbUnidadDescuento.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.cmbUnidadDescuento.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.cmbUnidadDescuento.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.cmbUnidadDescuento.ItemHeight = 25;
             this.cmbUnidadDescuento.Items.AddRange(new object[] {
             "%",
@@ -725,6 +730,7 @@
             this.cmbUnidadDescuento.StartIndex = 0;
             this.cmbUnidadDescuento.TabIndex = 56;
             this.cmbUnidadDescuento.SelectedIndexChanged += new System.EventHandler(this.cmbUnidadDescuento_SelectedIndexChanged);
+            this.cmbUnidadDescuento.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cmbUnidadDescuento_KeyDown);
             // 
             // cmbTipoPromocion
             // 
@@ -736,7 +742,7 @@
             this.cmbTipoPromocion.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.cmbTipoPromocion.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.cmbTipoPromocion.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.cmbTipoPromocion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.cmbTipoPromocion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.cmbTipoPromocion.ItemHeight = 25;
             this.cmbTipoPromocion.Items.AddRange(new object[] {
             "Descuento porcentual",
@@ -747,6 +753,8 @@
             this.cmbTipoPromocion.Size = new System.Drawing.Size(249, 31);
             this.cmbTipoPromocion.StartIndex = 0;
             this.cmbTipoPromocion.TabIndex = 55;
+            this.cmbTipoPromocion.SelectedIndexChanged += new System.EventHandler(this.cmbTipoPromocion_SelectedIndexChanged);
+            this.cmbTipoPromocion.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cmbTipoPromocion_KeyDown);
             // 
             // label9
             // 
@@ -772,6 +780,7 @@
             this.txtDescripcion.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtDescripcion.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.txtDescripcion.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.txtDescripcion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.txtDescripcion.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtDescripcion.Location = new System.Drawing.Point(25, 127);
             this.txtDescripcion.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
@@ -780,6 +789,8 @@
             this.txtDescripcion.SelectedText = "";
             this.txtDescripcion.Size = new System.Drawing.Size(451, 61);
             this.txtDescripcion.TabIndex = 46;
+            this.txtDescripcion.TextChanged += new System.EventHandler(this.txtDescripcion_TextChanged);
+            this.txtDescripcion.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtDescripcion_KeyDown);
             // 
             // label8
             // 
@@ -805,6 +816,7 @@
             this.txtNombre.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtNombre.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.txtNombre.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.txtNombre.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.txtNombre.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtNombre.Location = new System.Drawing.Point(25, 74);
             this.txtNombre.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
@@ -813,6 +825,8 @@
             this.txtNombre.SelectedText = "";
             this.txtNombre.Size = new System.Drawing.Size(451, 27);
             this.txtNombre.TabIndex = 44;
+            this.txtNombre.TextChanged += new System.EventHandler(this.txtNombre_TextChanged);
+            this.txtNombre.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtNombre_KeyDown);
             // 
             // label7
             // 

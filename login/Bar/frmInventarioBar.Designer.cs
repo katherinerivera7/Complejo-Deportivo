@@ -34,6 +34,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnlContenidoo = new Guna.UI2.WinForms.Guna2Panel();
+            this.btnReporte = new Guna.UI2.WinForms.Guna2Button();
             this.label3 = new System.Windows.Forms.Label();
             this.btnMovimiento = new Guna.UI2.WinForms.Guna2Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -65,6 +66,7 @@
             // pnlContenidoo
             // 
             this.pnlContenidoo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(249)))), ((int)(((byte)(251)))));
+            this.pnlContenidoo.Controls.Add(this.btnReporte);
             this.pnlContenidoo.Controls.Add(this.label3);
             this.pnlContenidoo.Controls.Add(this.btnMovimiento);
             this.pnlContenidoo.Controls.Add(this.label1);
@@ -81,11 +83,32 @@
             this.pnlContenidoo.Controls.Add(this.pictureBox1);
             this.pnlContenidoo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlContenidoo.Location = new System.Drawing.Point(0, 0);
-            this.pnlContenidoo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pnlContenidoo.Margin = new System.Windows.Forms.Padding(2);
             this.pnlContenidoo.Name = "pnlContenidoo";
-            this.pnlContenidoo.Size = new System.Drawing.Size(1416, 980);
+            this.pnlContenidoo.Size = new System.Drawing.Size(1062, 796);
             this.pnlContenidoo.TabIndex = 1;
             this.pnlContenidoo.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlContenidoo_Paint);
+            // 
+            // btnReporte
+            // 
+            this.btnReporte.BackColor = System.Drawing.Color.Transparent;
+            this.btnReporte.BorderColor = System.Drawing.Color.Gainsboro;
+            this.btnReporte.BorderRadius = 14;
+            this.btnReporte.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnReporte.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnReporte.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnReporte.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnReporte.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(143)))), ((int)(((byte)(189)))), ((int)(((byte)(252)))));
+            this.btnReporte.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReporte.ForeColor = System.Drawing.Color.White;
+            this.btnReporte.Image = global::login.Properties.Resources.icons8_factura_100;
+            this.btnReporte.Location = new System.Drawing.Point(585, 677);
+            this.btnReporte.Margin = new System.Windows.Forms.Padding(2);
+            this.btnReporte.Name = "btnReporte";
+            this.btnReporte.Size = new System.Drawing.Size(122, 39);
+            this.btnReporte.TabIndex = 68;
+            this.btnReporte.Text = "Reporte";
+            this.btnReporte.Click += new System.EventHandler(this.btnReporte_Click);
             // 
             // label3
             // 
@@ -93,10 +116,9 @@
             this.label3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Green;
-            this.label3.Location = new System.Drawing.Point(24, 209);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Location = new System.Drawing.Point(18, 170);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(221, 20);
+            this.label3.Size = new System.Drawing.Size(175, 16);
             this.label3.TabIndex = 1;
             this.label3.Text = "Ver historial de movimientos";
             this.label3.Click += new System.EventHandler(this.label3_Click);
@@ -110,14 +132,14 @@
             this.btnMovimiento.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnMovimiento.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnMovimiento.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnMovimiento.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(143)))), ((int)(((byte)(189)))), ((int)(((byte)(252)))));
+            this.btnMovimiento.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(155)))), ((int)(((byte)(75)))));
             this.btnMovimiento.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMovimiento.ForeColor = System.Drawing.Color.White;
             this.btnMovimiento.Image = global::login.Properties.Resources.icons8_inventario_100;
-            this.btnMovimiento.Location = new System.Drawing.Point(1024, 833);
-            this.btnMovimiento.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnMovimiento.Location = new System.Drawing.Point(728, 677);
+            this.btnMovimiento.Margin = new System.Windows.Forms.Padding(2);
             this.btnMovimiento.Name = "btnMovimiento";
-            this.btnMovimiento.Size = new System.Drawing.Size(280, 48);
+            this.btnMovimiento.Size = new System.Drawing.Size(210, 39);
             this.btnMovimiento.TabIndex = 67;
             this.btnMovimiento.Text = "Registrar movimiento";
             this.btnMovimiento.Click += new System.EventHandler(this.btnMovimiento_Click);
@@ -128,9 +150,10 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(37)))), ((int)(((byte)(87)))));
-            this.label1.Location = new System.Drawing.Point(333, 185);
+            this.label1.Location = new System.Drawing.Point(250, 150);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(113, 28);
+            this.label1.Size = new System.Drawing.Size(90, 21);
             this.label1.TabIndex = 64;
             this.label1.Text = "Filtrar por:";
             // 
@@ -143,19 +166,19 @@
             this.cmbFiltro.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.cmbFiltro.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.cmbFiltro.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.cmbFiltro.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.cmbFiltro.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.cmbFiltro.ItemHeight = 30;
             this.cmbFiltro.Items.AddRange(new object[] {
             "ID Producto",
             "Categoría",
             "Nombre"});
-            this.cmbFiltro.Location = new System.Drawing.Point(472, 185);
-            this.cmbFiltro.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cmbFiltro.Location = new System.Drawing.Point(354, 150);
+            this.cmbFiltro.Margin = new System.Windows.Forms.Padding(2);
             this.cmbFiltro.Name = "cmbFiltro";
             this.cmbFiltro.ShadowDecoration.BorderRadius = 14;
             this.cmbFiltro.ShadowDecoration.Depth = 4;
             this.cmbFiltro.ShadowDecoration.Enabled = true;
-            this.cmbFiltro.Size = new System.Drawing.Size(257, 36);
+            this.cmbFiltro.Size = new System.Drawing.Size(194, 36);
             this.cmbFiltro.StartIndex = 0;
             this.cmbFiltro.TabIndex = 63;
             this.cmbFiltro.SelectedIndexChanged += new System.EventHandler(this.cmbFiltro_SelectedIndexChanged);
@@ -165,9 +188,10 @@
             // 
             this.label2.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.label2.Location = new System.Drawing.Point(21, 74);
+            this.label2.Location = new System.Drawing.Point(16, 60);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(559, 30);
+            this.label2.Size = new System.Drawing.Size(419, 24);
             this.label2.TabIndex = 65;
             this.label2.Text = "Crea, elimina o modifica productos del bar";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -184,10 +208,10 @@
             this.btnBuscar.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBuscar.ForeColor = System.Drawing.Color.White;
             this.btnBuscar.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscar.Image")));
-            this.btnBuscar.Location = new System.Drawing.Point(472, 121);
-            this.btnBuscar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnBuscar.Location = new System.Drawing.Point(354, 98);
+            this.btnBuscar.Margin = new System.Windows.Forms.Padding(2);
             this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(259, 48);
+            this.btnBuscar.Size = new System.Drawing.Size(194, 39);
             this.btnBuscar.TabIndex = 62;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click_1);
@@ -203,18 +227,19 @@
             this.txtBuscar.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtBuscar.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtBuscar.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtBuscar.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBuscar.Font = new System.Drawing.Font("Segoe UI", 10.2F);
+            this.txtBuscar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.txtBuscar.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtBuscar.IconLeft = ((System.Drawing.Image)(resources.GetObject("txtBuscar.IconLeft")));
-            this.txtBuscar.Location = new System.Drawing.Point(29, 121);
-            this.txtBuscar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtBuscar.Location = new System.Drawing.Point(22, 98);
+            this.txtBuscar.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.txtBuscar.Name = "txtBuscar";
             this.txtBuscar.PlaceholderText = "Buscar por ID Producto, categoría o nombre";
             this.txtBuscar.SelectedText = "";
             this.txtBuscar.ShadowDecoration.BorderRadius = 12;
             this.txtBuscar.ShadowDecoration.Depth = 4;
             this.txtBuscar.ShadowDecoration.Enabled = true;
-            this.txtBuscar.Size = new System.Drawing.Size(424, 48);
+            this.txtBuscar.Size = new System.Drawing.Size(318, 39);
             this.txtBuscar.TabIndex = 61;
             this.txtBuscar.TextChanged += new System.EventHandler(this.txtBuscar_TextChanged);
             this.txtBuscar.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtBuscar_KeyDown);
@@ -225,9 +250,10 @@
             this.label11.BackColor = System.Drawing.Color.Transparent;
             this.label11.Font = new System.Drawing.Font("Segoe UI", 28F, System.Drawing.FontStyle.Bold);
             this.label11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(37)))), ((int)(((byte)(87)))));
-            this.label11.Location = new System.Drawing.Point(15, 11);
+            this.label11.Location = new System.Drawing.Point(11, 9);
+            this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(339, 62);
+            this.label11.Size = new System.Drawing.Size(272, 51);
             this.label11.TabIndex = 60;
             this.label11.Text = "Productos Bar";
             // 
@@ -244,10 +270,10 @@
             this.btnImprimir.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnImprimir.ForeColor = System.Drawing.Color.White;
             this.btnImprimir.Image = ((System.Drawing.Image)(resources.GetObject("btnImprimir.Image")));
-            this.btnImprimir.Location = new System.Drawing.Point(780, 833);
-            this.btnImprimir.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnImprimir.Location = new System.Drawing.Point(440, 677);
+            this.btnImprimir.Margin = new System.Windows.Forms.Padding(2);
             this.btnImprimir.Name = "btnImprimir";
-            this.btnImprimir.Size = new System.Drawing.Size(221, 48);
+            this.btnImprimir.Size = new System.Drawing.Size(122, 39);
             this.btnImprimir.TabIndex = 59;
             this.btnImprimir.Text = "Imprimir";
             this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click);
@@ -265,10 +291,10 @@
             this.btnCrear.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCrear.ForeColor = System.Drawing.Color.White;
             this.btnCrear.Image = ((System.Drawing.Image)(resources.GetObject("btnCrear.Image")));
-            this.btnCrear.Location = new System.Drawing.Point(535, 833);
-            this.btnCrear.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnCrear.Location = new System.Drawing.Point(296, 677);
+            this.btnCrear.Margin = new System.Windows.Forms.Padding(2);
             this.btnCrear.Name = "btnCrear";
-            this.btnCrear.Size = new System.Drawing.Size(221, 48);
+            this.btnCrear.Size = new System.Drawing.Size(122, 39);
             this.btnCrear.TabIndex = 58;
             this.btnCrear.Text = "Crear";
             this.btnCrear.Click += new System.EventHandler(this.btnCrear_Click);
@@ -286,10 +312,10 @@
             this.btnEditar.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEditar.ForeColor = System.Drawing.Color.White;
             this.btnEditar.Image = ((System.Drawing.Image)(resources.GetObject("btnEditar.Image")));
-            this.btnEditar.Location = new System.Drawing.Point(283, 833);
-            this.btnEditar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnEditar.Location = new System.Drawing.Point(161, 677);
+            this.btnEditar.Margin = new System.Windows.Forms.Padding(2);
             this.btnEditar.Name = "btnEditar";
-            this.btnEditar.Size = new System.Drawing.Size(221, 48);
+            this.btnEditar.Size = new System.Drawing.Size(122, 39);
             this.btnEditar.TabIndex = 57;
             this.btnEditar.Text = "Editar";
             this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
@@ -307,10 +333,10 @@
             this.btnEliminar.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEliminar.ForeColor = System.Drawing.Color.White;
             this.btnEliminar.Image = ((System.Drawing.Image)(resources.GetObject("btnEliminar.Image")));
-            this.btnEliminar.Location = new System.Drawing.Point(36, 833);
-            this.btnEliminar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnEliminar.Location = new System.Drawing.Point(27, 677);
+            this.btnEliminar.Margin = new System.Windows.Forms.Padding(2);
             this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(221, 48);
+            this.btnEliminar.Size = new System.Drawing.Size(122, 39);
             this.btnEliminar.TabIndex = 56;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
@@ -319,10 +345,9 @@
             // 
             this.pnlContenido.BackColor = System.Drawing.Color.White;
             this.pnlContenido.Controls.Add(this.dgvProductos);
-            this.pnlContenido.Location = new System.Drawing.Point(16, 247);
-            this.pnlContenido.Margin = new System.Windows.Forms.Padding(4);
+            this.pnlContenido.Location = new System.Drawing.Point(12, 201);
             this.pnlContenido.Name = "pnlContenido";
-            this.pnlContenido.Size = new System.Drawing.Size(1288, 566);
+            this.pnlContenido.Size = new System.Drawing.Size(966, 460);
             this.pnlContenido.TabIndex = 50;
             // 
             // dgvProductos
@@ -356,12 +381,12 @@
             this.dgvProductos.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvProductos.GridColor = System.Drawing.SystemColors.Control;
             this.dgvProductos.Location = new System.Drawing.Point(0, 0);
-            this.dgvProductos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dgvProductos.Margin = new System.Windows.Forms.Padding(2);
             this.dgvProductos.Name = "dgvProductos";
             this.dgvProductos.RowHeadersVisible = false;
             this.dgvProductos.RowHeadersWidth = 51;
             this.dgvProductos.RowTemplate.Height = 24;
-            this.dgvProductos.Size = new System.Drawing.Size(1288, 566);
+            this.dgvProductos.Size = new System.Drawing.Size(966, 460);
             this.dgvProductos.TabIndex = 0;
             this.dgvProductos.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.dgvProductos.ThemeStyle.GridColor = System.Drawing.SystemColors.Control;
@@ -410,10 +435,9 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::login.Properties.Resources.ILUSTRACIÓN_INVENTARIO;
-            this.pictureBox1.Location = new System.Drawing.Point(780, -15);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBox1.Location = new System.Drawing.Point(585, -12);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(560, 289);
+            this.pictureBox1.Size = new System.Drawing.Size(420, 235);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 66;
             this.pictureBox1.TabStop = false;
@@ -426,13 +450,12 @@
             // 
             // frmInventarioBar
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(249)))), ((int)(((byte)(251)))));
-            this.ClientSize = new System.Drawing.Size(1416, 980);
+            this.ClientSize = new System.Drawing.Size(1062, 796);
             this.Controls.Add(this.pnlContenidoo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmInventarioBar";
             this.Text = "frmInventarioBar";
             this.Load += new System.EventHandler(this.frmInventarioBar_Load);
@@ -470,5 +493,6 @@
         private System.Windows.Forms.Label label3;
         private System.Drawing.Printing.PrintDocument prdImprimir;
         private System.Windows.Forms.ImageList imlImagenes;
+        private Guna.UI2.WinForms.Guna2Button btnReporte;
     }
 }

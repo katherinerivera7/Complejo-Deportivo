@@ -115,6 +115,18 @@
     <Compile Include="Bar\frmInventarioBar.Designer.cs">
       <DependentUpon>frmInventarioBar.cs</DependentUpon>
     </Compile>
+    <Compile Include="Bar\frmListadoCanchas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Bar\frmListadoCanchas.Designer.cs">
+      <DependentUpon>frmListadoCanchas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Bar\frmListadoProductos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Bar\frmListadoProductos.Designer.cs">
+      <DependentUpon>frmListadoProductos.cs</DependentUpon>
+    </Compile>
     <Compile Include="Bar\frmProductos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -344,6 +356,12 @@
     <EmbeddedResource Include="Bar\frmInventarioBar.resx">
       <DependentUpon>frmInventarioBar.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Bar\frmListadoCanchas.resx">
+      <DependentUpon>frmListadoCanchas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Bar\frmListadoProductos.resx">
+      <DependentUpon>frmListadoProductos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Bar\frmProductos.resx">
       <DependentUpon>frmProductos.cs</DependentUpon>
     </EmbeddedResource>
@@ -353,6 +371,8 @@
     <EmbeddedResource Include="Bar\frmRegistroVenta.resx">
       <DependentUpon>frmRegistroVenta.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Bar\rptCanchas.rdlc" />
+    <EmbeddedResource Include="Bar\rptProductos.rdlc" />
     <EmbeddedResource Include="Bar\UCTarjetaProducto.resx">
       <DependentUpon>UCTarjetaProducto.cs</DependentUpon>
     </EmbeddedResource>
@@ -423,6 +443,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="rptCategorias.rdlc" />
     <EmbeddedResource Include="Reservas\frmCalendario.resx">
       <DependentUpon>frmCalendario.cs</DependentUpon>
     </EmbeddedResource>

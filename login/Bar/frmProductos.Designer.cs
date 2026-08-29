@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            this.pbImagen = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.cmbCategoria = new Guna.UI2.WinForms.Guna2ComboBox();
             this.lblCrearProducto = new System.Windows.Forms.Label();
             this.btnSeleccionarImagen = new Guna.UI2.WinForms.Guna2Button();
-            this.pbImagen = new System.Windows.Forms.PictureBox();
             this.btnCrear = new Guna.UI2.WinForms.Guna2Button();
             this.txtStock = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtPrecio = new Guna.UI2.WinForms.Guna2TextBox();
@@ -56,10 +56,20 @@
             this.guna2Panel1.Controls.Add(this.txtNombre);
             this.guna2Panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.guna2Panel1.Location = new System.Drawing.Point(0, 0);
-            this.guna2Panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.guna2Panel1.Margin = new System.Windows.Forms.Padding(2);
             this.guna2Panel1.Name = "guna2Panel1";
             this.guna2Panel1.Size = new System.Drawing.Size(476, 561);
             this.guna2Panel1.TabIndex = 1;
+            // 
+            // pbImagen
+            // 
+            this.pbImagen.Image = global::login.Properties.Resources.imagengris;
+            this.pbImagen.Location = new System.Drawing.Point(148, 87);
+            this.pbImagen.Name = "pbImagen";
+            this.pbImagen.Size = new System.Drawing.Size(156, 151);
+            this.pbImagen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbImagen.TabIndex = 67;
+            this.pbImagen.TabStop = false;
             // 
             // label1
             // 
@@ -83,7 +93,7 @@
             this.cmbCategoria.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.cmbCategoria.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.cmbCategoria.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.cmbCategoria.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.cmbCategoria.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.cmbCategoria.ItemHeight = 30;
             this.cmbCategoria.Items.AddRange(new object[] {
             "Bebidas",
@@ -91,7 +101,7 @@
             "Snacks",
             "Dulces"});
             this.cmbCategoria.Location = new System.Drawing.Point(160, 308);
-            this.cmbCategoria.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cmbCategoria.Margin = new System.Windows.Forms.Padding(2);
             this.cmbCategoria.Name = "cmbCategoria";
             this.cmbCategoria.Size = new System.Drawing.Size(228, 36);
             this.cmbCategoria.StartIndex = 0;
@@ -121,22 +131,12 @@
             this.btnSeleccionarImagen.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.btnSeleccionarImagen.ForeColor = System.Drawing.Color.White;
             this.btnSeleccionarImagen.Location = new System.Drawing.Point(148, 254);
-            this.btnSeleccionarImagen.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSeleccionarImagen.Margin = new System.Windows.Forms.Padding(2);
             this.btnSeleccionarImagen.Name = "btnSeleccionarImagen";
             this.btnSeleccionarImagen.Size = new System.Drawing.Size(156, 24);
             this.btnSeleccionarImagen.TabIndex = 63;
             this.btnSeleccionarImagen.Text = "Seleccionar imagen";
             this.btnSeleccionarImagen.Click += new System.EventHandler(this.btnSeleccionarImagen_Click);
-            // 
-            // pbImagen
-            // 
-            this.pbImagen.Image = global::login.Properties.Resources.imagengris;
-            this.pbImagen.Location = new System.Drawing.Point(148, 87);
-            this.pbImagen.Name = "pbImagen";
-            this.pbImagen.Size = new System.Drawing.Size(156, 151);
-            this.pbImagen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbImagen.TabIndex = 67;
-            this.pbImagen.TabStop = false;
             // 
             // btnCrear
             // 
@@ -169,6 +169,7 @@
             this.txtStock.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtStock.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtStock.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtStock.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.txtStock.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtStock.IconLeft = global::login.Properties.Resources.icons8_vender_stock_100;
             this.txtStock.Location = new System.Drawing.Point(245, 413);
@@ -190,6 +191,7 @@
             this.txtPrecio.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtPrecio.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtPrecio.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtPrecio.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.txtPrecio.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtPrecio.IconLeft = global::login.Properties.Resources.icons8_dólar_64;
             this.txtPrecio.Location = new System.Drawing.Point(70, 413);
@@ -211,6 +213,7 @@
             this.txtNombre.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtNombre.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtNombre.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtNombre.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.txtNombre.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtNombre.IconLeft = global::login.Properties.Resources.icons8_editar_96;
             this.txtNombre.Location = new System.Drawing.Point(70, 361);
@@ -228,7 +231,7 @@
             this.ClientSize = new System.Drawing.Size(476, 561);
             this.Controls.Add(this.guna2Panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmProductos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Producto";

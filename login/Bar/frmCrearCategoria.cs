@@ -73,5 +73,18 @@ namespace login.Bar
             txtNombre.Text = tabla.Rows[0]["Nombre"].ToString();
         }
 
+        private void txtNombre_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtNombre_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnCrear.PerformClick();
+                e.SuppressKeyPress = true;
+            }
+        }
     }
 }

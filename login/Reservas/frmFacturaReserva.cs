@@ -53,5 +53,42 @@ namespace login.Reservas
 
             frm.Show();
         }
+
+        private void txtNombre_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtNombre_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                dtpFechaFin.Focus();
+                e.SuppressKeyPress = true;
+            }
+        }
+
+        private void dtpFechaFin_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dtpFechaFin_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                guna2ComboBox2.Focus();
+                e.SuppressKeyPress = true;
+            }
+        }
+
+        private void guna2ComboBox2_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                guna2TextBox1.Focus();
+                e.SuppressKeyPress = true;
+            }
+        }
     }
 }

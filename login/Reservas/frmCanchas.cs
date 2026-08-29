@@ -1,4 +1,6 @@
-﻿using System;
+﻿using login.Bar;
+using login.GestionDeUsuarios;
+using System;
 using System.Data;
 using System.Drawing;
 using System.Drawing.Printing;
@@ -267,6 +269,32 @@ namespace login.Reservas
             e.HasMorePages = Bandera < dt.Rows.Count;
             lineaVerde.Dispose();
             verdeProyecto.Dispose();
+        }
+
+        private void guna2Button2_Click(object sender, EventArgs e)
+        {
+            pnlContenidoCanchas.Controls.Clear();
+            frmListadoCanchas frm1 = new frmListadoCanchas();
+
+            frm1.TopLevel = false;
+            frm1.FormBorderStyle = FormBorderStyle.None;
+            frm1.Dock = DockStyle.Fill;
+
+            pnlContenidoCanchas.Controls.Clear();
+            pnlContenidoCanchas.Controls.Add(frm1);
+            pnlContenidoCanchas.Tag = frm1;
+
+            frm1.Show();
+            this.Close();
+        }
+
+        private void txtFiltro_KeyDown_1(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnBuscar.PerformClick();
+                e.SuppressKeyPress = true;
+            }
         }
     }
 }
