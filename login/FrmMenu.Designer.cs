@@ -136,7 +136,7 @@
             this.btnCrearUsuario.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(84)))), ((int)(((byte)(116)))));
             this.btnCrearUsuario.Image = ((System.Drawing.Image)(resources.GetObject("btnCrearUsuario.Image")));
             this.btnCrearUsuario.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnCrearUsuario.Location = new System.Drawing.Point(9, 344);
+            this.btnCrearUsuario.Location = new System.Drawing.Point(2, 344);
             this.btnCrearUsuario.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnCrearUsuario.Name = "btnCrearUsuario";
             this.btnCrearUsuario.Size = new System.Drawing.Size(147, 39);
@@ -190,7 +190,7 @@
             this.btnInicio.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(84)))), ((int)(((byte)(116)))));
             this.btnInicio.Image = ((System.Drawing.Image)(resources.GetObject("btnInicio.Image")));
             this.btnInicio.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnInicio.Location = new System.Drawing.Point(9, 130);
+            this.btnInicio.Location = new System.Drawing.Point(2, 130);
             this.btnInicio.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnInicio.Name = "btnInicio";
             this.btnInicio.Size = new System.Drawing.Size(147, 39);
@@ -215,7 +215,7 @@
             this.btnReservas.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(84)))), ((int)(((byte)(116)))));
             this.btnReservas.Image = ((System.Drawing.Image)(resources.GetObject("btnReservas.Image")));
             this.btnReservas.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnReservas.Location = new System.Drawing.Point(9, 172);
+            this.btnReservas.Location = new System.Drawing.Point(2, 172);
             this.btnReservas.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnReservas.Name = "btnReservas";
             this.btnReservas.Size = new System.Drawing.Size(147, 39);
@@ -240,7 +240,7 @@
             this.btnCafeteria.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(84)))), ((int)(((byte)(116)))));
             this.btnCafeteria.Image = ((System.Drawing.Image)(resources.GetObject("btnCafeteria.Image")));
             this.btnCafeteria.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnCafeteria.Location = new System.Drawing.Point(9, 301);
+            this.btnCafeteria.Location = new System.Drawing.Point(2, 301);
             this.btnCafeteria.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnCafeteria.Name = "btnCafeteria";
             this.btnCafeteria.Size = new System.Drawing.Size(147, 39);
@@ -265,7 +265,7 @@
             this.btnUsuarios.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(84)))), ((int)(((byte)(116)))));
             this.btnUsuarios.Image = ((System.Drawing.Image)(resources.GetObject("btnUsuarios.Image")));
             this.btnUsuarios.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnUsuarios.Location = new System.Drawing.Point(9, 258);
+            this.btnUsuarios.Location = new System.Drawing.Point(2, 258);
             this.btnUsuarios.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnUsuarios.Name = "btnUsuarios";
             this.btnUsuarios.Size = new System.Drawing.Size(147, 39);
@@ -290,7 +290,7 @@
             this.btnPromociones.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(84)))), ((int)(((byte)(116)))));
             this.btnPromociones.Image = ((System.Drawing.Image)(resources.GetObject("btnPromociones.Image")));
             this.btnPromociones.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnPromociones.Location = new System.Drawing.Point(9, 215);
+            this.btnPromociones.Location = new System.Drawing.Point(2, 215);
             this.btnPromociones.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnPromociones.Name = "btnPromociones";
             this.btnPromociones.Size = new System.Drawing.Size(147, 39);

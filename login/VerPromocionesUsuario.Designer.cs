@@ -72,7 +72,6 @@
             this.guna2Button5 = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Button4 = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Button6 = new Guna.UI2.WinForms.Guna2Button();
-            this.txtNombre = new Guna.UI2.WinForms.Guna2TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.guna2Panel1.SuspendLayout();
             this.guna2Panel2.SuspendLayout();
@@ -92,12 +91,11 @@
             // guna2Panel1
             // 
             this.guna2Panel1.Controls.Add(this.guna2Panel2);
-            this.guna2Panel1.Controls.Add(this.txtNombre);
             this.guna2Panel1.Controls.Add(this.label9);
             this.guna2Panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.guna2Panel1.Location = new System.Drawing.Point(0, 0);
             this.guna2Panel1.Name = "guna2Panel1";
-            this.guna2Panel1.Size = new System.Drawing.Size(1040, 640);
+            this.guna2Panel1.Size = new System.Drawing.Size(1127, 698);
             this.guna2Panel1.TabIndex = 0;
             // 
             // guna2Panel2
@@ -114,13 +112,13 @@
             this.guna2Panel2.Controls.Add(this.guna2Panel5);
             this.guna2Panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.guna2Panel2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(245)))), ((int)(((byte)(253)))));
-            this.guna2Panel2.Location = new System.Drawing.Point(0, 25);
+            this.guna2Panel2.Location = new System.Drawing.Point(0, 83);
             this.guna2Panel2.Margin = new System.Windows.Forms.Padding(2);
             this.guna2Panel2.Name = "guna2Panel2";
             this.guna2Panel2.ShadowDecoration.BorderRadius = 35;
             this.guna2Panel2.ShadowDecoration.Depth = 4;
             this.guna2Panel2.ShadowDecoration.Enabled = true;
-            this.guna2Panel2.Size = new System.Drawing.Size(1040, 615);
+            this.guna2Panel2.Size = new System.Drawing.Size(1127, 615);
             this.guna2Panel2.TabIndex = 84;
             // 
             // guna2Button7
@@ -147,19 +145,19 @@
             this.guna2Panel9.BackColor = System.Drawing.Color.Transparent;
             this.guna2Panel9.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(234)))), ((int)(((byte)(242)))));
             this.guna2Panel9.BorderRadius = 15;
+            this.guna2Panel9.Controls.Add(this.label4);
             this.guna2Panel9.Controls.Add(this.guna2PictureBox1);
             this.guna2Panel9.Controls.Add(this.guna2CircleButton2);
             this.guna2Panel9.Controls.Add(this.label5);
-            this.guna2Panel9.Controls.Add(this.label4);
             this.guna2Panel9.Controls.Add(this.guna2Panel10);
             this.guna2Panel9.FillColor = System.Drawing.Color.White;
-            this.guna2Panel9.Location = new System.Drawing.Point(755, 111);
+            this.guna2Panel9.Location = new System.Drawing.Point(755, 94);
             this.guna2Panel9.Margin = new System.Windows.Forms.Padding(2);
             this.guna2Panel9.Name = "guna2Panel9";
             this.guna2Panel9.ShadowDecoration.BorderRadius = 15;
             this.guna2Panel9.ShadowDecoration.Depth = 4;
             this.guna2Panel9.ShadowDecoration.Enabled = true;
-            this.guna2Panel9.Size = new System.Drawing.Size(325, 404);
+            this.guna2Panel9.Size = new System.Drawing.Size(325, 421);
             this.guna2Panel9.TabIndex = 13;
             // 
             // guna2PictureBox1
@@ -208,7 +206,7 @@
             // 
             this.label4.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.label4.Location = new System.Drawing.Point(94, 68);
+            this.label4.Location = new System.Drawing.Point(94, 63);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(222, 57);
@@ -225,7 +223,7 @@
             this.guna2Panel10.Controls.Add(this.guna2Button12);
             this.guna2Panel10.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.guna2Panel10.FillColor = System.Drawing.Color.White;
-            this.guna2Panel10.Location = new System.Drawing.Point(0, 332);
+            this.guna2Panel10.Location = new System.Drawing.Point(0, 349);
             this.guna2Panel10.Margin = new System.Windows.Forms.Padding(2);
             this.guna2Panel10.Name = "guna2Panel10";
             this.guna2Panel10.ShadowDecoration.BorderRadius = 15;
@@ -251,7 +249,7 @@
             this.guna2Button10.Name = "guna2Button10";
             this.guna2Button10.Size = new System.Drawing.Size(321, 29);
             this.guna2Button10.TabIndex = 85;
-            this.guna2Button10.Text = "Válido hasta el 15/08/2026";
+            this.guna2Button10.Text = "Válido hasta el 31/08/2026";
             // 
             // guna2Button12
             // 
@@ -293,7 +291,7 @@
             // label10
             // 
             this.label10.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(93)))), ((int)(((byte)(132)))));
             this.label10.Location = new System.Drawing.Point(95, 12);
             this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label10.Name = "label10";
@@ -306,12 +304,12 @@
             // 
             this.label11.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
             this.label11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(139)))), ((int)(((byte)(161)))));
-            this.label11.Location = new System.Drawing.Point(99, 61);
+            this.label11.Location = new System.Drawing.Point(99, 58);
             this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(206, 69);
             this.label11.TabIndex = 2;
-            this.label11.Text = "Gestiona los productos del bar y mantén actualizado el stock disponible.";
+            this.label11.Text = "Presenta tu credencial y obtén un descuento especial.";
             this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // guna2CircleButton4
@@ -386,7 +384,7 @@
             this.guna2Button14.Name = "guna2Button14";
             this.guna2Button14.Size = new System.Drawing.Size(321, 29);
             this.guna2Button14.TabIndex = 85;
-            this.guna2Button14.Text = "Válido hasta el 15/08/2026";
+            this.guna2Button14.Text = "Válido hasta el 31/08/2026";
             // 
             // guna2Button15
             // 
@@ -396,7 +394,7 @@
             this.guna2Button15.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.guna2Button15.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.guna2Button15.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button15.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(155)))), ((int)(((byte)(75)))));
+            this.guna2Button15.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(93)))), ((int)(((byte)(132)))));
             this.guna2Button15.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2Button15.ForeColor = System.Drawing.Color.White;
             this.guna2Button15.Location = new System.Drawing.Point(175, 33);
@@ -446,7 +444,7 @@
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(206, 69);
             this.label7.TabIndex = 2;
-            this.label7.Text = "Gestiona los productos del bar y mantén actualizado el stock disponible.";
+            this.label7.Text = "Disfruta un 15% de descuento en tu próxima reserva.";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // guna2CircleButton8
@@ -521,7 +519,7 @@
             this.guna2Button3.Name = "guna2Button3";
             this.guna2Button3.Size = new System.Drawing.Size(321, 29);
             this.guna2Button3.TabIndex = 85;
-            this.guna2Button3.Text = "Válido hasta el 15/08/2026";
+            this.guna2Button3.Text = "Válido hasta el 31/08/2026";
             // 
             // guna2Button1
             // 
@@ -563,7 +561,7 @@
             // label12
             // 
             this.label12.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(93)))), ((int)(((byte)(132)))));
+            this.label12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(160)))), ((int)(((byte)(48)))));
             this.label12.Location = new System.Drawing.Point(95, 12);
             this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label12.Name = "label12";
@@ -581,8 +579,7 @@
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(206, 47);
             this.label13.TabIndex = 2;
-            this.label13.Text = "Reserva una cancha durante el fin de semana y recibe una bebida gratis para disfr" +
-    "utar después del partido.";
+            this.label13.Text = "Reserva el fin de semana y aprovecha beneficios especiales.";
             this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // guna2CircleButton5
@@ -591,7 +588,7 @@
             this.guna2CircleButton5.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.guna2CircleButton5.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.guna2CircleButton5.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2CircleButton5.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(93)))), ((int)(((byte)(132)))));
+            this.guna2CircleButton5.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(160)))), ((int)(((byte)(48)))));
             this.guna2CircleButton5.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.guna2CircleButton5.ForeColor = System.Drawing.Color.White;
             this.guna2CircleButton5.Image = ((System.Drawing.Image)(resources.GetObject("guna2CircleButton5.Image")));
@@ -639,7 +636,7 @@
             this.guna2Button16.Name = "guna2Button16";
             this.guna2Button16.Size = new System.Drawing.Size(321, 29);
             this.guna2Button16.TabIndex = 85;
-            this.guna2Button16.Text = "Válido hasta el 15/08/2026";
+            this.guna2Button16.Text = "Válido hasta el 31/08/2026";
             // 
             // guna2Button17
             // 
@@ -667,7 +664,7 @@
             this.guna2Button18.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.guna2Button18.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.guna2Button18.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button18.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(93)))), ((int)(((byte)(132)))));
+            this.guna2Button18.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(160)))), ((int)(((byte)(48)))));
             this.guna2Button18.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2Button18.ForeColor = System.Drawing.Color.White;
             this.guna2Button18.Location = new System.Drawing.Point(175, 33);
@@ -718,7 +715,7 @@
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(206, 47);
             this.label3.TabIndex = 2;
-            this.label3.Text = "La 4ta hora es gratis";
+            this.label3.Text = "Reserva 3 horas y disfruta la 4.ª hora sin costo.";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // guna2CircleButton1
@@ -767,7 +764,7 @@
             this.guna2Button5.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.guna2Button5.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.guna2Button5.FillColor = System.Drawing.Color.White;
-            this.guna2Button5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2Button5.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.guna2Button5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(155)))), ((int)(((byte)(75)))));
             this.guna2Button5.Image = global::login.Properties.Resources.icons8_calendario_96__2_;
             this.guna2Button5.Location = new System.Drawing.Point(2, 0);
@@ -775,7 +772,7 @@
             this.guna2Button5.Name = "guna2Button5";
             this.guna2Button5.Size = new System.Drawing.Size(321, 29);
             this.guna2Button5.TabIndex = 85;
-            this.guna2Button5.Text = "Válido hasta el 15/08/2026";
+            this.guna2Button5.Text = "Válido hasta el 31/08/2026";
             // 
             // guna2Button4
             // 
@@ -813,37 +810,12 @@
             this.guna2Button6.TabIndex = 77;
             this.guna2Button6.Text = "Reservar ahora";
             // 
-            // txtNombre
-            // 
-            this.txtNombre.BackColor = System.Drawing.Color.Transparent;
-            this.txtNombre.BorderRadius = 12;
-            this.txtNombre.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtNombre.DefaultText = "Buscar ofertas";
-            this.txtNombre.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtNombre.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtNombre.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtNombre.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtNombre.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtNombre.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNombre.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtNombre.IconLeft = global::login.Properties.Resources.icons8_búsqueda_100;
-            this.txtNombre.Location = new System.Drawing.Point(554, 60);
-            this.txtNombre.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.txtNombre.Name = "txtNombre";
-            this.txtNombre.PlaceholderText = "Buscar promociones";
-            this.txtNombre.SelectedText = "";
-            this.txtNombre.ShadowDecoration.BorderRadius = 12;
-            this.txtNombre.ShadowDecoration.Depth = 4;
-            this.txtNombre.ShadowDecoration.Enabled = true;
-            this.txtNombre.Size = new System.Drawing.Size(318, 39);
-            this.txtNombre.TabIndex = 75;
-            // 
             // label9
             // 
             this.label9.BackColor = System.Drawing.Color.Transparent;
             this.label9.Font = new System.Drawing.Font("Segoe UI", 28.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(37)))), ((int)(((byte)(87)))));
-            this.label9.Location = new System.Drawing.Point(28, 51);
+            this.label9.Location = new System.Drawing.Point(28, 30);
             this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(326, 48);
@@ -854,7 +826,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1040, 640);
+            this.ClientSize = new System.Drawing.Size(1127, 698);
             this.Controls.Add(this.guna2Panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "VerPromocionesUsuario";
@@ -886,7 +858,6 @@
         private System.Windows.Forms.Label label1;
         private Guna.UI2.WinForms.Guna2CircleButton guna2CircleButton8;
         private System.Windows.Forms.Label label7;
-        private Guna.UI2.WinForms.Guna2TextBox txtNombre;
         private Guna.UI2.WinForms.Guna2Button guna2Button1;
         private Guna.UI2.WinForms.Guna2Button guna2Button2;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel4;
