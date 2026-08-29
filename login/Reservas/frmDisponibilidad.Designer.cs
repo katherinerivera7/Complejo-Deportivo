@@ -235,7 +235,7 @@
             this.guna2Panel6.ShadowDecoration.BorderRadius = 15;
             this.guna2Panel6.ShadowDecoration.Depth = 4;
             this.guna2Panel6.ShadowDecoration.Enabled = true;
-            this.guna2Panel6.Size = new System.Drawing.Size(273, 95);
+            this.guna2Panel6.Size = new System.Drawing.Size(264, 95);
             this.guna2Panel6.TabIndex = 5;
             // 
             // label21
@@ -244,7 +244,7 @@
             this.label21.BackColor = System.Drawing.Color.Transparent;
             this.label21.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label21.ForeColor = System.Drawing.Color.DimGray;
-            this.label21.Location = new System.Drawing.Point(109, 63);
+            this.label21.Location = new System.Drawing.Point(138, 58);
             this.label21.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(86, 23);
@@ -263,11 +263,11 @@
             this.guna2CircleButton2.ForeColor = System.Drawing.Color.White;
             this.guna2CircleButton2.Image = ((System.Drawing.Image)(resources.GetObject("guna2CircleButton2.Image")));
             this.guna2CircleButton2.ImageSize = new System.Drawing.Size(30, 30);
-            this.guna2CircleButton2.Location = new System.Drawing.Point(12, 14);
+            this.guna2CircleButton2.Location = new System.Drawing.Point(17, 7);
             this.guna2CircleButton2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.guna2CircleButton2.Name = "guna2CircleButton2";
             this.guna2CircleButton2.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.guna2CircleButton2.Size = new System.Drawing.Size(64, 64);
+            this.guna2CircleButton2.Size = new System.Drawing.Size(85, 79);
             this.guna2CircleButton2.TabIndex = 77;
             // 
             // label10
@@ -276,7 +276,7 @@
             this.label10.BackColor = System.Drawing.Color.Transparent;
             this.label10.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.Color.DimGray;
-            this.label10.Location = new System.Drawing.Point(83, 12);
+            this.label10.Location = new System.Drawing.Point(101, 12);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(160, 23);
             this.label10.TabIndex = 75;
@@ -287,12 +287,12 @@
             // 
             this.label20.AutoSize = true;
             this.label20.BackColor = System.Drawing.Color.Transparent;
-            this.label20.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label20.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label20.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(37)))), ((int)(((byte)(87)))));
-            this.label20.Location = new System.Drawing.Point(83, 34);
+            this.label20.Location = new System.Drawing.Point(109, 35);
             this.label20.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(160, 28);
+            this.label20.Size = new System.Drawing.Size(134, 23);
             this.label20.TabIndex = 83;
             this.label20.Text = "12 agosto 2026";
             this.label20.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -313,7 +313,7 @@
             this.guna2Panel5.ShadowDecoration.BorderRadius = 15;
             this.guna2Panel5.ShadowDecoration.Depth = 4;
             this.guna2Panel5.ShadowDecoration.Enabled = true;
-            this.guna2Panel5.Size = new System.Drawing.Size(273, 95);
+            this.guna2Panel5.Size = new System.Drawing.Size(264, 95);
             this.guna2Panel5.TabIndex = 5;
             // 
             // label7
@@ -335,7 +335,7 @@
             this.label19.BackColor = System.Drawing.Color.Transparent;
             this.label19.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label19.ForeColor = System.Drawing.Color.DimGray;
-            this.label19.Location = new System.Drawing.Point(152, 55);
+            this.label19.Location = new System.Drawing.Point(161, 52);
             this.label19.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(75, 23);
@@ -367,7 +367,7 @@
             this.label18.BackColor = System.Drawing.Color.Transparent;
             this.label18.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(37)))), ((int)(((byte)(87)))));
-            this.label18.Location = new System.Drawing.Point(107, 27);
+            this.label18.Location = new System.Drawing.Point(107, 30);
             this.label18.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(46, 54);
@@ -391,7 +391,7 @@
             this.guna2Panel3.ShadowDecoration.BorderRadius = 15;
             this.guna2Panel3.ShadowDecoration.Depth = 4;
             this.guna2Panel3.ShadowDecoration.Enabled = true;
-            this.guna2Panel3.Size = new System.Drawing.Size(273, 95);
+            this.guna2Panel3.Size = new System.Drawing.Size(264, 95);
             this.guna2Panel3.TabIndex = 5;
             // 
             // label8
@@ -400,7 +400,7 @@
             this.label8.BackColor = System.Drawing.Color.Transparent;
             this.label8.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.DimGray;
-            this.label8.Location = new System.Drawing.Point(112, 14);
+            this.label8.Location = new System.Drawing.Point(96, 14);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(153, 23);
             this.label8.TabIndex = 74;
@@ -413,7 +413,7 @@
             this.label17.BackColor = System.Drawing.Color.Transparent;
             this.label17.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label17.ForeColor = System.Drawing.Color.DimGray;
-            this.label17.Location = new System.Drawing.Point(155, 55);
+            this.label17.Location = new System.Drawing.Point(153, 52);
             this.label17.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(71, 23);
@@ -432,7 +432,7 @@
             this.guna2CircleButton6.ForeColor = System.Drawing.Color.White;
             this.guna2CircleButton6.Image = ((System.Drawing.Image)(resources.GetObject("guna2CircleButton6.Image")));
             this.guna2CircleButton6.ImageSize = new System.Drawing.Size(30, 30);
-            this.guna2CircleButton6.Location = new System.Drawing.Point(20, 2);
+            this.guna2CircleButton6.Location = new System.Drawing.Point(4, 7);
             this.guna2CircleButton6.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.guna2CircleButton6.Name = "guna2CircleButton6";
             this.guna2CircleButton6.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
@@ -445,7 +445,7 @@
             this.label16.BackColor = System.Drawing.Color.Transparent;
             this.label16.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(37)))), ((int)(((byte)(87)))));
-            this.label16.Location = new System.Drawing.Point(117, 27);
+            this.label16.Location = new System.Drawing.Point(117, 32);
             this.label16.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(46, 54);
@@ -469,7 +469,7 @@
             this.guna2Panel4.ShadowDecoration.BorderRadius = 15;
             this.guna2Panel4.ShadowDecoration.Depth = 4;
             this.guna2Panel4.ShadowDecoration.Enabled = true;
-            this.guna2Panel4.Size = new System.Drawing.Size(273, 95);
+            this.guna2Panel4.Size = new System.Drawing.Size(264, 95);
             this.guna2Panel4.TabIndex = 4;
             // 
             // label14
@@ -510,7 +510,7 @@
             this.guna2CircleButton3.ForeColor = System.Drawing.Color.White;
             this.guna2CircleButton3.Image = ((System.Drawing.Image)(resources.GetObject("guna2CircleButton3.Image")));
             this.guna2CircleButton3.ImageSize = new System.Drawing.Size(30, 30);
-            this.guna2CircleButton3.Location = new System.Drawing.Point(8, 2);
+            this.guna2CircleButton3.Location = new System.Drawing.Point(9, 7);
             this.guna2CircleButton3.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.guna2CircleButton3.Name = "guna2CircleButton3";
             this.guna2CircleButton3.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
