@@ -239,7 +239,7 @@
             this.guna2CircleButton6.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.guna2CircleButton6.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.guna2CircleButton6.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2CircleButton6.FillColor = System.Drawing.Color.LightCoral;
+            this.guna2CircleButton6.FillColor = System.Drawing.Color.LightGreen;
             this.guna2CircleButton6.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.guna2CircleButton6.ForeColor = System.Drawing.Color.White;
             this.guna2CircleButton6.Image = ((System.Drawing.Image)(resources.GetObject("guna2CircleButton6.Image")));
