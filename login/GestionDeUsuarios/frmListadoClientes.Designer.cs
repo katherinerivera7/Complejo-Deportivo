@@ -39,6 +39,7 @@
             this.rvwClientes.ServerReport.BearerToken = null;
             this.rvwClientes.Size = new System.Drawing.Size(800, 450);
             this.rvwClientes.TabIndex = 0;
+            this.rvwClientes.Load += new System.EventHandler(this.rvwClientes_Load);
             // 
             // frmListadoClientes
             // 

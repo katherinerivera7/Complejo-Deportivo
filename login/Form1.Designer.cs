@@ -266,6 +266,7 @@
             this.txtClave.SelectedText = "";
             this.txtClave.Size = new System.Drawing.Size(350, 38);
             this.txtClave.TabIndex = 44;
+            this.txtClave.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtClave_KeyDown);
             // 
             // txtUsuario
             // 
@@ -287,6 +288,7 @@
             this.txtUsuario.SelectedText = "";
             this.txtUsuario.Size = new System.Drawing.Size(350, 38);
             this.txtUsuario.TabIndex = 43;
+            this.txtUsuario.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtUsuario_KeyDown);
             // 
             // lblClave
             // 

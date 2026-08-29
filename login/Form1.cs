@@ -183,5 +183,23 @@ namespace login
             menuPrincipal.Show();
             this.Hide();
         }
+
+        private void txtUsuario_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                txtClave.Focus();
+                e.SuppressKeyPress = true;
+            }
+        }
+
+        private void txtClave_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnIngresar.PerformClick();
+                e.SuppressKeyPress = true;
+            }
+        }
     }
 }
