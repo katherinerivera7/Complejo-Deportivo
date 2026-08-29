@@ -42,9 +42,10 @@
             // 
             this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(37)))), ((int)(((byte)(87)))));
-            this.label1.Location = new System.Drawing.Point(63, 211);
+            this.label1.Location = new System.Drawing.Point(47, 171);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(120, 50);
+            this.label1.Size = new System.Drawing.Size(90, 41);
             this.label1.TabIndex = 70;
             this.label1.Text = "Tipo";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -67,20 +68,23 @@
             "Tenis",
             "Pádel",
             "Voley"});
-            this.cmbTipo.Location = new System.Drawing.Point(203, 225);
-            this.cmbTipo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cmbTipo.Location = new System.Drawing.Point(152, 183);
+            this.cmbTipo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cmbTipo.Name = "cmbTipo";
-            this.cmbTipo.Size = new System.Drawing.Size(313, 36);
+            this.cmbTipo.Size = new System.Drawing.Size(236, 36);
             this.cmbTipo.StartIndex = 0;
             this.cmbTipo.TabIndex = 69;
+            this.cmbTipo.SelectedIndexChanged += new System.EventHandler(this.cmbTipo_SelectedIndexChanged);
+            this.cmbTipo.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cmbTipo_KeyDown);
             // 
             // lblCrearCancha
             // 
             this.lblCrearCancha.Font = new System.Drawing.Font("Segoe UI", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCrearCancha.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(37)))), ((int)(((byte)(87)))));
-            this.lblCrearCancha.Location = new System.Drawing.Point(71, 27);
+            this.lblCrearCancha.Location = new System.Drawing.Point(53, 22);
+            this.lblCrearCancha.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblCrearCancha.Name = "lblCrearCancha";
-            this.lblCrearCancha.Size = new System.Drawing.Size(424, 50);
+            this.lblCrearCancha.Size = new System.Drawing.Size(318, 41);
             this.lblCrearCancha.TabIndex = 68;
             this.lblCrearCancha.Text = "Crear cancha";
             this.lblCrearCancha.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -98,21 +102,23 @@
             this.txtNombre.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtNombre.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtNombre.IconLeft = global::login.Properties.Resources.icons8_editar_96;
-            this.txtNombre.Location = new System.Drawing.Point(92, 103);
-            this.txtNombre.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtNombre.Location = new System.Drawing.Point(69, 84);
+            this.txtNombre.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.PlaceholderText = "Nombre";
             this.txtNombre.SelectedText = "";
-            this.txtNombre.Size = new System.Drawing.Size(424, 46);
+            this.txtNombre.Size = new System.Drawing.Size(318, 37);
             this.txtNombre.TabIndex = 67;
+            this.txtNombre.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtNombre_KeyDown);
             // 
             // label2
             // 
             this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(37)))), ((int)(((byte)(87)))));
-            this.label2.Location = new System.Drawing.Point(75, 263);
+            this.label2.Location = new System.Drawing.Point(56, 214);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(120, 50);
+            this.label2.Size = new System.Drawing.Size(90, 41);
             this.label2.TabIndex = 72;
             this.label2.Text = "Estado";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -133,12 +139,13 @@
             "Disponible",
             "Mantenimiento",
             "Cerrada"});
-            this.cmbEstado.Location = new System.Drawing.Point(203, 277);
-            this.cmbEstado.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cmbEstado.Location = new System.Drawing.Point(152, 225);
+            this.cmbEstado.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cmbEstado.Name = "cmbEstado";
-            this.cmbEstado.Size = new System.Drawing.Size(313, 36);
+            this.cmbEstado.Size = new System.Drawing.Size(236, 36);
             this.cmbEstado.StartIndex = 0;
             this.cmbEstado.TabIndex = 71;
+            this.cmbEstado.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cmbEstado_KeyDown);
             // 
             // btnCrear
             // 
@@ -152,10 +159,10 @@
             this.btnCrear.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.btnCrear.ForeColor = System.Drawing.Color.White;
             this.btnCrear.Image = global::login.Properties.Resources.icons8_masgris_100;
-            this.btnCrear.Location = new System.Drawing.Point(167, 358);
-            this.btnCrear.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnCrear.Location = new System.Drawing.Point(125, 291);
+            this.btnCrear.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnCrear.Name = "btnCrear";
-            this.btnCrear.Size = new System.Drawing.Size(251, 48);
+            this.btnCrear.Size = new System.Drawing.Size(188, 39);
             this.btnCrear.TabIndex = 73;
             this.btnCrear.Text = "Crear";
             this.btnCrear.Click += new System.EventHandler(this.btnCrear_Click);
@@ -173,20 +180,20 @@
             this.txtPrecioHora.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtPrecioHora.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtPrecioHora.IconLeft = global::login.Properties.Resources.icons8_dólar_64;
-            this.txtPrecioHora.Location = new System.Drawing.Point(92, 161);
-            this.txtPrecioHora.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtPrecioHora.Location = new System.Drawing.Point(69, 131);
+            this.txtPrecioHora.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.txtPrecioHora.Name = "txtPrecioHora";
             this.txtPrecioHora.PlaceholderText = "Precio por hora";
             this.txtPrecioHora.SelectedText = "";
-            this.txtPrecioHora.Size = new System.Drawing.Size(424, 46);
+            this.txtPrecioHora.Size = new System.Drawing.Size(318, 37);
             this.txtPrecioHora.TabIndex = 74;
             // 
             // frmCrearCancha
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(249)))), ((int)(((byte)(251)))));
-            this.ClientSize = new System.Drawing.Size(641, 450);
+            this.ClientSize = new System.Drawing.Size(481, 366);
             this.Controls.Add(this.txtPrecioHora);
             this.Controls.Add(this.btnCrear);
             this.Controls.Add(this.label2);
@@ -196,6 +203,7 @@
             this.Controls.Add(this.lblCrearCancha);
             this.Controls.Add(this.txtNombre);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "frmCrearCancha";
             this.Text = "Cancha";
             this.Load += new System.EventHandler(this.frmCrearCancha_Load_1);

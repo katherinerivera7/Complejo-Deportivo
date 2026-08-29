@@ -115,6 +115,7 @@
             this.txtClave.Size = new System.Drawing.Size(318, 37);
             this.txtClave.TabIndex = 43;
             this.txtClave.UseSystemPasswordChar = true;
+            this.txtClave.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtClave_KeyDown);
             // 
             // btnGuardarCambios
             // 
@@ -155,6 +156,7 @@
             this.txtDireccion.SelectedText = "";
             this.txtDireccion.Size = new System.Drawing.Size(318, 37);
             this.txtDireccion.TabIndex = 39;
+            this.txtDireccion.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtDireccion_KeyDown);
             // 
             // txtCiudad
             // 
@@ -176,6 +178,7 @@
             this.txtCiudad.SelectedText = "";
             this.txtCiudad.Size = new System.Drawing.Size(318, 37);
             this.txtCiudad.TabIndex = 38;
+            this.txtCiudad.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCiudad_KeyDown);
             // 
             // txtTelefono
             // 
@@ -197,6 +200,7 @@
             this.txtTelefono.SelectedText = "";
             this.txtTelefono.Size = new System.Drawing.Size(318, 37);
             this.txtTelefono.TabIndex = 37;
+            this.txtTelefono.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtTelefono_KeyDown);
             // 
             // txtCorreo
             // 
@@ -218,6 +222,7 @@
             this.txtCorreo.SelectedText = "";
             this.txtCorreo.Size = new System.Drawing.Size(318, 37);
             this.txtCorreo.TabIndex = 36;
+            this.txtCorreo.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCorreo_KeyDown);
             // 
             // txtApellidos
             // 
@@ -239,6 +244,7 @@
             this.txtApellidos.SelectedText = "";
             this.txtApellidos.Size = new System.Drawing.Size(318, 37);
             this.txtApellidos.TabIndex = 35;
+            this.txtApellidos.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtApellidos_KeyDown);
             // 
             // txtNombres
             // 
@@ -260,6 +266,7 @@
             this.txtNombres.SelectedText = "";
             this.txtNombres.Size = new System.Drawing.Size(318, 37);
             this.txtNombres.TabIndex = 34;
+            this.txtNombres.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtNombres_KeyDown);
             // 
             // frmEditarUsuario
             // 

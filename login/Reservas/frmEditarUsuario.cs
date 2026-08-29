@@ -99,5 +99,68 @@ namespace login.Reservas
                 }
             }
         }
+
+        private void txtNombres_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                txtApellidos.Focus();
+                e.SuppressKeyPress = true;
+            }
+        }
+
+        private void txtApellidos_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                txtCorreo.Focus();
+                e.SuppressKeyPress = true;
+            }
+        }
+
+        private void txtCorreo_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                txtTelefono.Focus();
+                e.SuppressKeyPress = true;
+            }
+        }
+
+        private void txtTelefono_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                txtCiudad.Focus();
+                e.SuppressKeyPress = true;
+            }
+        }
+
+        private void txtCiudad_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                txtDireccion.Focus();
+                e.SuppressKeyPress = true;
+            }
+        }
+
+        private void txtDireccion_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                txtClave.Focus();
+                e.SuppressKeyPress = true;
+            }
+        }
+
+        private void txtClave_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                txtConfirmarClave.Focus();
+                e.SuppressKeyPress = true;
+            }
+        }
     }
 }

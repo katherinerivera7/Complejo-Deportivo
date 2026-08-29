@@ -202,6 +202,7 @@
             this.txtFiltro.ShadowDecoration.Enabled = true;
             this.txtFiltro.Size = new System.Drawing.Size(318, 39);
             this.txtFiltro.TabIndex = 86;
+            this.txtFiltro.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtFiltro_KeyDown_1);
             // 
             // label11
             // 
@@ -405,7 +406,7 @@
             this.ClientSize = new System.Drawing.Size(1062, 796);
             this.Controls.Add(this.pnlContenidoCanchas);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmCanchas";
             this.Text = "frmCanchas";
             this.Load += new System.EventHandler(this.frmCanchas_Load);

@@ -287,5 +287,14 @@ namespace login.Reservas
             frm1.Show();
             this.Close();
         }
+
+        private void txtFiltro_KeyDown_1(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnBuscar.PerformClick();
+                e.SuppressKeyPress = true;
+            }
+        }
     }
 }

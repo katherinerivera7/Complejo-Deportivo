@@ -102,5 +102,37 @@ namespace login.Reservas
                 lblCrearCancha.Text = "Editar cancha";
             }
         }
+
+        private void txtNombre_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+              txtPrecioHora.Focus();
+                e.SuppressKeyPress = true;
+            }
+        }
+
+        private void cmbTipo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void cmbTipo_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                cmbEstado.Focus();
+                e.SuppressKeyPress = true;
+            }
+        }
+
+        private void cmbEstado_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnCrear.PerformClick();
+                e.SuppressKeyPress = true;
+            }
+        }
     }
 }
