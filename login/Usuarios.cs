@@ -1,4 +1,5 @@
 ﻿using login.GestionDeUsuarios;
+using login.Reservas;
 using System;
 using System.Data;
 using System.Data.SqlClient;
@@ -9,16 +10,16 @@ using System.Windows.Forms;
 
 namespace login
 {
-    public partial class Usuarios : Form
+    public partial class UCClientes : Form
     {
         csConectaSQL oCon = new csConectaSQL();
         private bool busquedaAutomaticaAplicada = false;
         int ClientexPag = 40;
-        int Bandera = 0;//este es el contador de los clientes
+        int Bandera = 0;
 
         string conexionString = @"Server=LAPTOP-J5U2QS20\SQLEXPRESS01;Database=ComplejoDeportivo;Integrated Security=True;TrustServerCertificate=True;";
 
-        public Usuarios()
+        public UCClientes()
         {
             InitializeComponent();
         }
@@ -48,181 +49,62 @@ namespace login
                 string consulta = @"SELECT ClienteID, Cedula, Nombre, Apellido, Correo, Telefono, Ciudad, Direccion, FechaNacimiento
                                     FROM Clientes";
 
-                if (!string.IsNullOrWhiteSpace(texto))
-                {
-                    switch (filtro)
+                    if (!string.IsNullOrWhiteSpace(texto))
                     {
-                        case "Cédula":
-                            consulta += " WHERE Cedula LIKE '%" + texto + "%'";
-                            break;
+                        switch (filtro)
+                        {
+                            case "Cédula":
+                                consulta += " WHERE Cedula LIKE '%" + texto + "%'";
+                                break;
 
-                        case "Nombres":
-                            consulta += " WHERE Nombre LIKE '%" + texto + "%'";
-                            break;
+                            case "Nombres":
+                                consulta += " WHERE Nombre LIKE '%" + texto + "%'";
+                                break;
 
-                        case "Apellidos":
-                            consulta += " WHERE Apellido LIKE '%" + texto + "%'";
-                            break;
+                            case "Apellidos":
+                                consulta += " WHERE Apellido LIKE '%" + texto + "%'";
+                                break;
 
-                        case "Correo":
-                            consulta += " WHERE Correo LIKE '%" + texto + "%'";
-                            break;
+                            case "Correo":
+                                consulta += " WHERE Correo LIKE '%" + texto + "%'";
+                                break;
 
-                        case "Teléfono":
-                            consulta += " WHERE Telefono LIKE '%" + texto + "%'";
-                            break;
+                            case "Teléfono":
+                                consulta += " WHERE Telefono LIKE '%" + texto + "%'";
+                                break;
 
-                        case "Ciudad":
-                            consulta += " WHERE Ciudad LIKE '%" + texto + "%'";
-                            break;
+                            case "Ciudad":
+                                consulta += " WHERE Ciudad LIKE '%" + texto + "%'";
+                                break;
 
-                        default:
-                            consulta += @" WHERE CONCAT(Cedula, ' ', Nombre, ' ', Apellido, ' ', Correo, ' ', Telefono, ' ', Ciudad, ' ', Direccion)
-                                          LIKE '%" + texto + "%'";
-                            break;
+                            default:
+                                consulta += @" WHERE CONCAT(Cedula, ' ', Nombre, ' ', Apellido, ' ', Correo, ' ', Telefono, ' ', Ciudad, ' ', Direccion)
+                                              LIKE '%" + texto + "%'";
+                                break;
+                        }
                     }
-                }
 
-                consulta += " ORDER BY ClienteID DESC";
+                    consulta += " ORDER BY ClienteID DESC";
 
-                DataTable tabla = oCon.retornaRegistros(consulta);
+                    DataTable tabla = oCon.retornaRegistros(consulta);
 
-                if (tabla == null)
-                {
-                    MessageBox.Show("No se pudieron cargar los clientes.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
-
-                dgvClientes.DataSource = tabla;
-                dgvClientes.ClearSelection();
-                dgvClientes.CurrentCell = null;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error al cargar los clientes:\n\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void btnBuscar_Click(object sender, EventArgs e)
-        {
-            CargarClientes();
-        }
-
-        private void txtBuscar_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                CargarClientes();
-                e.SuppressKeyPress = true;
-            }
-        }
-
-        private void txtBuscar_TextChanged(object sender, EventArgs e)
-        {
-            int cantidadCaracteres = txtBuscar.Text.Trim().Length;
-
-            if (cantidadCaracteres > 4)
-            {
-                busquedaAutomaticaAplicada = true;
-                CargarClientes();
-            }
-            else if (cantidadCaracteres == 0 || busquedaAutomaticaAplicada)
-            {
-                busquedaAutomaticaAplicada = false;
-                CargarClientes();
-            }
-        }
-        private void guna2Button1_Click(object sender, EventArgs e)
-        {
-            frmRegistrarCliente ventana = new frmRegistrarCliente();
-            ventana.StartPosition = FormStartPosition.CenterParent;
-
-            if (ventana.ShowDialog(this) == DialogResult.OK)
-            {
-                CargarClientes();
-            }
-        }
-
-        private void btnEditar_Click(object sender, EventArgs e)
-        {
-            if (dgvClientes.SelectedRows.Count == 0)
-            {
-                MessageBox.Show("Seleccione un cliente para editar.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
-            int clienteID = Convert.ToInt32(dgvClientes.SelectedRows[0].Cells["colClienteID"].Value);
-
-            frmRegistrarCliente ventana = new frmRegistrarCliente(clienteID);
-            ventana.StartPosition = FormStartPosition.CenterParent;
-
-            if (ventana.ShowDialog(this) == DialogResult.OK)
-            {
-                CargarClientes();
-            }
-        }
-
-        private void btnEliminar_Click(object sender, EventArgs e)
-        {
-            if (dgvClientes.SelectedRows.Count == 0)
-            {
-                MessageBox.Show("Seleccione un cliente para eliminar.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
-            int clienteID = Convert.ToInt32(dgvClientes.SelectedRows[0].Cells["colClienteID"].Value);
-            string nombre = dgvClientes.SelectedRows[0].Cells["colNombres"].Value.ToString();
-            string apellido = dgvClientes.SelectedRows[0].Cells["colApellidos"].Value.ToString();
-
-            DialogResult resultado = MessageBox.Show(
-                $"¿Está seguro de eliminar al cliente {nombre} {apellido}?",
-                "Confirmar eliminación",
-                MessageBoxButtons.YesNo,
-                MessageBoxIcon.Question
-            );
-
-            if (resultado != DialogResult.Yes)
-                return;
-
-            try
-            {
-                using (SqlConnection conexion = new SqlConnection(conexionString))
-                {
-                    string consulta = "DELETE FROM Clientes WHERE ClienteID = @ClienteID";
-
-                    using (SqlCommand cmd = new SqlCommand(consulta, conexion))
+                    if (tabla == null)
                     {
-                        cmd.Parameters.Add("@ClienteID", SqlDbType.Int).Value = clienteID;
-                        conexion.Open();
-                        cmd.ExecuteNonQuery();
+                        MessageBox.Show("No se pudieron cargar los clientes.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
                     }
+
+                    dgvClientes.DataSource = tabla;
+                    dgvClientes.ClearSelection();
+                    dgvClientes.CurrentCell = null;
                 }
-
-                MessageBox.Show("Cliente eliminado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                CargarClientes();
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error al cargar los clientes:\n\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error al eliminar el cliente:\n\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
 
-        private void cmbFiltro_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (cmbFiltro.SelectedIndex >= 0 && !string.IsNullOrWhiteSpace(txtBuscar.Text))
-            {
-                CargarClientes();
-            }
-        }
 
-        private void btnImprimir_Click(object sender, EventArgs e)
-        {
-            prdImprimir = new PrintDocument();
-            PrinterSettings pd = new PrinterSettings();
-            prdImprimir.PrinterSettings = pd;
-            prdImprimir.PrintPage += imprimePagina;
-            prdImprimir.Print();
-        }
         private void imprimePagina(object sender, PrintPageEventArgs e)
         {
             SolidBrush verdeProyecto = new SolidBrush(Color.FromArgb(139, 195, 74));
@@ -270,6 +152,145 @@ namespace login
             e.HasMorePages = Bandera < dt.Rows.Count;
             lineaVerde.Dispose();
             verdeProyecto.Dispose();
+        }
+
+
+        private void btnBuscar_Click_1(object sender, EventArgs e)
+        {
+            CargarClientes();
+        }
+
+        private void btnEliminar_Click_1(object sender, EventArgs e)
+        {
+            if (dgvClientes.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Seleccione un cliente para eliminar.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            int clienteID = Convert.ToInt32(dgvClientes.SelectedRows[0].Cells["colClienteID"].Value);
+            string nombre = dgvClientes.SelectedRows[0].Cells["colNombres"].Value.ToString();
+            string apellido = dgvClientes.SelectedRows[0].Cells["colApellidos"].Value.ToString();
+
+            DialogResult resultado = MessageBox.Show(
+                $"¿Está seguro de eliminar al cliente {nombre} {apellido}?",
+                "Confirmar eliminación",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question
+            );
+
+            if (resultado != DialogResult.Yes)
+                return;
+
+            try
+            {
+                using (SqlConnection conexion = new SqlConnection(conexionString))
+                {
+                    string consulta = "DELETE FROM Clientes WHERE ClienteID = @ClienteID";
+
+                    using (SqlCommand cmd = new SqlCommand(consulta, conexion))
+                    {
+                        cmd.Parameters.Add("@ClienteID", SqlDbType.Int).Value = clienteID;
+                        conexion.Open();
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+
+                MessageBox.Show("Cliente eliminado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                CargarClientes();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al eliminar el cliente:\n\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnEditar_Click_1(object sender, EventArgs e)
+        {
+            if (dgvClientes.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Seleccione un cliente para editar.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            int clienteID = Convert.ToInt32(dgvClientes.SelectedRows[0].Cells["colClienteID"].Value);
+
+            frmRegistrarCliente ventana = new frmRegistrarCliente(clienteID);
+            ventana.StartPosition = FormStartPosition.CenterParent;
+
+            if (ventana.ShowDialog(this) == DialogResult.OK)
+            {
+                CargarClientes();
+            }
+        }
+
+        private void guna2Button1_Click_1(object sender, EventArgs e)
+        {
+            frmRegistrarCliente ventana = new frmRegistrarCliente();
+            ventana.StartPosition = FormStartPosition.CenterParent;
+
+            if (ventana.ShowDialog(this) == DialogResult.OK)
+            {
+                CargarClientes();
+            }
+        }
+
+        private void btnImprimir_Click_1(object sender, EventArgs e)
+        {
+            prdImprimir = new PrintDocument();
+            PrinterSettings pd = new PrinterSettings();
+            prdImprimir.PrinterSettings = pd;
+            prdImprimir.PrintPage += imprimePagina;
+            prdImprimir.Print();
+        }
+
+        private void guna2Button2_Click_1(object sender, EventArgs e)
+        {
+            pnlContenido.Controls.Clear();
+            frmListadoClientes frm = new frmListadoClientes();
+
+            frm.TopLevel = false;
+            frm.FormBorderStyle = FormBorderStyle.None;
+            frm.Dock = DockStyle.Fill;
+
+            pnlContenido.Controls.Clear();
+            pnlContenido.Controls.Add(frm);
+            pnlContenido.Tag = frm;
+
+            frm.Show();
+        }
+
+        private void cmbFiltro_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmbFiltro.SelectedIndex >= 0 && !string.IsNullOrWhiteSpace(txtBuscar.Text))
+            {
+                CargarClientes();
+            }
+        }
+
+        private void txtBuscar_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                CargarClientes();
+                e.SuppressKeyPress = true;
+            }
+        }
+
+        private void txtBuscar_TextChanged(object sender, EventArgs e)
+        {
+            int cantidadCaracteres = txtBuscar.Text.Trim().Length;
+
+            if (cantidadCaracteres > 4)
+            {
+                busquedaAutomaticaAplicada = true;
+                CargarClientes();
+            }
+            else if (cantidadCaracteres == 0 || busquedaAutomaticaAplicada)
+            {
+                busquedaAutomaticaAplicada = false;
+                CargarClientes();
+            }
         }
     }
 }
