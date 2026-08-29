@@ -38,7 +38,11 @@
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pnlLogin = new Guna.UI2.WinForms.Guna2Panel();
+
+           
+
             this.label4 = new System.Windows.Forms.Label();
+           
             this.chkMostrar = new Guna.UI2.WinForms.Guna2CheckBox();
             this.picLogin = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.btnIngresar = new Guna.UI2.WinForms.Guna2Button();
@@ -83,8 +87,6 @@
             // 
             this.guna2Panel1.BackColor = System.Drawing.Color.Transparent;
             this.guna2Panel1.BorderRadius = 25;
-            this.guna2Panel1.Controls.Add(this.button1);
-            this.guna2Panel1.Controls.Add(this.button2);
             this.guna2Panel1.Controls.Add(this.pictureBox4);
             this.guna2Panel1.Controls.Add(this.pictureBox3);
             this.guna2Panel1.Controls.Add(this.pictureBox2);
@@ -161,7 +163,9 @@
             // pnlLogin
             // 
             this.pnlLogin.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pnlLogin.Controls.Add(this.button1);
             this.pnlLogin.Controls.Add(this.label4);
+            this.pnlLogin.Controls.Add(this.button2);
             this.pnlLogin.Controls.Add(this.chkMostrar);
             this.pnlLogin.Controls.Add(this.picLogin);
             this.pnlLogin.Controls.Add(this.btnIngresar);
@@ -176,6 +180,20 @@
             this.pnlLogin.Size = new System.Drawing.Size(435, 633);
             this.pnlLogin.TabIndex = 39;
             // 
+
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(24, 694);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(292, 38);
+            this.button1.TabIndex = 50;
+            this.button1.Text = "usuario";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Visible = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+
             // label4
             // 
             this.label4.AutoSize = true;
@@ -188,6 +206,17 @@
             this.label4.TabIndex = 47;
             this.label4.Text = "Complejo Deportivo \nAcceso al Sistema";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(353, 694);
+            this.button2.Margin = new System.Windows.Forms.Padding(4);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(165, 38);
+            this.button2.TabIndex = 52;
+            this.button2.Text = "propietario";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // chkMostrar
             // 
