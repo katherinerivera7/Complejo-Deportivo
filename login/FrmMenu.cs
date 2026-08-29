@@ -130,7 +130,7 @@ namespace login
         {
             pnlContenido.Controls.Clear();
 
-            Usuarios frm = new Usuarios();
+            UCClientes frm = new UCClientes();
             frm.TopLevel = false;
             frm.FormBorderStyle = FormBorderStyle.None;
             frm.Dock = DockStyle.Fill;

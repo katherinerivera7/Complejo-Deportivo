@@ -259,5 +259,15 @@ namespace login
         {
 
         }
+
+        private void guna2ComboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtCedula_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
