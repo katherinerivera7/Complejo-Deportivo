@@ -151,9 +151,23 @@ namespace login.Bar
 
         private void AgregarProductoAVenta(UCTarjetaProducto producto)
         {
+            UCVentasBar tarjetaVenta = new UCVentasBar();
 
-        
+            tarjetaVenta.CargarProducto(
+                producto.ProductoID,
+                producto.NombreProducto,
+                producto.Precio
+            );
+
+            tarjetaVenta.ProductoEliminado += TarjetaVenta_ProductoEliminado;
+            flpProduct.Controls.Add(tarjetaVenta);
+            flpProduct.AutoScroll = true;
         }
+
+
+
+
+
 
         private void frmRegistroVenta_FormClosed(object sender, FormClosedEventArgs e)
         {
@@ -184,18 +198,39 @@ namespace login.Bar
         {
 
         }
+        private void TarjetaVenta_ProductoEliminado(object sender, EventArgs e)
+        {
+            if (sender is UCVentasBar tarjeta)
+            {
+                flpProduct.Controls.Remove(tarjeta);
+                tarjeta.Dispose();
+            }
+        }
+
 
         private void guna2Button2_Click(object sender, EventArgs e)
         {
-            UCVentasBar tarjeta = new UCVentasBar();
+           
+        }
 
-            tarjeta.CargarProducto(
-                1,
-                "Coca Cola",
-                2.50m
-            );
+        private void flpProduct_Paint(object sender, PaintEventArgs e)
+        {
 
-            flpProduct.Controls.Add(tarjeta);
+        }
+
+        private void guna2Button17_Click(object sender, EventArgs e)
+        {
+              DialogResult respuesta = MessageBox.Show(
+             "¿Está seguro de cancelar la venta?",
+              "Cancelar venta",
+                MessageBoxButtons.YesNo,
+           MessageBoxIcon.Question
+           );
+
+            if (respuesta == DialogResult.Yes)
+            {
+                flpProduct.Controls.Clear();
+            }
         }
     }
 }
