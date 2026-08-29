@@ -135,7 +135,7 @@
             this.guna2Button7.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2Button7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(185)))), ((int)(((byte)(67)))), ((int)(((byte)(26)))));
             this.guna2Button7.Image = global::login.Properties.Resources.icons8_estrella_48;
-            this.guna2Button7.Location = new System.Drawing.Point(750, 68);
+            this.guna2Button7.Location = new System.Drawing.Point(755, 42);
             this.guna2Button7.Margin = new System.Windows.Forms.Padding(2);
             this.guna2Button7.Name = "guna2Button7";
             this.guna2Button7.Size = new System.Drawing.Size(321, 29);

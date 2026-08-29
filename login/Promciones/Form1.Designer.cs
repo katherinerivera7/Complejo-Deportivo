@@ -718,7 +718,7 @@
             this.cmbUnidadDescuento.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.cmbUnidadDescuento.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.cmbUnidadDescuento.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.cmbUnidadDescuento.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.cmbUnidadDescuento.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.cmbUnidadDescuento.ItemHeight = 25;
             this.cmbUnidadDescuento.Items.AddRange(new object[] {
             "%",
