@@ -1,6 +1,6 @@
 ﻿namespace login.GestionDeUsuarios
 {
-    partial class frmListadoClientes
+    partial class frmListadoCategorias
     {
         /// <summary>
         /// Required designer variable.
@@ -28,35 +28,34 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.rvwClientes = new Microsoft.Reporting.WinForms.ReportViewer();
+            this.rvwCategorias = new Microsoft.Reporting.WinForms.ReportViewer();
             this.SuspendLayout();
             // 
-            // rvwClientes
+            // rvwCategorias
             // 
-            this.rvwClientes.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.rvwClientes.Location = new System.Drawing.Point(0, 0);
-            this.rvwClientes.Name = "rvwClientes";
-            this.rvwClientes.ServerReport.BearerToken = null;
-            this.rvwClientes.Size = new System.Drawing.Size(800, 450);
-            this.rvwClientes.TabIndex = 0;
-            this.rvwClientes.Load += new System.EventHandler(this.rvwClientes_Load);
+            this.rvwCategorias.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.rvwCategorias.Location = new System.Drawing.Point(0, 0);
+            this.rvwCategorias.Name = "rvwCategorias";
+            this.rvwCategorias.ServerReport.BearerToken = null;
+            this.rvwCategorias.Size = new System.Drawing.Size(800, 450);
+            this.rvwCategorias.TabIndex = 0;
             // 
-            // frmListadoClientes
+            // frmListadoCategorias
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.rvwClientes);
+            this.Controls.Add(this.rvwCategorias);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "frmListadoClientes";
-            this.Text = "Listado de clientes";
-            this.Load += new System.EventHandler(this.frmListadoClientes_Load);
+            this.Name = "frmListadoCategorias";
+            this.Text = "frmListadoCategorias";
+            this.Load += new System.EventHandler(this.frmListadoCategorias_Load);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private Microsoft.Reporting.WinForms.ReportViewer rvwClientes;
+        private Microsoft.Reporting.WinForms.ReportViewer rvwCategorias;
     }
 }

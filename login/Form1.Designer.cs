@@ -165,7 +165,6 @@
             this.button2.TabIndex = 52;
             this.button2.Text = "propietario";
             this.button2.UseVisualStyleBackColor = true;
-            this.button2.Visible = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
@@ -267,6 +266,7 @@
             this.txtClave.SelectedText = "";
             this.txtClave.Size = new System.Drawing.Size(467, 47);
             this.txtClave.TabIndex = 44;
+            this.txtClave.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtClave_KeyDown);
             // 
             // txtUsuario
             // 
@@ -288,6 +288,7 @@
             this.txtUsuario.SelectedText = "";
             this.txtUsuario.Size = new System.Drawing.Size(467, 47);
             this.txtUsuario.TabIndex = 43;
+            this.txtUsuario.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtUsuario_KeyDown);
             // 
             // lblClave
             // 

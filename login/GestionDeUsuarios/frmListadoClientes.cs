@@ -35,5 +35,10 @@ namespace login.GestionDeUsuarios
             rvwClientes.LocalReport.Refresh();//Refresca el reporte
             this.rvwClientes.RefreshReport();//actualiza el report viewer
         }
+
+        private void rvwClientes_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
