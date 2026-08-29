@@ -418,6 +418,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="rptCategorias.rdlc" />
     <EmbeddedResource Include="Reservas\frmCalendario.resx">
       <DependentUpon>frmCalendario.cs</DependentUpon>
     </EmbeddedResource>

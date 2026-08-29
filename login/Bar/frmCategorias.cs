@@ -1,4 +1,5 @@
-﻿using System;
+﻿using login.GestionDeUsuarios;
+using System;
 using System.Data;
 using System.Drawing;
 using System.Drawing.Printing;
@@ -29,6 +30,7 @@ namespace login.Bar
         {
             ConfigurarFiltro();
             CargarCategorias();
+
         }
 
         private void ConfigurarFiltro()
@@ -230,6 +232,27 @@ namespace login.Bar
             e.HasMorePages = Bandera < dt.Rows.Count;
             lineaVerde.Dispose();
             verdeProyecto.Dispose();
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+            
+        }
+
+        private void guna2Button2_Click(object sender, EventArgs e)
+        {
+            pnlContenido2.Controls.Clear();
+            frmListadoCategorias frm = new frmListadoCategorias();
+
+            frm.TopLevel = false;
+            frm.FormBorderStyle = FormBorderStyle.None;
+            frm.Dock = DockStyle.Fill;
+
+            pnlContenido.Controls.Clear();
+            pnlContenido.Controls.Add(frm);
+            pnlContenido.Tag = frm;
+
+            frm.Show();
         }
     }
 }

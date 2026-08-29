@@ -39,6 +39,7 @@
             this.rvwCategorias.ServerReport.BearerToken = null;
             this.rvwCategorias.Size = new System.Drawing.Size(800, 450);
             this.rvwCategorias.TabIndex = 0;
+            this.rvwCategorias.Load += new System.EventHandler(this.rvwCategorias_Load);
             // 
             // frmListadoCategorias
             // 
