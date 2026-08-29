@@ -269,5 +269,69 @@ namespace login
         {
 
         }
+
+        private void txtUsuario_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                txtCedula.Focus();
+                e.SuppressKeyPress = true;
+            }
+        }
+
+        private void txtCedula_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                guna2ComboBox1.Focus();
+                guna2ComboBox1.DroppedDown = true;
+                e.SuppressKeyPress = true;
+            }
+        }
+
+        private void guna2ComboBox1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                guna2TextBox2.Focus();
+                e.SuppressKeyPress = true;
+            }
+        }
+
+        private void guna2TextBox2_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                guna2TextBox1.Focus();
+                e.SuppressKeyPress = true;
+            }
+        }
+
+        private void guna2TextBox1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                txtClave.Focus();
+                e.SuppressKeyPress = true;
+            }
+        }
+
+        private void txtClave_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                txtClave.Focus();
+                e.SuppressKeyPress = true;
+            }
+        }
+
+        private void txtConfirmarClave_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnCrear.PerformClick();
+                e.SuppressKeyPress = true;
+            }
+        }
     }
 }
