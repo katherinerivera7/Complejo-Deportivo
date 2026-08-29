@@ -68,6 +68,7 @@
             this.pbImagen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbImagen.TabIndex = 10;
             this.pbImagen.TabStop = false;
+            this.pbImagen.Click += new System.EventHandler(this.pbImagen_Click);
             // 
             // btnAnadir
             // 
