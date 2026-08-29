@@ -1,4 +1,5 @@
-﻿using System;
+﻿using login.GestionDeUsuarios;
+using System;
 using System.Data;
 using System.Drawing;
 using System.Drawing.Printing;
@@ -293,6 +294,22 @@ namespace login.Bar
         private void pnlContenidoo_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void btnReporte_Click(object sender, EventArgs e)
+        {
+            pnlContenidoo.Controls.Clear();
+            frmListadoProductos frm = new frmListadoProductos();
+
+            frm.TopLevel = false;
+            frm.FormBorderStyle = FormBorderStyle.None;
+            frm.Dock = DockStyle.Fill;
+
+            pnlContenidoo.Controls.Clear();
+            pnlContenidoo.Controls.Add(frm);
+            pnlContenidoo.Tag = frm;
+
+            frm.Show();
         }
     }
 }
