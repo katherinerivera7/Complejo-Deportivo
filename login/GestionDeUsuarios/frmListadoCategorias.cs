@@ -41,5 +41,10 @@ namespace login.GestionDeUsuarios
             rvwCategorias.LocalReport.Refresh();//Refresca el reporte
             this.rvwCategorias.RefreshReport();//actualiza el report viewer
         }
+
+        private void btnVolver_Click(object sender, EventArgs e)
+        {
+            
+        }
     }
 }

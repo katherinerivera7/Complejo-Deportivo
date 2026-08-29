@@ -115,6 +115,12 @@
     <Compile Include="Bar\frmInventarioBar.Designer.cs">
       <DependentUpon>frmInventarioBar.cs</DependentUpon>
     </Compile>
+    <Compile Include="Bar\frmListadoCanchas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Bar\frmListadoCanchas.Designer.cs">
+      <DependentUpon>frmListadoCanchas.cs</DependentUpon>
+    </Compile>
     <Compile Include="Bar\frmListadoProductos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -350,6 +356,9 @@
     <EmbeddedResource Include="Bar\frmInventarioBar.resx">
       <DependentUpon>frmInventarioBar.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Bar\frmListadoCanchas.resx">
+      <DependentUpon>frmListadoCanchas.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Bar\frmListadoProductos.resx">
       <DependentUpon>frmListadoProductos.cs</DependentUpon>
     </EmbeddedResource>
@@ -362,6 +371,7 @@
     <EmbeddedResource Include="Bar\frmRegistroVenta.resx">
       <DependentUpon>frmRegistroVenta.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Bar\rptCanchas.rdlc" />
     <EmbeddedResource Include="Bar\rptProductos.rdlc" />
     <EmbeddedResource Include="Bar\UCTarjetaProducto.resx">
       <DependentUpon>UCTarjetaProducto.cs</DependentUpon>
