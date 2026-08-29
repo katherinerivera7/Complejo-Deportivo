@@ -742,7 +742,7 @@
             this.cmbTipoPromocion.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.cmbTipoPromocion.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.cmbTipoPromocion.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.cmbTipoPromocion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.cmbTipoPromocion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.cmbTipoPromocion.ItemHeight = 25;
             this.cmbTipoPromocion.Items.AddRange(new object[] {
             "Descuento porcentual",

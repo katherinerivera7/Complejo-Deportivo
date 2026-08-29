@@ -346,7 +346,8 @@ namespace login.Promciones
         {
             if (e.KeyCode == Keys.Enter)
             {
-                
+                cmbTipoCliente.Focus();
+                e.SuppressKeyPress = true;
             }
         }
 
