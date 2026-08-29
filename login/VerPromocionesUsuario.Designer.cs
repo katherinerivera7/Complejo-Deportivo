@@ -31,7 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VerPromocionesUsuario));
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
-            this.btnBuscar = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Button7 = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Panel9 = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
@@ -107,7 +106,6 @@
             this.guna2Panel2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(231)))), ((int)(((byte)(245)))));
             this.guna2Panel2.BorderRadius = 35;
             this.guna2Panel2.BorderThickness = 1;
-            this.guna2Panel2.Controls.Add(this.btnBuscar);
             this.guna2Panel2.Controls.Add(this.guna2Button7);
             this.guna2Panel2.Controls.Add(this.guna2Panel9);
             this.guna2Panel2.Controls.Add(this.guna2Panel11);
@@ -124,25 +122,6 @@
             this.guna2Panel2.ShadowDecoration.Enabled = true;
             this.guna2Panel2.Size = new System.Drawing.Size(1040, 615);
             this.guna2Panel2.TabIndex = 84;
-            // 
-            // btnBuscar
-            // 
-            this.btnBuscar.BorderColor = System.Drawing.Color.Gainsboro;
-            this.btnBuscar.BorderRadius = 14;
-            this.btnBuscar.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnBuscar.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnBuscar.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnBuscar.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnBuscar.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(155)))), ((int)(((byte)(75)))));
-            this.btnBuscar.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBuscar.ForeColor = System.Drawing.Color.White;
-            this.btnBuscar.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscar.Image")));
-            this.btnBuscar.Location = new System.Drawing.Point(813, 0);
-            this.btnBuscar.Margin = new System.Windows.Forms.Padding(2);
-            this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(194, 39);
-            this.btnBuscar.TabIndex = 76;
-            this.btnBuscar.Text = "Buscar";
             // 
             // guna2Button7
             // 
@@ -907,7 +886,6 @@
         private System.Windows.Forms.Label label1;
         private Guna.UI2.WinForms.Guna2CircleButton guna2CircleButton8;
         private System.Windows.Forms.Label label7;
-        private Guna.UI2.WinForms.Guna2Button btnBuscar;
         private Guna.UI2.WinForms.Guna2TextBox txtNombre;
         private Guna.UI2.WinForms.Guna2Button guna2Button1;
         private Guna.UI2.WinForms.Guna2Button guna2Button2;

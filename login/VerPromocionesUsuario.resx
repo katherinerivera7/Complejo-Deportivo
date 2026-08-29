@@ -118,28 +118,6 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="btnBuscar.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DAAACwwBP0AiyAAAA6NJREFUaEPtmUtv00AQx8sBuHLhIR4H4CNwKJTHV0DiJaBIFfABkAqIConHreUL
-        IHECDkhVxAFolewm2TFteWQmLlw4IS5cKaeiFuiDoLHXSTtKURyv3VDlJ1mK9J+sPd6d2dlxT0+XLp3H
-        uIe7lKErGuipBpxWQN+VwQV7zWggnzVl6HK5/H6n/P+6ow2e0IbGlKFFDVRr5WJbBfiqUK4cl+NlTt74
-        BxVgfsUDLimgCQ04qMHv1frtDt/3N/PFv4te5bACvK6BJtm2/j9D46USHZDjZ4IC7FcGf4QPg3MaaDg/
-        +WG7tFsLdkwbGlGG5q0zs0VTuSDtUkUB3W28TRwtl9/tkTatkvcqexVQbsV4d6RNKmiD98M1jn/4d61W
-        2yRt2qEIdE0DLmfiDC8nu5SWtVc9I/WkFA2erTvj0XmpOyEIbBsTCvCW1F2hDA5FMaMnKvulnph6djI4
-        KjWX8FKtx4yhMaknItgnwtw/ryZon9Rdw8nDZsJayfOPSb1t+M3YrDIstbTg1GyX8UuptYUtO3jHXoqz
-        TyQl2Gd4gzW4wL+lHhsNlas23b6WWtoog1M2Sw5ILTZhARgMNii1tFGGbtjYfCy12HAVGzri90otbZSh
-        PvsSSWqx4VKcB8syPiK41Lcp/5vUYqMBf/NgudynLVJLm3z+81Y7I7+kFpuOcMTQrNRi0xFLC/CL1GIT
-        BTsfiqSWNhqqR23qn5JabDoh/WrAR1KLjW0mcHkyKbW0UQbf8L0Lhk5JLTa8TqMSxUmp0CKNEoUWPe/j
-        Nqm3BXc7bPYYkVpaKEMPgvgAykmtbQolPBIGHf3MuozXUDkk9UREpTy/IVfn9Gbw2Nrg83AF4AupJ4aP
-        ncHxM0yHQ1J3RRHotr3HTLE4vVvqTuC+k02Hy9wokHpSCgbPRc2HAlRPSt0p3KqJnOGZcbHMeIxwJmwH
-        hccG7Jd2zmk4E8YMN9mkTatw8qjHxOqLT4cXpb1zuO/UiBmaD87YMfYZtuUUy5kwDOxgrEY/2DqTSRvV
-        JoCoMRHcmCsALi34UMSbKVfNfNmNtU8bummPsCua2DjKgc0zsG7OMNyy4W5HnM8K9njwTBajazmTWuex
-        GWFZgQPK0BNlqBp+3OEHxjkF+FUDogZ6yA/1r2OBzY7r64wrOL03mWF25pK07XjWciaT1OyaDeUMf8LY
-        +M5ksWm6JnQGF7rOdBrNEgB/oJV2/wUK6HQ0MwrontT/K3iZpf4FuEuX1fwFzeKd8ED2qrgAAAAASUVO
-        RK5CYII=
-</value>
-  </data>
   <data name="guna2CircleButton2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAGAAAABgCAYAAADimHc4AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
