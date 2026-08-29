@@ -29,11 +29,17 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDisponibilidad));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            this.dgvHorarios = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label13 = new System.Windows.Forms.Label();
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2Panel6 = new Guna.UI2.WinForms.Guna2Panel();
@@ -70,13 +76,8 @@
             this.btnSiguiente = new System.Windows.Forms.Button();
             this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.guna2Elipse2 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
-            this.dgvHorarios = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.guna2Panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvHorarios)).BeginInit();
             this.guna2Panel2.SuspendLayout();
             this.guna2Panel6.SuspendLayout();
             this.guna2Panel5.SuspendLayout();
@@ -85,7 +86,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvHorarios)).BeginInit();
             this.SuspendLayout();
             // 
             // guna2Panel1
@@ -113,6 +113,84 @@
             this.guna2Panel1.Size = new System.Drawing.Size(1448, 831);
             this.guna2Panel1.TabIndex = 0;
             this.guna2Panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2Panel1_Paint);
+            // 
+            // dgvHorarios
+            // 
+            this.dgvHorarios.AllowUserToOrderColumns = true;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            this.dgvHorarios.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(155)))), ((int)(((byte)(75)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(155)))), ((int)(((byte)(75)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvHorarios.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvHorarios.ColumnHeadersHeight = 50;
+            this.dgvHorarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            this.dgvHorarios.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1,
+            this.Column2,
+            this.Column3,
+            this.Column4,
+            this.Column5});
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 10F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(233)))), ((int)(((byte)(251)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvHorarios.DefaultCellStyle = dataGridViewCellStyle3;
+            this.dgvHorarios.GridColor = System.Drawing.SystemColors.Control;
+            this.dgvHorarios.Location = new System.Drawing.Point(27, 220);
+            this.dgvHorarios.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dgvHorarios.Name = "dgvHorarios";
+            this.dgvHorarios.RowHeadersVisible = false;
+            this.dgvHorarios.RowHeadersWidth = 51;
+            this.dgvHorarios.RowTemplate.Height = 24;
+            this.dgvHorarios.Size = new System.Drawing.Size(1386, 533);
+            this.dgvHorarios.TabIndex = 96;
+            this.dgvHorarios.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
+            this.dgvHorarios.ThemeStyle.GridColor = System.Drawing.SystemColors.Control;
+            this.dgvHorarios.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(155)))), ((int)(((byte)(75)))));
+            this.dgvHorarios.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvHorarios.ThemeStyle.HeaderStyle.Height = 50;
+            this.dgvHorarios.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.dgvHorarios.ThemeStyle.RowsStyle.Height = 24;
+            this.dgvHorarios.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(233)))), ((int)(((byte)(251)))));
+            this.dgvHorarios.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvHorarios_CellContentClick);
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Horario";
+            this.Column1.MinimumWidth = 6;
+            this.Column1.Name = "Column1";
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Cancha 1";
+            this.Column2.MinimumWidth = 6;
+            this.Column2.Name = "Column2";
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "Cancha 2";
+            this.Column3.MinimumWidth = 6;
+            this.Column3.Name = "Column3";
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "Cancha 3";
+            this.Column4.MinimumWidth = 6;
+            this.Column4.Name = "Column4";
+            // 
+            // Column5
+            // 
+            this.Column5.HeaderText = "Cancha 4";
+            this.Column5.MinimumWidth = 6;
+            this.Column5.Name = "Column5";
             // 
             // label13
             // 
@@ -527,7 +605,7 @@
             this.dtpFechaInicio.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
             this.dtpFechaInicio.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpFechaInicio.Location = new System.Drawing.Point(36, 157);
-            this.dtpFechaInicio.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dtpFechaInicio.Margin = new System.Windows.Forms.Padding(4);
             this.dtpFechaInicio.MaxDate = new System.DateTime(2026, 12, 31, 0, 0, 0, 0);
             this.dtpFechaInicio.MinDate = new System.DateTime(2026, 8, 9, 0, 0, 0, 0);
             this.dtpFechaInicio.Name = "dtpFechaInicio";
@@ -612,82 +690,6 @@
             this.btnSiguiente.TabIndex = 87;
             this.btnSiguiente.UseVisualStyleBackColor = true;
             // 
-            // dgvHorarios
-            // 
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
-            this.dgvHorarios.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(155)))), ((int)(((byte)(75)))));
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(155)))), ((int)(((byte)(75)))));
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvHorarios.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
-            this.dgvHorarios.ColumnHeadersHeight = 50;
-            this.dgvHorarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            this.dgvHorarios.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column1,
-            this.Column2,
-            this.Column3,
-            this.Column4,
-            this.Column5});
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 10F);
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(233)))), ((int)(((byte)(251)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvHorarios.DefaultCellStyle = dataGridViewCellStyle6;
-            this.dgvHorarios.GridColor = System.Drawing.SystemColors.Control;
-            this.dgvHorarios.Location = new System.Drawing.Point(27, 220);
-            this.dgvHorarios.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.dgvHorarios.Name = "dgvHorarios";
-            this.dgvHorarios.RowHeadersVisible = false;
-            this.dgvHorarios.RowHeadersWidth = 51;
-            this.dgvHorarios.RowTemplate.Height = 24;
-            this.dgvHorarios.Size = new System.Drawing.Size(1386, 533);
-            this.dgvHorarios.TabIndex = 96;
-            this.dgvHorarios.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
-            this.dgvHorarios.ThemeStyle.GridColor = System.Drawing.SystemColors.Control;
-            this.dgvHorarios.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(155)))), ((int)(((byte)(75)))));
-            this.dgvHorarios.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvHorarios.ThemeStyle.HeaderStyle.Height = 50;
-            this.dgvHorarios.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.dgvHorarios.ThemeStyle.RowsStyle.Height = 24;
-            this.dgvHorarios.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(233)))), ((int)(((byte)(251)))));
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "Horario";
-            this.Column1.MinimumWidth = 6;
-            this.Column1.Name = "Column1";
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "Cancha 1";
-            this.Column2.MinimumWidth = 6;
-            this.Column2.Name = "Column2";
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "Cancha 2";
-            this.Column3.MinimumWidth = 6;
-            this.Column3.Name = "Column3";
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "Cancha 3";
-            this.Column4.MinimumWidth = 6;
-            this.Column4.Name = "Column4";
-            // 
-            // Column5
-            // 
-            this.Column5.HeaderText = "Cancha 4";
-            this.Column5.MinimumWidth = 6;
-            this.Column5.Name = "Column5";
-            // 
             // frmDisponibilidad
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -703,6 +705,7 @@
             this.Text = "frmDisponibilidad";
             this.guna2Panel1.ResumeLayout(false);
             this.guna2Panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvHorarios)).EndInit();
             this.guna2Panel2.ResumeLayout(false);
             this.guna2Panel6.ResumeLayout(false);
             this.guna2Panel6.PerformLayout();
@@ -715,7 +718,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvHorarios)).EndInit();
             this.ResumeLayout(false);
 
         }
