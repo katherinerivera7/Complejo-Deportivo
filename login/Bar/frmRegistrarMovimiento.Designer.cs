@@ -81,8 +81,8 @@
             this.cmbProducto.Margin = new System.Windows.Forms.Padding(2);
             this.cmbProducto.Name = "cmbProducto";
             this.cmbProducto.Size = new System.Drawing.Size(228, 36);
-            this.cmbProducto.StartIndex = 0;
             this.cmbProducto.TabIndex = 0;
+            this.cmbProducto.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cmbProducto_KeyDown);
             // 
             // label2
             // 
@@ -118,6 +118,7 @@
             this.cmbTipoMovimiento.StartIndex = 0;
             this.cmbTipoMovimiento.TabIndex = 1;
             this.cmbTipoMovimiento.SelectedIndexChanged += new System.EventHandler(this.cmbTipoMovimiento_SelectedIndexChanged);
+            this.cmbTipoMovimiento.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cmbTipoMovimiento_KeyDown);
             // 
             // label3
             // 
@@ -181,6 +182,7 @@
             this.cmbMotivo.Size = new System.Drawing.Size(228, 36);
             this.cmbMotivo.TabIndex = 2;
             this.cmbMotivo.SelectedIndexChanged += new System.EventHandler(this.cmbMotivo_SelectedIndexChanged);
+            this.cmbMotivo.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cmbMotivo_KeyDown);
             // 
             // txtOtro
             // 
@@ -202,6 +204,7 @@
             this.txtOtro.Size = new System.Drawing.Size(228, 39);
             this.txtOtro.TabIndex = 77;
             this.txtOtro.TextChanged += new System.EventHandler(this.txtOtro_TextChanged);
+            this.txtOtro.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtOtro_KeyDown);
             // 
             // btnCrear
             // 

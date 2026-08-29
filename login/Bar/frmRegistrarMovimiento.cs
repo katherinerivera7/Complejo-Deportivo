@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Guna.UI2.WinForms;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -128,6 +129,42 @@ namespace login.Bar
             cmbProducto.DisplayMember = "Nombre";
             cmbProducto.ValueMember = "ProductoID";
             cmbProducto.SelectedIndex = -1;
+        }
+
+        private void cmbProducto_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                cmbTipoMovimiento.Focus();
+                e.SuppressKeyPress = true;
+            }
+        }
+
+        private void cmbTipoMovimiento_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                cmbMotivo.Focus();
+                e.SuppressKeyPress = true;
+            }
+        }
+
+        private void cmbMotivo_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                txtOtro.Focus();
+                e.SuppressKeyPress = true;
+            }
+        }
+
+        private void txtOtro_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                txtCantidad.Focus();
+                e.SuppressKeyPress = true;
+            }
         }
     }
 }
