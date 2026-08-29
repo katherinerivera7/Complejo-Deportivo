@@ -32,13 +32,13 @@
             this.pnlLateral = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pnlLogin = new Guna.UI2.WinForms.Guna2Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
             this.chkMostrar = new Guna.UI2.WinForms.Guna2CheckBox();
             this.picLogin = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.btnIngresar = new Guna.UI2.WinForms.Guna2Button();
@@ -95,29 +95,6 @@
             this.guna2Panel1.Size = new System.Drawing.Size(631, 980);
             this.guna2Panel1.TabIndex = 2;
             this.guna2Panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2Panel1_Paint);
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(24, 694);
-            this.button1.Margin = new System.Windows.Forms.Padding(4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(292, 38);
-            this.button1.TabIndex = 50;
-            this.button1.Text = "usuario";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Visible = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(309, 607);
-            this.button2.Margin = new System.Windows.Forms.Padding(4);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(165, 38);
-            this.button2.TabIndex = 52;
-            this.button2.Text = "propietario";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // pictureBox4
             // 
@@ -179,6 +156,18 @@
             this.pnlLogin.Size = new System.Drawing.Size(580, 779);
             this.pnlLogin.TabIndex = 39;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(24, 694);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(292, 38);
+            this.button1.TabIndex = 50;
+            this.button1.Text = "usuario";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Visible = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -190,6 +179,17 @@
             this.label4.TabIndex = 47;
             this.label4.Text = "Complejo Deportivo \nAcceso al Sistema";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(353, 694);
+            this.button2.Margin = new System.Windows.Forms.Padding(4);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(165, 38);
+            this.button2.TabIndex = 52;
+            this.button2.Text = "propietario";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // chkMostrar
             // 
