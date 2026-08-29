@@ -63,7 +63,7 @@
             this.pnlLateral.Controls.Add(this.pictureBox1);
             this.pnlLateral.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnlLateral.Location = new System.Drawing.Point(0, 0);
-            this.pnlLateral.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnlLateral.Margin = new System.Windows.Forms.Padding(2);
             this.pnlLateral.Name = "pnlLateral";
             this.pnlLateral.Size = new System.Drawing.Size(694, 796);
             this.pnlLateral.TabIndex = 1;
@@ -73,7 +73,7 @@
             this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(694, 796);
             this.pictureBox1.TabIndex = 1;
@@ -92,7 +92,7 @@
             this.guna2Panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.guna2Panel1.FillColor = System.Drawing.Color.White;
             this.guna2Panel1.Location = new System.Drawing.Point(694, 0);
-            this.guna2Panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.guna2Panel1.Margin = new System.Windows.Forms.Padding(2);
             this.guna2Panel1.Name = "guna2Panel1";
             this.guna2Panel1.Size = new System.Drawing.Size(473, 796);
             this.guna2Panel1.TabIndex = 2;
@@ -102,7 +102,7 @@
             // 
             this.button1.Location = new System.Drawing.Point(39, 721);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(219, 31);
+            this.button1.Size = new System.Drawing.Size(182, 31);
             this.button1.TabIndex = 50;
             this.button1.Text = "usuario";
             this.button1.UseVisualStyleBackColor = true;
@@ -110,7 +110,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(293, 734);
+            this.button2.Location = new System.Drawing.Point(281, 721);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(124, 31);
             this.button2.TabIndex = 52;
@@ -124,7 +124,7 @@
             this.pictureBox4.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox4.Image = global::login.Properties.Resources.icons8_full_screen_50;
             this.pictureBox4.Location = new System.Drawing.Point(400, 2);
-            this.pictureBox4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox4.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(34, 28);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -137,7 +137,7 @@
             this.pictureBox3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox3.Image = global::login.Properties.Resources.icons8_subtract_50;
             this.pictureBox3.Location = new System.Drawing.Point(361, 2);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(34, 28);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -150,7 +150,7 @@
             this.pictureBox2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox2.Image = global::login.Properties.Resources.icons8_eliminar_24;
             this.pictureBox2.Location = new System.Drawing.Point(438, 2);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(34, 28);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -171,7 +171,7 @@
             this.pnlLogin.Controls.Add(this.label2);
             this.pnlLogin.Controls.Add(this.lblCorreo);
             this.pnlLogin.Location = new System.Drawing.Point(15, 83);
-            this.pnlLogin.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnlLogin.Margin = new System.Windows.Forms.Padding(2);
             this.pnlLogin.Name = "pnlLogin";
             this.pnlLogin.Size = new System.Drawing.Size(435, 633);
             this.pnlLogin.TabIndex = 39;
@@ -198,7 +198,7 @@
             this.chkMostrar.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.chkMostrar.Font = new System.Drawing.Font("Segoe Fluent Icons", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chkMostrar.Location = new System.Drawing.Point(40, 405);
-            this.chkMostrar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.chkMostrar.Margin = new System.Windows.Forms.Padding(2);
             this.chkMostrar.Name = "chkMostrar";
             this.chkMostrar.Size = new System.Drawing.Size(153, 23);
             this.chkMostrar.TabIndex = 46;
@@ -215,7 +215,7 @@
             this.picLogin.Image = ((System.Drawing.Image)(resources.GetObject("picLogin.Image")));
             this.picLogin.ImageRotate = 4F;
             this.picLogin.Location = new System.Drawing.Point(115, 2);
-            this.picLogin.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.picLogin.Margin = new System.Windows.Forms.Padding(2);
             this.picLogin.Name = "picLogin";
             this.picLogin.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.picLogin.Size = new System.Drawing.Size(219, 125);
@@ -236,7 +236,7 @@
             this.btnIngresar.ForeColor = System.Drawing.Color.White;
             this.btnIngresar.Image = ((System.Drawing.Image)(resources.GetObject("btnIngresar.Image")));
             this.btnIngresar.Location = new System.Drawing.Point(38, 469);
-            this.btnIngresar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnIngresar.Margin = new System.Windows.Forms.Padding(2);
             this.btnIngresar.Name = "btnIngresar";
             this.btnIngresar.Size = new System.Drawing.Size(351, 55);
             this.btnIngresar.TabIndex = 45;
@@ -335,7 +335,7 @@
             this.Controls.Add(this.pnlLateral);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.frmLogin_Load);
