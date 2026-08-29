@@ -32,17 +32,13 @@
             this.pnlLateral = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pnlLogin = new Guna.UI2.WinForms.Guna2Panel();
-
-           
-
+            this.button1 = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
-           
+            this.button2 = new System.Windows.Forms.Button();
             this.chkMostrar = new Guna.UI2.WinForms.Guna2CheckBox();
             this.picLogin = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.btnIngresar = new Guna.UI2.WinForms.Guna2Button();
@@ -51,6 +47,8 @@
             this.lblClave = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.lblCorreo = new System.Windows.Forms.Label();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
             this.pnlLateral.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.guna2Panel1.SuspendLayout();
@@ -87,6 +85,8 @@
             // 
             this.guna2Panel1.BackColor = System.Drawing.Color.Transparent;
             this.guna2Panel1.BorderRadius = 25;
+            this.guna2Panel1.Controls.Add(this.button4);
+            this.guna2Panel1.Controls.Add(this.button3);
             this.guna2Panel1.Controls.Add(this.pictureBox4);
             this.guna2Panel1.Controls.Add(this.pictureBox3);
             this.guna2Panel1.Controls.Add(this.pictureBox2);
@@ -99,26 +99,6 @@
             this.guna2Panel1.Size = new System.Drawing.Size(473, 796);
             this.guna2Panel1.TabIndex = 2;
             this.guna2Panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2Panel1_Paint);
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(39, 721);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(182, 31);
-            this.button1.TabIndex = 50;
-            this.button1.Text = "usuario";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(281, 721);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(124, 31);
-            this.button2.TabIndex = 52;
-            this.button2.Text = "propietario";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // pictureBox4
             // 
@@ -180,7 +160,6 @@
             this.pnlLogin.Size = new System.Drawing.Size(435, 633);
             this.pnlLogin.TabIndex = 39;
             // 
-
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(24, 694);
@@ -193,7 +172,6 @@
             this.button1.Visible = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-
             // label4
             // 
             this.label4.AutoSize = true;
@@ -354,6 +332,26 @@
             this.lblCorreo.TabIndex = 41;
             this.lblCorreo.Text = "Usuario:";
             // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(289, 733);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(108, 22);
+            this.button3.TabIndex = 48;
+            this.button3.Text = "Propietario";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(100, 733);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(108, 22);
+            this.button4.TabIndex = 49;
+            this.button4.Text = "usuario";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
             // frmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -400,6 +398,8 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button4;
     }
 }
 

@@ -201,5 +201,19 @@ namespace login
                 e.SuppressKeyPress = true;
             }
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            FrmMenu menuPrincipal = new FrmMenu();
+            menuPrincipal.Show();
+            this.Hide();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            FormMenuUsuario menuUsuario = new FormMenuUsuario();
+            menuUsuario.Show();
+            this.Hide();
+        }
     }
 }

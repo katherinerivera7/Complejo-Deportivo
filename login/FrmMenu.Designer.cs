@@ -111,7 +111,7 @@
             this.pnlSidebar.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnlSidebar.FillColor = System.Drawing.Color.White;
             this.pnlSidebar.Location = new System.Drawing.Point(0, 0);
-            this.pnlSidebar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnlSidebar.Margin = new System.Windows.Forms.Padding(2);
             this.pnlSidebar.Name = "pnlSidebar";
             this.pnlSidebar.ShadowDecoration.BorderRadius = 20;
             this.pnlSidebar.ShadowDecoration.Depth = 8;
@@ -137,7 +137,7 @@
             this.btnCrearUsuario.Image = ((System.Drawing.Image)(resources.GetObject("btnCrearUsuario.Image")));
             this.btnCrearUsuario.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnCrearUsuario.Location = new System.Drawing.Point(2, 344);
-            this.btnCrearUsuario.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnCrearUsuario.Margin = new System.Windows.Forms.Padding(2);
             this.btnCrearUsuario.Name = "btnCrearUsuario";
             this.btnCrearUsuario.Size = new System.Drawing.Size(147, 39);
             this.btnCrearUsuario.TabIndex = 38;
@@ -164,7 +164,7 @@
             this.btnCerrarSesion.Image = ((System.Drawing.Image)(resources.GetObject("btnCerrarSesion.Image")));
             this.btnCerrarSesion.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnCerrarSesion.Location = new System.Drawing.Point(0, 757);
-            this.btnCerrarSesion.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnCerrarSesion.Margin = new System.Windows.Forms.Padding(2);
             this.btnCerrarSesion.Name = "btnCerrarSesion";
             this.btnCerrarSesion.Size = new System.Drawing.Size(163, 39);
             this.btnCerrarSesion.TabIndex = 35;
@@ -191,7 +191,7 @@
             this.btnInicio.Image = ((System.Drawing.Image)(resources.GetObject("btnInicio.Image")));
             this.btnInicio.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnInicio.Location = new System.Drawing.Point(2, 130);
-            this.btnInicio.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnInicio.Margin = new System.Windows.Forms.Padding(2);
             this.btnInicio.Name = "btnInicio";
             this.btnInicio.Size = new System.Drawing.Size(147, 39);
             this.btnInicio.TabIndex = 27;
@@ -216,7 +216,7 @@
             this.btnReservas.Image = ((System.Drawing.Image)(resources.GetObject("btnReservas.Image")));
             this.btnReservas.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnReservas.Location = new System.Drawing.Point(2, 172);
-            this.btnReservas.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnReservas.Margin = new System.Windows.Forms.Padding(2);
             this.btnReservas.Name = "btnReservas";
             this.btnReservas.Size = new System.Drawing.Size(147, 39);
             this.btnReservas.TabIndex = 29;
@@ -241,7 +241,7 @@
             this.btnCafeteria.Image = ((System.Drawing.Image)(resources.GetObject("btnCafeteria.Image")));
             this.btnCafeteria.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnCafeteria.Location = new System.Drawing.Point(2, 301);
-            this.btnCafeteria.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnCafeteria.Margin = new System.Windows.Forms.Padding(2);
             this.btnCafeteria.Name = "btnCafeteria";
             this.btnCafeteria.Size = new System.Drawing.Size(147, 39);
             this.btnCafeteria.TabIndex = 31;
@@ -266,7 +266,7 @@
             this.btnUsuarios.Image = ((System.Drawing.Image)(resources.GetObject("btnUsuarios.Image")));
             this.btnUsuarios.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnUsuarios.Location = new System.Drawing.Point(2, 258);
-            this.btnUsuarios.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnUsuarios.Margin = new System.Windows.Forms.Padding(2);
             this.btnUsuarios.Name = "btnUsuarios";
             this.btnUsuarios.Size = new System.Drawing.Size(147, 39);
             this.btnUsuarios.TabIndex = 34;
@@ -291,7 +291,7 @@
             this.btnPromociones.Image = ((System.Drawing.Image)(resources.GetObject("btnPromociones.Image")));
             this.btnPromociones.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnPromociones.Location = new System.Drawing.Point(2, 215);
-            this.btnPromociones.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnPromociones.Margin = new System.Windows.Forms.Padding(2);
             this.btnPromociones.Name = "btnPromociones";
             this.btnPromociones.Size = new System.Drawing.Size(147, 39);
             this.btnPromociones.TabIndex = 32;
@@ -306,7 +306,7 @@
             this.guna2CirclePictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("guna2CirclePictureBox1.Image")));
             this.guna2CirclePictureBox1.ImageRotate = 4F;
             this.guna2CirclePictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.guna2CirclePictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.guna2CirclePictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.guna2CirclePictureBox1.Name = "guna2CirclePictureBox1";
             this.guna2CirclePictureBox1.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.guna2CirclePictureBox1.Size = new System.Drawing.Size(163, 132);
@@ -328,7 +328,7 @@
             this.btnFacturacion.Image = ((System.Drawing.Image)(resources.GetObject("btnFacturacion.Image")));
             this.btnFacturacion.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnFacturacion.Location = new System.Drawing.Point(11, 301);
-            this.btnFacturacion.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnFacturacion.Margin = new System.Windows.Forms.Padding(2);
             this.btnFacturacion.Name = "btnFacturacion";
             this.btnFacturacion.Size = new System.Drawing.Size(182, 39);
             this.btnFacturacion.TabIndex = 30;
@@ -357,7 +357,7 @@
             this.pnlSuperior.Controls.Add(this.label1);
             this.pnlSuperior.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlSuperior.Location = new System.Drawing.Point(0, 0);
-            this.pnlSuperior.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnlSuperior.Margin = new System.Windows.Forms.Padding(2);
             this.pnlSuperior.Name = "pnlSuperior";
             this.pnlSuperior.Padding = new System.Windows.Forms.Padding(22, 24, 0, 0);
             this.pnlSuperior.Size = new System.Drawing.Size(1004, 63);
@@ -370,7 +370,7 @@
             this.pictureBox4.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox4.Image = global::login.Properties.Resources.icons8_full_screen_50;
             this.pictureBox4.Location = new System.Drawing.Point(930, 2);
-            this.pictureBox4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox4.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(34, 28);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -383,7 +383,7 @@
             this.pictureBox3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox3.Image = global::login.Properties.Resources.icons8_subtract_50;
             this.pictureBox3.Location = new System.Drawing.Point(892, 2);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(34, 28);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -396,7 +396,7 @@
             this.pictureBox2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox2.Image = global::login.Properties.Resources.icons8_eliminar_24;
             this.pictureBox2.Location = new System.Drawing.Point(968, 2);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(34, 28);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -421,7 +421,7 @@
             // 
             this.pictureBox1.Image = global::login.Properties.Resources.Usuario;
             this.pictureBox1.Location = new System.Drawing.Point(10, 11);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(32, 39);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -449,7 +449,7 @@
             this.pnlContenedor.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlContenedor.FillColor = System.Drawing.Color.Transparent;
             this.pnlContenedor.Location = new System.Drawing.Point(163, 0);
-            this.pnlContenedor.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnlContenedor.Margin = new System.Windows.Forms.Padding(2);
             this.pnlContenedor.Name = "pnlContenedor";
             this.pnlContenedor.Size = new System.Drawing.Size(1004, 796);
             this.pnlContenedor.TabIndex = 1;
@@ -460,7 +460,7 @@
             this.pnlContenido.Controls.Add(this.guna2Panel2);
             this.pnlContenido.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlContenido.Location = new System.Drawing.Point(0, 63);
-            this.pnlContenido.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnlContenido.Margin = new System.Windows.Forms.Padding(2);
             this.pnlContenido.Name = "pnlContenido";
             this.pnlContenido.Size = new System.Drawing.Size(1004, 733);
             this.pnlContenido.TabIndex = 1;
@@ -472,7 +472,7 @@
             this.guna2Panel2.Controls.Add(this.pnlAdmin);
             this.guna2Panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.guna2Panel2.Location = new System.Drawing.Point(0, 0);
-            this.guna2Panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.guna2Panel2.Margin = new System.Windows.Forms.Padding(2);
             this.guna2Panel2.Name = "guna2Panel2";
             this.guna2Panel2.Size = new System.Drawing.Size(1004, 733);
             this.guna2Panel2.TabIndex = 2;
@@ -490,7 +490,7 @@
             this.guna2Panel6.Controls.Add(this.guna2PictureBox1);
             this.guna2Panel6.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(242)))), ((int)(((byte)(251)))));
             this.guna2Panel6.Location = new System.Drawing.Point(35, 41);
-            this.guna2Panel6.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.guna2Panel6.Margin = new System.Windows.Forms.Padding(2);
             this.guna2Panel6.Name = "guna2Panel6";
             this.guna2Panel6.ShadowDecoration.BorderRadius = 35;
             this.guna2Panel6.ShadowDecoration.Depth = 4;
@@ -542,7 +542,7 @@
             this.guna2Panel5.BorderRadius = 5;
             this.guna2Panel5.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(173)))), ((int)(((byte)(53)))));
             this.guna2Panel5.Location = new System.Drawing.Point(25, 162);
-            this.guna2Panel5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.guna2Panel5.Margin = new System.Windows.Forms.Padding(2);
             this.guna2Panel5.Name = "guna2Panel5";
             this.guna2Panel5.Size = new System.Drawing.Size(176, 11);
             this.guna2Panel5.TabIndex = 36;
@@ -555,7 +555,7 @@
             this.guna2PictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox1.Image")));
             this.guna2PictureBox1.ImageRotate = 0F;
             this.guna2PictureBox1.Location = new System.Drawing.Point(310, 0);
-            this.guna2PictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.guna2PictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.guna2PictureBox1.Name = "guna2PictureBox1";
             this.guna2PictureBox1.Size = new System.Drawing.Size(632, 344);
             this.guna2PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -575,7 +575,7 @@
             this.pnlAdmin.Controls.Add(this.pnlEstadoCanchas, 1, 0);
             this.pnlAdmin.Controls.Add(this.pnlIngresosDiarios, 0, 0);
             this.pnlAdmin.Location = new System.Drawing.Point(26, 410);
-            this.pnlAdmin.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnlAdmin.Margin = new System.Windows.Forms.Padding(2);
             this.pnlAdmin.Name = "pnlAdmin";
             this.pnlAdmin.RowCount = 1;
             this.pnlAdmin.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -607,7 +607,7 @@
             // 
             this.pictureBox7.Image = global::login.Properties.Resources.USUARIOSREGISTRADOS;
             this.pictureBox7.Location = new System.Drawing.Point(15, 55);
-            this.pictureBox7.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox7.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox7.Name = "pictureBox7";
             this.pictureBox7.Size = new System.Drawing.Size(247, 208);
             this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -640,7 +640,7 @@
             this.pnlEstadoCanchas.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(248)))), ((int)(((byte)(253)))));
             this.pnlEstadoCanchas.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(248)))), ((int)(((byte)(253)))));
             this.pnlEstadoCanchas.Location = new System.Drawing.Point(294, 8);
-            this.pnlEstadoCanchas.Margin = new System.Windows.Forms.Padding(8, 8, 8, 8);
+            this.pnlEstadoCanchas.Margin = new System.Windows.Forms.Padding(8);
             this.pnlEstadoCanchas.Name = "pnlEstadoCanchas";
             this.pnlEstadoCanchas.ShadowDecoration.BorderRadius = 20;
             this.pnlEstadoCanchas.ShadowDecoration.Depth = 4;
@@ -652,7 +652,7 @@
             // 
             this.pictureBox6.Image = global::login.Properties.Resources.OCUPACIONCANCHAS;
             this.pictureBox6.Location = new System.Drawing.Point(71, 46);
-            this.pictureBox6.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox6.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox6.Name = "pictureBox6";
             this.pictureBox6.Size = new System.Drawing.Size(241, 227);
             this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -697,7 +697,7 @@
             // 
             this.pictureBox5.Image = global::login.Properties.Resources.INGRESOS;
             this.pictureBox5.Location = new System.Drawing.Point(19, 65);
-            this.pictureBox5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox5.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Size = new System.Drawing.Size(228, 186);
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -727,7 +727,7 @@
             this.Controls.Add(this.pnlSidebar);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FrmMenu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmMenu";
