@@ -20,10 +20,10 @@ namespace login
 
         public csConectaSQL()
         {
-            Server = @"LAPTOP-J5U2QS20\SQLEXPRESS01";
+            Server = @"DESKTOP-OSJ26G2\SQLEXPRESS01"; //LAPTOP - J5U2QS20\SQLEXPRESS01
             Database = "ComplejoDeportivo";
-            Usuario = "Basados777";
-            Clave = "Basados888";
+            Usuario = "sa";
+            Clave = "1234567";
         }
 
         public bool abrirConexion()

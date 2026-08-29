@@ -85,6 +85,7 @@
             this.pnlContenidoo.Name = "pnlContenidoo";
             this.pnlContenidoo.Size = new System.Drawing.Size(1416, 980);
             this.pnlContenidoo.TabIndex = 1;
+            this.pnlContenidoo.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlContenidoo_Paint);
             // 
             // label3
             // 
@@ -319,7 +320,7 @@
             this.pnlContenido.BackColor = System.Drawing.Color.White;
             this.pnlContenido.Controls.Add(this.dgvProductos);
             this.pnlContenido.Location = new System.Drawing.Point(16, 247);
-            this.pnlContenido.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlContenido.Margin = new System.Windows.Forms.Padding(4);
             this.pnlContenido.Name = "pnlContenido";
             this.pnlContenido.Size = new System.Drawing.Size(1288, 566);
             this.pnlContenido.TabIndex = 50;
@@ -410,7 +411,7 @@
             // 
             this.pictureBox1.Image = global::login.Properties.Resources.ILUSTRACIÓN_INVENTARIO;
             this.pictureBox1.Location = new System.Drawing.Point(780, -15);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(560, 289);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -431,7 +432,7 @@
             this.ClientSize = new System.Drawing.Size(1416, 980);
             this.Controls.Add(this.pnlContenidoo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmInventarioBar";
             this.Text = "frmInventarioBar";
             this.Load += new System.EventHandler(this.frmInventarioBar_Load);

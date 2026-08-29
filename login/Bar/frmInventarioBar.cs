@@ -289,5 +289,10 @@ namespace login.Bar
             lineaVerde.Dispose();
             verdeProyecto.Dispose();
         }
+
+        private void pnlContenidoo_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
