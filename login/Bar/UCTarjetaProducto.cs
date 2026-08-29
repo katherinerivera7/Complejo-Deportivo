@@ -53,5 +53,10 @@ namespace login.Bar
         {
             ProductoAgregado?.Invoke(this, EventArgs.Empty);
         }
+
+        private void pbImagen_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmRegistroVenta));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.pnlProductos = new Guna.UI2.WinForms.Guna2Panel();
+            this.flpProduct = new System.Windows.Forms.FlowLayoutPanel();
             this.guna2Button17 = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Button16 = new Guna.UI2.WinForms.Guna2Button();
             this.label13 = new System.Windows.Forms.Label();
@@ -43,19 +44,17 @@
             this.btnComidas = new Guna.UI2.WinForms.Guna2Button();
             this.btnSnacks = new Guna.UI2.WinForms.Guna2Button();
             this.btnDulces = new Guna.UI2.WinForms.Guna2Button();
-            this.flpProduct = new System.Windows.Forms.FlowLayoutPanel();
             this.Filtro = new Guna.UI2.WinForms.Guna2TextBox();
-            this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.pnlProductos.SuspendLayout();
             this.guna2Panel1.SuspendLayout();
             this.pnlContenedorProductos.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
-            this.flpProduct.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
             // 
+            this.tableLayoutPanel1.AutoScroll = true;
             this.tableLayoutPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(249)))), ((int)(((byte)(251)))));
             this.tableLayoutPanel1.ColumnCount = 2;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -88,6 +87,17 @@
             this.pnlProductos.TabIndex = 2;
             this.pnlProductos.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlProductos_Paint);
             // 
+            // flpProduct
+            // 
+            this.flpProduct.AutoScroll = true;
+            this.flpProduct.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flpProduct.Location = new System.Drawing.Point(18, 86);
+            this.flpProduct.Name = "flpProduct";
+            this.flpProduct.Size = new System.Drawing.Size(599, 700);
+            this.flpProduct.TabIndex = 0;
+            this.flpProduct.WrapContents = false;
+            this.flpProduct.Paint += new System.Windows.Forms.PaintEventHandler(this.flpProduct_Paint);
+            // 
             // guna2Button17
             // 
             this.guna2Button17.BackColor = System.Drawing.Color.WhiteSmoke;
@@ -101,12 +111,13 @@
             this.guna2Button17.FillColor = System.Drawing.Color.DarkSalmon;
             this.guna2Button17.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold);
             this.guna2Button17.ForeColor = System.Drawing.Color.White;
-            this.guna2Button17.Location = new System.Drawing.Point(44, 842);
+            this.guna2Button17.Location = new System.Drawing.Point(82, 801);
             this.guna2Button17.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.guna2Button17.Name = "guna2Button17";
             this.guna2Button17.Size = new System.Drawing.Size(192, 46);
             this.guna2Button17.TabIndex = 12;
             this.guna2Button17.Text = "Cancelar Venta";
+            this.guna2Button17.Click += new System.EventHandler(this.guna2Button17_Click);
             // 
             // guna2Button16
             // 
@@ -121,7 +132,7 @@
             this.guna2Button16.FillColor = System.Drawing.Color.LightGreen;
             this.guna2Button16.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold);
             this.guna2Button16.ForeColor = System.Drawing.Color.White;
-            this.guna2Button16.Location = new System.Drawing.Point(360, 842);
+            this.guna2Button16.Location = new System.Drawing.Point(319, 801);
             this.guna2Button16.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.guna2Button16.Name = "guna2Button16";
             this.guna2Button16.Size = new System.Drawing.Size(192, 46);
@@ -135,7 +146,7 @@
             this.label13.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label13.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(110)))), ((int)(((byte)(138)))));
-            this.label13.Location = new System.Drawing.Point(122, 37);
+            this.label13.Location = new System.Drawing.Point(151, 27);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(324, 41);
             this.label13.TabIndex = 10;
@@ -299,17 +310,6 @@
             this.btnDulces.Text = "Dulces";
             this.btnDulces.Click += new System.EventHandler(this.btnDulces_Click);
             // 
-            // flpProduct
-            // 
-            this.flpProduct.AutoScroll = true;
-            this.flpProduct.Controls.Add(this.guna2Button2);
-            this.flpProduct.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flpProduct.Location = new System.Drawing.Point(18, 110);
-            this.flpProduct.Name = "flpProduct";
-            this.flpProduct.Size = new System.Drawing.Size(560, 423);
-            this.flpProduct.TabIndex = 0;
-            this.flpProduct.WrapContents = false;
-            // 
             // Filtro
             // 
             this.Filtro.BorderRadius = 11;
@@ -332,21 +332,6 @@
             this.Filtro.TabIndex = 0;
             this.Filtro.TextChanged += new System.EventHandler(this.Filtro_TextChanged);
             // 
-            // guna2Button2
-            // 
-            this.guna2Button2.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button2.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button2.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button2.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button2.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2Button2.ForeColor = System.Drawing.Color.White;
-            this.guna2Button2.Location = new System.Drawing.Point(3, 3);
-            this.guna2Button2.Name = "guna2Button2";
-            this.guna2Button2.Size = new System.Drawing.Size(180, 45);
-            this.guna2Button2.TabIndex = 0;
-            this.guna2Button2.Text = "guna2Button2";
-            this.guna2Button2.Click += new System.EventHandler(this.guna2Button2_Click);
-            // 
             // frmRegistroVenta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -366,7 +351,6 @@
             this.guna2Panel1.ResumeLayout(false);
             this.pnlContenedorProductos.ResumeLayout(false);
             this.flowLayoutPanel1.ResumeLayout(false);
-            this.flpProduct.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -389,6 +373,5 @@
         private Guna.UI2.WinForms.Guna2Panel pnlContenedorProductos;
         private System.Windows.Forms.FlowLayoutPanel flpProductos;
         private System.Windows.Forms.FlowLayoutPanel flpProduct;
-        private Guna.UI2.WinForms.Guna2Button guna2Button2;
     }
 }
