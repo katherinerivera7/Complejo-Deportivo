@@ -133,6 +133,12 @@
     <Compile Include="Bar\UCTarjetaProducto.Designer.cs">
       <DependentUpon>UCTarjetaProducto.cs</DependentUpon>
     </Compile>
+    <Compile Include="Bar\UCVentasBar.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Bar\UCVentasBar.Designer.cs">
+      <DependentUpon>UCVentasBar.cs</DependentUpon>
+    </Compile>
     <Compile Include="CrearCuenta.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -338,6 +344,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Bar\UCTarjetaProducto.resx">
       <DependentUpon>UCTarjetaProducto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Bar\UCVentasBar.resx">
+      <DependentUpon>UCVentasBar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CrearCuenta.resx">
       <DependentUpon>CrearCuenta.cs</DependentUpon>

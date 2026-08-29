@@ -113,5 +113,10 @@ namespace login.Bar
 
             frm.Show();
         }
+
+        private void pnlContenido_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
