@@ -39,10 +39,10 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pnlLogin = new Guna.UI2.WinForms.Guna2Panel();
 
-            this.button1 = new System.Windows.Forms.Button();
+           
 
             this.label4 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
+           
             this.chkMostrar = new Guna.UI2.WinForms.Guna2CheckBox();
             this.picLogin = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.btnIngresar = new Guna.UI2.WinForms.Guna2Button();
