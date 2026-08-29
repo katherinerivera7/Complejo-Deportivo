@@ -30,6 +30,7 @@ namespace login.Bar
         {
             ConfigurarFiltro();
             CargarCategorias();
+           
 
         }
 
@@ -242,17 +243,18 @@ namespace login.Bar
         private void guna2Button2_Click(object sender, EventArgs e)
         {
             pnlContenido2.Controls.Clear();
-            frmListadoCategorias frm = new frmListadoCategorias();
+            frmListadoCategorias frm1 = new frmListadoCategorias();
 
-            frm.TopLevel = false;
-            frm.FormBorderStyle = FormBorderStyle.None;
-            frm.Dock = DockStyle.Fill;
+            frm1.TopLevel = false;
+            frm1.FormBorderStyle = FormBorderStyle.None;
+            frm1.Dock = DockStyle.Fill;
 
             pnlContenido.Controls.Clear();
-            pnlContenido.Controls.Add(frm);
-            pnlContenido.Tag = frm;
+            pnlContenido.Controls.Add(frm1);
+            pnlContenido.Tag = frm1;
 
-            frm.Show();
+            frm1.Show();
+            this.Close();
         }
     }
 }
