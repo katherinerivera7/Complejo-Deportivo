@@ -30,9 +30,9 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCanchas));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.imlImagenes = new System.Windows.Forms.ImageList(this.components);
             this.prdImprimir = new System.Drawing.Printing.PrintDocument();
             this.pnlContenidoCanchas = new System.Windows.Forms.Panel();
@@ -84,7 +84,7 @@
             this.pnlContenidoCanchas.Controls.Add(this.pictureBox1);
             this.pnlContenidoCanchas.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlContenidoCanchas.Location = new System.Drawing.Point(0, 0);
-            this.pnlContenidoCanchas.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlContenidoCanchas.Margin = new System.Windows.Forms.Padding(4);
             this.pnlContenidoCanchas.Name = "pnlContenidoCanchas";
             this.pnlContenidoCanchas.Size = new System.Drawing.Size(1416, 980);
             this.pnlContenidoCanchas.TabIndex = 0;
@@ -103,7 +103,7 @@
             this.guna2Button2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2Button2.ForeColor = System.Drawing.Color.White;
             this.guna2Button2.Image = global::login.Properties.Resources.icons8_factura_100;
-            this.guna2Button2.Location = new System.Drawing.Point(1052, 889);
+            this.guna2Button2.Location = new System.Drawing.Point(1012, 847);
             this.guna2Button2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.guna2Button2.Name = "guna2Button2";
             this.guna2Button2.Size = new System.Drawing.Size(221, 48);
@@ -117,7 +117,7 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(37)))), ((int)(((byte)(87)))));
-            this.label1.Location = new System.Drawing.Point(381, 240);
+            this.label1.Location = new System.Drawing.Point(341, 198);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(113, 28);
             this.label1.TabIndex = 89;
@@ -138,7 +138,7 @@
             "ID Cancha",
             "Tipo",
             "Fecha"});
-            this.cmbFiltro.Location = new System.Drawing.Point(520, 240);
+            this.cmbFiltro.Location = new System.Drawing.Point(480, 198);
             this.cmbFiltro.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cmbFiltro.Name = "cmbFiltro";
             this.cmbFiltro.ShadowDecoration.BorderRadius = 14;
@@ -152,7 +152,7 @@
             // 
             this.label2.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.label2.Location = new System.Drawing.Point(69, 129);
+            this.label2.Location = new System.Drawing.Point(29, 87);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(559, 30);
             this.label2.TabIndex = 90;
@@ -171,7 +171,7 @@
             this.btnBuscar.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBuscar.ForeColor = System.Drawing.Color.White;
             this.btnBuscar.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscar.Image")));
-            this.btnBuscar.Location = new System.Drawing.Point(520, 176);
+            this.btnBuscar.Location = new System.Drawing.Point(480, 134);
             this.btnBuscar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(259, 48);
@@ -192,7 +192,7 @@
             this.txtFiltro.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtFiltro.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtFiltro.IconLeft = ((System.Drawing.Image)(resources.GetObject("txtFiltro.IconLeft")));
-            this.txtFiltro.Location = new System.Drawing.Point(77, 176);
+            this.txtFiltro.Location = new System.Drawing.Point(37, 134);
             this.txtFiltro.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtFiltro.Name = "txtFiltro";
             this.txtFiltro.PlaceholderText = "Buscar cancha...";
@@ -210,7 +210,7 @@
             this.label11.BackColor = System.Drawing.Color.Transparent;
             this.label11.Font = new System.Drawing.Font("Segoe UI", 28F, System.Drawing.FontStyle.Bold);
             this.label11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(37)))), ((int)(((byte)(87)))));
-            this.label11.Location = new System.Drawing.Point(64, 66);
+            this.label11.Location = new System.Drawing.Point(24, 24);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(447, 62);
             this.label11.TabIndex = 85;
@@ -229,7 +229,7 @@
             this.btnImprimir.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnImprimir.ForeColor = System.Drawing.Color.White;
             this.btnImprimir.Image = ((System.Drawing.Image)(resources.GetObject("btnImprimir.Image")));
-            this.btnImprimir.Location = new System.Drawing.Point(808, 889);
+            this.btnImprimir.Location = new System.Drawing.Point(768, 847);
             this.btnImprimir.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnImprimir.Name = "btnImprimir";
             this.btnImprimir.Size = new System.Drawing.Size(221, 48);
@@ -249,12 +249,13 @@
             this.btnCrear.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCrear.ForeColor = System.Drawing.Color.White;
             this.btnCrear.Image = ((System.Drawing.Image)(resources.GetObject("btnCrear.Image")));
-            this.btnCrear.Location = new System.Drawing.Point(569, 889);
+            this.btnCrear.Location = new System.Drawing.Point(529, 847);
             this.btnCrear.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnCrear.Name = "btnCrear";
             this.btnCrear.Size = new System.Drawing.Size(221, 48);
             this.btnCrear.TabIndex = 83;
             this.btnCrear.Text = "Crear";
+            this.btnCrear.Click += new System.EventHandler(this.btnCrear_Click_1);
             // 
             // btnEditar
             // 
@@ -269,7 +270,7 @@
             this.btnEditar.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEditar.ForeColor = System.Drawing.Color.White;
             this.btnEditar.Image = ((System.Drawing.Image)(resources.GetObject("btnEditar.Image")));
-            this.btnEditar.Location = new System.Drawing.Point(332, 889);
+            this.btnEditar.Location = new System.Drawing.Point(292, 847);
             this.btnEditar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(221, 48);
@@ -289,7 +290,7 @@
             this.btnEliminar.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEliminar.ForeColor = System.Drawing.Color.White;
             this.btnEliminar.Image = ((System.Drawing.Image)(resources.GetObject("btnEliminar.Image")));
-            this.btnEliminar.Location = new System.Drawing.Point(85, 889);
+            this.btnEliminar.Location = new System.Drawing.Point(45, 847);
             this.btnEliminar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(221, 48);
@@ -300,24 +301,24 @@
             // 
             this.pnlContenido.BackColor = System.Drawing.Color.White;
             this.pnlContenido.Controls.Add(this.dgvCanchas);
-            this.pnlContenido.Location = new System.Drawing.Point(64, 303);
-            this.pnlContenido.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlContenido.Location = new System.Drawing.Point(24, 261);
+            this.pnlContenido.Margin = new System.Windows.Forms.Padding(4);
             this.pnlContenido.Name = "pnlContenido";
             this.pnlContenido.Size = new System.Drawing.Size(1288, 566);
             this.pnlContenido.TabIndex = 80;
             // 
             // dgvCanchas
             // 
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            this.dgvCanchas.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(155)))), ((int)(((byte)(75)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(155)))), ((int)(((byte)(75)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvCanchas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
+            this.dgvCanchas.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(155)))), ((int)(((byte)(75)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(155)))), ((int)(((byte)(75)))));
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvCanchas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvCanchas.ColumnHeadersHeight = 50;
             this.dgvCanchas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             this.dgvCanchas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -326,14 +327,14 @@
             this.colTipo,
             this.colPrecioHora,
             this.colEstado});
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 10F);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(233)))), ((int)(((byte)(251)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvCanchas.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 10F);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(233)))), ((int)(((byte)(251)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvCanchas.DefaultCellStyle = dataGridViewCellStyle6;
             this.dgvCanchas.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvCanchas.GridColor = System.Drawing.SystemColors.Control;
             this.dgvCanchas.Location = new System.Drawing.Point(0, 0);
@@ -391,8 +392,8 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::login.Properties.Resources.RESERVAS_ILUSTRACION;
-            this.pictureBox1.Location = new System.Drawing.Point(792, 44);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox1.Location = new System.Drawing.Point(752, 2);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(560, 289);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;

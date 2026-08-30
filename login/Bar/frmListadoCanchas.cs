@@ -22,12 +22,6 @@ namespace login.Bar
 
         private void frmListadoCanchas_Load(object sender, EventArgs e)
         {
-
-            this.rvwCanchas.RefreshReport();
-        }
-
-        private void rvwCanchas_Load(object sender, EventArgs e)
-        {
             csConectaSQL oconSQL = new csConectaSQL();
             DataTable dt = new DataTable();
             ReportDataSource dataset = new ReportDataSource();
@@ -40,6 +34,27 @@ namespace login.Bar
             dataset.Value = dt;
             rvwCanchas.LocalReport.Refresh();//Refresca el reporte
             this.rvwCanchas.RefreshReport();//actualiza el report viewer
+        }
+
+        private void rvwCanchas_Load(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void btnVolver_Click_1(object sender, EventArgs e)
+        {
+            pnlContenido.Controls.Clear();
+            frmInventarioBar frm = new frmInventarioBar();
+
+            frm.TopLevel = false;
+            frm.FormBorderStyle = FormBorderStyle.None;
+            frm.Dock = DockStyle.Fill;
+
+            pnlContenido.Controls.Clear();
+            pnlContenido.Controls.Add(frm);
+            pnlContenido.Tag = frm;
+
+            frm.Show();
         }
     }
 }
