@@ -129,11 +129,6 @@ namespace login.Reservas
             }
         }
 
-        private void btnBuscar_Click(object sender, EventArgs e)
-        {
-            CargarCanchas();
-        }
-
         private void txtFiltro_TextChanged(object sender, EventArgs e)
         {
             int cantidadCaracteres = txtFiltro.Text.Trim().Length;
@@ -274,18 +269,17 @@ namespace login.Reservas
         private void guna2Button2_Click(object sender, EventArgs e)
         {
             pnlContenidoCanchas.Controls.Clear();
-            frmListadoCanchas frm1 = new frmListadoCanchas();
+            frmListadoCanchas frm = new frmListadoCanchas();
 
-            frm1.TopLevel = false;
-            frm1.FormBorderStyle = FormBorderStyle.None;
-            frm1.Dock = DockStyle.Fill;
+            frm.TopLevel = false;
+            frm.FormBorderStyle = FormBorderStyle.None;
+            frm.Dock = DockStyle.Fill;
 
             pnlContenidoCanchas.Controls.Clear();
-            pnlContenidoCanchas.Controls.Add(frm1);
-            pnlContenidoCanchas.Tag = frm1;
+            pnlContenidoCanchas.Controls.Add(frm);
+            pnlContenidoCanchas.Tag = frm;
 
-            frm1.Show();
-            this.Close();
+            frm.Show();
         }
 
         private void txtFiltro_KeyDown_1(object sender, KeyEventArgs e)
@@ -300,6 +294,14 @@ namespace login.Reservas
         private void pnlContenidoCanchas_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void btnCrear_Click_1(object sender, EventArgs e)
+        {
+            frmCrearCategoria frm = new frmCrearCategoria();
+            frm.StartPosition = FormStartPosition.CenterParent;
+            frm.ShowDialog(this);
+            CargarCanchas();
         }
     }
 }

@@ -96,106 +96,6 @@ namespace login.Bar
                 MessageBox.Show("Error al cargar las categorías:\n\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
-        private void cmbFiltro_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (!configurandoFiltro && cmbFiltro.SelectedIndex >= 0)
-            {
-                CargarCategorias();
-            }
-        }
-
-        private void btnCrear_Click(object sender, EventArgs e)
-        {
-            frmCrearCategoria frm = new frmCrearCategoria();
-            frm.StartPosition = FormStartPosition.CenterParent;
-            frm.ShowDialog(this);
-            CargarCategorias();
-        }
-
-        private void btnEditar_Click(object sender, EventArgs e)
-        {
-            if (dgvCategorias.SelectedRows.Count == 0)
-            {
-                MessageBox.Show("Seleccione una categoría para editar.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
-            int categoriaID = Convert.ToInt32(dgvCategorias.SelectedRows[0].Cells["colCategoriaID"].Value);
-
-            frmCrearCategoria frm = new frmCrearCategoria(categoriaID);
-            frm.StartPosition = FormStartPosition.CenterParent;
-            frm.ShowDialog(this);
-
-            CargarCategorias();
-        }
-
-        private void btnEliminar_Click(object sender, EventArgs e)
-        {
-            if (dgvCategorias.SelectedRows.Count == 0)
-            {
-                MessageBox.Show("Seleccione una categoría para eliminar.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
-            int categoriaID = Convert.ToInt32(dgvCategorias.SelectedRows[0].Cells["colCategoriaID"].Value);
-            string nombre = dgvCategorias.SelectedRows[0].Cells["colNombre"].Value.ToString();
-
-            DialogResult respuesta = MessageBox.Show(
-                "¿Desea eliminar la categoría " + nombre + "?",
-                "Confirmar eliminación",
-                MessageBoxButtons.YesNo,
-                MessageBoxIcon.Question
-            );
-
-            if (respuesta != DialogResult.Yes)
-                return;
-
-            if (conSQL.borrarDatos("Categorias", "CategoriaID = " + categoriaID))
-            {
-                MessageBox.Show("Categoría eliminada correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                CargarCategorias();
-            }
-        }
-
-        private void btnBuscar_Click(object sender, EventArgs e)
-        {
-            CargarCategorias();
-        }
-
-        private void txtFiltro_TextChanged(object sender, EventArgs e)
-        {
-            int cantidadCaracteres = txtFiltro.Text.Trim().Length;
-
-            if (cantidadCaracteres > 4)
-            {
-                busquedaAutomaticaAplicada = true;
-                CargarCategorias();
-            }
-            else if (cantidadCaracteres == 0 || busquedaAutomaticaAplicada)
-            {
-                busquedaAutomaticaAplicada = false;
-                CargarCategorias();
-            }
-        }
-
-        private void txtFiltro_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                CargarCategorias();
-                e.SuppressKeyPress = true;
-            }
-        }
-
-        private void btnImprimir_Click(object sender, EventArgs e)
-        {
-            prdImprimir = new PrintDocument();
-            PrinterSettings pd = new PrinterSettings();
-            prdImprimir.PrinterSettings = pd;
-            prdImprimir.PrintPage += imprimePagina;
-            prdImprimir.Print();
-        }
         private void imprimePagina(object sender, PrintPageEventArgs e)
         {
             SolidBrush verdeProyecto = new SolidBrush(Color.FromArgb(139, 195, 74));
@@ -240,6 +140,35 @@ namespace login.Bar
             
         }
 
+
+        private void btnEliminar_Click_1(object sender, EventArgs e)
+        {
+            if (dgvCategorias.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Seleccione una categoría para eliminar.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            int categoriaID = Convert.ToInt32(dgvCategorias.SelectedRows[0].Cells["colCategoriaID"].Value);
+            string nombre = dgvCategorias.SelectedRows[0].Cells["colNombre"].Value.ToString();
+
+            DialogResult respuesta = MessageBox.Show(
+                "¿Desea eliminar la categoría " + nombre + "?",
+                "Confirmar eliminación",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question
+            );
+
+            if (respuesta != DialogResult.Yes)
+                return;
+
+            if (conSQL.borrarDatos("Categorias", "CategoriaID = " + categoriaID))
+            {
+                MessageBox.Show("Categoría eliminada correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                CargarCategorias();
+            }
+        }
+
         private void guna2Button2_Click(object sender, EventArgs e)
         {
             pnlContenido2.Controls.Clear();
@@ -249,12 +178,86 @@ namespace login.Bar
             frm1.FormBorderStyle = FormBorderStyle.None;
             frm1.Dock = DockStyle.Fill;
 
-            pnlContenido.Controls.Clear();
-            pnlContenido.Controls.Add(frm1);
-            pnlContenido.Tag = frm1;
+            pnlContenido2.Controls.Clear();
+            pnlContenido2.Controls.Add(frm1);
+            pnlContenido2.Tag = frm1;
 
             frm1.Show();
-            this.Close();
+        }
+
+        private void cmbFiltro_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (!configurandoFiltro && cmbFiltro.SelectedIndex >= 0)
+            {
+                CargarCategorias();
+            }
+        }
+
+        private void btnBuscar_Click_1(object sender, EventArgs e)
+        {
+            CargarCategorias();
+        }
+
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+            if (dgvCategorias.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Seleccione una categoría para editar.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            int categoriaID = Convert.ToInt32(dgvCategorias.SelectedRows[0].Cells["colCategoriaID"].Value);
+
+            frmCrearCategoria frm = new frmCrearCategoria(categoriaID);
+            frm.StartPosition = FormStartPosition.CenterParent;
+            frm.ShowDialog(this);
+
+            CargarCategorias();
+        }
+
+        private void txtFiltro_TextChanged(object sender, EventArgs e)
+        {
+            int cantidadCaracteres = txtFiltro.Text.Trim().Length;
+
+            if (cantidadCaracteres > 4)
+            {
+                busquedaAutomaticaAplicada = true;
+                CargarCategorias();
+            }
+            else if (cantidadCaracteres == 0 || busquedaAutomaticaAplicada)
+            {
+                busquedaAutomaticaAplicada = false;
+                CargarCategorias();
+            }
+        }
+
+        private void txtFiltro_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                CargarCategorias();
+                e.SuppressKeyPress = true;
+            }
+        }
+
+        private void btnImprimir_Click(object sender, EventArgs e)
+        {
+            prdImprimir = new PrintDocument();
+            PrinterSettings pd = new PrinterSettings();
+            prdImprimir.PrinterSettings = pd;
+            prdImprimir.PrintPage += imprimePagina;
+            prdImprimir.Print();
+        }
+
+        private void btnCrear_Click(object sender, EventArgs e)
+        {
+            frmCrearCategoria frm = new frmCrearCategoria();
+            frm.StartPosition = FormStartPosition.CenterParent;
+
+            if (frm.ShowDialog(this) == DialogResult.OK)
+            {
+                CargarCategorias();
+            }
         }
     }
 }

@@ -29,23 +29,25 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmListadoCategorias));
-            this.rvwCategorias = new Microsoft.Reporting.WinForms.ReportViewer();
+            this.pnlContenido = new System.Windows.Forms.Panel();
             this.btnVolver = new Guna.UI2.WinForms.Guna2Button();
+            this.rvwCategorias = new Microsoft.Reporting.WinForms.ReportViewer();
+            this.pnlContenido.SuspendLayout();
             this.SuspendLayout();
             // 
-            // rvwCategorias
+            // pnlContenido
             // 
-            this.rvwCategorias.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.rvwCategorias.Location = new System.Drawing.Point(0, 0);
-            this.rvwCategorias.Name = "rvwCategorias";
-            this.rvwCategorias.ServerReport.BearerToken = null;
-            this.rvwCategorias.Size = new System.Drawing.Size(800, 450);
-            this.rvwCategorias.TabIndex = 0;
-            this.rvwCategorias.Load += new System.EventHandler(this.rvwCategorias_Load);
+            this.pnlContenido.Controls.Add(this.btnVolver);
+            this.pnlContenido.Controls.Add(this.rvwCategorias);
+            this.pnlContenido.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlContenido.Location = new System.Drawing.Point(0, 0);
+            this.pnlContenido.Name = "pnlContenido";
+            this.pnlContenido.Size = new System.Drawing.Size(1296, 554);
+            this.pnlContenido.TabIndex = 0;
             // 
             // btnVolver
             // 
-            this.btnVolver.BackColor = System.Drawing.Color.Transparent;
+            this.btnVolver.BackColor = System.Drawing.Color.White;
             this.btnVolver.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.btnVolver.BorderRadius = 14;
             this.btnVolver.BorderThickness = 1;
@@ -58,35 +60,45 @@
             this.btnVolver.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnVolver.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.btnVolver.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.btnVolver.HoverState.FillColor = System.Drawing.Color.Transparent;
             this.btnVolver.Image = ((System.Drawing.Image)(resources.GetObject("btnVolver.Image")));
-            this.btnVolver.Location = new System.Drawing.Point(672, 57);
-            this.btnVolver.Margin = new System.Windows.Forms.Padding(2);
+            this.btnVolver.Location = new System.Drawing.Point(1097, 55);
+            this.btnVolver.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnVolver.Name = "btnVolver";
-            this.btnVolver.ShadowDecoration.BorderRadius = 14;
-            this.btnVolver.Size = new System.Drawing.Size(128, 39);
-            this.btnVolver.TabIndex = 88;
+            this.btnVolver.Size = new System.Drawing.Size(171, 48);
+            this.btnVolver.TabIndex = 91;
             this.btnVolver.Text = "Volver";
             this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
             // 
+            // rvwCategorias
+            // 
+            this.rvwCategorias.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.rvwCategorias.Location = new System.Drawing.Point(0, 0);
+            this.rvwCategorias.Margin = new System.Windows.Forms.Padding(4);
+            this.rvwCategorias.Name = "rvwCategorias";
+            this.rvwCategorias.ServerReport.BearerToken = null;
+            this.rvwCategorias.Size = new System.Drawing.Size(1296, 554);
+            this.rvwCategorias.TabIndex = 90;
+            // 
             // frmListadoCategorias
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.btnVolver);
-            this.Controls.Add(this.rvwCategorias);
+            this.ClientSize = new System.Drawing.Size(1296, 554);
+            this.Controls.Add(this.pnlContenido);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "frmListadoCategorias";
             this.Text = "frmListadoCategorias";
             this.Load += new System.EventHandler(this.frmListadoCategorias_Load);
+            this.pnlContenido.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private Microsoft.Reporting.WinForms.ReportViewer rvwCategorias;
+        private System.Windows.Forms.Panel pnlContenido;
         private Guna.UI2.WinForms.Guna2Button btnVolver;
+        private Microsoft.Reporting.WinForms.ReportViewer rvwCategorias;
     }
 }

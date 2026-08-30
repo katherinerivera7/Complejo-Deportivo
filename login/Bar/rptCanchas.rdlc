@@ -6,16 +6,16 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>4.43442cm</Width>
+              <Width>3.92642cm</Width>
             </TablixColumn>
             <TablixColumn>
               <Width>4.43442cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>4.43442cm</Width>
+              <Width>4.94241cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>4.43442cm</Width>
+              <Width>3.33375cm</Width>
             </TablixColumn>
             <TablixColumn>
               <Width>4.43442cm</Width>
@@ -198,7 +198,7 @@
         <DataSetName>dsCanchas</DataSetName>
         <Top>0.07056cm</Top>
         <Height>0.6cm</Height>
-        <Width>22.17208cm</Width>
+        <Width>21.07142cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -315,9 +315,9 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox14</rd:DefaultName>
-          <Top>2.99833cm</Top>
+          <Top>2.96306cm</Top>
           <Height>0.6cm</Height>
-          <Width>4.43442cm</Width>
+          <Width>3.92642cm</Width>
           <ZIndex>3</ZIndex>
           <Style>
             <Border>
@@ -353,10 +353,10 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox14</rd:DefaultName>
-          <Top>2.99833cm</Top>
-          <Left>4.43442cm</Left>
+          <Top>2.96306cm</Top>
+          <Left>3.92642cm</Left>
           <Height>0.6cm</Height>
-          <Width>4.43442cm</Width>
+          <Width>4.38088cm</Width>
           <ZIndex>4</ZIndex>
           <Style>
             <Border>
@@ -393,9 +393,9 @@
           </Paragraphs>
           <rd:DefaultName>Textbox14</rd:DefaultName>
           <Top>2.99833cm</Top>
-          <Left>8.90411cm</Left>
+          <Left>8.3073cm</Left>
           <Height>0.6cm</Height>
-          <Width>4.43442cm</Width>
+          <Width>5.03123cm</Width>
           <ZIndex>5</ZIndex>
           <Style>
             <Border>
@@ -434,7 +434,7 @@
           <Top>2.99833cm</Top>
           <Left>13.30325cm</Left>
           <Height>0.6cm</Height>
-          <Width>4.43442cm</Width>
+          <Width>3.33375cm</Width>
           <ZIndex>6</ZIndex>
           <Style>
             <Border>
@@ -471,7 +471,7 @@
           </Paragraphs>
           <rd:DefaultName>Textbox14</rd:DefaultName>
           <Top>2.99833cm</Top>
-          <Left>17.80822cm</Left>
+          <Left>16.637cm</Left>
           <Height>0.6cm</Height>
           <Width>4.43442cm</Width>
           <ZIndex>7</ZIndex>
@@ -485,6 +485,17 @@
             <PaddingBottom>2pt</PaddingBottom>
           </Style>
         </Textbox>
+        <Line Name="Line1">
+          <Top>3.56306cm</Top>
+          <Height>0cm</Height>
+          <Width>21.8167cm</Width>
+          <ZIndex>8</ZIndex>
+          <Style>
+            <Border>
+              <Style>Solid</Style>
+            </Border>
+          </Style>
+        </Line>
       </ReportItems>
       <Style>
         <Border>
