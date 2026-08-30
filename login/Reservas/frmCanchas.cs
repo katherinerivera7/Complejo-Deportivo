@@ -296,5 +296,10 @@ namespace login.Reservas
                 e.SuppressKeyPress = true;
             }
         }
+
+        private void pnlContenidoCanchas_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
