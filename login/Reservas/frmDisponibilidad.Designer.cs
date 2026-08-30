@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -74,8 +73,6 @@
             this.btnRetroceder = new System.Windows.Forms.Button();
             this.guna2CirclePictureBox5 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.btnSiguiente = new System.Windows.Forms.Button();
-            this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
-            this.guna2Elipse2 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHorarios)).BeginInit();
             this.guna2Panel2.SuspendLayout();
@@ -116,6 +113,8 @@
             // 
             // dgvHorarios
             // 
+            this.dgvHorarios.AllowUserToAddRows = false;
+            this.dgvHorarios.AllowUserToDeleteRows = false;
             this.dgvHorarios.AllowUserToOrderColumns = true;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
             this.dgvHorarios.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
@@ -144,53 +143,62 @@
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvHorarios.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvHorarios.GridColor = System.Drawing.SystemColors.Control;
-            this.dgvHorarios.Location = new System.Drawing.Point(27, 220);
+            this.dgvHorarios.Location = new System.Drawing.Point(61, 235);
             this.dgvHorarios.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dgvHorarios.MultiSelect = false;
             this.dgvHorarios.Name = "dgvHorarios";
+            this.dgvHorarios.ReadOnly = true;
             this.dgvHorarios.RowHeadersVisible = false;
             this.dgvHorarios.RowHeadersWidth = 51;
             this.dgvHorarios.RowTemplate.Height = 24;
-            this.dgvHorarios.Size = new System.Drawing.Size(1386, 533);
+            this.dgvHorarios.Size = new System.Drawing.Size(1309, 533);
             this.dgvHorarios.TabIndex = 96;
             this.dgvHorarios.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.dgvHorarios.ThemeStyle.GridColor = System.Drawing.SystemColors.Control;
             this.dgvHorarios.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(155)))), ((int)(((byte)(75)))));
             this.dgvHorarios.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dgvHorarios.ThemeStyle.HeaderStyle.Height = 50;
+            this.dgvHorarios.ThemeStyle.ReadOnly = true;
             this.dgvHorarios.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.dgvHorarios.ThemeStyle.RowsStyle.Height = 24;
             this.dgvHorarios.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(233)))), ((int)(((byte)(251)))));
             this.dgvHorarios.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvHorarios_CellContentClick);
+            this.dgvHorarios.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvHorarios_CellFormatting);
             // 
             // Column1
             // 
             this.Column1.HeaderText = "Horario";
             this.Column1.MinimumWidth = 6;
             this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
             // 
             // Column2
             // 
             this.Column2.HeaderText = "Cancha 1";
             this.Column2.MinimumWidth = 6;
             this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
             // 
             // Column3
             // 
             this.Column3.HeaderText = "Cancha 2";
             this.Column3.MinimumWidth = 6;
             this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
             // 
             // Column4
             // 
             this.Column4.HeaderText = "Cancha 3";
             this.Column4.MinimumWidth = 6;
             this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
             // 
             // Column5
             // 
             this.Column5.HeaderText = "Cancha 4";
             this.Column5.MinimumWidth = 6;
             this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
             // 
             // label13
             // 
@@ -198,7 +206,7 @@
             this.label13.BackColor = System.Drawing.Color.Transparent;
             this.label13.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.ForeColor = System.Drawing.Color.DimGray;
-            this.label13.Location = new System.Drawing.Point(519, 794);
+            this.label13.Location = new System.Drawing.Point(507, 795);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(217, 25);
             this.label13.TabIndex = 95;
@@ -218,6 +226,7 @@
             this.guna2Panel2.Name = "guna2Panel2";
             this.guna2Panel2.Size = new System.Drawing.Size(1448, 126);
             this.guna2Panel2.TabIndex = 0;
+            this.guna2Panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2Panel2_Paint);
             // 
             // guna2Panel6
             // 
@@ -438,6 +447,7 @@
             this.guna2CircleButton6.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.guna2CircleButton6.Size = new System.Drawing.Size(85, 79);
             this.guna2CircleButton6.TabIndex = 75;
+            this.guna2CircleButton6.Click += new System.EventHandler(this.guna2CircleButton6_Click);
             // 
             // label16
             // 
@@ -535,7 +545,7 @@
             this.guna2CirclePictureBox7.BackColor = System.Drawing.Color.Transparent;
             this.guna2CirclePictureBox7.FillColor = System.Drawing.Color.Gray;
             this.guna2CirclePictureBox7.ImageRotate = 0F;
-            this.guna2CirclePictureBox7.Location = new System.Drawing.Point(486, 793);
+            this.guna2CirclePictureBox7.Location = new System.Drawing.Point(469, 793);
             this.guna2CirclePictureBox7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.guna2CirclePictureBox7.Name = "guna2CirclePictureBox7";
             this.guna2CirclePictureBox7.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
@@ -730,8 +740,6 @@
         private Guna.UI2.WinForms.Guna2Panel guna2Panel6;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel5;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel3;
-        private Guna.UI2.WinForms.Guna2Elipse guna2Elipse1;
-        private Guna.UI2.WinForms.Guna2Elipse guna2Elipse2;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label7;

@@ -20,10 +20,10 @@ namespace login
 
         public csConectaSQL()
         {
-            Server = @"LAPTOP-J5U2QS20\SQLEXPRESS01"; //LAPTOP-J5U2QS20\SQLEXPRESS01         DESKTOP-OSJ26G2\SQLEXPRESS01
+            Server = @"DESKTOP-OSJ26G2\SQLEXPRESS01"; //LAPTOP-J5U2QS20\SQLEXPRESS01         DESKTOP-OSJ26G2\SQLEXPRESS01
             Database = "ComplejoDeportivo";
-            Usuario = "Basados777";
-            Clave = "Basados888";
+            Usuario = "Basados777"; //sa
+            Clave = "Basados888";  //1234567
         }
 
         public bool abrirConexion()
@@ -364,5 +364,93 @@ namespace login
                 return false;
             }
         }
+
+
+        // modulo de disponibilidad
+        public bool insertarHorario(int canchaID, string horaInicio, string horaFin)
+        {
+            try
+            {
+                if (abrirConexion())
+                {
+                    string consulta = @"
+                INSERT INTO Horarios
+                (CanchaID, HoraInicio, HoraFin)
+                VALUES
+                (@CanchaID, @HoraInicio, @HoraFin)";
+
+                    oCom = new SqlCommand(consulta, oCon);
+
+                    oCom.Parameters.AddWithValue("@CanchaID", canchaID);
+                    oCom.Parameters.AddWithValue("@HoraInicio", horaInicio);
+                    oCom.Parameters.AddWithValue("@HoraFin", horaFin);
+
+                    oCom.ExecuteNonQuery();
+
+                    cerrarConexion();
+
+                    return true;
+                }
+
+                return false;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                cerrarConexion();
+
+                return false;
+            }
+        }
+
+        public bool actualizarHorario(
+    int horarioID,
+    int canchaID,
+    string horaInicio,
+    string horaFin)
+        {
+            try
+            {
+                if (abrirConexion())
+                {
+                    string consulta = @"
+                UPDATE Horarios
+                SET
+                    CanchaID = @CanchaID,
+                    HoraInicio = @HoraInicio,
+                    HoraFin = @HoraFin
+                WHERE HorarioID = @HorarioID";
+
+                    oCom = new SqlCommand(consulta, oCon);
+
+                    oCom.Parameters.AddWithValue("@HorarioID", horarioID);
+                    oCom.Parameters.AddWithValue("@CanchaID", canchaID);
+                    oCom.Parameters.AddWithValue("@HoraInicio", horaInicio);
+                    oCom.Parameters.AddWithValue("@HoraFin", horaFin);
+
+                    oCom.ExecuteNonQuery();
+
+                    cerrarConexion();
+
+                    return true;
+                }
+
+                return false;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                cerrarConexion();
+
+                return false;
+            }
+        }
+
+
+
+
+
+
+
     }
 }
