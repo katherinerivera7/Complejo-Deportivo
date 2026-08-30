@@ -35,9 +35,9 @@ namespace login
 
         private void btnCrear_Click(object sender, EventArgs e)
         {
-            // ==========================================
-            // 1. VALIDAR CAMPOS VACÍOS
-            // ==========================================
+          
+            //  VALIDAR CAMPOS VACÍOS
+            
 
             if (string.IsNullOrWhiteSpace(txtUsuario.Text) ||
                 string.IsNullOrWhiteSpace(txtClave.Text) ||
@@ -101,9 +101,9 @@ namespace login
             }
 
 
-            // ==========================================
-            // 9. CONFIRMAR CONTRASEÑA
-            // ==========================================
+           
+            // CONFIRMAR CONTRASEÑA
+            
 
             if (txtClave.Text != txtConfirmarClave.Text)
             {
@@ -118,9 +118,9 @@ namespace login
             }
 
 
-            // ==========================================
-            // 10. CONEXIÓN CON SQL SERVER
-            // ==========================================
+            
+            // CONEXIÓN CON SQL SERVER
+            
 
             try
             {
@@ -283,8 +283,7 @@ namespace login
         {
             if (e.KeyCode == Keys.Enter)
             {
-                guna2ComboBox1.Focus();
-                guna2ComboBox1.DroppedDown = true;
+                txtDireccion.Focus();
                 e.SuppressKeyPress = true;
             }
         }
@@ -293,7 +292,7 @@ namespace login
         {
             if (e.KeyCode == Keys.Enter)
             {
-                guna2TextBox2.Focus();
+                txtClave.Focus();
                 e.SuppressKeyPress = true;
             }
         }
@@ -302,7 +301,7 @@ namespace login
         {
             if (e.KeyCode == Keys.Enter)
             {
-                guna2TextBox1.Focus();
+                txtCorreo.Focus();
                 e.SuppressKeyPress = true;
             }
         }
@@ -311,7 +310,8 @@ namespace login
         {
             if (e.KeyCode == Keys.Enter)
             {
-                txtClave.Focus();
+                cmbCargo.Focus();
+                cmbCargo.DroppedDown = true;
                 e.SuppressKeyPress = true;
             }
         }
@@ -320,7 +320,7 @@ namespace login
         {
             if (e.KeyCode == Keys.Enter)
             {
-                txtClave.Focus();
+                txtConfirmarClave.Focus();
                 e.SuppressKeyPress = true;
             }
         }
@@ -332,6 +332,11 @@ namespace login
                 btnCrear.PerformClick();
                 e.SuppressKeyPress = true;
             }
+        }
+
+        private void txtCorreo_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
