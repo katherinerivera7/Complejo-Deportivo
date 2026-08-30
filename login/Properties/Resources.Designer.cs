@@ -759,5 +759,15 @@ namespace login.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap WhatsApp_Image_2026_08_29_at_12_20_30_AM {
+            get {
+                object obj = ResourceManager.GetObject("WhatsApp Image 2026-08-29 at 12.20.30 AM", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }
