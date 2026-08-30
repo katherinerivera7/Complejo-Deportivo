@@ -71,5 +71,10 @@ namespace login
                 e.SuppressKeyPress = true;
             }
         }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
