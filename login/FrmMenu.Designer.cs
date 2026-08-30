@@ -339,7 +339,7 @@
             // 
             this.pictureBox8.Image = global::login.Properties.Resources.ondaazul;
             this.pictureBox8.Location = new System.Drawing.Point(0, 688);
-            this.pictureBox8.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox8.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox8.Name = "pictureBox8";
             this.pictureBox8.Size = new System.Drawing.Size(217, 292);
             this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;

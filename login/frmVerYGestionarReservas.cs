@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using login.Reservas;
 
 namespace login
 {
@@ -16,7 +17,7 @@ namespace login
         {
 
             InitializeComponent();
-            MessageBox.Show("ESTOY EN frmVerYGestionarReservas");
+           
         }
 
         private void txtNombre_KeyDown(object sender, KeyEventArgs e)
@@ -92,6 +93,48 @@ namespace login
         private void frmVerYGestionarReservas_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void guna2PictureBox2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnFacturar_Click(object sender, EventArgs e)
+        {
+            pnlContenido.Controls.Clear();
+            frmFacturaReserva frm = new frmFacturaReserva();
+
+            frm.TopLevel = false;
+            frm.FormBorderStyle = FormBorderStyle.None;
+            frm.Dock = DockStyle.Fill;
+
+            pnlContenido.Controls.Clear();
+            pnlContenido.Controls.Add(frm);
+            pnlContenido.Tag = frm;
+
+            frm.Show();
+        }
+
+        private void guna2GroupBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnFacturar_Click_1(object sender, EventArgs e)
+        {
+            pnlContenido.Controls.Clear();
+            frmFacturaReserva frm = new frmFacturaReserva();
+
+            frm.TopLevel = false;
+            frm.FormBorderStyle = FormBorderStyle.None;
+            frm.Dock = DockStyle.Fill;
+
+            pnlContenido.Controls.Clear();
+            pnlContenido.Controls.Add(frm);
+            pnlContenido.Tag = frm;
+
+            frm.Show();
         }
     }
 }
