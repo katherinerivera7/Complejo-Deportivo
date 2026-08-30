@@ -166,5 +166,10 @@ namespace login.Bar
                 e.SuppressKeyPress = true;
             }
         }
+
+        private void cmbProducto_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
