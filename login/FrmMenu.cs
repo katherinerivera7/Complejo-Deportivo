@@ -155,6 +155,13 @@ namespace login
             pnlContenido.Tag = frm;
 
             frm.Show();
+
+
+
+
+            MessageBox.Show("ESTOY HACIENDO CLIC");
+
+           
         }
 
         private void guna2Panel1_Paint(object sender, PaintEventArgs e)

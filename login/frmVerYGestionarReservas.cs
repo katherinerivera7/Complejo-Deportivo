@@ -14,7 +14,9 @@ namespace login
     {
         public frmVerYGestionarReservas()
         {
+
             InitializeComponent();
+            MessageBox.Show("ESTOY EN frmVerYGestionarReservas");
         }
 
         private void txtNombre_KeyDown(object sender, KeyEventArgs e)
@@ -73,6 +75,21 @@ namespace login
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            DialogResult resultado = MessageBox.Show(
+ "¿Está seguro de que desea cancelar la reserva?",
+ "Cancelar reserva",
+ MessageBoxButtons.YesNo,
+ MessageBoxIcon.Question
+);
+
+            if (resultado == DialogResult.Yes)
+            {
+
+            }
+        }
+
+        private void frmVerYGestionarReservas_Load(object sender, EventArgs e)
         {
 
         }

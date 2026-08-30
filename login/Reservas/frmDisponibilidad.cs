@@ -24,7 +24,7 @@ namespace login.Reservas
             //              ControlStyles.AllPaintingInWmPaint |
             //              ControlStyles.UserPaint, true);
             //this.UpdateStyles();
-         
+            dgvHorarios.ClearSelection();
             cargarHorarios();
         }
 
@@ -73,14 +73,14 @@ namespace login.Reservas
 
                 int fila = dgvHorarios.Rows.Add();
 
-                // Columna de la hora
+               
                 dgvHorarios.Rows[fila].Cells[0].Value = horario;
 
                 foreach (DataRow dato in grupo)
                 {
                     int idCancha = Convert.ToInt32(dato["idCancha"]);
 
-                    // AQUÍ VA EL CÓDIGO DEL ESTADO
+                   
                     string estado;
 
                     if (dato["EstadoReserva"] != DBNull.Value)
@@ -107,6 +107,8 @@ namespace login.Reservas
                     {
                         dgvHorarios.Rows[fila].Cells[columna].Value = estado;
                     }
+
+                    dgvHorarios.ClearSelection();
                 }
             }
         }
@@ -142,26 +144,36 @@ namespace login.Reservas
 
         private void dgvHorarios_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
+            // No pintar la columna de horarios
+            if (e.ColumnIndex == 0)
+                return;
+
             if (e.Value == null)
                 return;
 
             string estado = e.Value.ToString();
 
+            e.CellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+
             if (estado == "Disponible")
             {
-                e.CellStyle.BackColor = Color.Green;
-                e.CellStyle.ForeColor = Color.White;
+                e.CellStyle.BackColor = Color.FromArgb(223, 242, 225);
+                e.CellStyle.ForeColor = Color.FromArgb(45, 95, 55);
             }
             else if (estado == "Ocupada")
             {
-                e.CellStyle.BackColor = Color.Red;
-                e.CellStyle.ForeColor = Color.White;
+                e.CellStyle.BackColor = Color.FromArgb(248, 215, 218);
+                e.CellStyle.ForeColor = Color.FromArgb(130, 45, 55);
             }
             else if (estado == "Mantenimiento")
             {
-                e.CellStyle.BackColor = Color.Orange;
-                e.CellStyle.ForeColor = Color.White;
+                e.CellStyle.BackColor = Color.FromArgb(255, 240, 213);
+                e.CellStyle.ForeColor = Color.FromArgb(130, 90, 35);
             }
+
+
+            e.CellStyle.SelectionBackColor = e.CellStyle.BackColor;
+            e.CellStyle.SelectionForeColor = e.CellStyle.ForeColor;
         }
     }
 }

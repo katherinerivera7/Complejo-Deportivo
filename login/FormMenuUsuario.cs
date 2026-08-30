@@ -16,6 +16,7 @@ namespace login
         public FormMenuUsuario()
         {
             InitializeComponent();
+
         }
 
         
