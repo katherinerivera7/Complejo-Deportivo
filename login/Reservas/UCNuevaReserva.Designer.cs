@@ -35,10 +35,10 @@
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.label12 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.checkA = new System.Windows.Forms.CheckBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label17 = new System.Windows.Forms.Label();
-            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
+            this.chkArbitro = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.cmbFecha = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.cmbHorario = new Guna.UI2.WinForms.Guna2ComboBox();
@@ -110,6 +110,7 @@
             // 
             // pnlContenido
             // 
+            this.pnlContenido.Controls.Add(this.btnFacturar);
             this.pnlContenido.Controls.Add(this.guna2PictureBox2);
             this.pnlContenido.Controls.Add(this.label4);
             this.pnlContenido.Controls.Add(this.guna2Panel3);
@@ -123,6 +124,7 @@
             this.pnlContenido.Name = "pnlContenido";
             this.pnlContenido.Size = new System.Drawing.Size(1457, 977);
             this.pnlContenido.TabIndex = 0;
+            this.pnlContenido.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlContenido_Paint);
             // 
             // guna2PictureBox2
             // 
@@ -152,14 +154,13 @@
             this.guna2Panel3.BackColor = System.Drawing.Color.Transparent;
             this.guna2Panel3.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(234)))), ((int)(((byte)(242)))));
             this.guna2Panel3.BorderRadius = 15;
-            this.guna2Panel3.Controls.Add(this.btnFacturar);
             this.guna2Panel3.Controls.Add(this.pictureBox4);
             this.guna2Panel3.Controls.Add(this.label12);
             this.guna2Panel3.Controls.Add(this.label1);
-            this.guna2Panel3.Controls.Add(this.checkBox1);
+            this.guna2Panel3.Controls.Add(this.checkA);
             this.guna2Panel3.Controls.Add(this.pictureBox2);
             this.guna2Panel3.Controls.Add(this.label17);
-            this.guna2Panel3.Controls.Add(this.guna2Button1);
+            this.guna2Panel3.Controls.Add(this.chkArbitro);
             this.guna2Panel3.FillColor = System.Drawing.Color.White;
             this.guna2Panel3.Location = new System.Drawing.Point(21, 620);
             this.guna2Panel3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -206,17 +207,17 @@
             this.label1.TabIndex = 66;
             this.label1.Text = "Árbitro";
             // 
-            // checkBox1
+            // checkA
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.BackColor = System.Drawing.Color.White;
-            this.checkBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox1.Location = new System.Drawing.Point(96, 98);
-            this.checkBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(18, 17);
-            this.checkBox1.TabIndex = 40;
-            this.checkBox1.UseVisualStyleBackColor = false;
+            this.checkA.AutoSize = true;
+            this.checkA.BackColor = System.Drawing.Color.White;
+            this.checkA.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkA.Location = new System.Drawing.Point(96, 98);
+            this.checkA.Margin = new System.Windows.Forms.Padding(4);
+            this.checkA.Name = "checkA";
+            this.checkA.Size = new System.Drawing.Size(18, 17);
+            this.checkA.TabIndex = 40;
+            this.checkA.UseVisualStyleBackColor = false;
             // 
             // pictureBox2
             // 
@@ -241,29 +242,29 @@
             this.label17.TabIndex = 37;
             this.label17.Text = "3. Servicios adicionales";
             // 
-            // guna2Button1
+            // chkArbitro
             // 
-            this.guna2Button1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2Button1.BorderRadius = 12;
-            this.guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button1.FillColor = System.Drawing.Color.White;
-            this.guna2Button1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2Button1.ForeColor = System.Drawing.Color.White;
-            this.guna2Button1.HoverState.BorderColor = System.Drawing.Color.White;
-            this.guna2Button1.HoverState.CustomBorderColor = System.Drawing.Color.Transparent;
-            this.guna2Button1.HoverState.FillColor = System.Drawing.Color.White;
-            this.guna2Button1.Location = new System.Drawing.Point(20, 68);
-            this.guna2Button1.Margin = new System.Windows.Forms.Padding(4);
-            this.guna2Button1.Name = "guna2Button1";
-            this.guna2Button1.ShadowDecoration.BorderRadius = 12;
-            this.guna2Button1.ShadowDecoration.Depth = 4;
-            this.guna2Button1.ShadowDecoration.Enabled = true;
-            this.guna2Button1.Size = new System.Drawing.Size(240, 81);
-            this.guna2Button1.TabIndex = 41;
-            this.guna2Button1.Text = "guna2Button1";
+            this.chkArbitro.BackColor = System.Drawing.Color.Transparent;
+            this.chkArbitro.BorderRadius = 12;
+            this.chkArbitro.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.chkArbitro.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.chkArbitro.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.chkArbitro.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.chkArbitro.FillColor = System.Drawing.Color.White;
+            this.chkArbitro.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.chkArbitro.ForeColor = System.Drawing.Color.White;
+            this.chkArbitro.HoverState.BorderColor = System.Drawing.Color.White;
+            this.chkArbitro.HoverState.CustomBorderColor = System.Drawing.Color.Transparent;
+            this.chkArbitro.HoverState.FillColor = System.Drawing.Color.White;
+            this.chkArbitro.Location = new System.Drawing.Point(20, 68);
+            this.chkArbitro.Margin = new System.Windows.Forms.Padding(4);
+            this.chkArbitro.Name = "chkArbitro";
+            this.chkArbitro.ShadowDecoration.BorderRadius = 12;
+            this.chkArbitro.ShadowDecoration.Depth = 4;
+            this.chkArbitro.ShadowDecoration.Enabled = true;
+            this.chkArbitro.Size = new System.Drawing.Size(240, 81);
+            this.chkArbitro.TabIndex = 41;
+            this.chkArbitro.Text = "guna2Button1";
             // 
             // guna2Panel1
             // 
@@ -670,6 +671,7 @@
             this.txtCedula.SelectedText = "";
             this.txtCedula.Size = new System.Drawing.Size(279, 42);
             this.txtCedula.TabIndex = 44;
+            this.txtCedula.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCedula_KeyDown);
             // 
             // label2
             // 
@@ -751,11 +753,12 @@
             this.btnFacturar.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnFacturar.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnFacturar.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnFacturar.Enabled = false;
             this.btnFacturar.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(143)))), ((int)(((byte)(189)))), ((int)(((byte)(252)))));
             this.btnFacturar.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnFacturar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(37)))), ((int)(((byte)(87)))));
             this.btnFacturar.Image = global::login.Properties.Resources.icons8_factura_100;
-            this.btnFacturar.Location = new System.Drawing.Point(568, 125);
+            this.btnFacturar.Location = new System.Drawing.Point(993, 815);
             this.btnFacturar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnFacturar.Name = "btnFacturar";
             this.btnFacturar.Size = new System.Drawing.Size(207, 46);
@@ -1073,10 +1076,10 @@
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox checkA;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label label17;
-        private Guna.UI2.WinForms.Guna2Button guna2Button1;
+        private Guna.UI2.WinForms.Guna2Button chkArbitro;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
         private Guna.UI2.WinForms.Guna2DateTimePicker cmbFecha;
         private Guna.UI2.WinForms.Guna2ComboBox cmbHorario;

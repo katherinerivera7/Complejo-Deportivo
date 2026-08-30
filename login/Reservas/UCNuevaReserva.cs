@@ -12,6 +12,10 @@ namespace login.Reservas
 {
     public partial class UCNuevaReserva : UserControl
     {
+        csConectaSQL conSQL = new csConectaSQL();
+
+        private int clienteID = 0;
+
         public UCNuevaReserva()
         {
             InitializeComponent();
@@ -96,16 +100,102 @@ namespace login.Reservas
 
         private void btnReservar_Click(object sender, EventArgs e)
         {
+            if (txtCedula.Text == "" ||
+        txtNombres.Text == "" ||
+        txtApellidos.Text == "" ||
+        txtCorreo.Text == "" ||
+        txtTelefono.Text == "" ||
+        txtDireccion.Text == "" ||
+        cmbCancha.SelectedIndex == -1 ||
+        cmbHorario.SelectedIndex == -1)
+            {
+                MessageBox.Show(
+                    "Por favor, complete todos los datos de la reserva.",
+                    "Datos incompletos",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning
+                );
+
+                return;
+            }
+
             DialogResult resultado = MessageBox.Show(
-        "¿Está seguro de que desea realizar esta reserva?",
-        "Confirmar reserva",
-        MessageBoxButtons.YesNo,
-        MessageBoxIcon.Question
-    );
+                "¿Está seguro de que desea realizar esta reserva?",
+                "Confirmar reserva",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question
+            );
 
             if (resultado == DialogResult.Yes)
             {
-                MessageBox.Show("Reserva Exitosa.");
+                // Aquí vamos a guardar el cliente y la reserva
+                MessageBox.Show(
+        "Reserva registrada correctamente.",
+        "Reserva",
+        MessageBoxButtons.OK,
+        MessageBoxIcon.Information);
+
+                btnFacturar.Enabled = true;
+            }
+        }
+
+        private void pnlContenido_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void txtCedula_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                BuscarCliente();
+                e.SuppressKeyPress = true;
+            }
+        }
+
+
+
+        private void BuscarCliente()
+        {
+            string cedula = txtCedula.Text.Trim();
+
+            if (cedula == "")
+            {
+                MessageBox.Show("Ingrese la cédula del cliente.");
+                return;
+            }
+
+            string consulta = $@"
+        SELECT ClienteID, Nombre, Apellido, Correo, Telefono, Direccion
+        FROM Clientes
+        WHERE Cedula = '{cedula}'";
+
+            DataTable datos = conSQL.retornaRegistros(consulta);
+
+            if (datos.Rows.Count > 0)
+            {
+                DataRow cliente = datos.Rows[0];
+
+                clienteID = Convert.ToInt32(cliente["ClienteID"]);
+
+                txtNombres.Text = cliente["Nombre"].ToString();
+                txtApellidos.Text = cliente["Apellido"].ToString();
+                txtCorreo.Text = cliente["Correo"].ToString();
+                txtTelefono.Text = cliente["Telefono"].ToString();
+                txtDireccion.Text = cliente["Direccion"].ToString();
+
+                MessageBox.Show("Cliente encontrado.");
+            }
+            else
+            {
+                clienteID = 0;
+
+                MessageBox.Show(
+                    "El cliente no está registrado. Puede ingresar sus datos para registrarlo.",
+                    "Cliente no encontrado",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information
+                );
             }
         }
     }
