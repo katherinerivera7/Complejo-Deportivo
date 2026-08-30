@@ -180,7 +180,7 @@
             this.chkMostrar.CheckedState.BorderThickness = 0;
             this.chkMostrar.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.chkMostrar.Font = new System.Drawing.Font("Segoe Fluent Icons", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkMostrar.Location = new System.Drawing.Point(141, 658);
+            this.chkMostrar.Location = new System.Drawing.Point(120, 574);
             this.chkMostrar.Margin = new System.Windows.Forms.Padding(2);
             this.chkMostrar.Name = "chkMostrar";
             this.chkMostrar.Size = new System.Drawing.Size(153, 23);
@@ -279,7 +279,7 @@
             this.btnCrear.Font = new System.Drawing.Font("Segoe UI Semibold", 13F, System.Drawing.FontStyle.Bold);
             this.btnCrear.ForeColor = System.Drawing.Color.White;
             this.btnCrear.Image = ((System.Drawing.Image)(resources.GetObject("btnCrear.Image")));
-            this.btnCrear.Location = new System.Drawing.Point(141, 685);
+            this.btnCrear.Location = new System.Drawing.Point(138, 622);
             this.btnCrear.Margin = new System.Windows.Forms.Padding(2);
             this.btnCrear.Name = "btnCrear";
             this.btnCrear.Size = new System.Drawing.Size(270, 39);
