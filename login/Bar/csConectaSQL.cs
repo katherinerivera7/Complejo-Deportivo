@@ -123,152 +123,71 @@ namespace login
                 return false;
             }
         }
-
-        public bool insertarProducto(
-            int categoriaID,
-            string nombre,
-            decimal precio,
-            int stock,
-            byte[] imagen)
+        public bool insertarProducto(int categoriaID, string nombre, decimal precio, byte[] imagen)
         {
             try
             {
-                if (abrirConexion())
+                if (!abrirConexion())
+                    return false;
+
+                string consulta = "INSERT INTO Productos " +
+                                  "(CategoriaID, Nombre, Precio, Imagen) " +
+                                  "VALUES (@CategoriaID, @Nombre, @Precio, @Imagen)";
+
+                using (SqlCommand cmd = new SqlCommand(consulta, oCon))
                 {
-                    string consulta = @"
-                        INSERT INTO Productos
-                        (
-                            CategoriaID,
-                            Nombre,
-                            Precio,
-                            Stock,
-                            Imagen
-                        )
-                        VALUES
-                        (
-                            @CategoriaID,
-                            @Nombre,
-                            @Precio,
-                            @Stock,
-                            @Imagen
-                        )";
+                    cmd.Parameters.AddWithValue("@CategoriaID", categoriaID);
+                    cmd.Parameters.AddWithValue("@Nombre", nombre);
+                    cmd.Parameters.AddWithValue("@Precio", precio);
+                    cmd.Parameters.Add("@Imagen", SqlDbType.VarBinary).Value =
+                        (object)imagen ?? DBNull.Value;
 
-                    oCom = new SqlCommand(consulta, oCon);
-
-                    oCom.Parameters.AddWithValue(
-                        "@CategoriaID", categoriaID);
-
-                    oCom.Parameters.AddWithValue(
-                        "@Nombre", nombre);
-
-                    oCom.Parameters.AddWithValue(
-                        "@Precio", precio);
-
-                    oCom.Parameters.AddWithValue(
-                        "@Stock", stock);
-
-                    if (imagen != null)
-                    {
-                        oCom.Parameters.Add(
-                            "@Imagen",
-                            SqlDbType.VarBinary,
-                            -1).Value = imagen;
-                    }
-                    else
-                    {
-                        oCom.Parameters.Add(
-                            "@Imagen",
-                            SqlDbType.VarBinary,
-                            -1).Value = DBNull.Value;
-                    }
-
-                    oCom.ExecuteNonQuery();
-
-                    cerrarConexion();
-
-                    return true;
+                    cmd.ExecuteNonQuery();
                 }
 
-                return false;
+                return true;
             }
-            catch (Exception ex)
+            catch
             {
-                MessageBox.Show(ex.Message);
-                cerrarConexion();
-
                 return false;
             }
         }
 
-        public bool actualizarProducto(
-            int productoID,
-            int categoriaID,
-            string nombre,
-            decimal precio,
-            int stock,
-            byte[] imagen)
+        public bool actualizarProducto(int productoID, int categoriaID, string nombre, decimal precio, byte[] imagen)
         {
             try
             {
-                if (abrirConexion())
+                if (!abrirConexion())
+                    return false;
+
+                string consulta = "UPDATE Productos SET " +
+                                  "CategoriaID = @CategoriaID, " +
+                                  "Nombre = @Nombre, " +
+                                  "Precio = @Precio, " +
+                                  "Imagen = @Imagen " +
+                                  "WHERE ProductoID = @ProductoID";
+
+                using (SqlCommand cmd = new SqlCommand(consulta, oCon))
                 {
-                    string consulta = @"
-                        UPDATE Productos
-                        SET
-                            CategoriaID = @CategoriaID,
-                            Nombre = @Nombre,
-                            Precio = @Precio,
-                            Stock = @Stock,
-                            Imagen = @Imagen
-                        WHERE ProductoID = @ProductoID";
+                    cmd.Parameters.AddWithValue("@ProductoID", productoID);
+                    cmd.Parameters.AddWithValue("@CategoriaID", categoriaID);
+                    cmd.Parameters.AddWithValue("@Nombre", nombre);
+                    cmd.Parameters.AddWithValue("@Precio", precio);
+                    cmd.Parameters.Add("@Imagen", SqlDbType.VarBinary).Value =
+                        (object)imagen ?? DBNull.Value;
 
-                    oCom = new SqlCommand(consulta, oCon);
-
-                    oCom.Parameters.AddWithValue(
-                        "@ProductoID", productoID);
-
-                    oCom.Parameters.AddWithValue(
-                        "@CategoriaID", categoriaID);
-
-                    oCom.Parameters.AddWithValue(
-                        "@Nombre", nombre);
-
-                    oCom.Parameters.AddWithValue(
-                        "@Precio", precio);
-
-                    oCom.Parameters.AddWithValue(
-                        "@Stock", stock);
-
-                    if (imagen != null)
-                    {
-                        oCom.Parameters.Add(
-                            "@Imagen",
-                            SqlDbType.VarBinary,
-                            -1).Value = imagen;
-                    }
-                    else
-                    {
-                        oCom.Parameters.Add(
-                            "@Imagen",
-                            SqlDbType.VarBinary,
-                            -1).Value = DBNull.Value;
-                    }
-
-                    oCom.ExecuteNonQuery();
-
-                    cerrarConexion();
-
-                    return true;
+                    cmd.ExecuteNonQuery();
                 }
 
+                return true;
+            }
+            catch
+            {
                 return false;
             }
-            catch (Exception ex)
+            finally
             {
-                MessageBox.Show(ex.Message);
                 cerrarConexion();
-
-                return false;
             }
         }
         public bool insertarCategoria(string nombre)

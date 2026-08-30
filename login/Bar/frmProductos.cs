@@ -13,6 +13,7 @@ namespace login.Bar
         int tipo = 1;
         int productoID = 0;
         private byte[] imagenProducto = null;
+
         public static event Action ProductoGuardado;
 
         public frmProductos()
@@ -42,7 +43,8 @@ namespace login.Bar
 
         private void CargarCategorias()
         {
-            DataTable tabla = oCon.retornaRegistros("SELECT CategoriaID, Nombre FROM Categorias ORDER BY Nombre");
+            DataTable tabla = oCon.retornaRegistros(
+                "SELECT CategoriaID, Nombre FROM Categorias ORDER BY Nombre");
 
             cmbCategoria.DataSource = tabla;
             cmbCategoria.DisplayMember = "Nombre";
@@ -52,23 +54,24 @@ namespace login.Bar
 
         private void btnSeleccionarImagen_Click(object sender, EventArgs e)
         {
-            OpenFileDialog abrir = new OpenFileDialog();
-
-            abrir.Title = "Seleccionar imagen del producto";
-            abrir.Filter = "Imágenes|*.jpg;*.jpeg;*.png;*.bmp";
-
-            if (abrir.ShowDialog() == DialogResult.OK)
+            using (OpenFileDialog abrir = new OpenFileDialog())
             {
-                imagenProducto = File.ReadAllBytes(abrir.FileName);
+                abrir.Title = "Seleccionar imagen del producto";
+                abrir.Filter = "Imágenes|*.jpg;*.jpeg;*.png;*.bmp";
 
-                using (MemoryStream ms = new MemoryStream(imagenProducto))
-                using (Image imagenTemporal = Image.FromStream(ms))
+                if (abrir.ShowDialog() == DialogResult.OK)
                 {
-                    pbImagen.Image?.Dispose();
-                    pbImagen.Image = new Bitmap(imagenTemporal);
-                }
+                    imagenProducto = File.ReadAllBytes(abrir.FileName);
 
-                pbImagen.SizeMode = PictureBoxSizeMode.Zoom;
+                    using (MemoryStream ms = new MemoryStream(imagenProducto))
+                    using (Image imagenTemporal = Image.FromStream(ms))
+                    {
+                        pbImagen.Image?.Dispose();
+                        pbImagen.Image = new Bitmap(imagenTemporal);
+                    }
+
+                    pbImagen.SizeMode = PictureBoxSizeMode.Zoom;
+                }
             }
         }
 
@@ -92,21 +95,9 @@ namespace login.Bar
                 return;
             }
 
-            if (!int.TryParse(txtStock.Text, out int stock))
-            {
-                MessageBox.Show("Ingrese un stock válido.");
-                return;
-            }
-
             if (precio < 0)
             {
                 MessageBox.Show("El precio no puede ser negativo.");
-                return;
-            }
-
-            if (stock < 0)
-            {
-                MessageBox.Show("El stock no puede ser negativo.");
                 return;
             }
 
@@ -115,19 +106,34 @@ namespace login.Bar
 
             if (tipo == 1)
             {
-                if (oCon.insertarProducto(categoriaID, nombre, precio, stock, imagenProducto))
+                if (oCon.insertarProducto(categoriaID, nombre, precio, imagenProducto))
                 {
-                    MessageBox.Show("Producto registrado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show(
+                        "Producto registrado correctamente.",
+                        "Éxito",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Information);
+
                     ProductoGuardado?.Invoke();
                     DialogResult = DialogResult.OK;
                     Close();
                 }
             }
-            else if (tipo == 2)
+            else
             {
-                if (oCon.actualizarProducto(productoID, categoriaID, nombre, precio, stock, imagenProducto))
+                if (oCon.actualizarProducto(
+                    productoID,
+                    categoriaID,
+                    nombre,
+                    precio,
+                    imagenProducto))
                 {
-                    MessageBox.Show("Producto actualizado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show(
+                        "Producto actualizado correctamente.",
+                        "Éxito",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Information);
+
                     ProductoGuardado?.Invoke();
                     DialogResult = DialogResult.OK;
                     Close();
@@ -137,7 +143,9 @@ namespace login.Bar
 
         private void CargarProducto()
         {
-            DataTable tabla = oCon.retornaRegistros("SELECT CategoriaID, Nombre, Precio, Stock, Imagen FROM Productos WHERE ProductoID = " + productoID);
+            DataTable tabla = oCon.retornaRegistros(
+                "SELECT CategoriaID, Nombre, Precio, Imagen " +
+                "FROM Productos WHERE ProductoID = " + productoID);
 
             if (tabla.Rows.Count == 0)
                 return;
@@ -146,8 +154,7 @@ namespace login.Bar
 
             cmbCategoria.SelectedValue = Convert.ToInt32(fila["CategoriaID"]);
             txtNombre.Text = fila["Nombre"].ToString();
-            txtPrecio.Text = fila["Precio"].ToString();
-            txtStock.Text = fila["Stock"].ToString();
+            txtPrecio.Text = Convert.ToDecimal(fila["Precio"]).ToString("0.##");
 
             if (fila["Imagen"] != DBNull.Value)
             {

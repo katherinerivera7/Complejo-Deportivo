@@ -62,10 +62,9 @@
             // 
             this.lblCrearCliente.Font = new System.Drawing.Font("Segoe UI", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCrearCliente.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(37)))), ((int)(((byte)(87)))));
-            this.lblCrearCliente.Location = new System.Drawing.Point(79, 26);
-            this.lblCrearCliente.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblCrearCliente.Location = new System.Drawing.Point(105, 32);
             this.lblCrearCliente.Name = "lblCrearCliente";
-            this.lblCrearCliente.Size = new System.Drawing.Size(318, 41);
+            this.lblCrearCliente.Size = new System.Drawing.Size(424, 50);
             this.lblCrearCliente.TabIndex = 32;
             this.lblCrearCliente.Text = "Crear cliente";
             this.lblCrearCliente.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -80,11 +79,12 @@
             this.dtpFechaNacimiento.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.dtpFechaNacimiento.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
             this.dtpFechaNacimiento.Format = System.Windows.Forms.DateTimePickerFormat.Long;
-            this.dtpFechaNacimiento.Location = new System.Drawing.Point(79, 418);
+            this.dtpFechaNacimiento.Location = new System.Drawing.Point(105, 514);
+            this.dtpFechaNacimiento.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dtpFechaNacimiento.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
             this.dtpFechaNacimiento.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.dtpFechaNacimiento.Name = "dtpFechaNacimiento";
-            this.dtpFechaNacimiento.Size = new System.Drawing.Size(318, 45);
+            this.dtpFechaNacimiento.Size = new System.Drawing.Size(424, 55);
             this.dtpFechaNacimiento.TabIndex = 31;
             this.dtpFechaNacimiento.Value = new System.DateTime(2026, 7, 26, 17, 33, 57, 972);
             this.dtpFechaNacimiento.ValueChanged += new System.EventHandler(this.guna2DateTimePicker1_ValueChanged);
@@ -94,10 +94,9 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(37)))), ((int)(((byte)(87)))));
-            this.label1.Location = new System.Drawing.Point(75, 395);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Location = new System.Drawing.Point(100, 486);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(152, 20);
+            this.label1.Size = new System.Drawing.Size(187, 25);
             this.label1.TabIndex = 47;
             this.label1.Text = "Fecha de nacimiento";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -113,14 +112,15 @@
             this.txtCedula.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtCedula.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtCedula.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtCedula.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(37)))), ((int)(((byte)(87)))));
             this.txtCedula.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtCedula.IconLeft = ((System.Drawing.Image)(resources.GetObject("txtCedula.IconLeft")));
-            this.txtCedula.Location = new System.Drawing.Point(79, 165);
-            this.txtCedula.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.txtCedula.Location = new System.Drawing.Point(105, 203);
+            this.txtCedula.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtCedula.Name = "txtCedula";
             this.txtCedula.PlaceholderText = "Número de cédula";
             this.txtCedula.SelectedText = "";
-            this.txtCedula.Size = new System.Drawing.Size(318, 37);
+            this.txtCedula.Size = new System.Drawing.Size(424, 46);
             this.txtCedula.TabIndex = 46;
             // 
             // btnCrear
@@ -135,10 +135,10 @@
             this.btnCrear.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.btnCrear.ForeColor = System.Drawing.Color.White;
             this.btnCrear.Image = ((System.Drawing.Image)(resources.GetObject("btnCrear.Image")));
-            this.btnCrear.Location = new System.Drawing.Point(143, 493);
-            this.btnCrear.Margin = new System.Windows.Forms.Padding(2);
+            this.btnCrear.Location = new System.Drawing.Point(191, 607);
+            this.btnCrear.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnCrear.Name = "btnCrear";
-            this.btnCrear.Size = new System.Drawing.Size(188, 39);
+            this.btnCrear.Size = new System.Drawing.Size(251, 48);
             this.btnCrear.TabIndex = 33;
             this.btnCrear.Text = "Crear";
             this.btnCrear.Click += new System.EventHandler(this.btnCrear_Click);
@@ -154,14 +154,15 @@
             this.txtDireccion.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtDireccion.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtDireccion.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtDireccion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(37)))), ((int)(((byte)(87)))));
             this.txtDireccion.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtDireccion.IconLeft = ((System.Drawing.Image)(resources.GetObject("txtDireccion.IconLeft")));
-            this.txtDireccion.Location = new System.Drawing.Point(79, 337);
-            this.txtDireccion.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.txtDireccion.Location = new System.Drawing.Point(105, 415);
+            this.txtDireccion.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtDireccion.Name = "txtDireccion";
             this.txtDireccion.PlaceholderText = "Dirección";
             this.txtDireccion.SelectedText = "";
-            this.txtDireccion.Size = new System.Drawing.Size(318, 37);
+            this.txtDireccion.Size = new System.Drawing.Size(424, 46);
             this.txtDireccion.TabIndex = 30;
             // 
             // txtCiudad
@@ -175,14 +176,15 @@
             this.txtCiudad.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtCiudad.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtCiudad.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtCiudad.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(37)))), ((int)(((byte)(87)))));
             this.txtCiudad.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtCiudad.IconLeft = ((System.Drawing.Image)(resources.GetObject("txtCiudad.IconLeft")));
-            this.txtCiudad.Location = new System.Drawing.Point(79, 294);
-            this.txtCiudad.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.txtCiudad.Location = new System.Drawing.Point(105, 362);
+            this.txtCiudad.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtCiudad.Name = "txtCiudad";
             this.txtCiudad.PlaceholderText = "Ciudad";
             this.txtCiudad.SelectedText = "";
-            this.txtCiudad.Size = new System.Drawing.Size(318, 37);
+            this.txtCiudad.Size = new System.Drawing.Size(424, 46);
             this.txtCiudad.TabIndex = 28;
             // 
             // txtTelefono
@@ -196,14 +198,15 @@
             this.txtTelefono.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtTelefono.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtTelefono.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtTelefono.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(37)))), ((int)(((byte)(87)))));
             this.txtTelefono.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtTelefono.IconLeft = ((System.Drawing.Image)(resources.GetObject("txtTelefono.IconLeft")));
-            this.txtTelefono.Location = new System.Drawing.Point(79, 251);
-            this.txtTelefono.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.txtTelefono.Location = new System.Drawing.Point(105, 309);
+            this.txtTelefono.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.PlaceholderText = "Telefono";
             this.txtTelefono.SelectedText = "";
-            this.txtTelefono.Size = new System.Drawing.Size(318, 37);
+            this.txtTelefono.Size = new System.Drawing.Size(424, 46);
             this.txtTelefono.TabIndex = 27;
             // 
             // txtCorreo
@@ -217,14 +220,15 @@
             this.txtCorreo.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtCorreo.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtCorreo.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtCorreo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(37)))), ((int)(((byte)(87)))));
             this.txtCorreo.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtCorreo.IconLeft = ((System.Drawing.Image)(resources.GetObject("txtCorreo.IconLeft")));
-            this.txtCorreo.Location = new System.Drawing.Point(79, 208);
-            this.txtCorreo.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.txtCorreo.Location = new System.Drawing.Point(105, 256);
+            this.txtCorreo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtCorreo.Name = "txtCorreo";
             this.txtCorreo.PlaceholderText = "Correo electronico";
             this.txtCorreo.SelectedText = "";
-            this.txtCorreo.Size = new System.Drawing.Size(318, 37);
+            this.txtCorreo.Size = new System.Drawing.Size(424, 46);
             this.txtCorreo.TabIndex = 21;
             // 
             // txtApellidos
@@ -238,14 +242,15 @@
             this.txtApellidos.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtApellidos.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtApellidos.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtApellidos.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(37)))), ((int)(((byte)(87)))));
             this.txtApellidos.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtApellidos.IconLeft = ((System.Drawing.Image)(resources.GetObject("txtApellidos.IconLeft")));
-            this.txtApellidos.Location = new System.Drawing.Point(79, 122);
-            this.txtApellidos.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.txtApellidos.Location = new System.Drawing.Point(105, 150);
+            this.txtApellidos.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtApellidos.Name = "txtApellidos";
             this.txtApellidos.PlaceholderText = "Apellidos";
             this.txtApellidos.SelectedText = "";
-            this.txtApellidos.Size = new System.Drawing.Size(318, 37);
+            this.txtApellidos.Size = new System.Drawing.Size(424, 46);
             this.txtApellidos.TabIndex = 20;
             // 
             // txtNombres
@@ -259,19 +264,20 @@
             this.txtNombres.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtNombres.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtNombres.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtNombres.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(37)))), ((int)(((byte)(87)))));
             this.txtNombres.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtNombres.IconLeft = ((System.Drawing.Image)(resources.GetObject("txtNombres.IconLeft")));
-            this.txtNombres.Location = new System.Drawing.Point(79, 79);
-            this.txtNombres.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.txtNombres.Location = new System.Drawing.Point(105, 97);
+            this.txtNombres.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtNombres.Name = "txtNombres";
             this.txtNombres.PlaceholderText = "Nombres";
             this.txtNombres.SelectedText = "";
-            this.txtNombres.Size = new System.Drawing.Size(318, 37);
+            this.txtNombres.Size = new System.Drawing.Size(424, 46);
             this.txtNombres.TabIndex = 19;
             // 
             // UCRegistrarUsuario
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(249)))), ((int)(((byte)(251)))));
             this.Controls.Add(this.label1);
@@ -285,8 +291,9 @@
             this.Controls.Add(this.txtCorreo);
             this.Controls.Add(this.txtApellidos);
             this.Controls.Add(this.txtNombres);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "UCRegistrarUsuario";
-            this.Size = new System.Drawing.Size(492, 600);
+            this.Size = new System.Drawing.Size(656, 738);
             this.Load += new System.EventHandler(this.UCRegistrarUsuario_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
