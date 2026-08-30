@@ -1,27 +1,22 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using login.Promciones;
 using login.Reservas;
 
 namespace login
 {
-    public partial class frmMenucs : Form
+    public partial class frmMenucs : System.Windows.Forms.Form
     {
         public frmMenucs()
         {
             InitializeComponent();
         }
 
-
-        public void AbrirFormulario(Form formulario)
+        private void AbrirFormulario(Form formulario)
         {
+            if (formulario == null)
+                return;
+
             pnlContenido.Controls.Clear();
 
             formulario.TopLevel = false;
@@ -29,35 +24,22 @@ namespace login
             formulario.Dock = DockStyle.Fill;
 
             pnlContenido.Controls.Add(formulario);
+            pnlContenido.Tag = formulario;
+
             formulario.Show();
         }
+
         private void btnMenu_Click(object sender, EventArgs e)
         {
+            bool abierto = pnlSidebar.Width == 150;
 
-            if (pnlSidebar.Width == 150)
-            {
-                pnlSidebar.Width = 40;
+            pnlSidebar.Width = abierto ? 40 : 150;
 
-                btnInicio.Text = "";
-                btnUsuarios.Text = "";
-                btnReservas.Text = "";
-               
-                btnCafeteria.Text = "";
-                btnPromociones.Text = "";
-
-            }
-            else
-            {
-                pnlSidebar.Width = 150;
-
-                btnInicio.Text = "Inicio";
-                btnUsuarios.Text = "Usuarios";
-                btnReservas.Text = "Reservas";
-               
-                btnCafeteria.Text = "Bar";
-                btnPromociones.Text = "Promociones";
-
-            }
+            btnInicio.Text = abierto ? "" : "Inicio";
+            btnUsuarios.Text = abierto ? "" : "Usuarios";
+            btnReservas.Text = abierto ? "" : "Reservas";
+            btnCafeteria.Text = abierto ? "" : "Bar";
+            btnPromociones.Text = abierto ? "" : "Promociones";
         }
 
         private void btnReservas_Click(object sender, EventArgs e)
@@ -70,31 +52,28 @@ namespace login
             AbrirFormulario(new frmMenuPromociones());
         }
 
+        private void btnCafeteria_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario(new Bar.frmBar());
+        }
+
+        private void btnUsuarios_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnInicio_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void picLogin_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void btnCafeteria_Click(object sender, EventArgs e)
-        {
-            AbrirFormulario(new Bar.frmBar());
-
-        }
-
         private void frmMenucs_Load(object sender, EventArgs e)
         {
-
-        }
-
-        private void btnUsuarios_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void btnInicio_Click(object sender, EventArgs e)
-        {
-          
-
 
         }
     }
