@@ -66,10 +66,8 @@ namespace login.Reservas
         private void guna2CircleButton6_Click(object sender, EventArgs e)
         {
             pnlContenido.Controls.Clear();
-           frmVerYGestionarReservas frm = new frmVerYGestionarReservas();
-
-            frm.TopLevel = false;
-            frm.FormBorderStyle = FormBorderStyle.None;
+            UCNuevaReserva frm = new UCNuevaReserva();
+           
             frm.Dock = DockStyle.Fill;
 
             pnlContenido.Controls.Clear();

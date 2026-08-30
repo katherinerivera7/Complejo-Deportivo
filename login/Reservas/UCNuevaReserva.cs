@@ -81,23 +81,32 @@ namespace login.Reservas
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            pnlContenido.Controls.Clear();
-            frmReservas frm = new frmReservas();
-
-            frm.TopLevel = false;
-            frm.FormBorderStyle = FormBorderStyle.None;
-            frm.Dock = DockStyle.Fill;
-
-            pnlContenido.Controls.Clear();
-            pnlContenido.Controls.Add(frm);
-            pnlContenido.Tag = frm;
-
-            frm.Show();
+            DialogResult resultado = MessageBox.Show(
+     "¿Está seguro de que desea cancelar la reserva?",
+     "Cancelar reserva",
+     MessageBoxButtons.YesNo,
+     MessageBoxIcon.Question
+ );
         }
 
         private void guna2ComboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnReservar_Click(object sender, EventArgs e)
+        {
+            DialogResult resultado = MessageBox.Show(
+        "¿Está seguro de que desea realizar esta reserva?",
+        "Confirmar reserva",
+        MessageBoxButtons.YesNo,
+        MessageBoxIcon.Question
+    );
+
+            if (resultado == DialogResult.Yes)
+            {
+                MessageBox.Show("Reserva Exitosa.");
+            }
         }
     }
 }
