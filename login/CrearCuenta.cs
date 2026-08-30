@@ -35,13 +35,14 @@ namespace login
 
         private void btnCrear_Click(object sender, EventArgs e)
         {
-            // ==========================================
-            // 1. VALIDAR CAMPOS VACÍOS
-            // ==========================================
 
+            // VALIDAR CAMPOS VACÍOS
             if (string.IsNullOrWhiteSpace(txtUsuario.Text) ||
                 string.IsNullOrWhiteSpace(txtClave.Text) ||
-                string.IsNullOrWhiteSpace(txtConfirmarClave.Text))
+                string.IsNullOrWhiteSpace(txtConfirmarClave.Text) ||
+                string.IsNullOrWhiteSpace(txtCedula.Text) ||
+                string.IsNullOrWhiteSpace(txtDireccion.Text) ||
+                cmbCargo.SelectedIndex == -1)
             {
                 MessageBox.Show(
                     "Por favor, llene todos los campos del formulario.",
@@ -52,6 +53,76 @@ namespace login
                 return;
             }
 
+
+            // VALIDAR CÉDULA
+            if (!txtCedula.Text.All(char.IsDigit))
+            {
+                MessageBox.Show(
+                    "La cédula debe contener únicamente números.",
+                    "Cédula inválida",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+
+                txtCedula.Focus();
+                return;
+            }
+
+            if (txtCedula.Text.Length != 10)
+            {
+                MessageBox.Show(
+                    "La cédula debe contener exactamente 10 dígitos.",
+                    "Cédula inválida",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+
+                txtCedula.Focus();
+                return;
+            }
+
+
+            // VALIDAR USUARIO
+            if (txtUsuario.Text.Length < 4)
+            {
+                MessageBox.Show(
+                    "El nombre de usuario debe tener al menos 4 caracteres.",
+                    "Usuario inválido",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+
+                txtUsuario.Focus();
+                return;
+            }
+
+
+            // VALIDAR DIRECCIÓN
+            if (txtDireccion.Text.Length < 5)
+            {
+                MessageBox.Show(
+                    "Ingrese una dirección válida de al menos 5 caracteres.",
+                    "Dirección inválida",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+
+                txtDireccion.Focus();
+                return;
+            }
+
+
+            // VALIDAR CARGO
+            if (cmbCargo.SelectedIndex == -1)
+            {
+                MessageBox.Show(
+                    "Debe seleccionar un cargo.",
+                    "Cargo no seleccionado",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+
+                cmbCargo.Focus();
+                return;
+            }
+
+
+            // VALIDAR CONTRASEÑA
             if (txtClave.Text.Length < 8)
             {
                 MessageBox.Show(
@@ -100,11 +171,20 @@ namespace login
                 return;
             }
 
+            if (!txtClave.Text.Any(c => !char.IsLetterOrDigit(c)))
+            {
+                MessageBox.Show(
+                    "La contraseña debe contener al menos un carácter especial, por ejemplo: @, #, $, %, &.",
+                    "Contraseña inválida",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
 
-            // ==========================================
-            // 9. CONFIRMAR CONTRASEÑA
-            // ==========================================
+                txtClave.Focus();
+                return;
+            }
 
+
+            // CONFIRMAR CONTRASEÑA
             if (txtClave.Text != txtConfirmarClave.Text)
             {
                 MessageBox.Show(
@@ -118,9 +198,9 @@ namespace login
             }
 
 
-            // ==========================================
-            // 10. CONEXIÓN CON SQL SERVER
-            // ==========================================
+
+            // CONEXIÓN CON SQL SERVER
+
 
             try
             {
@@ -283,8 +363,7 @@ namespace login
         {
             if (e.KeyCode == Keys.Enter)
             {
-                guna2ComboBox1.Focus();
-                guna2ComboBox1.DroppedDown = true;
+                txtDireccion.Focus();
                 e.SuppressKeyPress = true;
             }
         }
@@ -293,7 +372,7 @@ namespace login
         {
             if (e.KeyCode == Keys.Enter)
             {
-                guna2TextBox2.Focus();
+                txtClave.Focus();
                 e.SuppressKeyPress = true;
             }
         }
@@ -302,7 +381,7 @@ namespace login
         {
             if (e.KeyCode == Keys.Enter)
             {
-                guna2TextBox1.Focus();
+                txtCorreo.Focus();
                 e.SuppressKeyPress = true;
             }
         }
@@ -311,7 +390,8 @@ namespace login
         {
             if (e.KeyCode == Keys.Enter)
             {
-                txtClave.Focus();
+                cmbCargo.Focus();
+                cmbCargo.DroppedDown = true;
                 e.SuppressKeyPress = true;
             }
         }
@@ -320,7 +400,7 @@ namespace login
         {
             if (e.KeyCode == Keys.Enter)
             {
-                txtClave.Focus();
+                txtConfirmarClave.Focus();
                 e.SuppressKeyPress = true;
             }
         }
@@ -332,6 +412,11 @@ namespace login
                 btnCrear.PerformClick();
                 e.SuppressKeyPress = true;
             }
+        }
+
+        private void txtCorreo_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

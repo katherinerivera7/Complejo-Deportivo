@@ -32,7 +32,7 @@ namespace login.Bar
             DataTable dt = new DataTable();
             ReportDataSource dataset = new ReportDataSource();
             rvwCanchas.LocalReport.DataSources.Clear();//limpia rodo lo q este amarrado a ese control
-            rvwCanchas.LocalReport.ReportEmbeddedResource = "login.rptCanchas.rdlc";
+            rvwCanchas.LocalReport.ReportEmbeddedResource = "login.Bar.rptCanchas.rdlc";
             cadena = "select * from Canchas";
             dt = oconSQL.retornaRegistros(cadena);
             dataset = new ReportDataSource("dsCanchas", dt);
