@@ -32,10 +32,10 @@
             this.lblNombre = new System.Windows.Forms.Label();
             this.lblPrecio = new System.Windows.Forms.Label();
             this.lblCantidad = new System.Windows.Forms.Label();
-            this.btnMenos = new Guna.UI2.WinForms.Guna2Button();
-            this.btnMas = new Guna.UI2.WinForms.Guna2Button();
             this.lblSubtotal = new System.Windows.Forms.Label();
             this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lblNombre
@@ -70,41 +70,6 @@
             this.lblCantidad.TabIndex = 2;
             this.lblCantidad.Text = "0";
             // 
-            // btnMenos
-            // 
-            this.btnMenos.BorderRadius = 3;
-            this.btnMenos.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnMenos.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnMenos.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnMenos.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnMenos.FillColor = System.Drawing.Color.LightGray;
-            this.btnMenos.Font = new System.Drawing.Font("Segoe UI Black", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMenos.ForeColor = System.Drawing.Color.White;
-            this.btnMenos.Location = new System.Drawing.Point(156, 59);
-            this.btnMenos.Name = "btnMenos";
-            this.btnMenos.Size = new System.Drawing.Size(26, 26);
-            this.btnMenos.TabIndex = 3;
-            this.btnMenos.Text = "+";
-            this.btnMenos.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.btnMenos.Click += new System.EventHandler(this.btnMenos_Click_1);
-            // 
-            // btnMas
-            // 
-            this.btnMas.BorderRadius = 3;
-            this.btnMas.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnMas.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnMas.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnMas.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnMas.FillColor = System.Drawing.Color.LightGray;
-            this.btnMas.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnMas.ForeColor = System.Drawing.Color.White;
-            this.btnMas.Location = new System.Drawing.Point(216, 59);
-            this.btnMas.Name = "btnMas";
-            this.btnMas.Size = new System.Drawing.Size(26, 26);
-            this.btnMas.TabIndex = 4;
-            this.btnMas.Text = "-";
-            this.btnMas.Click += new System.EventHandler(this.btnMas_Click_1);
-            // 
             // lblSubtotal
             // 
             this.lblSubtotal.AutoSize = true;
@@ -135,15 +100,39 @@
             this.guna2Button1.Text = "-";
             this.guna2Button1.Click += new System.EventHandler(this.guna2Button1_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(216, 57);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(30, 32);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "+";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(159, 54);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(23, 32);
+            this.label2.TabIndex = 8;
+            this.label2.Text = "-";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
+            // 
             // UCVentasBar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.guna2Button1);
             this.Controls.Add(this.lblSubtotal);
-            this.Controls.Add(this.btnMas);
-            this.Controls.Add(this.btnMenos);
             this.Controls.Add(this.lblCantidad);
             this.Controls.Add(this.lblPrecio);
             this.Controls.Add(this.lblNombre);
@@ -160,9 +149,9 @@
         private System.Windows.Forms.Label lblNombre;
         private System.Windows.Forms.Label lblPrecio;
         private System.Windows.Forms.Label lblCantidad;
-        private Guna.UI2.WinForms.Guna2Button btnMenos;
-        private Guna.UI2.WinForms.Guna2Button btnMas;
         private System.Windows.Forms.Label lblSubtotal;
         private Guna.UI2.WinForms.Guna2Button guna2Button1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
     }
 }

@@ -93,7 +93,7 @@
             this.flpProduct.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flpProduct.Location = new System.Drawing.Point(18, 86);
             this.flpProduct.Name = "flpProduct";
-            this.flpProduct.Size = new System.Drawing.Size(599, 700);
+            this.flpProduct.Size = new System.Drawing.Size(519, 700);
             this.flpProduct.TabIndex = 0;
             this.flpProduct.WrapContents = false;
             this.flpProduct.Paint += new System.Windows.Forms.PaintEventHandler(this.flpProduct_Paint);
@@ -111,10 +111,10 @@
             this.guna2Button17.FillColor = System.Drawing.Color.DarkSalmon;
             this.guna2Button17.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold);
             this.guna2Button17.ForeColor = System.Drawing.Color.White;
-            this.guna2Button17.Location = new System.Drawing.Point(82, 801);
+            this.guna2Button17.Location = new System.Drawing.Point(18, 801);
             this.guna2Button17.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.guna2Button17.Name = "guna2Button17";
-            this.guna2Button17.Size = new System.Drawing.Size(192, 46);
+            this.guna2Button17.Size = new System.Drawing.Size(253, 46);
             this.guna2Button17.TabIndex = 12;
             this.guna2Button17.Text = "Cancelar Venta";
             this.guna2Button17.Click += new System.EventHandler(this.guna2Button17_Click);
@@ -129,13 +129,13 @@
             this.guna2Button16.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.guna2Button16.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.guna2Button16.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button16.FillColor = System.Drawing.Color.LightGreen;
+            this.guna2Button16.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(155)))), ((int)(((byte)(75)))));
             this.guna2Button16.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold);
             this.guna2Button16.ForeColor = System.Drawing.Color.White;
-            this.guna2Button16.Location = new System.Drawing.Point(319, 801);
+            this.guna2Button16.Location = new System.Drawing.Point(277, 801);
             this.guna2Button16.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.guna2Button16.Name = "guna2Button16";
-            this.guna2Button16.Size = new System.Drawing.Size(192, 46);
+            this.guna2Button16.Size = new System.Drawing.Size(260, 46);
             this.guna2Button16.TabIndex = 11;
             this.guna2Button16.Text = "Registrar Venta";
             this.guna2Button16.Click += new System.EventHandler(this.guna2Button16_Click);
@@ -145,8 +145,8 @@
             this.label13.AutoSize = true;
             this.label13.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label13.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(110)))), ((int)(((byte)(138)))));
-            this.label13.Location = new System.Drawing.Point(151, 27);
+            this.label13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(37)))), ((int)(((byte)(87)))));
+            this.label13.Location = new System.Drawing.Point(93, 27);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(324, 41);
             this.label13.TabIndex = 10;
@@ -215,7 +215,7 @@
             this.guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button1.FillColor = System.Drawing.Color.LightGreen;
+            this.guna2Button1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(155)))), ((int)(((byte)(75)))));
             this.guna2Button1.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2Button1.ForeColor = System.Drawing.Color.White;
             this.guna2Button1.Location = new System.Drawing.Point(3, 2);
@@ -236,7 +236,7 @@
             this.btnBebidas.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnBebidas.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnBebidas.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnBebidas.FillColor = System.Drawing.Color.LightGreen;
+            this.btnBebidas.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(155)))), ((int)(((byte)(75)))));
             this.btnBebidas.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBebidas.ForeColor = System.Drawing.Color.White;
             this.btnBebidas.Location = new System.Drawing.Point(178, 2);
@@ -257,7 +257,7 @@
             this.btnComidas.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnComidas.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnComidas.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnComidas.FillColor = System.Drawing.Color.LightGreen;
+            this.btnComidas.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(155)))), ((int)(((byte)(75)))));
             this.btnComidas.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold);
             this.btnComidas.ForeColor = System.Drawing.Color.White;
             this.btnComidas.Location = new System.Drawing.Point(353, 2);
@@ -278,7 +278,7 @@
             this.btnSnacks.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnSnacks.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnSnacks.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnSnacks.FillColor = System.Drawing.Color.LightGreen;
+            this.btnSnacks.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(155)))), ((int)(((byte)(75)))));
             this.btnSnacks.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold);
             this.btnSnacks.ForeColor = System.Drawing.Color.White;
             this.btnSnacks.Location = new System.Drawing.Point(528, 2);
@@ -299,7 +299,7 @@
             this.btnDulces.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnDulces.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnDulces.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnDulces.FillColor = System.Drawing.Color.LightGreen;
+            this.btnDulces.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(155)))), ((int)(((byte)(75)))));
             this.btnDulces.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold);
             this.btnDulces.ForeColor = System.Drawing.Color.White;
             this.btnDulces.Location = new System.Drawing.Point(703, 2);

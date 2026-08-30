@@ -53,31 +53,6 @@ namespace login.Bar
 
         }
 
-        private void btnMas_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnMenos_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnMas_Click_1(object sender, EventArgs e)
-        {
-            cantidad++;
-            ActualizarSubtotal();
-        }
-
-        private void btnMenos_Click_1(object sender, EventArgs e)
-        {
-            if (cantidad > 1)
-            {
-                cantidad--;
-                ActualizarSubtotal();
-            }
-        }
-
         private void lblPrecio_Click(object sender, EventArgs e)
         {
 
@@ -95,6 +70,21 @@ namespace login.Bar
             if (respuesta == DialogResult.Yes)
             {
                 ProductoEliminado?.Invoke(this, EventArgs.Empty);
+            }
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+            cantidad++;
+            ActualizarSubtotal();
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+            if (cantidad > 1)
+            {
+                cantidad--;
+                ActualizarSubtotal();
             }
         }
     }
