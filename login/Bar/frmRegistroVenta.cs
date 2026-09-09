@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
 using System.IO;
@@ -15,7 +16,6 @@ namespace login.Bar
         {
             InitializeComponent();
             frmProductos.ProductoGuardado += CargarProductos;
-            
         }
 
         private void frmRegistroVenta_Load(object sender, EventArgs e)
@@ -53,17 +53,31 @@ namespace login.Bar
                     Image imagen = ConvertirBytesAImagen(fila["Imagen"]);
 
                     UCTarjetaProducto tarjeta = new UCTarjetaProducto();
-                    tarjeta.CargarDatos(productoID, nombre, precio, stock, categoria, imagen);
+
+                    tarjeta.CargarDatos(
+                        productoID,
+                        nombre,
+                        precio,
+                        stock,
+                        categoria,
+                        imagen
+                    );
+
                     tarjeta.ProductoAgregado += tarjeta_ProductoAgregado;
 
-                   flpProductos.Controls.Add(tarjeta);
+                    flpProductos.Controls.Add(tarjeta);
                 }
 
                 AplicarFiltros();
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al cargar los productos:\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(
+                    "Error al cargar los productos:\n" + ex.Message,
+                    "Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error
+                );
             }
             finally
             {
@@ -93,11 +107,20 @@ namespace login.Bar
             {
                 if (control is UCTarjetaProducto tarjeta)
                 {
-                    bool coincideNombre = string.IsNullOrEmpty(texto) ||
-                                          tarjeta.NombreProducto.IndexOf(texto, StringComparison.OrdinalIgnoreCase) >= 0;
+                    bool coincideNombre =
+                        string.IsNullOrEmpty(texto) ||
+                        tarjeta.NombreProducto.IndexOf(
+                            texto,
+                            StringComparison.OrdinalIgnoreCase
+                        ) >= 0;
 
-                    bool coincideCategoria = categoriaSeleccionada == "Todos" ||
-                                             string.Equals(tarjeta.Categoria, categoriaSeleccionada, StringComparison.OrdinalIgnoreCase);
+                    bool coincideCategoria =
+                        categoriaSeleccionada == "Todos" ||
+                        string.Equals(
+                            tarjeta.Categoria,
+                            categoriaSeleccionada,
+                            StringComparison.OrdinalIgnoreCase
+                        );
 
                     tarjeta.Visible = coincideNombre && coincideCategoria;
                 }
@@ -141,16 +164,26 @@ namespace login.Bar
 
         private void tarjeta_ProductoAgregado(object sender, EventArgs e)
         {
-
             if (sender is UCTarjetaProducto tarjeta)
             {
                 AgregarProductoAVenta(tarjeta);
             }
         }
 
-
         private void AgregarProductoAVenta(UCTarjetaProducto producto)
         {
+            foreach (Control control in flpProduct.Controls)
+            {
+                if (control is UCVentasBar tarjetaExistente)
+                {
+                    if (tarjetaExistente.ProductoID == producto.ProductoID)
+                    {
+                        tarjetaExistente.AumentarCantidad();
+                        return;
+                    }
+                }
+            }
+
             UCVentasBar tarjetaVenta = new UCVentasBar();
 
             tarjetaVenta.CargarProducto(
@@ -160,18 +193,95 @@ namespace login.Bar
             );
 
             tarjetaVenta.ProductoEliminado += TarjetaVenta_ProductoEliminado;
+
             flpProduct.Controls.Add(tarjetaVenta);
             flpProduct.AutoScroll = true;
         }
 
-
-
-
-
+        private void TarjetaVenta_ProductoEliminado(object sender, EventArgs e)
+        {
+            if (sender is UCVentasBar tarjeta)
+            {
+                flpProduct.Controls.Remove(tarjeta);
+                tarjeta.Dispose();
+            }
+        }
 
         private void frmRegistroVenta_FormClosed(object sender, FormClosedEventArgs e)
         {
             frmProductos.ProductoGuardado -= CargarProductos;
+        }
+
+        private void guna2Button16_Click(object sender, EventArgs e)
+        {
+            List<DetalleVenta> detalles = new List<DetalleVenta>();
+
+            foreach (Control control in flpProduct.Controls)
+            {
+                if (control is UCVentasBar producto)
+                {
+                    detalles.Add(new DetalleVenta
+                    {
+                        ProductoID = producto.ProductoID,
+                        Producto = producto.NombreProducto,
+                        Cantidad = producto.Cantidad,
+                        PrecioUnitario = producto.Precio
+                    });
+                }
+            }
+
+            if (detalles.Count == 0)
+            {
+                MessageBox.Show(
+                    "No hay productos agregados a la venta.",
+                    "Factura",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning
+                );
+                return;
+            }
+
+            Control pnlContenido = this.Parent;
+
+            if (pnlContenido == null)
+            {
+                MessageBox.Show(
+                    "No se encontró el panel contenedor.",
+                    "Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error
+                );
+                return;
+            }
+
+            frmFacturaVenta frm = new frmFacturaVenta(detalles);
+
+            frm.TopLevel = false;
+            frm.FormBorderStyle = FormBorderStyle.None;
+            frm.Dock = DockStyle.Fill;
+
+            frmProductos.ProductoGuardado -= CargarProductos;
+
+            pnlContenido.Controls.Clear();
+            pnlContenido.Controls.Add(frm);
+            pnlContenido.Tag = frm;
+
+            frm.Show();
+        }
+
+        private void guna2Button17_Click(object sender, EventArgs e)
+        {
+            DialogResult respuesta = MessageBox.Show(
+                "¿Está seguro de cancelar la venta?",
+                "Cancelar venta",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question
+            );
+
+            if (respuesta == DialogResult.Yes)
+            {
+                flpProduct.Controls.Clear();
+            }
         }
 
         private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
@@ -179,10 +289,6 @@ namespace login.Bar
         }
 
         private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
-        {
-        }
-
-        private void guna2Button16_Click(object sender, EventArgs e)
         {
         }
 
@@ -196,41 +302,14 @@ namespace login.Bar
 
         private void pnlProductos_Paint(object sender, PaintEventArgs e)
         {
-
         }
-        private void TarjetaVenta_ProductoEliminado(object sender, EventArgs e)
-        {
-            if (sender is UCVentasBar tarjeta)
-            {
-                flpProduct.Controls.Remove(tarjeta);
-                tarjeta.Dispose();
-            }
-        }
-
 
         private void guna2Button2_Click(object sender, EventArgs e)
         {
-           
         }
 
         private void flpProduct_Paint(object sender, PaintEventArgs e)
         {
-
-        }
-
-        private void guna2Button17_Click(object sender, EventArgs e)
-        {
-              DialogResult respuesta = MessageBox.Show(
-             "¿Está seguro de cancelar la venta?",
-              "Cancelar venta",
-                MessageBoxButtons.YesNo,
-           MessageBoxIcon.Question
-           );
-
-            if (respuesta == DialogResult.Yes)
-            {
-                flpProduct.Controls.Clear();
-            }
         }
     }
 }

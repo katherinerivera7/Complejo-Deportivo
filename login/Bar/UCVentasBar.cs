@@ -15,8 +15,15 @@ namespace login.Bar
         public int ProductoID { get; set; }
         public string NombreProducto { get; set; }
         public decimal Precio { get; set; }
+        public int Cantidad
+        {
+            get { return cantidad; }
+        }
+
         public event EventHandler ProductoEliminado;
+
         private int cantidad = 1;
+
         public UCVentasBar()
         {
             InitializeComponent();
@@ -27,13 +34,18 @@ namespace login.Bar
             ProductoID = id;
             NombreProducto = nombre;
             Precio = precio;
+            cantidad = 1;
 
             lblNombre.Text = nombre;
             lblPrecio.Text = "$ " + precio.ToString("0.00");
 
             ActualizarSubtotal();
         }
-
+        public void AumentarCantidad()
+        {
+            cantidad++;
+            ActualizarSubtotal();
+        }
 
         private void ActualizarSubtotal()
         {
@@ -43,6 +55,7 @@ namespace login.Bar
 
             lblSubtotal.Text = "$ " + subtotal.ToString("0.00");
         }
+
         private void lblNombre_Click(object sender, EventArgs e)
         {
 
@@ -61,11 +74,11 @@ namespace login.Bar
         private void guna2Button1_Click(object sender, EventArgs e)
         {
             DialogResult respuesta = MessageBox.Show(
-          "¿Está seguro de eliminar este producto de la venta?",
-          "Eliminar producto",
-           MessageBoxButtons.YesNo,
-           MessageBoxIcon.Question
-           );
+                "¿Está seguro de eliminar este producto de la venta?",
+                "Eliminar producto",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question
+            );
 
             if (respuesta == DialogResult.Yes)
             {
