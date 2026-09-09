@@ -129,100 +129,6 @@ namespace login.Reservas
             }
         }
 
-        private void txtFiltro_TextChanged(object sender, EventArgs e)
-        {
-            int cantidadCaracteres = txtFiltro.Text.Trim().Length;
-
-            if (cantidadCaracteres > 4)
-            {
-                busquedaAutomaticaAplicada = true;
-                CargarCanchas();
-            }
-            else if (cantidadCaracteres == 0 || busquedaAutomaticaAplicada)
-            {
-                busquedaAutomaticaAplicada = false;
-                CargarCanchas();
-            }
-        }
-
-        private void txtFiltro_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                CargarCanchas();
-                e.SuppressKeyPress = true;
-            }
-        }
-
-        private void cmbFiltro_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (!configurandoFiltro && cmbFiltro.SelectedIndex >= 0)
-            {
-                CargarCanchas();
-            }
-        }
-
-        private void btnCrear_Click(object sender, EventArgs e)
-        {
-            frmCrearCancha frm = new frmCrearCancha();
-            frm.StartPosition = FormStartPosition.CenterParent;
-            frm.ShowDialog(this);
-            CargarCanchas();
-        }
-
-        private void btnEditar_Click(object sender, EventArgs e)
-        {
-            if (dgvCanchas.SelectedRows.Count == 0)
-            {
-                MessageBox.Show("Seleccione una cancha para editar.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
-            int canchaID = Convert.ToInt32(dgvCanchas.SelectedRows[0].Cells["colCanchaID"].Value);
-
-            frmCrearCancha frm = new frmCrearCancha(canchaID);
-            frm.StartPosition = FormStartPosition.CenterParent;
-            frm.ShowDialog(this);
-
-            CargarCanchas();
-        }
-
-        private void btnEliminar_Click(object sender, EventArgs e)
-        {
-            if (dgvCanchas.SelectedRows.Count == 0)
-            {
-                MessageBox.Show("Seleccione una cancha para eliminar.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
-            int canchaID = Convert.ToInt32(dgvCanchas.SelectedRows[0].Cells["colCanchaID"].Value);
-            string nombre = dgvCanchas.SelectedRows[0].Cells["colNombre"].Value.ToString();
-
-            DialogResult respuesta = MessageBox.Show(
-                "¿Desea eliminar la cancha " + nombre + "?",
-                "Confirmar eliminación",
-                MessageBoxButtons.YesNo,
-                MessageBoxIcon.Question
-            );
-
-            if (respuesta != DialogResult.Yes)
-                return;
-
-            if (conSQL.borrarDatos("Canchas", "CanchaID = " + canchaID))
-            {
-                MessageBox.Show("Cancha eliminada correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                CargarCanchas();
-            }
-        }
-
-        private void btnImprimir_Click(object sender, EventArgs e)
-        {
-            prdImprimir = new PrintDocument();
-            PrinterSettings pd = new PrinterSettings();
-            prdImprimir.PrinterSettings = pd;
-            prdImprimir.PrintPage += imprimePagina;
-            prdImprimir.Print();
-        }
         private void imprimePagina(object sender, PrintPageEventArgs e)
         {
             SolidBrush verdeProyecto = new SolidBrush(Color.FromArgb(139, 195, 74));
@@ -286,7 +192,7 @@ namespace login.Reservas
         {
             if (e.KeyCode == Keys.Enter)
             {
-                btnBuscar.PerformClick();
+                CargarCanchas();
                 e.SuppressKeyPress = true;
             }
         }
@@ -298,10 +204,89 @@ namespace login.Reservas
 
         private void btnCrear_Click_1(object sender, EventArgs e)
         {
-            frmCrearCategoria frm = new frmCrearCategoria();
+            frmCrearCancha frm = new frmCrearCancha();
             frm.StartPosition = FormStartPosition.CenterParent;
             frm.ShowDialog(this);
             CargarCanchas();
+        }
+
+        private void btnImprimir_Click(object sender, EventArgs e)
+        {
+            prdImprimir = new PrintDocument();
+            PrinterSettings pd = new PrinterSettings();
+            prdImprimir.PrinterSettings = pd;
+            prdImprimir.PrintPage += imprimePagina;
+            prdImprimir.Print();
+        }
+
+        private void txtFiltro_TextChanged(object sender, EventArgs e)
+        {
+            int cantidadCaracteres = txtFiltro.Text.Trim().Length;
+
+            if (cantidadCaracteres > 4)
+            {
+                busquedaAutomaticaAplicada = true;
+                CargarCanchas();
+            }
+            else if (cantidadCaracteres == 0 || busquedaAutomaticaAplicada)
+            {
+                busquedaAutomaticaAplicada = false;
+                CargarCanchas();
+            }
+        }
+
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+            if (dgvCanchas.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Seleccione una cancha para editar.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            int canchaID = Convert.ToInt32(dgvCanchas.SelectedRows[0].Cells["colCanchaID"].Value);
+
+            frmCrearCancha frm = new frmCrearCancha(canchaID);
+            frm.StartPosition = FormStartPosition.CenterParent;
+            frm.ShowDialog(this);
+
+            CargarCanchas();
+        }
+
+        private void cmbFiltro_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            if (!configurandoFiltro && cmbFiltro.SelectedIndex >= 0)
+            {
+                CargarCanchas();
+            }
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            if (dgvCanchas.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Seleccione una cancha para eliminar.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            int canchaID = Convert.ToInt32(dgvCanchas.SelectedRows[0].Cells["colCanchaID"].Value);
+            string nombre = dgvCanchas.SelectedRows[0].Cells["colNombre"].Value.ToString();
+
+            DialogResult respuesta = MessageBox.Show(
+                "¿Desea eliminar la cancha " + nombre + "?",
+                "Confirmar eliminación",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question
+            );
+
+            if (respuesta != DialogResult.Yes)
+                return;
+
+            if (conSQL.borrarDatos("Canchas", "CanchaID = " + canchaID))
+            {
+                MessageBox.Show("Cancha eliminada correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                CargarCanchas();
+            }
         }
     }
 }

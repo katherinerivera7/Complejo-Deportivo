@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.cmbTipo = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.cmbDeporte = new Guna.UI2.WinForms.Guna2ComboBox();
             this.lblCrearCancha = new System.Windows.Forms.Label();
             this.txtNombre = new Guna.UI2.WinForms.Guna2TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -50,32 +50,26 @@
             this.label1.Text = "Tipo";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // cmbTipo
+            // cmbDeporte
             // 
-            this.cmbTipo.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.cmbTipo.BackColor = System.Drawing.Color.Transparent;
-            this.cmbTipo.BorderRadius = 8;
-            this.cmbTipo.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.cmbTipo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbTipo.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.cmbTipo.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.cmbTipo.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.cmbTipo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
-            this.cmbTipo.ItemHeight = 30;
-            this.cmbTipo.Items.AddRange(new object[] {
-            "Fútbol",
-            "Básquet",
-            "Tenis",
-            "Pádel",
-            "Voley"});
-            this.cmbTipo.Location = new System.Drawing.Point(152, 183);
-            this.cmbTipo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.cmbTipo.Name = "cmbTipo";
-            this.cmbTipo.Size = new System.Drawing.Size(236, 36);
-            this.cmbTipo.StartIndex = 0;
-            this.cmbTipo.TabIndex = 69;
-            this.cmbTipo.SelectedIndexChanged += new System.EventHandler(this.cmbTipo_SelectedIndexChanged);
-            this.cmbTipo.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cmbTipo_KeyDown);
+            this.cmbDeporte.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cmbDeporte.BackColor = System.Drawing.Color.Transparent;
+            this.cmbDeporte.BorderRadius = 8;
+            this.cmbDeporte.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cmbDeporte.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbDeporte.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.cmbDeporte.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.cmbDeporte.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.cmbDeporte.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.cmbDeporte.ItemHeight = 30;
+            this.cmbDeporte.Location = new System.Drawing.Point(152, 183);
+            this.cmbDeporte.Margin = new System.Windows.Forms.Padding(2);
+            this.cmbDeporte.Name = "cmbDeporte";
+            this.cmbDeporte.Size = new System.Drawing.Size(236, 36);
+            this.cmbDeporte.StartIndex = 0;
+            this.cmbDeporte.TabIndex = 69;
+            this.cmbDeporte.SelectedIndexChanged += new System.EventHandler(this.cmbTipo_SelectedIndexChanged);
+            this.cmbDeporte.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cmbTipo_KeyDown);
             // 
             // lblCrearCancha
             // 
@@ -140,7 +134,7 @@
             "Mantenimiento",
             "Cerrada"});
             this.cmbEstado.Location = new System.Drawing.Point(152, 225);
-            this.cmbEstado.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cmbEstado.Margin = new System.Windows.Forms.Padding(2);
             this.cmbEstado.Name = "cmbEstado";
             this.cmbEstado.Size = new System.Drawing.Size(236, 36);
             this.cmbEstado.StartIndex = 0;
@@ -160,7 +154,7 @@
             this.btnCrear.ForeColor = System.Drawing.Color.White;
             this.btnCrear.Image = global::login.Properties.Resources.icons8_masgris_100;
             this.btnCrear.Location = new System.Drawing.Point(125, 291);
-            this.btnCrear.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnCrear.Margin = new System.Windows.Forms.Padding(2);
             this.btnCrear.Name = "btnCrear";
             this.btnCrear.Size = new System.Drawing.Size(188, 39);
             this.btnCrear.TabIndex = 73;
@@ -199,11 +193,11 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.cmbEstado);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.cmbTipo);
+            this.Controls.Add(this.cmbDeporte);
             this.Controls.Add(this.lblCrearCancha);
             this.Controls.Add(this.txtNombre);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmCrearCancha";
             this.Text = "Cancha";
             this.Load += new System.EventHandler(this.frmCrearCancha_Load_1);
@@ -214,7 +208,7 @@
         #endregion
 
         public System.Windows.Forms.Label label1;
-        private Guna.UI2.WinForms.Guna2ComboBox cmbTipo;
+        private Guna.UI2.WinForms.Guna2ComboBox cmbDeporte;
         public System.Windows.Forms.Label lblCrearCancha;
         private Guna.UI2.WinForms.Guna2TextBox txtNombre;
         public System.Windows.Forms.Label label2;

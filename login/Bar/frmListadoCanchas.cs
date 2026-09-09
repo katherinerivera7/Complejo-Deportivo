@@ -36,11 +36,6 @@ namespace login.Bar
             this.rvwCanchas.RefreshReport();//actualiza el report viewer
         }
 
-        private void rvwCanchas_Load(object sender, EventArgs e)
-        {
-            
-        }
-
         private void btnVolver_Click_1(object sender, EventArgs e)
         {
             pnlContenido.Controls.Clear();

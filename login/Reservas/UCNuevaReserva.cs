@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using FontAwesome.Sharp;
+using login.GestionDeUsuarios;
+using System;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace login.Reservas
@@ -13,58 +9,152 @@ namespace login.Reservas
     public partial class UCNuevaReserva : UserControl
     {
         csConectaSQL conSQL = new csConectaSQL();
-
         private int clienteID = 0;
 
         public UCNuevaReserva()
         {
             InitializeComponent();
+            dtpFecha.MinDate = DateTime.Today;
+            dtpFecha.Value = DateTime.Today;
         }
 
         private void UCNuevaReserva_Load(object sender, EventArgs e)
         {
+            DataTable dt = conSQL.retornaRegistros("SELECT DISTINCT Tipo FROM Canchas ORDER BY Tipo");
 
+            cmbDeporte.DataSource = dt;
+            cmbDeporte.DisplayMember = "Tipo";
+            cmbDeporte.ValueMember = "Tipo";
+            cmbDeporte.SelectedIndex = -1;
+
+            lblFecha.Text = dtpFecha.Value.ToString("dd/MM/yyyy");
+            lblCancha.Text = "---";
+            lblHorario.Text = "---";
         }
 
-        private void pictureBox2_Click(object sender, EventArgs e)
+        private void cmbDeporte_SelectedIndexChanged(object sender, EventArgs e)
         {
-           
+            cmbCancha.DataSource = null;
+            cmbCancha.Items.Clear();
+            cmbCancha.Enabled = true;
+
+            cmbHorario.DataSource = null;
+            cmbHorario.Items.Clear();
+            cmbHorario.Enabled = true;
+
+            lblCancha.Text = "---";
+            lblHorario.Text = "---";
+
+            if (cmbDeporte.SelectedIndex == -1)
+                return;
+
+            string deporte = cmbDeporte.Text.Trim().Replace("'", "''");
+
+            string consulta = "SELECT CanchaID, Tipo + ' - ' + Nombre AS Cancha " +
+                              "FROM Canchas " +
+                              "WHERE Tipo = '" + deporte + "' " +
+                              "AND UPPER(LTRIM(RTRIM(Estado))) NOT LIKE 'MANTENIMIENTO%' " +
+                              "AND UPPER(LTRIM(RTRIM(Estado))) NOT IN ('INACTIVA', 'CERRADA') " +
+                              "ORDER BY Nombre";
+
+            DataTable dt = conSQL.retornaRegistros(consulta);
+
+            if (dt == null || dt.Rows.Count == 0)
+            {
+                cmbCancha.Items.Add("No hay canchas disponibles");
+                cmbCancha.Enabled = false;
+                cmbCancha.SelectedIndex = 0;
+
+                cmbHorario.Items.Add("No hay horarios disponibles");
+                cmbHorario.Enabled = false;
+                cmbHorario.SelectedIndex = 0;
+
+                lblCancha.Text = "No disponible";
+                lblHorario.Text = "No hay horarios disponibles";
+                return;
+            }
+
+            cmbCancha.DataSource = dt;
+            cmbCancha.DisplayMember = "Cancha";
+            cmbCancha.ValueMember = "CanchaID";
+            cmbCancha.SelectedIndex = 0;
         }
 
-        private void guna2TextBox3_TextChanged(object sender, EventArgs e)
+        private void cmbCancha_SelectedIndexChanged(object sender, EventArgs e)
         {
+            DataRowView filaCancha = cmbCancha.SelectedItem as DataRowView;
 
+            if (filaCancha == null || !cmbCancha.Enabled)
+                return;
+
+            lblCancha.Text = filaCancha["Cancha"].ToString();
+            CargarHorariosDisponibles();
         }
 
-        private void label6_Click(object sender, EventArgs e)
+        private void CargarHorariosDisponibles()
         {
+            lblHorario.Text = "---";
 
+            cmbHorario.DataSource = null;
+            cmbHorario.Items.Clear();
+            cmbHorario.Enabled = true;
+
+            DataRowView filaCancha = cmbCancha.SelectedItem as DataRowView;
+
+            if (filaCancha == null || !cmbCancha.Enabled)
+                return;
+
+            int canchaID = Convert.ToInt32(filaCancha["CanchaID"]);
+            string fecha = dtpFecha.Value.ToString("yyyyMMdd");
+
+            string consulta = "SELECT H.HorarioID, " +
+                              "CONVERT(VARCHAR(5), H.HoraInicio, 108) + ' - ' + CONVERT(VARCHAR(5), H.HoraFin, 108) AS Horario, " +
+                              "H.HoraInicio, H.HoraFin " +
+                              "FROM Horarios H " +
+                              "WHERE EXISTS " +
+                              "(SELECT 1 FROM Canchas C " +
+                              "WHERE C.CanchaID = " + canchaID + " " +
+                              "AND UPPER(LTRIM(RTRIM(C.Estado))) NOT LIKE 'MANTENIMIENTO%' " +
+                              "AND UPPER(LTRIM(RTRIM(C.Estado))) NOT IN ('INACTIVA', 'CERRADA')) " +
+                              "AND NOT EXISTS " +
+                              "(SELECT 1 FROM Reservas R " +
+                              "WHERE R.CanchaID = " + canchaID + " " +
+                              "AND R.Fecha = '" + fecha + "' " +
+                              "AND UPPER(LTRIM(RTRIM(ISNULL(R.Estado, '')))) <> 'CANCELADA' " +
+                              "AND R.HoraInicio < H.HoraFin " +
+                              "AND R.HoraFin > H.HoraInicio) " +
+                              "ORDER BY H.HoraInicio";
+
+            DataTable tabla = conSQL.retornaRegistros(consulta);
+
+            if (tabla == null || tabla.Rows.Count == 0)
+            {
+                cmbHorario.Items.Add("No hay horarios disponibles");
+                cmbHorario.Enabled = false;
+                cmbHorario.SelectedIndex = 0;
+                lblHorario.Text = "No hay horarios disponibles";
+                return;
+            }
+
+            cmbHorario.DataSource = tabla;
+            cmbHorario.DisplayMember = "Horario";
+            cmbHorario.ValueMember = "HorarioID";
+            cmbHorario.SelectedIndex = -1;
+            lblHorario.Text = "---";
         }
 
-        private void guna2TextBox5_TextChanged(object sender, EventArgs e)
+        private void cmbHorario_SelectedIndexChanged(object sender, EventArgs e)
         {
+            DataRowView filaHorario = cmbHorario.SelectedItem as DataRowView;
 
+            if (filaHorario != null && cmbHorario.Enabled)
+                lblHorario.Text = filaHorario["Horario"].ToString();
         }
 
-        private void label11_Click(object sender, EventArgs e)
+        private void dtpFecha_ValueChanged(object sender, EventArgs e)
         {
-
-        }
-
-        private void label10_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dtpFechaFin_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
-
-        private void guna2Button2_Click_1(object sender, EventArgs e)
-        {
-
+            lblFecha.Text = dtpFecha.Value.ToString("dd/MM/yyyy");
+            CargarHorariosDisponibles();
         }
 
         private void btnFacturar_Click(object sender, EventArgs e)
@@ -76,7 +166,6 @@ namespace login.Reservas
             frm.FormBorderStyle = FormBorderStyle.None;
             frm.Dock = DockStyle.Fill;
 
-            pnlContenido.Controls.Clear();
             pnlContenido.Controls.Add(frm);
             pnlContenido.Tag = frm;
 
@@ -86,117 +175,41 @@ namespace login.Reservas
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             DialogResult resultado = MessageBox.Show(
-     "¿Está seguro de que desea cancelar la reserva?",
-     "Cancelar reserva",
-     MessageBoxButtons.YesNo,
-     MessageBoxIcon.Question
- );
-        }
-
-        private void guna2ComboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnReservar_Click(object sender, EventArgs e)
-        {
-            if (txtCedula.Text == "" ||
-        txtNombres.Text == "" ||
-        txtApellidos.Text == "" ||
-        txtCorreo.Text == "" ||
-        txtTelefono.Text == "" ||
-        txtDireccion.Text == "" ||
-        cmbCancha.SelectedIndex == -1 ||
-        cmbHorario.SelectedIndex == -1)
-            {
-                MessageBox.Show(
-                    "Por favor, complete todos los datos de la reserva.",
-                    "Datos incompletos",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning
-                );
-
-                return;
-            }
-
-            DialogResult resultado = MessageBox.Show(
-                "¿Está seguro de que desea realizar esta reserva?",
-                "Confirmar reserva",
+                "¿Está seguro de que desea cancelar la reserva?",
+                "Cancelar reserva",
                 MessageBoxButtons.YesNo,
-                MessageBoxIcon.Question
-            );
-
-            if (resultado == DialogResult.Yes)
-            {
-                // Aquí vamos a guardar el cliente y la reserva
-                MessageBox.Show(
-        "Reserva registrada correctamente.",
-        "Reserva",
-        MessageBoxButtons.OK,
-        MessageBoxIcon.Information);
-
-                btnFacturar.Enabled = true;
-            }
+                MessageBoxIcon.Question);
         }
 
         private void pnlContenido_Paint(object sender, PaintEventArgs e)
         {
-
         }
 
-        private void txtCedula_KeyDown(object sender, KeyEventArgs e)
+        private void btnEncontrarCliente_Click(object sender, EventArgs e)
         {
-            if (e.KeyCode == Keys.Enter)
+            frmEncontrarCliente frmC = new frmEncontrarCliente();
+            frmC.StartPosition = FormStartPosition.CenterScreen;
+            frmC.ShowDialog();
+
+            if (frmC.DialogResult == DialogResult.OK)
             {
-                BuscarCliente();
-                e.SuppressKeyPress = true;
+                txtTipoDocumento.Text = frmC.TipoDocumento;
+                txtTelefono.Text = frmC.Telefono;
+                txtNombres.Text = frmC.Nombre;
+                txtDireccion.Text = frmC.Direccion;
+                txtCorreo.Text = frmC.Correo;
+                txtCodigo.Text = frmC.ClienteID;
+                txtCedula.Text = frmC.Cedula;
+                txtApellidos.Text = frmC.Apellido;
+                lblCliente.Text = frmC.Nombre + " " + frmC.Apellido;
             }
         }
 
-
-
-        private void BuscarCliente()
+        private void chkArbitro_CheckedChanged(object sender, EventArgs e)
         {
-            string cedula = txtCedula.Text.Trim();
-
-            if (cedula == "")
-            {
-                MessageBox.Show("Ingrese la cédula del cliente.");
-                return;
-            }
-
-            string consulta = $@"
-        SELECT ClienteID, Nombre, Apellido, Correo, Telefono, Direccion
-        FROM Clientes
-        WHERE Cedula = '{cedula}'";
-
-            DataTable datos = conSQL.retornaRegistros(consulta);
-
-            if (datos.Rows.Count > 0)
-            {
-                DataRow cliente = datos.Rows[0];
-
-                clienteID = Convert.ToInt32(cliente["ClienteID"]);
-
-                txtNombres.Text = cliente["Nombre"].ToString();
-                txtApellidos.Text = cliente["Apellido"].ToString();
-                txtCorreo.Text = cliente["Correo"].ToString();
-                txtTelefono.Text = cliente["Telefono"].ToString();
-                txtDireccion.Text = cliente["Direccion"].ToString();
-
-                MessageBox.Show("Cliente encontrado.");
-            }
-            else
-            {
-                clienteID = 0;
-
-                MessageBox.Show(
-                    "El cliente no está registrado. Puede ingresar sus datos para registrarlo.",
-                    "Cliente no encontrado",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Information
-                );
-            }
+            lblServiciosAdicionales.Text = "Árbitro";
+            if(!chkArbitro.Checked)
+                lblServiciosAdicionales.Text = "Ninguno";
         }
     }
 }

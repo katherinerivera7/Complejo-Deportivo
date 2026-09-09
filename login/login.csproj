@@ -219,6 +219,12 @@
     <Compile Include="frmVerYGestionarReservas.Designer.cs">
       <DependentUpon>frmVerYGestionarReservas.cs</DependentUpon>
     </Compile>
+    <Compile Include="GestionDeUsuarios\frmEncontrarCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GestionDeUsuarios\frmEncontrarCliente.Designer.cs">
+      <DependentUpon>frmEncontrarCliente.cs</DependentUpon>
+    </Compile>
     <Compile Include="GestionDeUsuarios\frmListadoCategorias.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -411,6 +417,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmVerYGestionarReservas.resx">
       <DependentUpon>frmVerYGestionarReservas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GestionDeUsuarios\frmEncontrarCliente.resx">
+      <DependentUpon>frmEncontrarCliente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GestionDeUsuarios\frmListadoCategorias.resx">
       <DependentUpon>frmListadoCategorias.cs</DependentUpon>

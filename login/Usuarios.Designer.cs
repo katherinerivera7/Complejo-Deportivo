@@ -50,6 +50,7 @@
             this.label11 = new System.Windows.Forms.Label();
             this.pnlContenedor = new System.Windows.Forms.Panel();
             this.dgvClientes = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.colClienteID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colCedula = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colNombres = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -59,7 +60,6 @@
             this.colCiudad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colDireccion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colFechaNacimiento = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pnlContenido.SuspendLayout();
             this.pnlContenedor.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).BeginInit();
@@ -378,6 +378,16 @@
             this.dgvClientes.ThemeStyle.RowsStyle.Height = 24;
             this.dgvClientes.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(233)))), ((int)(((byte)(251)))));
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::login.Properties.Resources.CLIENTESILUSTRACION;
+            this.pictureBox1.Location = new System.Drawing.Point(584, -21);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(420, 235);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 64;
+            this.pictureBox1.TabStop = false;
+            // 
             // colClienteID
             // 
             this.colClienteID.DataPropertyName = "ClienteID";
@@ -389,7 +399,7 @@
             // colCedula
             // 
             this.colCedula.DataPropertyName = "Cedula";
-            this.colCedula.HeaderText = "Cédula";
+            this.colCedula.HeaderText = "Nº Documento";
             this.colCedula.MinimumWidth = 6;
             this.colCedula.Name = "colCedula";
             // 
@@ -442,16 +452,6 @@
             this.colFechaNacimiento.MinimumWidth = 6;
             this.colFechaNacimiento.Name = "colFechaNacimiento";
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::login.Properties.Resources.CLIENTESILUSTRACION;
-            this.pictureBox1.Location = new System.Drawing.Point(584, -21);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(420, 235);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 64;
-            this.pictureBox1.TabStop = false;
-            // 
             // UCClientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -490,6 +490,7 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Panel pnlContenedor;
         private Guna.UI2.WinForms.Guna2DataGridView dgvClientes;
+        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.DataGridViewTextBoxColumn colClienteID;
         private System.Windows.Forms.DataGridViewTextBoxColumn colCedula;
         private System.Windows.Forms.DataGridViewTextBoxColumn colNombres;
@@ -499,6 +500,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colCiudad;
         private System.Windows.Forms.DataGridViewTextBoxColumn colDireccion;
         private System.Windows.Forms.DataGridViewTextBoxColumn colFechaNacimiento;
-        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
