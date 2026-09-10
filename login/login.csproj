@@ -85,6 +85,7 @@
   <ItemGroup>
     <Compile Include="Bar\csConectaSQL.cs" />
     <Compile Include="Bar\csSesionUsuario.cs" />
+    <Compile Include="Bar\DetalleVenta.cs" />
     <Compile Include="Bar\frmBar.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -102,6 +103,12 @@
     </Compile>
     <Compile Include="Bar\frmCrearCategoria.Designer.cs">
       <DependentUpon>frmCrearCategoria.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Bar\frmFacturaVenta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Bar\frmFacturaVenta.Designer.cs">
+      <DependentUpon>frmFacturaVenta.cs</DependentUpon>
     </Compile>
     <Compile Include="Bar\frmHistorialMovimientos.cs">
       <SubType>Form</SubType>
@@ -367,6 +374,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Bar\frmCrearCategoria.resx">
       <DependentUpon>frmCrearCategoria.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Bar\frmFacturaVenta.resx">
+      <DependentUpon>frmFacturaVenta.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Bar\frmHistorialMovimientos.resx">
       <DependentUpon>frmHistorialMovimientos.cs</DependentUpon>
