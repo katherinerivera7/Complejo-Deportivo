@@ -4,6 +4,7 @@ using login.Reservas;
 using System;
 using System.Drawing;
 using System.Windows.Forms;
+using login.GestionDeUsuarios;
 
 namespace login
 {
@@ -169,11 +170,6 @@ namespace login
             }
         }
 
-        private void cmbBienvenida_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnCerrarSesion_Click(object sender, EventArgs e)
         {
             DialogResult resultado = MessageBox.Show(
@@ -205,6 +201,22 @@ namespace login
             pnlContenido.Tag = x;
 
             x.Show();
+        }
+
+        private void guna2Button1_Click_1(object sender, EventArgs e)
+        {
+            pnlContenido.Controls.Clear();
+
+            frmVerFacturas frm = new frmVerFacturas();
+
+            frm.TopLevel = false;
+            frm.FormBorderStyle = FormBorderStyle.None;
+            frm.Dock = DockStyle.Fill;
+
+            pnlContenido.Controls.Add(frm);
+            pnlContenido.Tag = frm;
+
+            frm.Show();
         }
     }
 }

@@ -365,8 +365,6 @@ namespace login
             }
         }
 
-
-        // modulo de disponibilidad
         public bool insertarHorario(int canchaID, string horaInicio, string horaFin)
         {
             try
@@ -445,7 +443,207 @@ namespace login
                 return false;
             }
         }
+        public int insertarReserva(int clienteID, int canchaID, DateTime fecha, TimeSpan horaInicio, TimeSpan horaFin, string estado)
+        {
+            try
+            {
+                if (!abrirConexion())
+                    return 0;
 
+                string consulta = @"
+        IF EXISTS
+        (
+            SELECT 1
+            FROM Canchas
+            WHERE CanchaID = @CanchaID
+            AND UPPER(LTRIM(RTRIM(Estado))) LIKE 'MANTENIMIENTO%'
+        )
+        BEGIN
+            SELECT -1;
+            RETURN;
+        END;
+
+        IF EXISTS
+        (
+            SELECT 1
+            FROM Reservas
+            WHERE CanchaID = @CanchaID
+            AND Fecha = @Fecha
+            AND UPPER(LTRIM(RTRIM(ISNULL(Estado, '')))) <> 'CANCELADA'
+            AND HoraInicio < @HoraFin
+            AND HoraFin > @HoraInicio
+        )
+        BEGIN
+            SELECT -2;
+            RETURN;
+        END;
+
+        INSERT INTO Reservas
+        (
+            ClienteID,
+            CanchaID,
+            Fecha,
+            HoraInicio,
+            HoraFin,
+            Estado
+        )
+        VALUES
+        (
+            @ClienteID,
+            @CanchaID,
+            @Fecha,
+            @HoraInicio,
+            @HoraFin,
+            @Estado
+        );
+
+        SELECT CAST(SCOPE_IDENTITY() AS INT);";
+
+                using (SqlCommand cmd = new SqlCommand(consulta, oCon))
+                {
+                    cmd.Parameters.AddWithValue("@ClienteID", clienteID);
+                    cmd.Parameters.AddWithValue("@CanchaID", canchaID);
+                    cmd.Parameters.Add("@Fecha", SqlDbType.Date).Value = fecha.Date;
+                    cmd.Parameters.Add("@HoraInicio", SqlDbType.Time).Value = horaInicio;
+                    cmd.Parameters.Add("@HoraFin", SqlDbType.Time).Value = horaFin;
+                    cmd.Parameters.AddWithValue("@Estado", estado);
+
+                    return Convert.ToInt32(cmd.ExecuteScalar());
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return 0;
+            }
+            finally
+            {
+                cerrarConexion();
+            }
+        }
+
+        public int insertarFactura(int reservaID, string numeroFactura, DateTime fechaEmision, string metodoPago, decimal subtotal, decimal descuento, decimal iva, decimal total)
+        {
+            try
+            {
+                if (!abrirConexion())
+                    return 0;
+
+                string consulta = @"
+        IF EXISTS
+        (
+            SELECT 1
+            FROM Facturas
+            WHERE NumeroFactura = @NumeroFactura
+        )
+        BEGIN
+            SELECT 0;
+            RETURN;
+        END;
+
+        INSERT INTO Facturas
+        (
+            ReservaID,
+            NumeroFactura,
+            FechaEmision,
+            MetodoPago,
+            Subtotal,
+            Descuento,
+            IVA,
+            Total
+        )
+        VALUES
+        (
+            @ReservaID,
+            @NumeroFactura,
+            @FechaEmision,
+            @MetodoPago,
+            @Subtotal,
+            @Descuento,
+            @IVA,
+            @Total
+        );
+
+        SELECT CAST(SCOPE_IDENTITY() AS INT);";
+
+                using (SqlCommand cmd = new SqlCommand(consulta, oCon))
+                {
+                    cmd.Parameters.AddWithValue("@ReservaID", reservaID);
+                    cmd.Parameters.AddWithValue("@NumeroFactura", numeroFactura);
+                    cmd.Parameters.AddWithValue("@FechaEmision", fechaEmision);
+                    cmd.Parameters.AddWithValue("@MetodoPago", metodoPago);
+                    cmd.Parameters.AddWithValue("@Subtotal", subtotal);
+                    cmd.Parameters.AddWithValue("@Descuento", descuento);
+                    cmd.Parameters.AddWithValue("@IVA", iva);
+                    cmd.Parameters.AddWithValue("@Total", total);
+
+                    return Convert.ToInt32(cmd.ExecuteScalar());
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return 0;
+            }
+            finally
+            {
+                cerrarConexion();
+            }
+        }
+
+        public bool insertarDetalleFactura(int facturaID, string descripcion, string horario, int cantidadHoras, decimal precioHora, decimal descuento, decimal subtotal)
+        {
+            try
+            {
+                if (!abrirConexion())
+                    return false;
+
+                string consulta = @"
+        INSERT INTO DetalleFactura
+        (
+            FacturaID,
+            Descripcion,
+            Horario,
+            CantidadHoras,
+            PrecioHora,
+            Descuento,
+            Subtotal
+        )
+        VALUES
+        (
+            @FacturaID,
+            @Descripcion,
+            @Horario,
+            @CantidadHoras,
+            @PrecioHora,
+            @Descuento,
+            @Subtotal
+        )";
+
+                using (SqlCommand cmd = new SqlCommand(consulta, oCon))
+                {
+                    cmd.Parameters.AddWithValue("@FacturaID", facturaID);
+                    cmd.Parameters.AddWithValue("@Descripcion", descripcion);
+                    cmd.Parameters.AddWithValue("@Horario", horario);
+                    cmd.Parameters.AddWithValue("@CantidadHoras", cantidadHoras);
+                    cmd.Parameters.AddWithValue("@PrecioHora", precioHora);
+                    cmd.Parameters.AddWithValue("@Descuento", descuento);
+                    cmd.Parameters.AddWithValue("@Subtotal", subtotal);
+
+                    cmd.ExecuteNonQuery();
+                    return true;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return false;
+            }
+            finally
+            {
+                cerrarConexion();
+            }
+        }
 
 
 

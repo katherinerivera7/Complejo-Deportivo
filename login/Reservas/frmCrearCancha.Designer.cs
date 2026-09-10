@@ -66,7 +66,6 @@
             this.cmbDeporte.Margin = new System.Windows.Forms.Padding(2);
             this.cmbDeporte.Name = "cmbDeporte";
             this.cmbDeporte.Size = new System.Drawing.Size(236, 36);
-            this.cmbDeporte.StartIndex = 0;
             this.cmbDeporte.TabIndex = 69;
             this.cmbDeporte.SelectedIndexChanged += new System.EventHandler(this.cmbTipo_SelectedIndexChanged);
             this.cmbDeporte.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cmbTipo_KeyDown);
@@ -75,7 +74,7 @@
             // 
             this.lblCrearCancha.Font = new System.Drawing.Font("Segoe UI", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCrearCancha.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(37)))), ((int)(((byte)(87)))));
-            this.lblCrearCancha.Location = new System.Drawing.Point(53, 22);
+            this.lblCrearCancha.Location = new System.Drawing.Point(70, 22);
             this.lblCrearCancha.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblCrearCancha.Name = "lblCrearCancha";
             this.lblCrearCancha.Size = new System.Drawing.Size(318, 41);

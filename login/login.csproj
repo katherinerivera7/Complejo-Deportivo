@@ -243,6 +243,12 @@
     <Compile Include="GestionDeUsuarios\frmRegistrarCliente.Designer.cs">
       <DependentUpon>frmRegistrarCliente.cs</DependentUpon>
     </Compile>
+    <Compile Include="GestionDeUsuarios\frmVerFacturas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GestionDeUsuarios\frmVerFacturas.Designer.cs">
+      <DependentUpon>frmVerFacturas.cs</DependentUpon>
+    </Compile>
     <Compile Include="GestionDeUsuarios\UCEditarInformacion.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -429,6 +435,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GestionDeUsuarios\frmRegistrarCliente.resx">
       <DependentUpon>frmRegistrarCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GestionDeUsuarios\frmVerFacturas.resx">
+      <DependentUpon>frmVerFacturas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GestionDeUsuarios\UCEditarInformacion.resx">
       <DependentUpon>UCEditarInformacion.cs</DependentUpon>

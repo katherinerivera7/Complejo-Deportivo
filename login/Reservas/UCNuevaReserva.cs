@@ -159,8 +159,86 @@ namespace login.Reservas
 
         private void btnFacturar_Click(object sender, EventArgs e)
         {
+            if (clienteID <= 0)
+            {
+                MessageBox.Show("Seleccione un cliente.");
+                return;
+            }
+
+            DataRowView filaCancha = cmbCancha.SelectedItem as DataRowView;
+            DataRowView filaHorario = cmbHorario.SelectedItem as DataRowView;
+
+            if (filaCancha == null || !cmbCancha.Enabled)
+            {
+                MessageBox.Show("Seleccione una cancha disponible.");
+                return;
+            }
+
+            if (filaHorario == null || !cmbHorario.Enabled)
+            {
+                MessageBox.Show("Seleccione un horario disponible.");
+                return;
+            }
+
+            int canchaID = Convert.ToInt32(filaCancha["CanchaID"]);
+            TimeSpan horaInicio = TimeSpan.Parse(filaHorario["HoraInicio"].ToString());
+            TimeSpan horaFin = TimeSpan.Parse(filaHorario["HoraFin"].ToString());
+
+            int cantidadHoras = (int)(horaFin - horaInicio).TotalHours;
+
+            if (cantidadHoras <= 0)
+                cantidadHoras = 1;
+
+            DataTable tablaPrecio = conSQL.retornaRegistros(
+                "SELECT PrecioHora FROM Canchas WHERE CanchaID = " + canchaID);
+
+            if (tablaPrecio == null || tablaPrecio.Rows.Count == 0)
+            {
+                MessageBox.Show("No se encontró el precio de la cancha.");
+                return;
+            }
+
+            decimal precioHora = Convert.ToDecimal(tablaPrecio.Rows[0]["PrecioHora"]);
+
+            int reservaID = conSQL.insertarReserva(clienteID, canchaID, dtpFecha.Value, horaInicio, horaFin,"Pendiente");
+
+            if (reservaID == -1)
+            {
+                MessageBox.Show("La cancha está en mantenimiento.");
+                return;
+            }
+
+            if (reservaID == -2)
+            {
+                MessageBox.Show("Ese horario ya fue reservado.");
+                return;
+            }
+
+            if (reservaID <= 0)
+            {
+                MessageBox.Show("No se pudo guardar la reserva.");
+                return;
+            }
+
+            string nombreCliente = (txtNombres.Text + " " + txtApellidos.Text).Trim();
+            string horario = filaHorario["Horario"].ToString();
+            string cancha = filaCancha["Cancha"].ToString();
+
             pnlContenido.Controls.Clear();
-            frmFacturaReserva frm = new frmFacturaReserva();
+
+            frmFacturaReserva frm = new frmFacturaReserva(
+                reservaID,
+                nombreCliente,
+                txtTipoDocumento.Text,
+                txtCedula.Text,
+                txtCorreo.Text,
+                txtTelefono.Text,
+                txtDireccion.Text,
+                cancha,
+                dtpFecha.Value,
+                horario,
+                cantidadHoras,
+                precioHora);
 
             frm.TopLevel = false;
             frm.FormBorderStyle = FormBorderStyle.None;
@@ -168,7 +246,6 @@ namespace login.Reservas
 
             pnlContenido.Controls.Add(frm);
             pnlContenido.Tag = frm;
-
             frm.Show();
         }
 
@@ -203,6 +280,7 @@ namespace login.Reservas
                 txtApellidos.Text = frmC.Apellido;
                 lblCliente.Text = frmC.Nombre + " " + frmC.Apellido;
             }
+            clienteID = Convert.ToInt32(frmC.ClienteID);
         }
 
         private void chkArbitro_CheckedChanged(object sender, EventArgs e)
