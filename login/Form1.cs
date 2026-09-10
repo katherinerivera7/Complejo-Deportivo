@@ -105,6 +105,7 @@ namespace login
                                 int usuarioID = Convert.ToInt32(reader["UsuarioID"]);
                                 string nombreUsuario = reader["NombreUsuario"].ToString();
                                 string rol = reader["Rol"].ToString();
+
                                 csSesionUsuario.UsuarioID = usuarioID;
                                 csSesionUsuario.NombreUsuario = nombreUsuario;
                                 csSesionUsuario.Rol = rol;
@@ -140,6 +141,8 @@ namespace login
                     }
                 }
             }
+
+
             catch (Exception ex)
             {
                 MessageBox.Show(
@@ -204,6 +207,7 @@ namespace login
 
         private void button3_Click(object sender, EventArgs e)
         {
+            csSesionUsuario.Rol = "Admin";
             FrmMenu menuPrincipal = new FrmMenu();
             menuPrincipal.Show();
             this.Hide();
@@ -211,9 +215,17 @@ namespace login
 
         private void button4_Click(object sender, EventArgs e)
         {
-            FormMenuUsuario menuUsuario = new FormMenuUsuario();
+            csSesionUsuario.Rol = "Usuario";
+
+            FrmMenu menuUsuario = new FrmMenu();
             menuUsuario.Show();
+
             this.Hide();
+        }
+
+        private void pnlLogin_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

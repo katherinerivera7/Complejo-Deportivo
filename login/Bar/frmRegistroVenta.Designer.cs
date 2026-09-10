@@ -191,6 +191,7 @@
             this.flpProductos.Padding = new System.Windows.Forms.Padding(4);
             this.flpProductos.Size = new System.Drawing.Size(593, 654);
             this.flpProductos.TabIndex = 0;
+            this.flpProductos.Paint += new System.Windows.Forms.PaintEventHandler(this.flpProductos_Paint);
             // 
             // flowLayoutPanel1
             // 

@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace login.Bar
@@ -15,14 +8,15 @@ namespace login.Bar
         public int ProductoID { get; set; }
         public string NombreProducto { get; set; }
         public decimal Precio { get; set; }
+
+        private int cantidad = 1;
+
         public int Cantidad
         {
             get { return cantidad; }
         }
 
         public event EventHandler ProductoEliminado;
-
-        private int cantidad = 1;
 
         public UCVentasBar()
         {
@@ -41,6 +35,7 @@ namespace login.Bar
 
             ActualizarSubtotal();
         }
+
         public void AumentarCantidad()
         {
             cantidad++;
@@ -58,17 +53,14 @@ namespace login.Bar
 
         private void lblNombre_Click(object sender, EventArgs e)
         {
-
         }
 
         private void UCVentasBar_Load(object sender, EventArgs e)
         {
-
         }
 
         private void lblPrecio_Click(object sender, EventArgs e)
         {
-
         }
 
         private void guna2Button1_Click(object sender, EventArgs e)
