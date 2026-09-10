@@ -207,11 +207,6 @@ namespace login.Bar
             }
         }
 
-        private void frmRegistroVenta_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            frmProductos.ProductoGuardado -= CargarProductos;
-        }
-
         private void guna2Button16_Click(object sender, EventArgs e)
         {
             List<DetalleVenta> detalles = new List<DetalleVenta>();
@@ -254,19 +249,23 @@ namespace login.Bar
                 return;
             }
 
-            frmFacturaVenta frm = new frmFacturaVenta(detalles);
+            frmFacturaVenta frm = new frmFacturaVenta(detalles, this);
 
             frm.TopLevel = false;
             frm.FormBorderStyle = FormBorderStyle.None;
             frm.Dock = DockStyle.Fill;
-
-            frmProductos.ProductoGuardado -= CargarProductos;
 
             pnlContenido.Controls.Clear();
             pnlContenido.Controls.Add(frm);
             pnlContenido.Tag = frm;
 
             frm.Show();
+        }
+
+        public void LiberarVenta()
+        {
+            frmProductos.ProductoGuardado -= CargarProductos;
+            Dispose();
         }
 
         private void guna2Button17_Click(object sender, EventArgs e)
@@ -280,8 +279,18 @@ namespace login.Bar
 
             if (respuesta == DialogResult.Yes)
             {
-                flpProduct.Controls.Clear();
+                while (flpProduct.Controls.Count > 0)
+                {
+                    Control control = flpProduct.Controls[0];
+                    flpProduct.Controls.Remove(control);
+                    control.Dispose();
+                }
             }
+        }
+
+        private void frmRegistroVenta_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            frmProductos.ProductoGuardado -= CargarProductos;
         }
 
         private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
