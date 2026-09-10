@@ -649,11 +649,430 @@ namespace login
                 cerrarConexion();
             }
         }
+        public int guardarReservaFactura(
+    int clienteID,
+    int canchaID,
+    DateTime fechaReserva,
+    TimeSpan horaInicio,
+    TimeSpan horaFin,
+    string numeroFactura,
+    DateTime fechaEmision,
+    string metodoPago,
+    int? promocionID,
+    decimal subtotal,
+    decimal descuento,
+    decimal iva,
+    decimal total,
+    string cancha,
+    string horario,
+    int cantidadHoras,
+    decimal precioHora)
+        {
+            SqlTransaction transaccion = null;
 
+            try
+            {
+                if (!abrirConexion())
+                    return 0;
 
+                transaccion = oCon.BeginTransaction();
 
+                using (SqlCommand cmdEstado = new SqlCommand(
+                    "SELECT UPPER(LTRIM(RTRIM(ISNULL(Estado, '')))) FROM Canchas WHERE CanchaID = @CanchaID",
+                    oCon,
+                    transaccion))
+                {
+                    cmdEstado.Parameters.AddWithValue("@CanchaID", canchaID);
 
+                    string estado = Convert.ToString(cmdEstado.ExecuteScalar());
 
+                    if (estado == "MANTENIMIENTO" ||
+                        estado == "INACTIVA" ||
+                        estado == "CERRADA")
+                    {
+                        transaccion.Rollback();
+                        return -1;
+                    }
+                }
+
+                using (SqlCommand cmdHorario = new SqlCommand(
+                    "SELECT COUNT(*) FROM Reservas " +
+                    "WHERE CanchaID = @CanchaID " +
+                    "AND Fecha = @Fecha " +
+                    "AND UPPER(LTRIM(RTRIM(ISNULL(Estado, '')))) <> 'CANCELADA' " +
+                    "AND HoraInicio < @HoraFin " +
+                    "AND HoraFin > @HoraInicio",
+                    oCon,
+                    transaccion))
+                {
+                    cmdHorario.Parameters.AddWithValue("@CanchaID", canchaID);
+                    cmdHorario.Parameters.AddWithValue("@Fecha", fechaReserva.Date);
+                    cmdHorario.Parameters.Add("@HoraInicio", SqlDbType.Time).Value = horaInicio;
+                    cmdHorario.Parameters.Add("@HoraFin", SqlDbType.Time).Value = horaFin;
+
+                    if (Convert.ToInt32(cmdHorario.ExecuteScalar()) > 0)
+                    {
+                        transaccion.Rollback();
+                        return -2;
+                    }
+                }
+
+                using (SqlCommand cmdFacturaExiste = new SqlCommand(
+                    "SELECT COUNT(*) FROM Facturas WHERE NumeroFactura = @NumeroFactura",
+                    oCon,
+                    transaccion))
+                {
+                    cmdFacturaExiste.Parameters.AddWithValue("@NumeroFactura", numeroFactura);
+
+                    if (Convert.ToInt32(cmdFacturaExiste.ExecuteScalar()) > 0)
+                    {
+                        transaccion.Rollback();
+                        return -3;
+                    }
+                }
+
+                int reservaID;
+
+                using (SqlCommand cmdReserva = new SqlCommand(
+                    "INSERT INTO Reservas " +
+                    "(ClienteID, CanchaID, Fecha, HoraInicio, HoraFin, Estado) " +
+                    "VALUES " +
+                    "(@ClienteID, @CanchaID, @Fecha, @HoraInicio, @HoraFin, 'Reservada'); " +
+                    "SELECT CAST(SCOPE_IDENTITY() AS INT);",
+                    oCon,
+                    transaccion))
+                {
+                    cmdReserva.Parameters.AddWithValue("@ClienteID", clienteID);
+                    cmdReserva.Parameters.AddWithValue("@CanchaID", canchaID);
+                    cmdReserva.Parameters.AddWithValue("@Fecha", fechaReserva.Date);
+                    cmdReserva.Parameters.Add("@HoraInicio", SqlDbType.Time).Value = horaInicio;
+                    cmdReserva.Parameters.Add("@HoraFin", SqlDbType.Time).Value = horaFin;
+
+                    reservaID = Convert.ToInt32(cmdReserva.ExecuteScalar());
+                }
+
+                int facturaID;
+
+                using (SqlCommand cmdFactura = new SqlCommand(
+                    "INSERT INTO Facturas " +
+                    "(ReservaID, PromocionID, NumeroFactura, FechaEmision, MetodoPago, Subtotal, Descuento, IVA, Total) " +
+                    "VALUES " +
+                    "(@ReservaID, @PromocionID, @NumeroFactura, @FechaEmision, @MetodoPago, @Subtotal, @Descuento, @IVA, @Total); " +
+                    "SELECT CAST(SCOPE_IDENTITY() AS INT);",
+                    oCon,
+                    transaccion))
+                {
+                    cmdFactura.Parameters.AddWithValue("@ReservaID", reservaID);
+                    cmdFactura.Parameters.Add("@PromocionID", SqlDbType.Int).Value =
+                        promocionID.HasValue ? (object)promocionID.Value : DBNull.Value;
+                    cmdFactura.Parameters.AddWithValue("@NumeroFactura", numeroFactura);
+                    cmdFactura.Parameters.AddWithValue("@FechaEmision", fechaEmision);
+                    cmdFactura.Parameters.AddWithValue("@MetodoPago", metodoPago);
+                    cmdFactura.Parameters.AddWithValue("@Subtotal", subtotal);
+                    cmdFactura.Parameters.AddWithValue("@Descuento", descuento);
+                    cmdFactura.Parameters.AddWithValue("@IVA", iva);
+                    cmdFactura.Parameters.AddWithValue("@Total", total);
+
+                    facturaID = Convert.ToInt32(cmdFactura.ExecuteScalar());
+                }
+
+                using (SqlCommand cmdDetalle = new SqlCommand(
+                    "INSERT INTO DetalleFactura " +
+                    "(FacturaID, Descripcion, Horario, CantidadHoras, PrecioHora, Descuento, Subtotal) " +
+                    "VALUES " +
+                    "(@FacturaID, @Descripcion, @Horario, @CantidadHoras, @PrecioHora, @Descuento, @Subtotal)",
+                    oCon,
+                    transaccion))
+                {
+                    cmdDetalle.Parameters.AddWithValue("@FacturaID", facturaID);
+                    cmdDetalle.Parameters.AddWithValue("@Descripcion", cancha);
+                    cmdDetalle.Parameters.AddWithValue("@Horario", horario);
+                    cmdDetalle.Parameters.AddWithValue("@CantidadHoras", cantidadHoras);
+                    cmdDetalle.Parameters.AddWithValue("@PrecioHora", precioHora);
+                    cmdDetalle.Parameters.AddWithValue("@Descuento", descuento);
+                    cmdDetalle.Parameters.AddWithValue("@Subtotal", subtotal);
+
+                    cmdDetalle.ExecuteNonQuery();
+                }
+
+                transaccion.Commit();
+                return facturaID;
+            }
+            catch (Exception ex)
+            {
+                try
+                {
+                    if (transaccion != null)
+                        transaccion.Rollback();
+                }
+                catch
+                {
+                }
+
+                MessageBox.Show(ex.Message);
+                return 0;
+            }
+        }
+        public bool eliminarReserva(int reservaID)
+        {
+            SqlTransaction transaccion = null;
+
+            try
+            {
+                if (!abrirConexion())
+                    return false;
+
+                transaccion = oCon.BeginTransaction();
+
+                string consulta = @"
+            DELETE FROM DetalleFactura
+            WHERE FacturaID IN
+            (
+                SELECT FacturaID
+                FROM Facturas
+                WHERE ReservaID = @ReservaID
+            );
+
+            DELETE FROM Facturas
+            WHERE ReservaID = @ReservaID;
+
+            DELETE FROM Reservas
+            WHERE ReservaID = @ReservaID;";
+
+                using (SqlCommand cmd = new SqlCommand(consulta, oCon, transaccion))
+                {
+                    cmd.Parameters.Add("@ReservaID", SqlDbType.Int).Value = reservaID;
+
+                    int filasAfectadas = cmd.ExecuteNonQuery();
+
+                    if (filasAfectadas <= 0)
+                    {
+                        transaccion.Rollback();
+                        return false;
+                    }
+                }
+
+                transaccion.Commit();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                try
+                {
+                    if (transaccion != null)
+                        transaccion.Rollback();
+                }
+                catch
+                {
+                }
+
+                MessageBox.Show(ex.Message);
+                return false;
+            }
+        }
+        public int actualizarReservaFactura(
+    int reservaID,
+    int clienteID,
+    int canchaID,
+    DateTime fecha,
+    TimeSpan horaInicio,
+    TimeSpan horaFin,
+    string cancha,
+    string horario,
+    int cantidadHoras,
+    decimal precioHora,
+    decimal descuento)
+        {
+            SqlTransaction transaccion = null;
+
+            try
+            {
+                if (!abrirConexion())
+                    return 0;
+
+                transaccion = oCon.BeginTransaction();
+
+                string validacion =
+                    "IF EXISTS " +
+                    "(SELECT 1 FROM Canchas " +
+                    "WHERE CanchaID = @CanchaID " +
+                    "AND UPPER(LTRIM(RTRIM(ISNULL(Estado, '')))) " +
+                    "LIKE 'MANTENIMIENTO%') " +
+                    "SELECT -1 " +
+                    "ELSE IF EXISTS " +
+                    "(SELECT 1 FROM Reservas " +
+                    "WHERE ReservaID <> @ReservaID " +
+                    "AND CanchaID = @CanchaID " +
+                    "AND CONVERT(DATE, Fecha) = @Fecha " +
+                    "AND UPPER(LTRIM(RTRIM(ISNULL(Estado, '')))) " +
+                    "<> 'CANCELADA' " +
+                    "AND HoraInicio < @HoraFin " +
+                    "AND HoraFin > @HoraInicio) " +
+                    "SELECT -2 " +
+                    "ELSE SELECT 1";
+
+                using (SqlCommand cmdValidacion =
+                    new SqlCommand(
+                        validacion,
+                        oCon,
+                        transaccion))
+                {
+                    cmdValidacion.Parameters.Add(
+                        "@ReservaID",
+                        SqlDbType.Int).Value = reservaID;
+
+                    cmdValidacion.Parameters.Add(
+                        "@CanchaID",
+                        SqlDbType.Int).Value = canchaID;
+
+                    cmdValidacion.Parameters.Add(
+                        "@Fecha",
+                        SqlDbType.Date).Value = fecha.Date;
+
+                    cmdValidacion.Parameters.Add(
+                        "@HoraInicio",
+                        SqlDbType.Time).Value = horaInicio;
+
+                    cmdValidacion.Parameters.Add(
+                        "@HoraFin",
+                        SqlDbType.Time).Value = horaFin;
+
+                    int resultado =
+                        Convert.ToInt32(
+                            cmdValidacion.ExecuteScalar());
+
+                    if (resultado != 1)
+                    {
+                        transaccion.Rollback();
+                        return resultado;
+                    }
+                }
+
+                decimal subtotal =
+                    precioHora * cantidadHoras;
+
+                decimal iva =
+                    subtotal * 0.15m;
+
+                decimal total =
+                    subtotal - descuento + iva;
+
+                string consulta =
+                    "UPDATE Reservas SET " +
+                    "ClienteID = @ClienteID, " +
+                    "CanchaID = @CanchaID, " +
+                    "Fecha = @Fecha, " +
+                    "HoraInicio = @HoraInicio, " +
+                    "HoraFin = @HoraFin " +
+                    "WHERE ReservaID = @ReservaID; " +
+
+                    "UPDATE Facturas SET " +
+                    "Subtotal = @Subtotal, " +
+                    "Descuento = @Descuento, " +
+                    "IVA = @IVA, " +
+                    "Total = @Total " +
+                    "WHERE ReservaID = @ReservaID; " +
+
+                    "UPDATE DetalleFactura SET " +
+                    "Descripcion = @Descripcion, " +
+                    "Horario = @Horario, " +
+                    "CantidadHoras = @CantidadHoras, " +
+                    "PrecioHora = @PrecioHora, " +
+                    "Descuento = @Descuento, " +
+                    "Subtotal = @Subtotal " +
+                    "WHERE FacturaID IN " +
+                    "(SELECT FacturaID FROM Facturas " +
+                    "WHERE ReservaID = @ReservaID)";
+
+                using (SqlCommand cmd =
+                    new SqlCommand(
+                        consulta,
+                        oCon,
+                        transaccion))
+                {
+                    cmd.Parameters.Add(
+                        "@ReservaID",
+                        SqlDbType.Int).Value = reservaID;
+
+                    cmd.Parameters.Add(
+                        "@ClienteID",
+                        SqlDbType.Int).Value = clienteID;
+
+                    cmd.Parameters.Add(
+                        "@CanchaID",
+                        SqlDbType.Int).Value = canchaID;
+
+                    cmd.Parameters.Add(
+                        "@Fecha",
+                        SqlDbType.Date).Value = fecha.Date;
+
+                    cmd.Parameters.Add(
+                        "@HoraInicio",
+                        SqlDbType.Time).Value = horaInicio;
+
+                    cmd.Parameters.Add(
+                        "@HoraFin",
+                        SqlDbType.Time).Value = horaFin;
+
+                    cmd.Parameters.Add(
+                        "@Descripcion",
+                        SqlDbType.VarChar,
+                        200).Value = cancha;
+
+                    cmd.Parameters.Add(
+                        "@Horario",
+                        SqlDbType.VarChar,
+                        20).Value = horario;
+
+                    cmd.Parameters.Add(
+                        "@CantidadHoras",
+                        SqlDbType.Int).Value = cantidadHoras;
+
+                    cmd.Parameters.Add(
+                        "@PrecioHora",
+                        SqlDbType.Decimal).Value = precioHora;
+
+                    cmd.Parameters.Add(
+                        "@Descuento",
+                        SqlDbType.Decimal).Value = descuento;
+
+                    cmd.Parameters.Add(
+                        "@Subtotal",
+                        SqlDbType.Decimal).Value = subtotal;
+
+                    cmd.Parameters.Add(
+                        "@IVA",
+                        SqlDbType.Decimal).Value = iva;
+
+                    cmd.Parameters.Add(
+                        "@Total",
+                        SqlDbType.Decimal).Value = total;
+
+                    cmd.ExecuteNonQuery();
+                }
+
+                transaccion.Commit();
+                return 1;
+            }
+            catch (Exception ex)
+            {
+                try
+                {
+                    if (transaccion != null)
+                        transaccion.Rollback();
+                }
+                catch
+                {
+                }
+
+                MessageBox.Show(ex.Message);
+                return 0;
+            }
+            finally
+            {
+                cerrarConexion();
+            }
+        }
 
     }
 }

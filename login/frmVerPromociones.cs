@@ -9,6 +9,7 @@ namespace login
 {
     public partial class frmVerPromociones : Form
     {
+        csConectaSQL conSQL=new csConectaSQL();
         string conexionString = @"Server=LAPTOP-J5U2QS20\SQLEXPRESS01;Database=ComplejoDeportivo;Integrated Security=True;TrustServerCertificate=True;";
 
         private bool configurandoFiltro = false;
@@ -22,6 +23,7 @@ namespace login
 
             ConfigurarFiltro();
             CargarPromociones();
+            ActualizarPromocionesVencidas();
         }
 
         private void ConfigurarFiltro()
@@ -178,6 +180,19 @@ namespace login
                 CargarPromociones();
                 e.SuppressKeyPress = true;
             }
+        }
+        private void ActualizarPromocionesVencidas()
+        {
+            conSQL.retornaRegistros(
+                "UPDATE Promociones " +
+                "SET Estado = 0 " +
+                "WHERE Estado = 1 " +
+                "AND FechaFin < CAST(GETDATE() AS date)");
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

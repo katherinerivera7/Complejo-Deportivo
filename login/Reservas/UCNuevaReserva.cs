@@ -9,18 +9,34 @@ namespace login.Reservas
     public partial class UCNuevaReserva : UserControl
     {
         csConectaSQL conSQL = new csConectaSQL();
+
         private int clienteID = 0;
+        private int reservaIDEditar = 0;
 
         public UCNuevaReserva()
         {
             InitializeComponent();
+
             dtpFecha.MinDate = DateTime.Today;
             dtpFecha.Value = DateTime.Today;
+
+            nudCantidadHoras.Minimum = 1;
+            nudCantidadHoras.Maximum = 8;
+            nudCantidadHoras.Value = 1;
+
+            nudCantidadHoras.ValueChanged -= nudCantidadHoras_ValueChanged;
+            nudCantidadHoras.ValueChanged += nudCantidadHoras_ValueChanged;
+        }
+
+        public UCNuevaReserva(int reservaID) : this()
+        {
+            reservaIDEditar = reservaID;
         }
 
         private void UCNuevaReserva_Load(object sender, EventArgs e)
         {
-            DataTable dt = conSQL.retornaRegistros("SELECT DISTINCT Tipo FROM Canchas ORDER BY Tipo");
+            DataTable dt = conSQL.retornaRegistros(
+                "SELECT DISTINCT Tipo FROM Canchas ORDER BY Tipo");
 
             cmbDeporte.DataSource = dt;
             cmbDeporte.DisplayMember = "Tipo";
@@ -30,6 +46,100 @@ namespace login.Reservas
             lblFecha.Text = dtpFecha.Value.ToString("dd/MM/yyyy");
             lblCancha.Text = "---";
             lblHorario.Text = "---";
+
+            if (reservaIDEditar > 0)
+            {
+                btnFacturar.Text = "Guardar cambios";
+                CargarReservaEditar();
+            }
+        }
+
+        private void CargarReservaEditar()
+        {
+            string consulta =
+                "SELECT R.ReservaID, R.ClienteID, R.CanchaID, R.Fecha, " +
+                "R.HoraInicio, R.HoraFin, CA.Tipo, " +
+                "CA.Tipo + ' - ' + CA.Nombre AS Cancha, " +
+                "CL.TipoDocumento, CL.Cedula, CL.Nombre, CL.Apellido, " +
+                "CL.Correo, CL.Telefono, CL.Direccion " +
+                "FROM Reservas R " +
+                "INNER JOIN Canchas CA ON R.CanchaID = CA.CanchaID " +
+                "INNER JOIN Clientes CL ON R.ClienteID = CL.ClienteID " +
+                "WHERE R.ReservaID = " + reservaIDEditar;
+
+            DataTable tabla = conSQL.retornaRegistros(consulta);
+
+            if (tabla == null || tabla.Rows.Count == 0)
+                return;
+
+            DataRow fila = tabla.Rows[0];
+
+            clienteID = Convert.ToInt32(fila["ClienteID"]);
+
+            txtCodigo.Text = fila["ClienteID"].ToString();
+            txtTipoDocumento.Text = fila["TipoDocumento"].ToString();
+            txtCedula.Text = fila["Cedula"].ToString();
+            txtNombres.Text = fila["Nombre"].ToString();
+            txtApellidos.Text = fila["Apellido"].ToString();
+            txtCorreo.Text = fila["Correo"].ToString();
+            txtTelefono.Text = fila["Telefono"].ToString();
+            txtDireccion.Text = fila["Direccion"].ToString();
+
+            lblCliente.Text =
+                fila["Nombre"].ToString() + " " +
+                fila["Apellido"].ToString();
+
+            dtpFecha.Value = Convert.ToDateTime(fila["Fecha"]);
+
+            TimeSpan horaInicio = ConvertirHora(fila["HoraInicio"]);
+            TimeSpan horaFin = ConvertirHora(fila["HoraFin"]);
+
+            int cantidadHoras =
+                Convert.ToInt32((horaFin - horaInicio).TotalHours);
+
+            if (cantidadHoras < 1)
+                cantidadHoras = 1;
+
+            if (cantidadHoras > 8)
+                cantidadHoras = 8;
+
+            nudCantidadHoras.Value = cantidadHoras;
+
+            cmbDeporte.SelectedValue = fila["Tipo"].ToString();
+
+            if (cmbCancha.DataSource != null)
+                cmbCancha.SelectedValue =
+                    Convert.ToInt32(fila["CanchaID"]);
+
+            lblCancha.Text = fila["Cancha"].ToString();
+
+            CargarHorariosDisponibles();
+
+            for (int i = 0; i < cmbHorario.Items.Count; i++)
+            {
+                DataRowView filaHorario =
+                    cmbHorario.Items[i] as DataRowView;
+
+                if (filaHorario == null)
+                    continue;
+
+                TimeSpan horaInicioHorario =
+                    ConvertirHora(filaHorario["HoraInicio"]);
+
+                if (horaInicioHorario == horaInicio)
+                {
+                    cmbHorario.SelectedIndex = i;
+                    break;
+                }
+            }
+        }
+
+        private TimeSpan ConvertirHora(object valor)
+        {
+            if (valor is TimeSpan)
+                return (TimeSpan)valor;
+
+            return TimeSpan.Parse(valor.ToString());
         }
 
         private void cmbDeporte_SelectedIndexChanged(object sender, EventArgs e)
@@ -48,14 +158,17 @@ namespace login.Reservas
             if (cmbDeporte.SelectedIndex == -1)
                 return;
 
-            string deporte = cmbDeporte.Text.Trim().Replace("'", "''");
+            string deporte =
+                cmbDeporte.Text.Trim().Replace("'", "''");
 
-            string consulta = "SELECT CanchaID, Tipo + ' - ' + Nombre AS Cancha " +
-                              "FROM Canchas " +
-                              "WHERE Tipo = '" + deporte + "' " +
-                              "AND UPPER(LTRIM(RTRIM(Estado))) NOT LIKE 'MANTENIMIENTO%' " +
-                              "AND UPPER(LTRIM(RTRIM(Estado))) NOT IN ('INACTIVA', 'CERRADA') " +
-                              "ORDER BY Nombre";
+            string consulta =
+                "SELECT CanchaID, Tipo + ' - ' + Nombre AS Cancha " +
+                "FROM Canchas " +
+                "WHERE Tipo = '" + deporte + "' " +
+                "AND UPPER(LTRIM(RTRIM(Estado))) NOT LIKE 'MANTENIMIENTO%' " +
+                "AND UPPER(LTRIM(RTRIM(Estado))) NOT IN " +
+                "('INACTIVA', 'CERRADA') " +
+                "ORDER BY Nombre";
 
             DataTable dt = conSQL.retornaRegistros(consulta);
 
@@ -82,7 +195,8 @@ namespace login.Reservas
 
         private void cmbCancha_SelectedIndexChanged(object sender, EventArgs e)
         {
-            DataRowView filaCancha = cmbCancha.SelectedItem as DataRowView;
+            DataRowView filaCancha =
+                cmbCancha.SelectedItem as DataRowView;
 
             if (filaCancha == null || !cmbCancha.Enabled)
                 return;
@@ -99,39 +213,71 @@ namespace login.Reservas
             cmbHorario.Items.Clear();
             cmbHorario.Enabled = true;
 
-            DataRowView filaCancha = cmbCancha.SelectedItem as DataRowView;
+            DataRowView filaCancha =
+                cmbCancha.SelectedItem as DataRowView;
 
             if (filaCancha == null || !cmbCancha.Enabled)
                 return;
 
-            int canchaID = Convert.ToInt32(filaCancha["CanchaID"]);
-            string fecha = dtpFecha.Value.ToString("yyyyMMdd");
+            int canchaID =
+                Convert.ToInt32(filaCancha["CanchaID"]);
 
-            string consulta = "SELECT H.HorarioID, " +
-                              "CONVERT(VARCHAR(5), H.HoraInicio, 108) + ' - ' + CONVERT(VARCHAR(5), H.HoraFin, 108) AS Horario, " +
-                              "H.HoraInicio, H.HoraFin " +
-                              "FROM Horarios H " +
-                              "WHERE EXISTS " +
-                              "(SELECT 1 FROM Canchas C " +
-                              "WHERE C.CanchaID = " + canchaID + " " +
-                              "AND UPPER(LTRIM(RTRIM(C.Estado))) NOT LIKE 'MANTENIMIENTO%' " +
-                              "AND UPPER(LTRIM(RTRIM(C.Estado))) NOT IN ('INACTIVA', 'CERRADA')) " +
-                              "AND NOT EXISTS " +
-                              "(SELECT 1 FROM Reservas R " +
-                              "WHERE R.CanchaID = " + canchaID + " " +
-                              "AND R.Fecha = '" + fecha + "' " +
-                              "AND UPPER(LTRIM(RTRIM(ISNULL(R.Estado, '')))) <> 'CANCELADA' " +
-                              "AND R.HoraInicio < H.HoraFin " +
-                              "AND R.HoraFin > H.HoraInicio) " +
-                              "ORDER BY H.HoraInicio";
+            int cantidadHoras =
+                Convert.ToInt32(nudCantidadHoras.Value);
 
-            DataTable tabla = conSQL.retornaRegistros(consulta);
+            string fecha =
+                dtpFecha.Value.ToString("yyyyMMdd");
+
+            string excluirReserva = "";
+
+            if (reservaIDEditar > 0)
+                excluirReserva =
+                    "AND R.ReservaID <> " + reservaIDEditar + " ";
+
+            string finHorario =
+                "CONVERT(TIME, DATEADD(HOUR, " +
+                cantidadHoras +
+                ", CAST(H.HoraInicio AS DATETIME)))";
+
+            string consulta =
+                "SELECT H.HorarioID, " +
+                "CONVERT(VARCHAR(5), H.HoraInicio, 108) + ' - ' + " +
+                "CONVERT(VARCHAR(5), " + finHorario + ", 108) AS Horario, " +
+                "H.HoraInicio, " + finHorario + " AS HoraFin " +
+                "FROM Horarios H " +
+                "WHERE " + finHorario + " > H.HoraInicio " +
+                "AND " +
+                "(SELECT COUNT(*) FROM Horarios H2 " +
+                "WHERE H2.HoraInicio >= H.HoraInicio " +
+                "AND H2.HoraInicio < " + finHorario + ") = " +
+                cantidadHoras + " " +
+                "AND EXISTS " +
+                "(SELECT 1 FROM Canchas C " +
+                "WHERE C.CanchaID = " + canchaID + " " +
+                "AND UPPER(LTRIM(RTRIM(C.Estado))) " +
+                "NOT LIKE 'MANTENIMIENTO%' " +
+                "AND UPPER(LTRIM(RTRIM(C.Estado))) " +
+                "NOT IN ('INACTIVA', 'CERRADA')) " +
+                "AND NOT EXISTS " +
+                "(SELECT 1 FROM Reservas R " +
+                "WHERE R.CanchaID = " + canchaID + " " +
+                "AND CONVERT(DATE, R.Fecha) = " +
+                "CONVERT(DATE, '" + fecha + "', 112) " +
+                excluirReserva +
+                "AND UPPER(LTRIM(RTRIM(ISNULL(R.Estado, '')))) " +
+                "<> 'CANCELADA' " +
+                "AND R.HoraInicio < " + finHorario + " " +
+                "AND R.HoraFin > H.HoraInicio) " +
+                "ORDER BY H.HoraInicio";
+
+            DataTable tabla =
+                conSQL.retornaRegistros(consulta);
 
             if (tabla == null || tabla.Rows.Count == 0)
             {
                 cmbHorario.Items.Add("No hay horarios disponibles");
-                cmbHorario.Enabled = false;
                 cmbHorario.SelectedIndex = 0;
+                cmbHorario.Enabled = false;
                 lblHorario.Text = "No hay horarios disponibles";
                 return;
             }
@@ -140,20 +286,39 @@ namespace login.Reservas
             cmbHorario.DisplayMember = "Horario";
             cmbHorario.ValueMember = "HorarioID";
             cmbHorario.SelectedIndex = -1;
-            lblHorario.Text = "---";
         }
 
         private void cmbHorario_SelectedIndexChanged(object sender, EventArgs e)
         {
-            DataRowView filaHorario = cmbHorario.SelectedItem as DataRowView;
+            DataRowView filaHorario =
+                cmbHorario.SelectedItem as DataRowView;
 
-            if (filaHorario != null && cmbHorario.Enabled)
-                lblHorario.Text = filaHorario["Horario"].ToString();
+            if (filaHorario == null || !cmbHorario.Enabled)
+                return;
+
+            TimeSpan horaInicio =
+                ConvertirHora(filaHorario["HoraInicio"]);
+
+            TimeSpan horaFin =
+                ConvertirHora(filaHorario["HoraFin"]);
+
+            lblHorario.Text =
+                horaInicio.ToString(@"hh\:mm") + " - " +
+                horaFin.ToString(@"hh\:mm");
         }
 
         private void dtpFecha_ValueChanged(object sender, EventArgs e)
         {
-            lblFecha.Text = dtpFecha.Value.ToString("dd/MM/yyyy");
+            lblFecha.Text =
+                dtpFecha.Value.ToString("dd/MM/yyyy");
+
+            CargarHorariosDisponibles();
+        }
+
+        private void nudCantidadHoras_ValueChanged(
+            object sender,
+            EventArgs e)
+        {
             CargarHorariosDisponibles();
         }
 
@@ -165,8 +330,11 @@ namespace login.Reservas
                 return;
             }
 
-            DataRowView filaCancha = cmbCancha.SelectedItem as DataRowView;
-            DataRowView filaHorario = cmbHorario.SelectedItem as DataRowView;
+            DataRowView filaCancha =
+                cmbCancha.SelectedItem as DataRowView;
+
+            DataRowView filaHorario =
+                cmbHorario.SelectedItem as DataRowView;
 
             if (filaCancha == null || !cmbCancha.Enabled)
             {
@@ -180,65 +348,108 @@ namespace login.Reservas
                 return;
             }
 
-            int canchaID = Convert.ToInt32(filaCancha["CanchaID"]);
-            TimeSpan horaInicio = TimeSpan.Parse(filaHorario["HoraInicio"].ToString());
-            TimeSpan horaFin = TimeSpan.Parse(filaHorario["HoraFin"].ToString());
+            int canchaID =
+                Convert.ToInt32(filaCancha["CanchaID"]);
 
-            int cantidadHoras = (int)(horaFin - horaInicio).TotalHours;
+            int cantidadHoras =
+                Convert.ToInt32(nudCantidadHoras.Value);
 
-            if (cantidadHoras <= 0)
-                cantidadHoras = 1;
+            TimeSpan horaInicio =
+                ConvertirHora(filaHorario["HoraInicio"]);
 
-            DataTable tablaPrecio = conSQL.retornaRegistros(
-                "SELECT PrecioHora FROM Canchas WHERE CanchaID = " + canchaID);
+            TimeSpan horaFin =
+                ConvertirHora(filaHorario["HoraFin"]);
 
-            if (tablaPrecio == null || tablaPrecio.Rows.Count == 0)
+            string horario =
+                filaHorario["Horario"].ToString();
+
+            string cancha =
+                filaCancha["Cancha"].ToString();
+
+            DataTable tablaPrecio =
+                conSQL.retornaRegistros(
+                    "SELECT PrecioHora FROM Canchas " +
+                    "WHERE CanchaID = " + canchaID);
+
+            if (tablaPrecio == null ||
+                tablaPrecio.Rows.Count == 0)
             {
-                MessageBox.Show("No se encontró el precio de la cancha.");
+                MessageBox.Show(
+                    "No se pudo obtener el precio de la cancha.");
                 return;
             }
 
-            decimal precioHora = Convert.ToDecimal(tablaPrecio.Rows[0]["PrecioHora"]);
+            decimal precioHora =
+                Convert.ToDecimal(
+                    tablaPrecio.Rows[0]["PrecioHora"]);
 
-            int reservaID = conSQL.insertarReserva(clienteID, canchaID, dtpFecha.Value, horaInicio, horaFin,"Pendiente");
-
-            if (reservaID == -1)
+            if (reservaIDEditar > 0)
             {
-                MessageBox.Show("La cancha está en mantenimiento.");
+                int resultado =
+                    conSQL.actualizarReservaFactura(
+                        reservaIDEditar,
+                        clienteID,
+                        canchaID,
+                        dtpFecha.Value.Date,
+                        horaInicio,
+                        horaFin,
+                        cancha,
+                        horario,
+                        cantidadHoras,
+                        precioHora,
+                        0);
+
+                if (resultado == -1)
+                {
+                    MessageBox.Show(
+                        "La cancha está en mantenimiento.");
+                    return;
+                }
+
+                if (resultado == -2)
+                {
+                    MessageBox.Show(
+                        "El horario ya está ocupado.");
+                    return;
+                }
+
+                if (resultado == 1)
+                {
+                    MessageBox.Show(
+                        "Reserva actualizada correctamente.",
+                        "Éxito",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show(
+                        "No se pudo actualizar la reserva.");
+                }
+
                 return;
             }
 
-            if (reservaID == -2)
-            {
-                MessageBox.Show("Ese horario ya fue reservado.");
-                return;
-            }
-
-            if (reservaID <= 0)
-            {
-                MessageBox.Show("No se pudo guardar la reserva.");
-                return;
-            }
-
-            string nombreCliente = (txtNombres.Text + " " + txtApellidos.Text).Trim();
-            string horario = filaHorario["Horario"].ToString();
-            string cancha = filaCancha["Cancha"].ToString();
+            frmFacturaReserva frm =
+                new frmFacturaReserva(
+                    clienteID,
+                    canchaID,
+                    txtNombres.Text.Trim() + " " +
+                    txtApellidos.Text.Trim(),
+                    txtTipoDocumento.Text.Trim(),
+                    txtCedula.Text.Trim(),
+                    txtCorreo.Text.Trim(),
+                    txtTelefono.Text.Trim(),
+                    txtDireccion.Text.Trim(),
+                    cancha,
+                    dtpFecha.Value.Date,
+                    horaInicio,
+                    horaFin,
+                    horario,
+                    cantidadHoras,
+                    precioHora);
 
             pnlContenido.Controls.Clear();
-
-            frmFacturaReserva frm = new frmFacturaReserva(
-                reservaID,
-                nombreCliente,
-                txtTipoDocumento.Text,
-                txtCedula.Text,
-                txtCorreo.Text,
-                txtTelefono.Text,
-                txtDireccion.Text,
-                cancha,
-                dtpFecha.Value,
-                horario,
-                cantidadHoras,
-                precioHora);
 
             frm.TopLevel = false;
             frm.FormBorderStyle = FormBorderStyle.None;
@@ -246,6 +457,7 @@ namespace login.Reservas
 
             pnlContenido.Controls.Add(frm);
             pnlContenido.Tag = frm;
+
             frm.Show();
         }
 
@@ -264,29 +476,56 @@ namespace login.Reservas
 
         private void btnEncontrarCliente_Click(object sender, EventArgs e)
         {
-            frmEncontrarCliente frmC = new frmEncontrarCliente();
-            frmC.StartPosition = FormStartPosition.CenterScreen;
+            frmEncontrarCliente frmC =
+                new frmEncontrarCliente();
+
+            frmC.StartPosition =
+                FormStartPosition.CenterScreen;
+
             frmC.ShowDialog();
 
             if (frmC.DialogResult == DialogResult.OK)
             {
-                txtTipoDocumento.Text = frmC.TipoDocumento;
-                txtTelefono.Text = frmC.Telefono;
-                txtNombres.Text = frmC.Nombre;
-                txtDireccion.Text = frmC.Direccion;
-                txtCorreo.Text = frmC.Correo;
-                txtCodigo.Text = frmC.ClienteID;
-                txtCedula.Text = frmC.Cedula;
-                txtApellidos.Text = frmC.Apellido;
-                lblCliente.Text = frmC.Nombre + " " + frmC.Apellido;
+                clienteID =
+                    Convert.ToInt32(frmC.ClienteID);
+
+                txtTipoDocumento.Text =
+                    frmC.TipoDocumento;
+
+                txtTelefono.Text =
+                    frmC.Telefono;
+
+                txtNombres.Text =
+                    frmC.Nombre;
+
+                txtDireccion.Text =
+                    frmC.Direccion;
+
+                txtCorreo.Text =
+                    frmC.Correo;
+
+                txtCodigo.Text =
+                    frmC.ClienteID;
+
+                txtCedula.Text =
+                    frmC.Cedula;
+
+                txtApellidos.Text =
+                    frmC.Apellido;
+
+                lblCliente.Text =
+                    frmC.Nombre + " " +
+                    frmC.Apellido;
             }
-            clienteID = Convert.ToInt32(frmC.ClienteID);
         }
 
-        private void chkArbitro_CheckedChanged(object sender, EventArgs e)
+        private void chkArbitro_CheckedChanged(
+            object sender,
+            EventArgs e)
         {
             lblServiciosAdicionales.Text = "Árbitro";
-            if(!chkArbitro.Checked)
+
+            if (!chkArbitro.Checked)
                 lblServiciosAdicionales.Text = "Ninguno";
         }
     }

@@ -40,6 +40,7 @@
             this.label17 = new System.Windows.Forms.Label();
             this.SA = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            this.nudCantidadHoras = new System.Windows.Forms.NumericUpDown();
             this.cmbDeporte = new Guna.UI2.WinForms.Guna2ComboBox();
             this.label23 = new System.Windows.Forms.Label();
             this.cmbCancha = new Guna.UI2.WinForms.Guna2ComboBox();
@@ -93,12 +94,14 @@
             this.btnCancelar = new Guna.UI2.WinForms.Guna2Button();
             this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.label7 = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
             this.pnlContenido.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox2)).BeginInit();
             this.guna2Panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.guna2Panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudCantidadHoras)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.guna2Panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -164,20 +167,20 @@
             this.guna2Panel3.Controls.Add(this.label17);
             this.guna2Panel3.Controls.Add(this.SA);
             this.guna2Panel3.FillColor = System.Drawing.Color.White;
-            this.guna2Panel3.Location = new System.Drawing.Point(16, 551);
+            this.guna2Panel3.Location = new System.Drawing.Point(16, 580);
             this.guna2Panel3.Margin = new System.Windows.Forms.Padding(2);
             this.guna2Panel3.Name = "guna2Panel3";
             this.guna2Panel3.ShadowDecoration.BorderRadius = 15;
             this.guna2Panel3.ShadowDecoration.Depth = 4;
             this.guna2Panel3.ShadowDecoration.Enabled = true;
-            this.guna2Panel3.Size = new System.Drawing.Size(600, 134);
+            this.guna2Panel3.Size = new System.Drawing.Size(600, 105);
             this.guna2Panel3.TabIndex = 80;
             // 
             // pictureBox4
             // 
             this.pictureBox4.BackColor = System.Drawing.Color.White;
             this.pictureBox4.Image = global::login.Properties.Resources.icons8_silbato_100;
-            this.pictureBox4.Location = new System.Drawing.Point(25, 77);
+            this.pictureBox4.Location = new System.Drawing.Point(26, 65);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(33, 23);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -190,7 +193,7 @@
             this.label12.BackColor = System.Drawing.Color.White;
             this.label12.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
             this.label12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(37)))), ((int)(((byte)(87)))));
-            this.label12.Location = new System.Drawing.Point(94, 89);
+            this.label12.Location = new System.Drawing.Point(99, 75);
             this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(44, 19);
@@ -203,7 +206,7 @@
             this.label1.BackColor = System.Drawing.Color.White;
             this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(37)))), ((int)(((byte)(87)))));
-            this.label1.Location = new System.Drawing.Point(92, 70);
+            this.label1.Location = new System.Drawing.Point(99, 58);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(53, 19);
@@ -215,7 +218,7 @@
             this.chkArbitro.AutoSize = true;
             this.chkArbitro.BackColor = System.Drawing.Color.White;
             this.chkArbitro.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkArbitro.Location = new System.Drawing.Point(72, 80);
+            this.chkArbitro.Location = new System.Drawing.Point(72, 67);
             this.chkArbitro.Name = "chkArbitro";
             this.chkArbitro.Size = new System.Drawing.Size(15, 14);
             this.chkArbitro.TabIndex = 40;
@@ -225,7 +228,7 @@
             // pictureBox2
             // 
             this.pictureBox2.Image = global::login.Properties.Resources.masss;
-            this.pictureBox2.Location = new System.Drawing.Point(15, 16);
+            this.pictureBox2.Location = new System.Drawing.Point(15, 18);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(33, 23);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -238,7 +241,7 @@
             this.label17.BackColor = System.Drawing.Color.Transparent;
             this.label17.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold);
             this.label17.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.label17.Location = new System.Drawing.Point(53, 14);
+            this.label17.Location = new System.Drawing.Point(53, 16);
             this.label17.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(209, 25);
@@ -259,12 +262,12 @@
             this.SA.HoverState.BorderColor = System.Drawing.Color.White;
             this.SA.HoverState.CustomBorderColor = System.Drawing.Color.Transparent;
             this.SA.HoverState.FillColor = System.Drawing.Color.White;
-            this.SA.Location = new System.Drawing.Point(15, 55);
+            this.SA.Location = new System.Drawing.Point(15, 51);
             this.SA.Name = "SA";
             this.SA.ShadowDecoration.BorderRadius = 12;
             this.SA.ShadowDecoration.Depth = 4;
             this.SA.ShadowDecoration.Enabled = true;
-            this.SA.Size = new System.Drawing.Size(180, 66);
+            this.SA.Size = new System.Drawing.Size(180, 46);
             this.SA.TabIndex = 41;
             this.SA.Text = "guna2Button1";
             // 
@@ -273,6 +276,8 @@
             this.guna2Panel1.BackColor = System.Drawing.Color.Transparent;
             this.guna2Panel1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(234)))), ((int)(((byte)(242)))));
             this.guna2Panel1.BorderRadius = 15;
+            this.guna2Panel1.Controls.Add(this.label24);
+            this.guna2Panel1.Controls.Add(this.nudCantidadHoras);
             this.guna2Panel1.Controls.Add(this.cmbDeporte);
             this.guna2Panel1.Controls.Add(this.label23);
             this.guna2Panel1.Controls.Add(this.cmbCancha);
@@ -290,8 +295,17 @@
             this.guna2Panel1.ShadowDecoration.BorderRadius = 15;
             this.guna2Panel1.ShadowDecoration.Depth = 4;
             this.guna2Panel1.ShadowDecoration.Enabled = true;
-            this.guna2Panel1.Size = new System.Drawing.Size(600, 167);
+            this.guna2Panel1.Size = new System.Drawing.Size(600, 189);
             this.guna2Panel1.TabIndex = 79;
+            // 
+            // nudCantidadHoras
+            // 
+            this.nudCantidadHoras.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(37)))), ((int)(((byte)(87)))));
+            this.nudCantidadHoras.Location = new System.Drawing.Point(188, 153);
+            this.nudCantidadHoras.Name = "nudCantidadHoras";
+            this.nudCantidadHoras.Size = new System.Drawing.Size(74, 20);
+            this.nudCantidadHoras.TabIndex = 73;
+            this.nudCantidadHoras.ValueChanged += new System.EventHandler(this.nudCantidadHoras_ValueChanged);
             // 
             // cmbDeporte
             // 
@@ -303,12 +317,12 @@
             this.cmbDeporte.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.cmbDeporte.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.cmbDeporte.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.cmbDeporte.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.cmbDeporte.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(37)))), ((int)(((byte)(87)))));
             this.cmbDeporte.ItemHeight = 30;
-            this.cmbDeporte.Location = new System.Drawing.Point(128, 63);
+            this.cmbDeporte.Location = new System.Drawing.Point(103, 63);
             this.cmbDeporte.Margin = new System.Windows.Forms.Padding(2);
             this.cmbDeporte.Name = "cmbDeporte";
-            this.cmbDeporte.Size = new System.Drawing.Size(162, 36);
+            this.cmbDeporte.Size = new System.Drawing.Size(167, 36);
             this.cmbDeporte.TabIndex = 71;
             this.cmbDeporte.SelectedIndexChanged += new System.EventHandler(this.cmbDeporte_SelectedIndexChanged);
             // 
@@ -318,7 +332,7 @@
             this.label23.BackColor = System.Drawing.Color.Transparent;
             this.label23.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
             this.label23.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(37)))), ((int)(((byte)(87)))));
-            this.label23.Location = new System.Drawing.Point(310, 68);
+            this.label23.Location = new System.Drawing.Point(276, 68);
             this.label23.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(55, 19);
@@ -335,16 +349,16 @@
             this.cmbCancha.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.cmbCancha.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.cmbCancha.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.cmbCancha.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.cmbCancha.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(37)))), ((int)(((byte)(87)))));
             this.cmbCancha.ItemHeight = 30;
             this.cmbCancha.Items.AddRange(new object[] {
             "Cancha 1",
             "Cancha 2",
             "Cancha 3"});
-            this.cmbCancha.Location = new System.Drawing.Point(370, 60);
+            this.cmbCancha.Location = new System.Drawing.Point(361, 63);
             this.cmbCancha.Margin = new System.Windows.Forms.Padding(2);
             this.cmbCancha.Name = "cmbCancha";
-            this.cmbCancha.Size = new System.Drawing.Size(204, 36);
+            this.cmbCancha.Size = new System.Drawing.Size(213, 36);
             this.cmbCancha.TabIndex = 70;
             this.cmbCancha.SelectedIndexChanged += new System.EventHandler(this.cmbCancha_SelectedIndexChanged);
             // 
@@ -358,7 +372,7 @@
             this.dtpFecha.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.dtpFecha.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
             this.dtpFecha.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpFecha.Location = new System.Drawing.Point(407, 113);
+            this.dtpFecha.Location = new System.Drawing.Point(99, 107);
             this.dtpFecha.MaxDate = new System.DateTime(2026, 12, 31, 0, 0, 0, 0);
             this.dtpFecha.MinDate = new System.DateTime(2026, 9, 2, 0, 0, 0, 0);
             this.dtpFecha.Name = "dtpFecha";
@@ -377,12 +391,12 @@
             this.cmbHorario.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.cmbHorario.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.cmbHorario.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.cmbHorario.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.cmbHorario.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(37)))), ((int)(((byte)(87)))));
             this.cmbHorario.ItemHeight = 30;
-            this.cmbHorario.Location = new System.Drawing.Point(162, 113);
+            this.cmbHorario.Location = new System.Drawing.Point(417, 111);
             this.cmbHorario.Margin = new System.Windows.Forms.Padding(2);
             this.cmbHorario.Name = "cmbHorario";
-            this.cmbHorario.Size = new System.Drawing.Size(162, 36);
+            this.cmbHorario.Size = new System.Drawing.Size(157, 36);
             this.cmbHorario.TabIndex = 63;
             this.cmbHorario.SelectedIndexChanged += new System.EventHandler(this.cmbHorario_SelectedIndexChanged);
             // 
@@ -392,7 +406,7 @@
             this.label10.BackColor = System.Drawing.Color.Transparent;
             this.label10.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
             this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(37)))), ((int)(((byte)(87)))));
-            this.label10.Location = new System.Drawing.Point(357, 118);
+            this.label10.Location = new System.Drawing.Point(22, 116);
             this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(45, 19);
@@ -404,10 +418,10 @@
             this.label13.BackColor = System.Drawing.Color.Transparent;
             this.label13.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
             this.label13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(37)))), ((int)(((byte)(87)))));
-            this.label13.Location = new System.Drawing.Point(21, 118);
+            this.label13.Location = new System.Drawing.Point(276, 116);
             this.label13.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(163, 19);
+            this.label13.Size = new System.Drawing.Size(137, 19);
             this.label13.TabIndex = 45;
             this.label13.Text = "Horarios disponibles";
             // 
@@ -517,6 +531,7 @@
             this.txtCodigo.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtCodigo.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.txtCodigo.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.txtCodigo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(37)))), ((int)(((byte)(87)))));
             this.txtCodigo.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtCodigo.Location = new System.Drawing.Point(128, 146);
             this.txtCodigo.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
@@ -538,6 +553,7 @@
             this.txtCorreo.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtCorreo.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.txtCorreo.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.txtCorreo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(37)))), ((int)(((byte)(87)))));
             this.txtCorreo.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtCorreo.Location = new System.Drawing.Point(95, 190);
             this.txtCorreo.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
@@ -595,6 +611,7 @@
             this.txtTipoDocumento.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtTipoDocumento.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.txtTipoDocumento.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.txtTipoDocumento.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(37)))), ((int)(((byte)(87)))));
             this.txtTipoDocumento.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtTipoDocumento.Location = new System.Drawing.Point(162, 58);
             this.txtTipoDocumento.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
@@ -642,6 +659,7 @@
             this.txtDireccion.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtDireccion.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.txtDireccion.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.txtDireccion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(37)))), ((int)(((byte)(87)))));
             this.txtDireccion.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtDireccion.Location = new System.Drawing.Point(95, 234);
             this.txtDireccion.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
@@ -676,6 +694,7 @@
             this.txtApellidos.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtApellidos.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.txtApellidos.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.txtApellidos.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(37)))), ((int)(((byte)(87)))));
             this.txtApellidos.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtApellidos.Location = new System.Drawing.Point(374, 102);
             this.txtApellidos.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
@@ -710,6 +729,7 @@
             this.txtTelefono.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtTelefono.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.txtTelefono.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.txtTelefono.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(37)))), ((int)(((byte)(87)))));
             this.txtTelefono.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtTelefono.Location = new System.Drawing.Point(380, 146);
             this.txtTelefono.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
@@ -744,6 +764,7 @@
             this.txtNombres.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtNombres.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.txtNombres.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.txtNombres.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(37)))), ((int)(((byte)(87)))));
             this.txtNombres.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtNombres.Location = new System.Drawing.Point(98, 102);
             this.txtNombres.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
@@ -778,6 +799,7 @@
             this.txtCedula.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtCedula.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.txtCedula.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.txtCedula.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(37)))), ((int)(((byte)(87)))));
             this.txtCedula.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtCedula.Location = new System.Drawing.Point(374, 58);
             this.txtCedula.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
@@ -1117,6 +1139,19 @@
             this.label7.TabIndex = 16;
             this.label7.Text = "Resumen de la Reserva";
             // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.BackColor = System.Drawing.Color.Transparent;
+            this.label24.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
+            this.label24.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(37)))), ((int)(((byte)(87)))));
+            this.label24.Location = new System.Drawing.Point(21, 153);
+            this.label24.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(122, 19);
+            this.label24.TabIndex = 74;
+            this.label24.Text = "Cantidad de horas";
+            // 
             // UCNuevaReserva
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1134,6 +1169,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.guna2Panel1.ResumeLayout(false);
             this.guna2Panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudCantidadHoras)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.guna2Panel2.ResumeLayout(false);
             this.guna2Panel2.PerformLayout();
@@ -1218,5 +1254,7 @@
         private System.Windows.Forms.Label label23;
         private Guna.UI2.WinForms.Guna2ComboBox cmbCancha;
         private Guna.UI2.WinForms.Guna2ComboBox cmbDeporte;
+        private System.Windows.Forms.NumericUpDown nudCantidadHoras;
+        private System.Windows.Forms.Label label24;
     }
 }
