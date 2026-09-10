@@ -150,7 +150,7 @@
             this.guna2Button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(84)))), ((int)(((byte)(116)))));
             this.guna2Button1.Image = global::login.Properties.Resources.icons8_factura_100;
             this.guna2Button1.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.guna2Button1.Location = new System.Drawing.Point(2, 387);
+            this.guna2Button1.Location = new System.Drawing.Point(2, 344);
             this.guna2Button1.Margin = new System.Windows.Forms.Padding(2);
             this.guna2Button1.Name = "guna2Button1";
             this.guna2Button1.Size = new System.Drawing.Size(147, 39);
@@ -175,7 +175,7 @@
             this.btnCrearUsuario.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(84)))), ((int)(((byte)(116)))));
             this.btnCrearUsuario.Image = ((System.Drawing.Image)(resources.GetObject("btnCrearUsuario.Image")));
             this.btnCrearUsuario.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnCrearUsuario.Location = new System.Drawing.Point(2, 344);
+            this.btnCrearUsuario.Location = new System.Drawing.Point(2, 387);
             this.btnCrearUsuario.Margin = new System.Windows.Forms.Padding(2);
             this.btnCrearUsuario.Name = "btnCrearUsuario";
             this.btnCrearUsuario.Size = new System.Drawing.Size(147, 39);

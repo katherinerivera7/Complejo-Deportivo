@@ -1,4 +1,5 @@
 ﻿using Guna.UI2.WinForms;
+using login.Bar;
 using login.GestionDeUsuarios;
 using login.Promciones;
 using login.Reservas;
@@ -38,6 +39,19 @@ namespace login
         {
             CargarEstadoCanchas();
             CargarTotalClientes();
+            ConfigurarPermisos();
+        }
+
+        private void ConfigurarPermisos()
+        {
+            if (string.Equals(csSesionUsuario.Rol, "Usuario", StringComparison.OrdinalIgnoreCase))
+            {
+                btnCrearUsuario.Enabled = false;
+            }
+            else
+            {
+                btnCrearUsuario.Enabled = true;
+            }
         }
 
         private void AbrirFormulario(Form frm)
