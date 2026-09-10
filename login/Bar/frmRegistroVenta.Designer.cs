@@ -170,8 +170,8 @@
             // 
             // pnlContenedorProductos
             // 
-            this.pnlContenedorProductos.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
+            this.pnlContenedorProductos.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlContenedorProductos.AutoScroll = true;
             this.pnlContenedorProductos.Controls.Add(this.flpProductos);
@@ -191,6 +191,7 @@
             this.flpProductos.Padding = new System.Windows.Forms.Padding(4);
             this.flpProductos.Size = new System.Drawing.Size(593, 654);
             this.flpProductos.TabIndex = 0;
+            this.flpProductos.Paint += new System.Windows.Forms.PaintEventHandler(this.flpProductos_Paint);
             // 
             // flowLayoutPanel1
             // 

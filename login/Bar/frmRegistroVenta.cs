@@ -320,5 +320,10 @@ namespace login.Bar
         private void flpProduct_Paint(object sender, PaintEventArgs e)
         {
         }
+
+        private void flpProductos_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

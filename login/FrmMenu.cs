@@ -1,18 +1,27 @@
 ﻿using Guna.UI2.WinForms;
+using login.GestionDeUsuarios;
 using login.Promciones;
 using login.Reservas;
 using System;
+using System.Collections.Generic;
+using System.Data;
 using System.Drawing;
 using System.Windows.Forms;
-using login.GestionDeUsuarios;
 
 namespace login
 {
     public partial class FrmMenu : Form
     {
+        private List<Control> controlesInicio = new List<Control>();
+
         public FrmMenu()
         {
             InitializeComponent();
+
+            foreach (Control control in pnlContenido.Controls)
+            {
+                controlesInicio.Add(control);
+            }
 
             DoubleBuffered = true;
 
@@ -27,7 +36,35 @@ namespace login
 
         private void FrmMenu_Load(object sender, EventArgs e)
         {
+            CargarEstadoCanchas();
+            CargarTotalClientes();
+        }
 
+        private void AbrirFormulario(Form frm)
+        {
+            pnlContenido.Controls.Clear();
+
+            frm.TopLevel = false;
+            frm.FormBorderStyle = FormBorderStyle.None;
+            frm.Dock = DockStyle.Fill;
+
+            pnlContenido.Controls.Add(frm);
+            pnlContenido.Tag = frm;
+
+            frm.Show();
+        }
+
+        private void MostrarInicio()
+        {
+            pnlContenido.Controls.Clear();
+
+            foreach (Control control in controlesInicio)
+            {
+                pnlContenido.Controls.Add(control);
+            }
+
+            CargarEstadoCanchas();
+            CargarTotalClientes();
         }
 
         private void tmSidebar_Tick(object sender, EventArgs e)
@@ -42,18 +79,7 @@ namespace login
 
         private void btnCafeteria_Click(object sender, EventArgs e)
         {
-            pnlContenido.Controls.Clear();
-
-            Bar.frmBar frm = new Bar.frmBar();
-
-            frm.TopLevel = false;
-            frm.FormBorderStyle = FormBorderStyle.None;
-            frm.Dock = DockStyle.Fill;
-
-            pnlContenido.Controls.Add(frm);
-            pnlContenido.Tag = frm;
-
-            frm.Show();
+            AbrirFormulario(new Bar.frmBar());
         }
 
         private void pnlIngresosDiarios_MouseEnter(object sender, EventArgs e)
@@ -93,34 +119,12 @@ namespace login
 
         private void btnUsuarios_Click(object sender, EventArgs e)
         {
-            pnlContenido.Controls.Clear();
-
-            UCClientes frm = new UCClientes();
-
-            frm.TopLevel = false;
-            frm.FormBorderStyle = FormBorderStyle.None;
-            frm.Dock = DockStyle.Fill;
-
-            pnlContenido.Controls.Add(frm);
-            pnlContenido.Tag = frm;
-
-            frm.Show();
+            AbrirFormulario(new UCClientes());
         }
 
         private void btnReservas_Click(object sender, EventArgs e)
         {
-            pnlContenido.Controls.Clear();
-
-            frmReservas frm = new frmReservas();
-
-            frm.TopLevel = false;
-            frm.FormBorderStyle = FormBorderStyle.None;
-            frm.Dock = DockStyle.Fill;
-
-            pnlContenido.Controls.Add(frm);
-            pnlContenido.Tag = frm;
-
-            frm.Show();
+            AbrirFormulario(new frmReservas());
         }
 
         private void guna2Panel1_Paint(object sender, PaintEventArgs e)
@@ -130,25 +134,12 @@ namespace login
 
         private void btnPromociones_Click(object sender, EventArgs e)
         {
-            pnlContenido.Controls.Clear();
-
-            frmMenuPromociones frm = new frmMenuPromociones();
-
-            frm.TopLevel = false;
-            frm.FormBorderStyle = FormBorderStyle.None;
-            frm.Dock = DockStyle.Fill;
-
-            pnlContenido.Controls.Add(frm);
-            pnlContenido.Tag = frm;
-
-            frm.Show();
+            AbrirFormulario(new frmMenuPromociones());
         }
 
         private void btnInicio_Click(object sender, EventArgs e)
         {
-            pnlContenido.Controls.Clear();
-
-            // NO crear otro FrmMenu aquí.
+            MostrarInicio();
         }
 
         private void pnlSidebar_Paint(object sender, PaintEventArgs e)
@@ -189,34 +180,67 @@ namespace login
 
         private void guna2Button1_Click(object sender, EventArgs e)
         {
-            pnlContenido.Controls.Clear();
-
-            CrearCuenta x = new CrearCuenta();
-
-            x.TopLevel = false;
-            x.FormBorderStyle = FormBorderStyle.None;
-            x.Dock = DockStyle.Fill;
-
-            pnlContenido.Controls.Add(x);
-            pnlContenido.Tag = x;
-
-            x.Show();
+            AbrirFormulario(new CrearCuenta());
         }
 
         private void guna2Button1_Click_1(object sender, EventArgs e)
         {
-            pnlContenido.Controls.Clear();
+            AbrirFormulario(new frmVerFacturas());
+        }
 
-            frmVerFacturas frm = new frmVerFacturas();
+        private void guna2Panel2_Paint(object sender, PaintEventArgs e)
+        {
 
-            frm.TopLevel = false;
-            frm.FormBorderStyle = FormBorderStyle.None;
-            frm.Dock = DockStyle.Fill;
+        }
 
-            pnlContenido.Controls.Add(frm);
-            pnlContenido.Tag = frm;
+        private void CargarEstadoCanchas()
+        {
+            csConectaSQL oCon = new csConectaSQL();
 
-            frm.Show();
+            string consulta = @"SELECT COUNT(*) AS Total,
+                                COUNT(CASE WHEN Estado = 'Disponible' THEN 1 END) AS Disponibles,
+                                COUNT(CASE WHEN Estado = 'Mantenimiento' THEN 1 END) AS Mantenimiento
+                                FROM Canchas";
+
+            DataTable dt = oCon.retornaRegistros(consulta);
+
+            if (dt.Rows.Count > 0)
+            {
+                int total = Convert.ToInt32(dt.Rows[0]["Total"]);
+                int disponibles = Convert.ToInt32(dt.Rows[0]["Disponibles"]);
+                int mantenimiento = Convert.ToInt32(dt.Rows[0]["Mantenimiento"]);
+
+                int porcentaje = total == 0
+                    ? 0
+                    : (int)Math.Round((double)disponibles / total * 100);
+
+                EstadoCancha.Minimum = 0;
+                EstadoCancha.Maximum = 100;
+                EstadoCancha.Value = porcentaje;
+
+                lblDisponibles.Text = "Disponibles: " + disponibles;
+                lblMantenimiento.Text = "En mantenimiento: " + mantenimiento;
+            }
+        }
+
+        private void CargarTotalClientes()
+        {
+            csConectaSQL oCon = new csConectaSQL();
+
+            string consulta = "SELECT COUNT(*) AS TotalClientes FROM Clientes";
+
+            DataTable dt = oCon.retornaRegistros(consulta);
+
+            if (dt.Rows.Count > 0)
+            {
+                int totalClientes = Convert.ToInt32(dt.Rows[0]["TotalClientes"]);
+                lblTotalClientes.Text = totalClientes.ToString();
+            }
+        }
+
+        private void label5_Click_1(object sender, EventArgs e)
+        {
+
         }
     }
 }
