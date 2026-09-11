@@ -48,9 +48,11 @@ namespace login.Promciones
             else
             {
                 dtpFechaInicio.MinDate = DateTime.Today;
-                dtpFechaFin.MinDate = DateTime.Today;
+                dtpFechaFin.MinDate = DateTime.Today.AddDays(1);
+
                 dtpFechaInicio.Value = DateTime.Today;
-                dtpFechaFin.Value = DateTime.Today;
+                dtpFechaFin.Value = DateTime.Today.AddDays(1);
+
                 cmbUnidadDescuento.SelectedIndex = -1;
             }
         }
@@ -63,8 +65,8 @@ namespace login.Promciones
                 using (SqlCommand cmd = new SqlCommand(
                     "SELECT Nombre, Descripcion, TipoPromocion, Descuento, UnidadDescuento, " +
                     "TipoCliente, AplicarA, ServicioIncluido, FechaInicio, FechaFin, " +
-                    "Condiciones, Estado " +
-                    "FROM Promociones WHERE PromocionID = @PromocionID", conexion))
+                    "Condiciones, Estado FROM Promociones " +
+                    "WHERE PromocionID = @PromocionID", conexion))
                 {
                     cmd.Parameters.Add("@PromocionID", SqlDbType.Int).Value = promocionID;
 
@@ -89,8 +91,7 @@ namespace login.Promciones
                         SeleccionarCombo(cmbAplicarA, ObtenerTexto(reader["AplicarA"]));
                         SeleccionarCombo(cmbServicio, ObtenerTexto(reader["ServicioIncluido"]));
 
-                        cmbEstado.SelectedIndex =
-                            Convert.ToBoolean(reader["Estado"]) ? 0 : 1;
+                        cmbEstado.SelectedIndex = Convert.ToBoolean(reader["Estado"]) ? 0 : 1;
 
                         DateTime fechaInicio = Convert.ToDateTime(reader["FechaInicio"]).Date;
                         DateTime fechaFin = Convert.ToDateTime(reader["FechaFin"]).Date;
@@ -99,7 +100,12 @@ namespace login.Promciones
                         dtpFechaFin.MinDate = DateTimePicker.MinimumDateTime;
 
                         dtpFechaInicio.Value = fechaInicio;
-                        dtpFechaFin.MinDate = fechaInicio;
+
+                        dtpFechaFin.MinDate = fechaInicio.AddDays(1);
+
+                        if (fechaFin <= fechaInicio)
+                            fechaFin = fechaInicio.AddDays(1);
+
                         dtpFechaFin.Value = fechaFin;
                     }
                 }
@@ -214,9 +220,9 @@ namespace login.Promciones
                 return false;
             }
 
-            if (dtpFechaFin.Value.Date < dtpFechaInicio.Value.Date)
+            if (dtpFechaFin.Value.Date <= dtpFechaInicio.Value.Date)
             {
-                MostrarAviso("La fecha final no puede ser anterior a la fecha de inicio.", dtpFechaFin);
+                MostrarAviso("La fecha final debe ser posterior a la fecha de inicio.", dtpFechaFin);
                 return false;
             }
 
@@ -299,23 +305,12 @@ namespace login.Promciones
 
                     using (SqlCommand cmd = new SqlCommand(consulta, conexion))
                     {
-                        cmd.Parameters.Add("@Nombre", SqlDbType.VarChar, 100).Value =
-                            txtNombre.Text.Trim();
-
-                        cmd.Parameters.Add("@Descripcion", SqlDbType.VarChar, 255).Value =
-                            txtDescripcion.Text.Trim();
-
-                        cmd.Parameters.Add("@TipoPromocion", SqlDbType.VarChar, 50).Value =
-                            cmbTipoPromocion.Text.Trim();
-
-                        cmd.Parameters.Add("@UnidadDescuento", SqlDbType.VarChar, 1).Value =
-                            cmbUnidadDescuento.Text.Trim();
-
-                        cmd.Parameters.Add("@TipoCliente", SqlDbType.VarChar, 50).Value =
-                            cmbTipoCliente.Text.Trim();
-
-                        cmd.Parameters.Add("@AplicarA", SqlDbType.VarChar, 100).Value =
-                            cmbAplicarA.Text.Trim();
+                        cmd.Parameters.Add("@Nombre", SqlDbType.VarChar, 100).Value = txtNombre.Text.Trim();
+                        cmd.Parameters.Add("@Descripcion", SqlDbType.VarChar, 255).Value = txtDescripcion.Text.Trim();
+                        cmd.Parameters.Add("@TipoPromocion", SqlDbType.VarChar, 50).Value = cmbTipoPromocion.Text.Trim();
+                        cmd.Parameters.Add("@UnidadDescuento", SqlDbType.VarChar, 1).Value = cmbUnidadDescuento.Text.Trim();
+                        cmd.Parameters.Add("@TipoCliente", SqlDbType.VarChar, 50).Value = cmbTipoCliente.Text.Trim();
+                        cmd.Parameters.Add("@AplicarA", SqlDbType.VarChar, 100).Value = cmbAplicarA.Text.Trim();
 
                         cmd.Parameters.Add("@ServicioIncluido", SqlDbType.VarChar, 100).Value =
                             cmbServicio.SelectedIndex == -1 ||
@@ -323,11 +318,8 @@ namespace login.Promciones
                             ? (object)DBNull.Value
                             : cmbServicio.Text.Trim();
 
-                        cmd.Parameters.Add("@FechaInicio", SqlDbType.Date).Value =
-                            dtpFechaInicio.Value.Date;
-
-                        cmd.Parameters.Add("@FechaFin", SqlDbType.Date).Value =
-                            dtpFechaFin.Value.Date;
+                        cmd.Parameters.Add("@FechaInicio", SqlDbType.Date).Value = dtpFechaInicio.Value.Date;
+                        cmd.Parameters.Add("@FechaFin", SqlDbType.Date).Value = dtpFechaFin.Value.Date;
 
                         cmd.Parameters.Add("@Condiciones", SqlDbType.VarChar, 255).Value =
                             string.IsNullOrWhiteSpace(txtCondiciones.Text)
@@ -335,9 +327,7 @@ namespace login.Promciones
                             : txtCondiciones.Text.Trim();
 
                         cmd.Parameters.Add("@Estado", SqlDbType.Bit).Value =
-                            cmbEstado.Text.Equals(
-                                "Activa",
-                                StringComparison.OrdinalIgnoreCase);
+                            cmbEstado.Text.Equals("Activa", StringComparison.OrdinalIgnoreCase);
 
                         SqlParameter parametroDescuento =
                             cmd.Parameters.Add("@Descuento", SqlDbType.Decimal);
@@ -347,10 +337,7 @@ namespace login.Promciones
                         parametroDescuento.Value = descuento;
 
                         if (modoEdicion)
-                        {
-                            cmd.Parameters.Add("@PromocionID", SqlDbType.Int).Value =
-                                promocionID;
-                        }
+                            cmd.Parameters.Add("@PromocionID", SqlDbType.Int).Value = promocionID;
 
                         conexion.Open();
                         cmd.ExecuteNonQuery();
@@ -382,8 +369,7 @@ namespace login.Promciones
         {
             pnlContenido.Controls.Clear();
 
-            if (modoEdicion ||
-                btnCancelar.FocusedColor == Color.FromArgb(9, 128, 0))
+            if (modoEdicion || btnCancelar.FocusedColor == Color.FromArgb(9, 128, 0))
             {
                 frmVerPromociones frm = new frmVerPromociones();
                 frm.TopLevel = false;
@@ -420,10 +406,12 @@ namespace login.Promciones
 
         private void dtpFechaInicio_ValueChanged(object sender, EventArgs e)
         {
-            dtpFechaFin.MinDate = dtpFechaInicio.Value.Date;
+            DateTime fechaMinima = dtpFechaInicio.Value.Date.AddDays(1);
 
-            if (dtpFechaFin.Value.Date < dtpFechaInicio.Value.Date)
-                dtpFechaFin.Value = dtpFechaInicio.Value.Date;
+            dtpFechaFin.MinDate = fechaMinima;
+
+            if (dtpFechaFin.Value.Date < fechaMinima)
+                dtpFechaFin.Value = fechaMinima;
         }
 
         private void cmbUnidadDescuento_SelectedIndexChanged(object sender, EventArgs e)
@@ -435,7 +423,7 @@ namespace login.Promciones
                 txtDescuento.Clear();
 
                 MessageBox.Show(
-                    "El porcentaje debe estar entre 0 y 100.",
+                    "El porcentaje debe estar entre 0 y 100%.",
                     "Aviso",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Warning);
