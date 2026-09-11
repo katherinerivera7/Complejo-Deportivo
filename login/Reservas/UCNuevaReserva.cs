@@ -493,6 +493,27 @@ namespace login.Reservas
                 "Cancelar reserva",
                 MessageBoxButtons.YesNo,
                 MessageBoxIcon.Question);
+            if(resultado==DialogResult.Yes)
+            {
+                Control panelMenu = this.Parent;
+
+                panelMenu.Controls.Clear();
+
+                frmReservas frm = new frmReservas();
+
+                frm.TopLevel = false;
+                frm.FormBorderStyle = FormBorderStyle.None;
+                frm.Dock = DockStyle.Fill;
+
+                panelMenu.Controls.Add(frm);
+                panelMenu.Tag = frm;
+
+                frm.Show();
+            }
+            else
+            {
+
+            }    
         }
 
         private void pnlContenido_Paint(object sender, PaintEventArgs e)

@@ -21,14 +21,14 @@ namespace login
         public csConectaSQL()
         {
 
-           Server = @"LAPTOP-J5U2QS20\SQLEXPRESS01"; //LAPTOP-J5U2QS20\SQLEXPRESS01         DESKTOP-OSJ26G2\SQLEXPRESS01
+            /* Server = @"LAPTOP-J5U2QS20\SQLEXPRESS01"; //LAPTOP-J5U2QS20\SQLEXPRESS01         DESKTOP-OSJ26G2\SQLEXPRESS01
+              Database = "ComplejoDeportivo";
+              Usuario = "Basados777"; // Basados
+              Clave = "Basados888";  //Basados888*/
+            Server = @"HP\SQLEXPRESS";
              Database = "ComplejoDeportivo";
-             Usuario = "Basados777"; // Basados
-             Clave = "Basados888";  //Basados888
-            /* Server = @"HP\SQLEXPRESS";
-            Database = "ComplejoDeportivo";
-            Usuario = "";
-            Clave = ""; */
+             Usuario = "";
+             Clave = ""; 
         }
 
         public bool abrirConexion()

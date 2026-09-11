@@ -19,7 +19,7 @@ namespace login.Reservas
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-
+          
         }
 
         private void btnFacturar_Click(object sender, EventArgs e)
