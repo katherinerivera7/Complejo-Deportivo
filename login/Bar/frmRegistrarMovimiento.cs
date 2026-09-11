@@ -1,12 +1,6 @@
 ﻿using Guna.UI2.WinForms;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace login.Bar
@@ -14,6 +8,7 @@ namespace login.Bar
     public partial class frmRegistrarMovimiento : Form
     {
         csConectaSQL oCon = new csConectaSQL();
+
         public frmRegistrarMovimiento()
         {
             InitializeComponent();
@@ -31,52 +26,66 @@ namespace login.Bar
         {
             if (cmbProducto.SelectedIndex == -1)
             {
-                MessageBox.Show("Seleccione un producto.");
+                MessageBox.Show("Seleccione un producto.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
             if (cmbTipoMovimiento.SelectedIndex == -1)
             {
-                MessageBox.Show("Seleccione el tipo de movimiento.");
+                MessageBox.Show("Seleccione el tipo de movimiento.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
             if (cmbMotivo.SelectedIndex == -1)
             {
-                MessageBox.Show("Seleccione el motivo.");
+                MessageBox.Show("Seleccione el motivo.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            if (!int.TryParse(txtCantidad.Text, out int cantidad) || cantidad <= 0)
+            if (!int.TryParse(txtCantidad.Text.Trim(), out int cantidad) || cantidad <= 0)
             {
-                MessageBox.Show("Ingrese una cantidad válida.");
+                MessageBox.Show("Ingrese una cantidad válida.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtCantidad.Focus();
                 return;
             }
 
-            string motivo = cmbMotivo.Text;
+            string motivo = cmbMotivo.Text.Trim();
 
             if (cmbMotivo.Text == "Otro")
             {
                 if (string.IsNullOrWhiteSpace(txtOtro.Text))
                 {
-                    MessageBox.Show("Ingrese el motivo del movimiento.");
+                    MessageBox.Show("Ingrese el motivo del movimiento.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txtOtro.Focus();
                     return;
                 }
 
                 motivo = txtOtro.Text.Trim();
             }
 
-            int productoID = Convert.ToInt32(cmbProducto.SelectedValue);
-            string tipoMovimiento = cmbTipoMovimiento.Text;
             int usuarioID = csSesionUsuario.UsuarioID;
 
-            if (oCon.registrarMovimientoInventario(productoID, usuarioID, tipoMovimiento, cantidad, motivo))
+            if (usuarioID <= 0)
+            {
+                MessageBox.Show("No se encontró el usuario que inició sesión.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            int productoID = Convert.ToInt32(cmbProducto.SelectedValue);
+            string tipoMovimiento = cmbTipoMovimiento.Text.Trim();
+
+            bool registrado = oCon.registrarMovimientoInventario(productoID, usuarioID, tipoMovimiento, cantidad, motivo);
+
+            if (registrado)
             {
                 MessageBox.Show("Movimiento registrado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.Close();
+                Close();
+            }
+            else
+            {
+                MessageBox.Show("No se pudo registrar el movimiento.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        
 
         private void cmbMotivo_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -108,6 +117,8 @@ namespace login.Bar
             }
 
             cmbMotivo.SelectedIndex = -1;
+            txtOtro.Clear();
+            txtOtro.Visible = false;
         }
 
         private void frmRegistrarMovimiento_Load(object sender, EventArgs e)
@@ -121,9 +132,16 @@ namespace login.Bar
 
             txtOtro.Visible = false;
         }
+
         private void CargarProductos()
         {
             DataTable tabla = oCon.retornaRegistros("SELECT ProductoID, Nombre FROM Productos ORDER BY Nombre");
+
+            if (tabla == null || tabla.Rows.Count == 0)
+            {
+                MessageBox.Show("No hay productos registrados.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
 
             cmbProducto.DataSource = tabla;
             cmbProducto.DisplayMember = "Nombre";
@@ -169,7 +187,6 @@ namespace login.Bar
 
         private void cmbProducto_SelectedIndexChanged(object sender, EventArgs e)
         {
-
         }
     }
 }

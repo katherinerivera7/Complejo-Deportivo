@@ -207,7 +207,10 @@ namespace login
 
         private void button3_Click(object sender, EventArgs e)
         {
+            csSesionUsuario.UsuarioID = 1;
+            csSesionUsuario.NombreUsuario = "admin";
             csSesionUsuario.Rol = "Admin";
+
             FrmMenu menuPrincipal = new FrmMenu();
             menuPrincipal.Show();
             this.Hide();
@@ -215,11 +218,13 @@ namespace login
 
         private void button4_Click(object sender, EventArgs e)
         {
+            csSesionUsuario.UsuarioID = 2;
+            csSesionUsuario.NombreUsuario = "usuario";
             csSesionUsuario.Rol = "Usuario";
 
             FrmMenu menuUsuario = new FrmMenu();
             menuUsuario.Show();
-
+            
             this.Hide();
         }
 
