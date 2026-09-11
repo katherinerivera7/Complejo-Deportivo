@@ -39,6 +39,7 @@ namespace login
         {
             CargarEstadoCanchas();
             CargarTotalClientes();
+            CargarEstadoProductos();
             ConfigurarPermisos();
         }
 
@@ -79,6 +80,7 @@ namespace login
 
             CargarEstadoCanchas();
             CargarTotalClientes();
+            CargarEstadoProductos();
         }
 
         private void tmSidebar_Tick(object sender, EventArgs e)
@@ -207,6 +209,42 @@ namespace login
 
         }
 
+        private void CargarEstadoProductos()
+        {
+            csConectaSQL oCon = new csConectaSQL();
+
+            string consulta = @"SELECT
+                                COUNT(CASE WHEN ISNULL(Stock, 0) > 0 THEN 1 END) AS ConStock,
+                                COUNT(CASE WHEN ISNULL(Stock, 0) = 0 THEN 1 END) AS Agotados
+                                FROM Productos";
+
+            DataTable dt = oCon.retornaRegistros(consulta);
+
+            if (dt.Rows.Count > 0)
+            {
+                int conStock = Convert.ToInt32(dt.Rows[0]["ConStock"]);
+                int agotados = Convert.ToInt32(dt.Rows[0]["Agotados"]);
+
+                int maximo = Math.Max(conStock, agotados);
+
+                if (maximo == 0)
+                {
+                    maximo = 1;
+                }
+
+                stockbar.Minimum = 0;
+                stockbar.Maximum = maximo;
+                stockbar.Value = conStock;
+
+                agotadobar.Minimum = 0;
+                agotadobar.Maximum = maximo;
+                agotadobar.Value = agotados;
+
+                lblCantidadStock.Text = "Con stock: " + conStock;
+                lblCantidadAgotados.Text = "Agotados: " + agotados;
+            }
+        }
+
         private void CargarEstadoCanchas()
         {
             csConectaSQL oCon = new csConectaSQL();
@@ -248,11 +286,30 @@ namespace login
             if (dt.Rows.Count > 0)
             {
                 int totalClientes = Convert.ToInt32(dt.Rows[0]["TotalClientes"]);
+
                 lblTotalClientes.Text = totalClientes.ToString();
             }
         }
 
         private void label5_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblTotalClientes_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblCantidadStock_Click(object sender, EventArgs e)
+        {
+
+        }
+        private void agotadobar_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+        private void lblCantidadAgotados_Click(object sender, EventArgs e)
         {
 
         }

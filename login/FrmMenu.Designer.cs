@@ -61,25 +61,24 @@
             this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.pnlAdmin = new System.Windows.Forms.TableLayoutPanel();
             this.pnlUsuariosRegistrados = new Guna.UI2.WinForms.Guna2GradientPanel();
-            this.pnlEstadoCanchas = new Guna.UI2.WinForms.Guna2GradientPanel();
-            this.pnlIngresosDiarios = new Guna.UI2.WinForms.Guna2GradientPanel();
-            this.EstadoCancha = new Guna.UI2.WinForms.Guna2CircleProgressBar();
-            this.lblDisponibles = new System.Windows.Forms.Label();
-            this.lblMantenimiento = new System.Windows.Forms.Label();
-            this.guna2CirclePictureBox2 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
-            this.guna2CirclePictureBox3 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
-            this.guna2AnimateWindow1 = new Guna.UI2.WinForms.Guna2AnimateWindow(this.components);
-            this.v = new Guna.UI2.WinForms.Guna2VProgressBar();
-            this.guna2VProgressBar1 = new Guna.UI2.WinForms.Guna2VProgressBar();
-            this.guna2VProgressBar2 = new Guna.UI2.WinForms.Guna2VProgressBar();
-            this.guna2CirclePictureBox4 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.guna2CirclePictureBox5 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.lblTotalClientes = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
+            this.guna2CirclePictureBox5 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
+            this.lblCantidadAgotados = new System.Windows.Forms.Label();
+            this.guna2CirclePictureBox4 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
+            this.lblCantidadStock = new System.Windows.Forms.Label();
+            this.agotadobar = new Guna.UI2.WinForms.Guna2VProgressBar();
+            this.stockbar = new Guna.UI2.WinForms.Guna2VProgressBar();
+            this.pnlEstadoCanchas = new Guna.UI2.WinForms.Guna2GradientPanel();
+            this.label6 = new System.Windows.Forms.Label();
+            this.guna2CirclePictureBox3 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
+            this.guna2CirclePictureBox2 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
+            this.lblMantenimiento = new System.Windows.Forms.Label();
+            this.lblDisponibles = new System.Windows.Forms.Label();
+            this.EstadoCancha = new Guna.UI2.WinForms.Guna2CircleProgressBar();
+            this.pnlIngresosDiarios = new Guna.UI2.WinForms.Guna2GradientPanel();
+            this.label5 = new System.Windows.Forms.Label();
+            this.lblTotalClientes = new System.Windows.Forms.Label();
+            this.guna2AnimateWindow1 = new Guna.UI2.WinForms.Guna2AnimateWindow(this.components);
             this.pnlSidebar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
@@ -95,12 +94,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             this.pnlAdmin.SuspendLayout();
             this.pnlUsuariosRegistrados.SuspendLayout();
-            this.pnlEstadoCanchas.SuspendLayout();
-            this.pnlIngresosDiarios.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox4)).BeginInit();
+            this.pnlEstadoCanchas.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox2)).BeginInit();
+            this.pnlIngresosDiarios.SuspendLayout();
             this.SuspendLayout();
             // 
             // tmSidebar
@@ -630,13 +629,12 @@
             this.pnlUsuariosRegistrados.BorderRadius = 20;
             this.pnlUsuariosRegistrados.Controls.Add(this.label7);
             this.pnlUsuariosRegistrados.Controls.Add(this.guna2CirclePictureBox5);
-            this.pnlUsuariosRegistrados.Controls.Add(this.label9);
+            this.pnlUsuariosRegistrados.Controls.Add(this.lblCantidadAgotados);
             this.pnlUsuariosRegistrados.Controls.Add(this.guna2CirclePictureBox4);
-            this.pnlUsuariosRegistrados.Controls.Add(this.label8);
-            this.pnlUsuariosRegistrados.Controls.Add(this.guna2VProgressBar2);
-            this.pnlUsuariosRegistrados.Controls.Add(this.guna2VProgressBar1);
-            this.pnlUsuariosRegistrados.Controls.Add(this.v);
-            this.pnlUsuariosRegistrados.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pnlUsuariosRegistrados.Controls.Add(this.lblCantidadStock);
+            this.pnlUsuariosRegistrados.Controls.Add(this.agotadobar);
+            this.pnlUsuariosRegistrados.Controls.Add(this.stockbar);
+            this.pnlUsuariosRegistrados.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.pnlUsuariosRegistrados.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlUsuariosRegistrados.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(248)))), ((int)(((byte)(253)))));
             this.pnlUsuariosRegistrados.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(248)))), ((int)(((byte)(253)))));
@@ -649,6 +647,95 @@
             this.pnlUsuariosRegistrados.Size = new System.Drawing.Size(290, 285);
             this.pnlUsuariosRegistrados.TabIndex = 2;
             // 
+            // label7
+            // 
+            this.label7.BackColor = System.Drawing.Color.Transparent;
+            this.label7.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(37)))), ((int)(((byte)(87)))));
+            this.label7.Location = new System.Drawing.Point(2, 12);
+            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(285, 31);
+            this.label7.TabIndex = 40;
+            this.label7.Text = "Total de clientes";
+            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // guna2CirclePictureBox5
+            // 
+            this.guna2CirclePictureBox5.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.guna2CirclePictureBox5.ImageRotate = 0F;
+            this.guna2CirclePictureBox5.Location = new System.Drawing.Point(30, 263);
+            this.guna2CirclePictureBox5.Name = "guna2CirclePictureBox5";
+            this.guna2CirclePictureBox5.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.guna2CirclePictureBox5.Size = new System.Drawing.Size(13, 13);
+            this.guna2CirclePictureBox5.TabIndex = 41;
+            this.guna2CirclePictureBox5.TabStop = false;
+            // 
+            // lblCantidadAgotados
+            // 
+            this.lblCantidadAgotados.AutoSize = true;
+            this.lblCantidadAgotados.BackColor = System.Drawing.Color.Transparent;
+            this.lblCantidadAgotados.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCantidadAgotados.Location = new System.Drawing.Point(44, 261);
+            this.lblCantidadAgotados.Name = "lblCantidadAgotados";
+            this.lblCantidadAgotados.Size = new System.Drawing.Size(74, 17);
+            this.lblCantidadAgotados.TabIndex = 40;
+            this.lblCantidadAgotados.Text = "Agotados: ";
+            // 
+            // guna2CirclePictureBox4
+            // 
+            this.guna2CirclePictureBox4.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(201)))), ((int)(((byte)(77)))));
+            this.guna2CirclePictureBox4.ImageRotate = 0F;
+            this.guna2CirclePictureBox4.Location = new System.Drawing.Point(30, 246);
+            this.guna2CirclePictureBox4.Name = "guna2CirclePictureBox4";
+            this.guna2CirclePictureBox4.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.guna2CirclePictureBox4.Size = new System.Drawing.Size(13, 13);
+            this.guna2CirclePictureBox4.TabIndex = 39;
+            this.guna2CirclePictureBox4.TabStop = false;
+            // 
+            // lblCantidadStock
+            // 
+            this.lblCantidadStock.AutoSize = true;
+            this.lblCantidadStock.BackColor = System.Drawing.Color.Transparent;
+            this.lblCantidadStock.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCantidadStock.Location = new System.Drawing.Point(44, 244);
+            this.lblCantidadStock.Name = "lblCantidadStock";
+            this.lblCantidadStock.Size = new System.Drawing.Size(76, 17);
+            this.lblCantidadStock.TabIndex = 38;
+            this.lblCantidadStock.Text = "Con stock: ";
+            this.lblCantidadStock.Click += new System.EventHandler(this.lblCantidadStock_Click);
+            // 
+            // agotadobar
+            // 
+            this.agotadobar.BorderRadius = 8;
+            this.agotadobar.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(228)))), ((int)(((byte)(228)))));
+            this.agotadobar.Location = new System.Drawing.Point(159, 49);
+            this.agotadobar.Name = "agotadobar";
+            this.agotadobar.ProgressColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(124)))), ((int)(((byte)(124)))));
+            this.agotadobar.ProgressColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.agotadobar.Size = new System.Drawing.Size(38, 190);
+            this.agotadobar.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
+            this.agotadobar.TabIndex = 36;
+            this.agotadobar.Text = "guna2VProgressBar1";
+            this.agotadobar.TextMode = Guna.UI2.WinForms.Enums.ProgressBarTextMode.Custom;
+            this.agotadobar.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
+            this.agotadobar.ValueChanged += new System.EventHandler(this.agotadobar_ValueChanged);
+            // 
+            // stockbar
+            // 
+            this.stockbar.BorderRadius = 8;
+            this.stockbar.Cursor = System.Windows.Forms.Cursors.Default;
+            this.stockbar.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(235)))), ((int)(((byte)(230)))));
+            this.stockbar.Location = new System.Drawing.Point(96, 49);
+            this.stockbar.Name = "stockbar";
+            this.stockbar.ProgressColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(184)))), ((int)(((byte)(92)))));
+            this.stockbar.Size = new System.Drawing.Size(38, 190);
+            this.stockbar.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
+            this.stockbar.TabIndex = 35;
+            this.stockbar.Text = "guna2VProgressBar1";
+            this.stockbar.TextMode = Guna.UI2.WinForms.Enums.ProgressBarTextMode.Custom;
+            this.stockbar.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
+            // 
             // pnlEstadoCanchas
             // 
             this.pnlEstadoCanchas.BackColor = System.Drawing.Color.Transparent;
@@ -660,7 +747,7 @@
             this.pnlEstadoCanchas.Controls.Add(this.lblMantenimiento);
             this.pnlEstadoCanchas.Controls.Add(this.lblDisponibles);
             this.pnlEstadoCanchas.Controls.Add(this.EstadoCancha);
-            this.pnlEstadoCanchas.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pnlEstadoCanchas.Cursor = System.Windows.Forms.Cursors.Default;
             this.pnlEstadoCanchas.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlEstadoCanchas.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(248)))), ((int)(((byte)(253)))));
             this.pnlEstadoCanchas.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(248)))), ((int)(((byte)(253)))));
@@ -673,25 +760,62 @@
             this.pnlEstadoCanchas.Size = new System.Drawing.Size(315, 285);
             this.pnlEstadoCanchas.TabIndex = 1;
             // 
-            // pnlIngresosDiarios
+            // label6
             // 
-            this.pnlIngresosDiarios.BackColor = System.Drawing.Color.Transparent;
-            this.pnlIngresosDiarios.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(116)))), ((int)(((byte)(212)))));
-            this.pnlIngresosDiarios.BorderRadius = 20;
-            this.pnlIngresosDiarios.Controls.Add(this.label5);
-            this.pnlIngresosDiarios.Controls.Add(this.lblTotalClientes);
-            this.pnlIngresosDiarios.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pnlIngresosDiarios.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlIngresosDiarios.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(248)))), ((int)(((byte)(253)))));
-            this.pnlIngresosDiarios.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(248)))), ((int)(((byte)(253)))));
-            this.pnlIngresosDiarios.Location = new System.Drawing.Point(15, 8);
-            this.pnlIngresosDiarios.Margin = new System.Windows.Forms.Padding(15, 8, 8, 8);
-            this.pnlIngresosDiarios.Name = "pnlIngresosDiarios";
-            this.pnlIngresosDiarios.ShadowDecoration.BorderRadius = 20;
-            this.pnlIngresosDiarios.ShadowDecoration.Depth = 4;
-            this.pnlIngresosDiarios.ShadowDecoration.Enabled = true;
-            this.pnlIngresosDiarios.Size = new System.Drawing.Size(289, 285);
-            this.pnlIngresosDiarios.TabIndex = 0;
+            this.label6.BackColor = System.Drawing.Color.Transparent;
+            this.label6.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(201)))), ((int)(((byte)(77)))));
+            this.label6.Location = new System.Drawing.Point(2, 12);
+            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(311, 31);
+            this.label6.TabIndex = 39;
+            this.label6.Text = "Estado de canchas";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // guna2CirclePictureBox3
+            // 
+            this.guna2CirclePictureBox3.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(232)))), ((int)(((byte)(250)))));
+            this.guna2CirclePictureBox3.ImageRotate = 0F;
+            this.guna2CirclePictureBox3.Location = new System.Drawing.Point(23, 262);
+            this.guna2CirclePictureBox3.Name = "guna2CirclePictureBox3";
+            this.guna2CirclePictureBox3.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.guna2CirclePictureBox3.Size = new System.Drawing.Size(13, 13);
+            this.guna2CirclePictureBox3.TabIndex = 38;
+            this.guna2CirclePictureBox3.TabStop = false;
+            // 
+            // guna2CirclePictureBox2
+            // 
+            this.guna2CirclePictureBox2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(201)))), ((int)(((byte)(77)))));
+            this.guna2CirclePictureBox2.ImageRotate = 0F;
+            this.guna2CirclePictureBox2.Location = new System.Drawing.Point(22, 244);
+            this.guna2CirclePictureBox2.Name = "guna2CirclePictureBox2";
+            this.guna2CirclePictureBox2.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.guna2CirclePictureBox2.Size = new System.Drawing.Size(13, 13);
+            this.guna2CirclePictureBox2.TabIndex = 37;
+            this.guna2CirclePictureBox2.TabStop = false;
+            // 
+            // lblMantenimiento
+            // 
+            this.lblMantenimiento.AutoSize = true;
+            this.lblMantenimiento.BackColor = System.Drawing.Color.Transparent;
+            this.lblMantenimiento.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMantenimiento.Location = new System.Drawing.Point(36, 259);
+            this.lblMantenimiento.Name = "lblMantenimiento";
+            this.lblMantenimiento.Size = new System.Drawing.Size(127, 17);
+            this.lblMantenimiento.TabIndex = 36;
+            this.lblMantenimiento.Text = "En mantenimiento: ";
+            // 
+            // lblDisponibles
+            // 
+            this.lblDisponibles.AutoSize = true;
+            this.lblDisponibles.BackColor = System.Drawing.Color.Transparent;
+            this.lblDisponibles.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDisponibles.Location = new System.Drawing.Point(36, 242);
+            this.lblDisponibles.Name = "lblDisponibles";
+            this.lblDisponibles.Size = new System.Drawing.Size(84, 17);
+            this.lblDisponibles.TabIndex = 35;
+            this.lblDisponibles.Text = "Disponibles: ";
             // 
             // EstadoCancha
             // 
@@ -714,139 +838,31 @@
             this.EstadoCancha.TabIndex = 34;
             this.EstadoCancha.Text = "guna2CircleProgressBar1";
             // 
-            // lblDisponibles
+            // pnlIngresosDiarios
             // 
-            this.lblDisponibles.AutoSize = true;
-            this.lblDisponibles.BackColor = System.Drawing.Color.Transparent;
-            this.lblDisponibles.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDisponibles.Location = new System.Drawing.Point(36, 242);
-            this.lblDisponibles.Name = "lblDisponibles";
-            this.lblDisponibles.Size = new System.Drawing.Size(84, 17);
-            this.lblDisponibles.TabIndex = 35;
-            this.lblDisponibles.Text = "Disponibles: ";
-            // 
-            // lblMantenimiento
-            // 
-            this.lblMantenimiento.AutoSize = true;
-            this.lblMantenimiento.BackColor = System.Drawing.Color.Transparent;
-            this.lblMantenimiento.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMantenimiento.Location = new System.Drawing.Point(36, 259);
-            this.lblMantenimiento.Name = "lblMantenimiento";
-            this.lblMantenimiento.Size = new System.Drawing.Size(127, 17);
-            this.lblMantenimiento.TabIndex = 36;
-            this.lblMantenimiento.Text = "En mantenimiento: ";
-            // 
-            // guna2CirclePictureBox2
-            // 
-            this.guna2CirclePictureBox2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(201)))), ((int)(((byte)(77)))));
-            this.guna2CirclePictureBox2.ImageRotate = 0F;
-            this.guna2CirclePictureBox2.Location = new System.Drawing.Point(22, 244);
-            this.guna2CirclePictureBox2.Name = "guna2CirclePictureBox2";
-            this.guna2CirclePictureBox2.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.guna2CirclePictureBox2.Size = new System.Drawing.Size(13, 13);
-            this.guna2CirclePictureBox2.TabIndex = 37;
-            this.guna2CirclePictureBox2.TabStop = false;
-            // 
-            // guna2CirclePictureBox3
-            // 
-            this.guna2CirclePictureBox3.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(232)))), ((int)(((byte)(250)))));
-            this.guna2CirclePictureBox3.ImageRotate = 0F;
-            this.guna2CirclePictureBox3.Location = new System.Drawing.Point(23, 262);
-            this.guna2CirclePictureBox3.Name = "guna2CirclePictureBox3";
-            this.guna2CirclePictureBox3.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.guna2CirclePictureBox3.Size = new System.Drawing.Size(13, 13);
-            this.guna2CirclePictureBox3.TabIndex = 38;
-            this.guna2CirclePictureBox3.TabStop = false;
-            // 
-            // v
-            // 
-            this.v.Location = new System.Drawing.Point(64, 58);
-            this.v.Name = "v";
-            this.v.Size = new System.Drawing.Size(30, 173);
-            this.v.TabIndex = 35;
-            this.v.Text = "guna2VProgressBar1";
-            this.v.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
-            // 
-            // guna2VProgressBar1
-            // 
-            this.guna2VProgressBar1.Location = new System.Drawing.Point(116, 58);
-            this.guna2VProgressBar1.Name = "guna2VProgressBar1";
-            this.guna2VProgressBar1.Size = new System.Drawing.Size(30, 173);
-            this.guna2VProgressBar1.TabIndex = 36;
-            this.guna2VProgressBar1.Text = "guna2VProgressBar1";
-            this.guna2VProgressBar1.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
-            // 
-            // guna2VProgressBar2
-            // 
-            this.guna2VProgressBar2.Location = new System.Drawing.Point(170, 58);
-            this.guna2VProgressBar2.Name = "guna2VProgressBar2";
-            this.guna2VProgressBar2.Size = new System.Drawing.Size(30, 173);
-            this.guna2VProgressBar2.TabIndex = 37;
-            this.guna2VProgressBar2.Text = "guna2VProgressBar1";
-            this.guna2VProgressBar2.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
-            // 
-            // guna2CirclePictureBox4
-            // 
-            this.guna2CirclePictureBox4.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(201)))), ((int)(((byte)(77)))));
-            this.guna2CirclePictureBox4.ImageRotate = 0F;
-            this.guna2CirclePictureBox4.Location = new System.Drawing.Point(30, 246);
-            this.guna2CirclePictureBox4.Name = "guna2CirclePictureBox4";
-            this.guna2CirclePictureBox4.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.guna2CirclePictureBox4.Size = new System.Drawing.Size(13, 13);
-            this.guna2CirclePictureBox4.TabIndex = 39;
-            this.guna2CirclePictureBox4.TabStop = false;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.BackColor = System.Drawing.Color.Transparent;
-            this.label8.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(44, 244);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(84, 17);
-            this.label8.TabIndex = 38;
-            this.label8.Text = "Disponibles: ";
-            // 
-            // guna2CirclePictureBox5
-            // 
-            this.guna2CirclePictureBox5.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(201)))), ((int)(((byte)(77)))));
-            this.guna2CirclePictureBox5.ImageRotate = 0F;
-            this.guna2CirclePictureBox5.Location = new System.Drawing.Point(30, 263);
-            this.guna2CirclePictureBox5.Name = "guna2CirclePictureBox5";
-            this.guna2CirclePictureBox5.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.guna2CirclePictureBox5.Size = new System.Drawing.Size(13, 13);
-            this.guna2CirclePictureBox5.TabIndex = 41;
-            this.guna2CirclePictureBox5.TabStop = false;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.BackColor = System.Drawing.Color.Transparent;
-            this.label9.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(44, 261);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(84, 17);
-            this.label9.TabIndex = 40;
-            this.label9.Text = "Disponibles: ";
-            // 
-            // lblTotalClientes
-            // 
-            this.lblTotalClientes.BackColor = System.Drawing.Color.Transparent;
-            this.lblTotalClientes.Font = new System.Drawing.Font("Segoe UI", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotalClientes.ForeColor = System.Drawing.Color.Chocolate;
-            this.lblTotalClientes.Location = new System.Drawing.Point(2, 94);
-            this.lblTotalClientes.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblTotalClientes.Name = "lblTotalClientes";
-            this.lblTotalClientes.Size = new System.Drawing.Size(285, 70);
-            this.lblTotalClientes.TabIndex = 37;
-            this.lblTotalClientes.Text = "#";
-            this.lblTotalClientes.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.pnlIngresosDiarios.BackColor = System.Drawing.Color.Transparent;
+            this.pnlIngresosDiarios.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(116)))), ((int)(((byte)(212)))));
+            this.pnlIngresosDiarios.BorderRadius = 20;
+            this.pnlIngresosDiarios.Controls.Add(this.label5);
+            this.pnlIngresosDiarios.Controls.Add(this.lblTotalClientes);
+            this.pnlIngresosDiarios.Cursor = System.Windows.Forms.Cursors.Default;
+            this.pnlIngresosDiarios.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlIngresosDiarios.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(248)))), ((int)(((byte)(253)))));
+            this.pnlIngresosDiarios.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(248)))), ((int)(((byte)(253)))));
+            this.pnlIngresosDiarios.Location = new System.Drawing.Point(15, 8);
+            this.pnlIngresosDiarios.Margin = new System.Windows.Forms.Padding(15, 8, 8, 8);
+            this.pnlIngresosDiarios.Name = "pnlIngresosDiarios";
+            this.pnlIngresosDiarios.ShadowDecoration.BorderRadius = 20;
+            this.pnlIngresosDiarios.ShadowDecoration.Depth = 4;
+            this.pnlIngresosDiarios.ShadowDecoration.Enabled = true;
+            this.pnlIngresosDiarios.Size = new System.Drawing.Size(289, 285);
+            this.pnlIngresosDiarios.TabIndex = 0;
             // 
             // label5
             // 
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.Chocolate;
+            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(115)))), ((int)(((byte)(18)))));
             this.label5.Location = new System.Drawing.Point(2, 12);
             this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
@@ -855,31 +871,19 @@
             this.label5.Text = "Total de clientes";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label6
+            // lblTotalClientes
             // 
-            this.label6.BackColor = System.Drawing.Color.Transparent;
-            this.label6.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(37)))), ((int)(((byte)(87)))));
-            this.label6.Location = new System.Drawing.Point(2, 12);
-            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(311, 31);
-            this.label6.TabIndex = 39;
-            this.label6.Text = "Estado de canchas";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label7
-            // 
-            this.label7.BackColor = System.Drawing.Color.Transparent;
-            this.label7.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(37)))), ((int)(((byte)(87)))));
-            this.label7.Location = new System.Drawing.Point(2, 12);
-            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(285, 31);
-            this.label7.TabIndex = 40;
-            this.label7.Text = "Total de clientes";
-            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblTotalClientes.BackColor = System.Drawing.Color.Transparent;
+            this.lblTotalClientes.Font = new System.Drawing.Font("Segoe UI", 48F, System.Drawing.FontStyle.Bold);
+            this.lblTotalClientes.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(115)))), ((int)(((byte)(18)))));
+            this.lblTotalClientes.Location = new System.Drawing.Point(2, 94);
+            this.lblTotalClientes.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblTotalClientes.Name = "lblTotalClientes";
+            this.lblTotalClientes.Size = new System.Drawing.Size(285, 70);
+            this.lblTotalClientes.TabIndex = 37;
+            this.lblTotalClientes.Text = "#";
+            this.lblTotalClientes.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblTotalClientes.Click += new System.EventHandler(this.lblTotalClientes_Click);
             // 
             // FrmMenu
             // 
@@ -912,13 +916,13 @@
             this.pnlAdmin.ResumeLayout(false);
             this.pnlUsuariosRegistrados.ResumeLayout(false);
             this.pnlUsuariosRegistrados.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox4)).EndInit();
             this.pnlEstadoCanchas.ResumeLayout(false);
             this.pnlEstadoCanchas.PerformLayout();
-            this.pnlIngresosDiarios.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox2)).EndInit();
+            this.pnlIngresosDiarios.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -963,12 +967,11 @@
         private System.Windows.Forms.Label lblMantenimiento;
         private System.Windows.Forms.Label lblDisponibles;
         private Guna.UI2.WinForms.Guna2CirclePictureBox guna2CirclePictureBox5;
-        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label lblCantidadAgotados;
         private Guna.UI2.WinForms.Guna2CirclePictureBox guna2CirclePictureBox4;
-        private System.Windows.Forms.Label label8;
-        private Guna.UI2.WinForms.Guna2VProgressBar guna2VProgressBar2;
-        private Guna.UI2.WinForms.Guna2VProgressBar guna2VProgressBar1;
-        private Guna.UI2.WinForms.Guna2VProgressBar v;
+        private System.Windows.Forms.Label lblCantidadStock;
+        private Guna.UI2.WinForms.Guna2VProgressBar agotadobar;
+        private Guna.UI2.WinForms.Guna2VProgressBar stockbar;
         private Guna.UI2.WinForms.Guna2AnimateWindow guna2AnimateWindow1;
         private System.Windows.Forms.Label lblTotalClientes;
         private System.Windows.Forms.Label label6;
