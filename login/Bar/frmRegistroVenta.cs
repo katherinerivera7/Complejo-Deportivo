@@ -301,19 +301,7 @@ namespace login.Bar
         {
         }
 
-        private void guna2Panel7_Paint(object sender, PaintEventArgs e)
-        {
-        }
-
-        private void guna2Panel6_Paint(object sender, PaintEventArgs e)
-        {
-        }
-
         private void pnlProductos_Paint(object sender, PaintEventArgs e)
-        {
-        }
-
-        private void guna2Button2_Click(object sender, EventArgs e)
         {
         }
 

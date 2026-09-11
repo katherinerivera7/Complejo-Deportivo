@@ -125,7 +125,7 @@
             this.pnlSidebar.ShadowDecoration.BorderRadius = 20;
             this.pnlSidebar.ShadowDecoration.Depth = 8;
             this.pnlSidebar.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(0);
-            this.pnlSidebar.Size = new System.Drawing.Size(287, 980);
+            this.pnlSidebar.Size = new System.Drawing.Size(214, 980);
             this.pnlSidebar.TabIndex = 1;
             this.pnlSidebar.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlSidebar_Paint);
             // 
@@ -225,7 +225,7 @@
             this.btnCerrarSesion.Location = new System.Drawing.Point(0, 921);
             this.btnCerrarSesion.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnCerrarSesion.Name = "btnCerrarSesion";
-            this.btnCerrarSesion.Size = new System.Drawing.Size(287, 59);
+            this.btnCerrarSesion.Size = new System.Drawing.Size(214, 59);
             this.btnCerrarSesion.TabIndex = 35;
             this.btnCerrarSesion.Text = "   Cerrar Sesión";
             this.btnCerrarSesion.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -368,7 +368,7 @@
             this.guna2CirclePictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.guna2CirclePictureBox1.Name = "guna2CirclePictureBox1";
             this.guna2CirclePictureBox1.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.guna2CirclePictureBox1.Size = new System.Drawing.Size(287, 199);
+            this.guna2CirclePictureBox1.Size = new System.Drawing.Size(214, 199);
             this.guna2CirclePictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.guna2CirclePictureBox1.TabIndex = 28;
             this.guna2CirclePictureBox1.TabStop = false;
@@ -397,7 +397,7 @@
             this.pnlSuperior.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnlSuperior.Name = "pnlSuperior";
             this.pnlSuperior.Padding = new System.Windows.Forms.Padding(29, 30, 0, 0);
-            this.pnlSuperior.Size = new System.Drawing.Size(1269, 73);
+            this.pnlSuperior.Size = new System.Drawing.Size(1342, 73);
             this.pnlSuperior.TabIndex = 0;
             this.pnlSuperior.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2Panel1_Paint);
             // 
@@ -418,7 +418,7 @@
             this.pictureBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox2.Image = global::login.Properties.Resources.icons8_eliminar_24;
-            this.pictureBox2.Location = new System.Drawing.Point(1221, 2);
+            this.pictureBox2.Location = new System.Drawing.Point(1294, 2);
             this.pictureBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(45, 34);
@@ -457,10 +457,10 @@
             this.pnlContenedor.Controls.Add(this.pnlSuperior);
             this.pnlContenedor.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlContenedor.FillColor = System.Drawing.Color.Transparent;
-            this.pnlContenedor.Location = new System.Drawing.Point(287, 0);
+            this.pnlContenedor.Location = new System.Drawing.Point(214, 0);
             this.pnlContenedor.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnlContenedor.Name = "pnlContenedor";
-            this.pnlContenedor.Size = new System.Drawing.Size(1269, 980);
+            this.pnlContenedor.Size = new System.Drawing.Size(1342, 980);
             this.pnlContenedor.TabIndex = 1;
             this.pnlContenedor.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlContenido_Paint);
             // 
@@ -471,7 +471,7 @@
             this.pnlContenido.Location = new System.Drawing.Point(0, 73);
             this.pnlContenido.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnlContenido.Name = "pnlContenido";
-            this.pnlContenido.Size = new System.Drawing.Size(1269, 907);
+            this.pnlContenido.Size = new System.Drawing.Size(1342, 907);
             this.pnlContenido.TabIndex = 1;
             // 
             // guna2Panel2
@@ -483,7 +483,7 @@
             this.guna2Panel2.Location = new System.Drawing.Point(0, 0);
             this.guna2Panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.guna2Panel2.Name = "guna2Panel2";
-            this.guna2Panel2.Size = new System.Drawing.Size(1269, 907);
+            this.guna2Panel2.Size = new System.Drawing.Size(1342, 907);
             this.guna2Panel2.TabIndex = 2;
             this.guna2Panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2Panel2_Paint);
             // 
@@ -592,7 +592,7 @@
             this.pnlAdmin.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 455F));
             this.pnlAdmin.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.pnlAdmin.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 370F));
-            this.pnlAdmin.Size = new System.Drawing.Size(1205, 370);
+            this.pnlAdmin.Size = new System.Drawing.Size(1278, 370);
             this.pnlAdmin.TabIndex = 5;
             // 
             // pnlUsuariosRegistrados
@@ -611,13 +611,13 @@
             this.pnlUsuariosRegistrados.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlUsuariosRegistrados.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(248)))), ((int)(((byte)(253)))));
             this.pnlUsuariosRegistrados.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(248)))), ((int)(((byte)(253)))));
-            this.pnlUsuariosRegistrados.Location = new System.Drawing.Point(821, 10);
+            this.pnlUsuariosRegistrados.Location = new System.Drawing.Point(870, 10);
             this.pnlUsuariosRegistrados.Margin = new System.Windows.Forms.Padding(11, 10, 20, 10);
             this.pnlUsuariosRegistrados.Name = "pnlUsuariosRegistrados";
             this.pnlUsuariosRegistrados.ShadowDecoration.BorderRadius = 20;
             this.pnlUsuariosRegistrados.ShadowDecoration.Depth = 6;
             this.pnlUsuariosRegistrados.ShadowDecoration.Enabled = true;
-            this.pnlUsuariosRegistrados.Size = new System.Drawing.Size(364, 350);
+            this.pnlUsuariosRegistrados.Size = new System.Drawing.Size(388, 350);
             this.pnlUsuariosRegistrados.TabIndex = 2;
             // 
             // label7
@@ -729,13 +729,13 @@
             this.pnlEstadoCanchas.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlEstadoCanchas.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(248)))), ((int)(((byte)(253)))));
             this.pnlEstadoCanchas.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(248)))), ((int)(((byte)(253)))));
-            this.pnlEstadoCanchas.Location = new System.Drawing.Point(404, 10);
+            this.pnlEstadoCanchas.Location = new System.Drawing.Point(428, 10);
             this.pnlEstadoCanchas.Margin = new System.Windows.Forms.Padding(11, 10, 11, 10);
             this.pnlEstadoCanchas.Name = "pnlEstadoCanchas";
             this.pnlEstadoCanchas.ShadowDecoration.BorderRadius = 20;
             this.pnlEstadoCanchas.ShadowDecoration.Depth = 4;
             this.pnlEstadoCanchas.ShadowDecoration.Enabled = true;
-            this.pnlEstadoCanchas.Size = new System.Drawing.Size(395, 350);
+            this.pnlEstadoCanchas.Size = new System.Drawing.Size(420, 350);
             this.pnlEstadoCanchas.TabIndex = 1;
             // 
             // label6
@@ -837,7 +837,7 @@
             this.pnlIngresosDiarios.ShadowDecoration.BorderRadius = 20;
             this.pnlIngresosDiarios.ShadowDecoration.Depth = 4;
             this.pnlIngresosDiarios.ShadowDecoration.Enabled = true;
-            this.pnlIngresosDiarios.Size = new System.Drawing.Size(362, 350);
+            this.pnlIngresosDiarios.Size = new System.Drawing.Size(386, 350);
             this.pnlIngresosDiarios.TabIndex = 0;
             // 
             // label5
