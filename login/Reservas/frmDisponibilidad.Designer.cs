@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDisponibilidad));
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.dgvHorarios = new Guna.UI2.WinForms.Guna2DataGridView();
@@ -42,25 +42,20 @@
             this.label13 = new System.Windows.Forms.Label();
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2Panel6 = new Guna.UI2.WinForms.Guna2Panel();
-            this.label21 = new System.Windows.Forms.Label();
+            this.lblDia = new System.Windows.Forms.Label();
             this.guna2CircleButton2 = new Guna.UI2.WinForms.Guna2CircleButton();
             this.label10 = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
-            this.guna2Panel5 = new Guna.UI2.WinForms.Guna2Panel();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
-            this.guna2CircleButton1 = new Guna.UI2.WinForms.Guna2CircleButton();
-            this.label18 = new System.Windows.Forms.Label();
+            this.lblFechaSeleccionada = new System.Windows.Forms.Label();
             this.guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
             this.label8 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.guna2CircleButton6 = new Guna.UI2.WinForms.Guna2CircleButton();
-            this.label16 = new System.Windows.Forms.Label();
+            this.lblCanchasDisponibles = new System.Windows.Forms.Label();
             this.guna2Panel4 = new Guna.UI2.WinForms.Guna2Panel();
             this.label14 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.guna2CircleButton3 = new Guna.UI2.WinForms.Guna2CircleButton();
-            this.label15 = new System.Windows.Forms.Label();
+            this.lblCanchasTotales = new System.Windows.Forms.Label();
             this.guna2CirclePictureBox7 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.label5 = new System.Windows.Forms.Label();
             this.guna2CirclePictureBox8 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
@@ -77,7 +72,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvHorarios)).BeginInit();
             this.guna2Panel2.SuspendLayout();
             this.guna2Panel6.SuspendLayout();
-            this.guna2Panel5.SuspendLayout();
             this.guna2Panel3.SuspendLayout();
             this.guna2Panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox7)).BeginInit();
@@ -105,7 +99,7 @@
             this.guna2Panel1.Controls.Add(this.btnSiguiente);
             this.guna2Panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.guna2Panel1.Location = new System.Drawing.Point(0, 0);
-            this.guna2Panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.guna2Panel1.Margin = new System.Windows.Forms.Padding(2);
             this.guna2Panel1.Name = "guna2Panel1";
             this.guna2Panel1.Size = new System.Drawing.Size(1086, 675);
             this.guna2Panel1.TabIndex = 0;
@@ -116,16 +110,16 @@
             this.dgvHorarios.AllowUserToAddRows = false;
             this.dgvHorarios.AllowUserToDeleteRows = false;
             this.dgvHorarios.AllowUserToOrderColumns = true;
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.White;
-            this.dgvHorarios.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle10;
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(155)))), ((int)(((byte)(75)))));
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(155)))), ((int)(((byte)(75)))));
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvHorarios.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
+            this.dgvHorarios.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(155)))), ((int)(((byte)(75)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(155)))), ((int)(((byte)(75)))));
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvHorarios.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvHorarios.ColumnHeadersHeight = 50;
             this.dgvHorarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             this.dgvHorarios.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -134,17 +128,17 @@
             this.Column3,
             this.Column4,
             this.Column5});
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle12.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Segoe UI", 10F);
-            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(233)))), ((int)(((byte)(251)))));
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvHorarios.DefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 10F);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(233)))), ((int)(((byte)(251)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvHorarios.DefaultCellStyle = dataGridViewCellStyle6;
             this.dgvHorarios.GridColor = System.Drawing.SystemColors.Control;
             this.dgvHorarios.Location = new System.Drawing.Point(36, 170);
-            this.dgvHorarios.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvHorarios.Margin = new System.Windows.Forms.Padding(2);
             this.dgvHorarios.MultiSelect = false;
             this.dgvHorarios.Name = "dgvHorarios";
             this.dgvHorarios.ReadOnly = true;
@@ -218,12 +212,11 @@
             // 
             this.guna2Panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(249)))), ((int)(((byte)(251)))));
             this.guna2Panel2.Controls.Add(this.guna2Panel6);
-            this.guna2Panel2.Controls.Add(this.guna2Panel5);
             this.guna2Panel2.Controls.Add(this.guna2Panel3);
             this.guna2Panel2.Controls.Add(this.guna2Panel4);
             this.guna2Panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.guna2Panel2.Location = new System.Drawing.Point(0, 0);
-            this.guna2Panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.guna2Panel2.Margin = new System.Windows.Forms.Padding(2);
             this.guna2Panel2.Name = "guna2Panel2";
             this.guna2Panel2.Size = new System.Drawing.Size(1086, 102);
             this.guna2Panel2.TabIndex = 0;
@@ -234,13 +227,13 @@
             this.guna2Panel6.BackColor = System.Drawing.Color.Transparent;
             this.guna2Panel6.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(234)))), ((int)(((byte)(242)))));
             this.guna2Panel6.BorderRadius = 15;
-            this.guna2Panel6.Controls.Add(this.label21);
+            this.guna2Panel6.Controls.Add(this.lblDia);
             this.guna2Panel6.Controls.Add(this.guna2CircleButton2);
             this.guna2Panel6.Controls.Add(this.label10);
-            this.guna2Panel6.Controls.Add(this.label20);
+            this.guna2Panel6.Controls.Add(this.lblFechaSeleccionada);
             this.guna2Panel6.FillColor = System.Drawing.Color.White;
-            this.guna2Panel6.Location = new System.Drawing.Point(743, 9);
-            this.guna2Panel6.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.guna2Panel6.Location = new System.Drawing.Point(537, 9);
+            this.guna2Panel6.Margin = new System.Windows.Forms.Padding(2);
             this.guna2Panel6.Name = "guna2Panel6";
             this.guna2Panel6.ShadowDecoration.BorderRadius = 15;
             this.guna2Panel6.ShadowDecoration.Depth = 4;
@@ -248,18 +241,18 @@
             this.guna2Panel6.Size = new System.Drawing.Size(220, 77);
             this.guna2Panel6.TabIndex = 5;
             // 
-            // label21
+            // lblDia
             // 
-            this.label21.AutoSize = true;
-            this.label21.BackColor = System.Drawing.Color.Transparent;
-            this.label21.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label21.ForeColor = System.Drawing.Color.DimGray;
-            this.label21.Location = new System.Drawing.Point(104, 47);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(74, 19);
-            this.label21.TabIndex = 84;
-            this.label21.Text = "miércoles";
-            this.label21.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblDia.AutoSize = true;
+            this.lblDia.BackColor = System.Drawing.Color.Transparent;
+            this.lblDia.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDia.ForeColor = System.Drawing.Color.DimGray;
+            this.lblDia.Location = new System.Drawing.Point(104, 47);
+            this.lblDia.Name = "lblDia";
+            this.lblDia.Size = new System.Drawing.Size(74, 19);
+            this.lblDia.TabIndex = 84;
+            this.lblDia.Text = "miércoles";
+            this.lblDia.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // guna2CircleButton2
             // 
@@ -273,7 +266,7 @@
             this.guna2CircleButton2.Image = ((System.Drawing.Image)(resources.GetObject("guna2CircleButton2.Image")));
             this.guna2CircleButton2.ImageSize = new System.Drawing.Size(30, 30);
             this.guna2CircleButton2.Location = new System.Drawing.Point(13, 6);
-            this.guna2CircleButton2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.guna2CircleButton2.Margin = new System.Windows.Forms.Padding(2);
             this.guna2CircleButton2.Name = "guna2CircleButton2";
             this.guna2CircleButton2.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.guna2CircleButton2.Size = new System.Drawing.Size(64, 64);
@@ -293,95 +286,18 @@
             this.label10.Text = "Fecha seleccionada";
             this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label20
+            // lblFechaSeleccionada
             // 
-            this.label20.AutoSize = true;
-            this.label20.BackColor = System.Drawing.Color.Transparent;
-            this.label20.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(37)))), ((int)(((byte)(87)))));
-            this.label20.Location = new System.Drawing.Point(82, 28);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(111, 19);
-            this.label20.TabIndex = 83;
-            this.label20.Text = "12 agosto 2026";
-            this.label20.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // guna2Panel5
-            // 
-            this.guna2Panel5.BackColor = System.Drawing.Color.Transparent;
-            this.guna2Panel5.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(234)))), ((int)(((byte)(242)))));
-            this.guna2Panel5.BorderRadius = 15;
-            this.guna2Panel5.Controls.Add(this.label7);
-            this.guna2Panel5.Controls.Add(this.label19);
-            this.guna2Panel5.Controls.Add(this.guna2CircleButton1);
-            this.guna2Panel5.Controls.Add(this.label18);
-            this.guna2Panel5.FillColor = System.Drawing.Color.White;
-            this.guna2Panel5.Location = new System.Drawing.Point(508, 9);
-            this.guna2Panel5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.guna2Panel5.Name = "guna2Panel5";
-            this.guna2Panel5.ShadowDecoration.BorderRadius = 15;
-            this.guna2Panel5.ShadowDecoration.Depth = 4;
-            this.guna2Panel5.ShadowDecoration.Enabled = true;
-            this.guna2Panel5.Size = new System.Drawing.Size(198, 77);
-            this.guna2Panel5.TabIndex = 5;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.BackColor = System.Drawing.Color.Transparent;
-            this.label7.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.DimGray;
-            this.label7.Location = new System.Drawing.Point(77, 10);
-            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(115, 19);
-            this.label7.TabIndex = 73;
-            this.label7.Text = "Reservadas hoy";
-            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.BackColor = System.Drawing.Color.Transparent;
-            this.label19.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.ForeColor = System.Drawing.Color.DimGray;
-            this.label19.Location = new System.Drawing.Point(121, 42);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(66, 19);
-            this.label19.TabIndex = 82;
-            this.label19.Text = "reservas";
-            this.label19.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // guna2CircleButton1
-            // 
-            this.guna2CircleButton1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2CircleButton1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2CircleButton1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2CircleButton1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2CircleButton1.FillColor = System.Drawing.Color.LightGoldenrodYellow;
-            this.guna2CircleButton1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2CircleButton1.ForeColor = System.Drawing.Color.White;
-            this.guna2CircleButton1.Image = ((System.Drawing.Image)(resources.GetObject("guna2CircleButton1.Image")));
-            this.guna2CircleButton1.ImageSize = new System.Drawing.Size(30, 30);
-            this.guna2CircleButton1.Location = new System.Drawing.Point(10, 6);
-            this.guna2CircleButton1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.guna2CircleButton1.Name = "guna2CircleButton1";
-            this.guna2CircleButton1.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.guna2CircleButton1.Size = new System.Drawing.Size(64, 64);
-            this.guna2CircleButton1.TabIndex = 76;
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.BackColor = System.Drawing.Color.Transparent;
-            this.label18.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(37)))), ((int)(((byte)(87)))));
-            this.label18.Location = new System.Drawing.Point(80, 24);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(38, 45);
-            this.label18.TabIndex = 82;
-            this.label18.Text = "6";
-            this.label18.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblFechaSeleccionada.AutoSize = true;
+            this.lblFechaSeleccionada.BackColor = System.Drawing.Color.Transparent;
+            this.lblFechaSeleccionada.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFechaSeleccionada.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(37)))), ((int)(((byte)(87)))));
+            this.lblFechaSeleccionada.Location = new System.Drawing.Point(82, 28);
+            this.lblFechaSeleccionada.Name = "lblFechaSeleccionada";
+            this.lblFechaSeleccionada.Size = new System.Drawing.Size(111, 19);
+            this.lblFechaSeleccionada.TabIndex = 83;
+            this.lblFechaSeleccionada.Text = "12 agosto 2026";
+            this.lblFechaSeleccionada.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // guna2Panel3
             // 
@@ -391,10 +307,10 @@
             this.guna2Panel3.Controls.Add(this.label8);
             this.guna2Panel3.Controls.Add(this.label17);
             this.guna2Panel3.Controls.Add(this.guna2CircleButton6);
-            this.guna2Panel3.Controls.Add(this.label16);
+            this.guna2Panel3.Controls.Add(this.lblCanchasDisponibles);
             this.guna2Panel3.FillColor = System.Drawing.Color.White;
-            this.guna2Panel3.Location = new System.Drawing.Point(266, 9);
-            this.guna2Panel3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.guna2Panel3.Location = new System.Drawing.Point(282, 9);
+            this.guna2Panel3.Margin = new System.Windows.Forms.Padding(2);
             this.guna2Panel3.Name = "guna2Panel3";
             this.guna2Panel3.ShadowDecoration.BorderRadius = 15;
             this.guna2Panel3.ShadowDecoration.Depth = 4;
@@ -448,18 +364,18 @@
             this.guna2CircleButton6.TabIndex = 75;
             this.guna2CircleButton6.Click += new System.EventHandler(this.guna2CircleButton6_Click);
             // 
-            // label16
+            // lblCanchasDisponibles
             // 
-            this.label16.AutoSize = true;
-            this.label16.BackColor = System.Drawing.Color.Transparent;
-            this.label16.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(37)))), ((int)(((byte)(87)))));
-            this.label16.Location = new System.Drawing.Point(88, 26);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(38, 45);
-            this.label16.TabIndex = 81;
-            this.label16.Text = "3";
-            this.label16.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblCanchasDisponibles.AutoSize = true;
+            this.lblCanchasDisponibles.BackColor = System.Drawing.Color.Transparent;
+            this.lblCanchasDisponibles.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCanchasDisponibles.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(37)))), ((int)(((byte)(87)))));
+            this.lblCanchasDisponibles.Location = new System.Drawing.Point(88, 26);
+            this.lblCanchasDisponibles.Name = "lblCanchasDisponibles";
+            this.lblCanchasDisponibles.Size = new System.Drawing.Size(38, 45);
+            this.lblCanchasDisponibles.TabIndex = 81;
+            this.lblCanchasDisponibles.Text = "3";
+            this.lblCanchasDisponibles.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // guna2Panel4
             // 
@@ -469,10 +385,10 @@
             this.guna2Panel4.Controls.Add(this.label14);
             this.guna2Panel4.Controls.Add(this.label6);
             this.guna2Panel4.Controls.Add(this.guna2CircleButton3);
-            this.guna2Panel4.Controls.Add(this.label15);
+            this.guna2Panel4.Controls.Add(this.lblCanchasTotales);
             this.guna2Panel4.FillColor = System.Drawing.Color.White;
-            this.guna2Panel4.Location = new System.Drawing.Point(20, 9);
-            this.guna2Panel4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.guna2Panel4.Location = new System.Drawing.Point(36, 9);
+            this.guna2Panel4.Margin = new System.Windows.Forms.Padding(2);
             this.guna2Panel4.Name = "guna2Panel4";
             this.guna2Panel4.ShadowDecoration.BorderRadius = 15;
             this.guna2Panel4.ShadowDecoration.Depth = 4;
@@ -525,19 +441,19 @@
             this.guna2CircleButton3.Size = new System.Drawing.Size(64, 64);
             this.guna2CircleButton3.TabIndex = 77;
             // 
-            // label15
+            // lblCanchasTotales
             // 
-            this.label15.AutoSize = true;
-            this.label15.BackColor = System.Drawing.Color.Transparent;
-            this.label15.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(37)))), ((int)(((byte)(87)))));
-            this.label15.Location = new System.Drawing.Point(78, 22);
-            this.label15.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(38, 45);
-            this.label15.TabIndex = 79;
-            this.label15.Text = "3";
-            this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblCanchasTotales.AutoSize = true;
+            this.lblCanchasTotales.BackColor = System.Drawing.Color.Transparent;
+            this.lblCanchasTotales.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCanchasTotales.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(37)))), ((int)(((byte)(87)))));
+            this.lblCanchasTotales.Location = new System.Drawing.Point(78, 22);
+            this.lblCanchasTotales.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblCanchasTotales.Name = "lblCanchasTotales";
+            this.lblCanchasTotales.Size = new System.Drawing.Size(38, 45);
+            this.lblCanchasTotales.TabIndex = 79;
+            this.lblCanchasTotales.Text = "3";
+            this.lblCanchasTotales.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // guna2CirclePictureBox7
             // 
@@ -545,7 +461,7 @@
             this.guna2CirclePictureBox7.FillColor = System.Drawing.Color.Gray;
             this.guna2CirclePictureBox7.ImageRotate = 0F;
             this.guna2CirclePictureBox7.Location = new System.Drawing.Point(351, 629);
-            this.guna2CirclePictureBox7.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.guna2CirclePictureBox7.Margin = new System.Windows.Forms.Padding(2);
             this.guna2CirclePictureBox7.Name = "guna2CirclePictureBox7";
             this.guna2CirclePictureBox7.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.guna2CirclePictureBox7.Size = new System.Drawing.Size(24, 21);
@@ -572,7 +488,7 @@
             this.guna2CirclePictureBox8.FillColor = System.Drawing.Color.DarkSalmon;
             this.guna2CirclePictureBox8.ImageRotate = 0F;
             this.guna2CirclePictureBox8.Location = new System.Drawing.Point(194, 629);
-            this.guna2CirclePictureBox8.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.guna2CirclePictureBox8.Margin = new System.Windows.Forms.Padding(2);
             this.guna2CirclePictureBox8.Name = "guna2CirclePictureBox8";
             this.guna2CirclePictureBox8.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.guna2CirclePictureBox8.Size = new System.Drawing.Size(24, 21);
@@ -638,7 +554,7 @@
             this.cmbFiltroCancha.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.cmbFiltroCancha.ItemHeight = 30;
             this.cmbFiltroCancha.Location = new System.Drawing.Point(194, 128);
-            this.cmbFiltroCancha.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cmbFiltroCancha.Margin = new System.Windows.Forms.Padding(2);
             this.cmbFiltroCancha.Name = "cmbFiltroCancha";
             this.cmbFiltroCancha.Size = new System.Drawing.Size(163, 36);
             this.cmbFiltroCancha.TabIndex = 93;
@@ -649,10 +565,10 @@
             this.lblMes.BackColor = System.Drawing.Color.Transparent;
             this.lblMes.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMes.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(37)))), ((int)(((byte)(87)))));
-            this.lblMes.Location = new System.Drawing.Point(646, 128);
+            this.lblMes.Location = new System.Drawing.Point(629, 128);
             this.lblMes.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblMes.Name = "lblMes";
-            this.lblMes.Size = new System.Drawing.Size(190, 25);
+            this.lblMes.Size = new System.Drawing.Size(209, 25);
             this.lblMes.TabIndex = 85;
             this.lblMes.Text = "12 de Agosto del 2026";
             // 
@@ -674,12 +590,13 @@
             // 
             this.btnRetroceder.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnRetroceder.BackgroundImage")));
             this.btnRetroceder.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btnRetroceder.Location = new System.Drawing.Point(595, 122);
-            this.btnRetroceder.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnRetroceder.Location = new System.Drawing.Point(578, 122);
+            this.btnRetroceder.Margin = new System.Windows.Forms.Padding(2);
             this.btnRetroceder.Name = "btnRetroceder";
             this.btnRetroceder.Size = new System.Drawing.Size(47, 36);
             this.btnRetroceder.TabIndex = 86;
             this.btnRetroceder.UseVisualStyleBackColor = true;
+            this.btnRetroceder.Click += new System.EventHandler(this.btnRetroceder_Click);
             // 
             // guna2CirclePictureBox5
             // 
@@ -687,7 +604,7 @@
             this.guna2CirclePictureBox5.FillColor = System.Drawing.Color.PaleGreen;
             this.guna2CirclePictureBox5.ImageRotate = 0F;
             this.guna2CirclePictureBox5.Location = new System.Drawing.Point(27, 630);
-            this.guna2CirclePictureBox5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.guna2CirclePictureBox5.Margin = new System.Windows.Forms.Padding(2);
             this.guna2CirclePictureBox5.Name = "guna2CirclePictureBox5";
             this.guna2CirclePictureBox5.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.guna2CirclePictureBox5.Size = new System.Drawing.Size(25, 21);
@@ -699,11 +616,12 @@
             this.btnSiguiente.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnSiguiente.BackgroundImage")));
             this.btnSiguiente.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btnSiguiente.Location = new System.Drawing.Point(842, 122);
-            this.btnSiguiente.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSiguiente.Margin = new System.Windows.Forms.Padding(2);
             this.btnSiguiente.Name = "btnSiguiente";
             this.btnSiguiente.Size = new System.Drawing.Size(47, 36);
             this.btnSiguiente.TabIndex = 87;
             this.btnSiguiente.UseVisualStyleBackColor = true;
+            this.btnSiguiente.Click += new System.EventHandler(this.btnSiguiente_Click);
             // 
             // frmDisponibilidad
             // 
@@ -714,7 +632,7 @@
             this.Controls.Add(this.guna2Panel1);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmDisponibilidad";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmDisponibilidad";
@@ -725,8 +643,6 @@
             this.guna2Panel2.ResumeLayout(false);
             this.guna2Panel6.ResumeLayout(false);
             this.guna2Panel6.PerformLayout();
-            this.guna2Panel5.ResumeLayout(false);
-            this.guna2Panel5.PerformLayout();
             this.guna2Panel3.ResumeLayout(false);
             this.guna2Panel3.PerformLayout();
             this.guna2Panel4.ResumeLayout(false);
@@ -744,24 +660,19 @@
         private Guna.UI2.WinForms.Guna2Panel guna2Panel2;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel4;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel6;
-        private Guna.UI2.WinForms.Guna2Panel guna2Panel5;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel3;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private Guna.UI2.WinForms.Guna2CircleButton guna2CircleButton2;
         private Guna.UI2.WinForms.Guna2CircleButton guna2CircleButton6;
-        private Guna.UI2.WinForms.Guna2CircleButton guna2CircleButton1;
         private Guna.UI2.WinForms.Guna2CircleButton guna2CircleButton3;
-        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label lblCanchasTotales;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label lblCanchasDisponibles;
+        private System.Windows.Forms.Label lblDia;
+        private System.Windows.Forms.Label lblFechaSeleccionada;
         private System.Windows.Forms.Label label13;
         private Guna.UI2.WinForms.Guna2CirclePictureBox guna2CirclePictureBox7;
         private System.Windows.Forms.Label label5;
