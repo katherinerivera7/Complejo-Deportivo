@@ -497,6 +497,21 @@ namespace login.Reservas
                 "Éxito",
                 MessageBoxButtons.OK,
                 MessageBoxIcon.Information);
+            AbrirFormulario(new frmReservas());
+
+        }
+        private void AbrirFormulario(Form frm)
+        {
+            pnlContenido.Controls.Clear();
+
+            frm.TopLevel = false;
+            frm.FormBorderStyle = FormBorderStyle.None;
+            frm.Dock = DockStyle.Fill;
+
+            pnlContenido.Controls.Add(frm);
+            pnlContenido.Tag = frm;
+
+            frm.Show();
         }
     }
 }
