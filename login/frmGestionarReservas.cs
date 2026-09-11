@@ -269,5 +269,10 @@ private void cmbFiltro_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
+
+        private void btnBuscar_Click_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }
