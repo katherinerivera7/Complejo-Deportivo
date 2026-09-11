@@ -31,18 +31,18 @@ namespace login
         private void CargarReservas()
         {
             cadena = @"SELECT
-                        R.ReservaID,
-                        R.ClienteID,
-                        R.CanchaID,
-                        C.Cedula,
-                        C.Nombre,
-                        C.Apellido,
-                        C.Telefono,
-                        CA.Tipo + ' - ' + CA.Nombre AS Cancha,
-                        R.Fecha,
-                        R.HoraInicio,
-                        R.HoraFin,
-                        R.Estado
+                       R.ReservaID,
+                       R.ClienteID,
+                       R.CanchaID,
+                       C.Cedula,
+                       C.Nombre,
+                       C.Apellido,
+                       C.Telefono,
+                       CA.Tipo + ' - ' + CA.Nombre AS Cancha,
+                       R.Fecha,
+                       R.HoraInicio,
+                       R.HoraFin,
+                       R.Estado
                        FROM Reservas R
                        INNER JOIN Clientes C ON R.ClienteID = C.ClienteID
                        INNER JOIN Canchas CA ON R.CanchaID = CA.CanchaID
@@ -50,14 +50,10 @@ namespace login
 
             dgvReservas.DataSource = con.retornaRegistros(cadena);
 
-            if (dgvReservas.Columns["ClienteID"] != null)
-                dgvReservas.Columns["ClienteID"].Visible = false;
-
-            if (dgvReservas.Columns["CanchaID"] != null)
-                dgvReservas.Columns["CanchaID"].Visible = false;
+            OcultarColumnasID();
         }
 
-        private void btnBuscar_Click(object sender, EventArgs e)
+        private void BuscarReservas()
         {
             string texto = txtNombre.Text.Trim();
             string filtro = cmbFiltro.Text;
@@ -113,6 +109,7 @@ namespace login
                             MessageBoxButtons.OK,
                             MessageBoxIcon.Warning);
 
+                        txtNombre.Focus();
                         return;
                     }
 
@@ -133,21 +130,48 @@ namespace login
 
             dgvReservas.DataSource = con.retornaRegistros(consulta);
 
+            OcultarColumnasID();
+        }
+
+        private void OcultarColumnasID()
+        {
             if (dgvReservas.Columns["ClienteID"] != null)
+            {
                 dgvReservas.Columns["ClienteID"].Visible = false;
+            }
 
             if (dgvReservas.Columns["CanchaID"] != null)
+            {
                 dgvReservas.Columns["CanchaID"].Visible = false;
+            }
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            BuscarReservas();
+        }
+
+        private void btnBuscar_Click_1(object sender, EventArgs e)
+        {
+            BuscarReservas();
         }
 
         private void txtNombre_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
             {
-                btnBuscar.PerformClick();
+                BuscarReservas();
 
                 e.SuppressKeyPress = true;
             }
+        }
+
+        private void cmbFiltro_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            txtNombre.Clear();
+            txtNombre.Focus();
+
+            CargarReservas();
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
@@ -191,7 +215,9 @@ namespace login
                 MessageBoxIcon.Warning);
 
             if (resultado != DialogResult.Yes)
+            {
                 return;
+            }
 
             if (con.eliminarReserva(reservaID))
             {
@@ -261,16 +287,6 @@ namespace login
         }
 
         private void pnlContenidoo_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-    
-private void cmbFiltro_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnBuscar_Click_1(object sender, EventArgs e)
         {
 
         }
