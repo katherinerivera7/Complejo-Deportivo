@@ -14,7 +14,7 @@ namespace login.GestionDeUsuarios
     {
         csConectaSQL Con=new csConectaSQL();
         string cadena, canchas;
-        string tipoDocumento, cedula, nombre, apellido, clienteID, telefono, correo, direccion;
+        string tipoDocumento, cedula, nombre, apellido, clienteID, telefono, correo, direccion, ciudad;
         public string TipoDocumento
         {
             get { return tipoDocumento; }
@@ -58,6 +58,11 @@ namespace login.GestionDeUsuarios
             get { return direccion; }
             set { direccion = value; }
         }
+        public string Ciudad
+        {
+            get { return ciudad; }
+            set { ciudad = value; }
+        }
 
         private void dgvClientes_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -71,6 +76,7 @@ namespace login.GestionDeUsuarios
             Telefono = dgvClientes.Rows[e.RowIndex].Cells["Telefono"].Value.ToString();
             Correo = dgvClientes.Rows[e.RowIndex].Cells["Correo"].Value.ToString();
             Direccion = dgvClientes.Rows[e.RowIndex].Cells["Direccion"].Value.ToString();
+            Ciudad = Convert.ToString(dgvClientes.Rows[e.RowIndex].Cells["Ciudad"].Value);
             DialogResult = DialogResult.OK;
             this.Close();
         }
@@ -110,7 +116,7 @@ namespace login.GestionDeUsuarios
         }
         private void CargarClientes()
         {
-            cadena = "SELECT ClienteID, TipoDocumento, Cedula, Nombre, Apellido, Telefono, Correo, Direccion " +
+            cadena = "SELECT ClienteID, TipoDocumento, Cedula, Nombre, Apellido, Telefono, Correo, Direccion, Ciudad " +
                      "FROM Clientes WHERE TipoDocumento = '" + cmbTipoDocumento.Text + "'";
 
             if (!string.IsNullOrWhiteSpace(txtCedula.Text))

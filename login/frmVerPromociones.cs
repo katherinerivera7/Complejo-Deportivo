@@ -9,7 +9,6 @@ namespace login
 {
     public partial class frmVerPromociones : Form
     {
-        csConectaSQL conSQL=new csConectaSQL();
         string conexionString = @"Server=LAPTOP-J5U2QS20\SQLEXPRESS01;Database=ComplejoDeportivo;Integrated Security=True;TrustServerCertificate=True;";
 
         private bool configurandoFiltro = false;
@@ -22,8 +21,8 @@ namespace login
             dgvPromociones.AutoGenerateColumns = false;
 
             ConfigurarFiltro();
-            CargarPromociones();
             ActualizarPromocionesVencidas();
+            CargarPromociones();
         }
 
         private void ConfigurarFiltro()
@@ -44,13 +43,49 @@ namespace login
             configurandoFiltro = false;
         }
 
+        private void ActualizarPromocionesVencidas()
+        {
+            try
+            {
+                using (SqlConnection conexion = new SqlConnection(conexionString))
+                using (SqlCommand cmd = new SqlCommand(
+                    "UPDATE Promociones " +
+                    "SET Estado = 0 " +
+                    "WHERE Estado = 1 " +
+                    "AND FechaFin < CAST(GETDATE() AS date)",
+                    conexion))
+                {
+                    conexion.Open();
+                    cmd.ExecuteNonQuery();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(
+                    "No se pudieron actualizar las promociones vencidas:\n\n" + ex.Message,
+                    "Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
+        }
+
         private void CargarPromociones()
         {
             string texto = txtFiltro.Text.Trim();
             string filtro = cmbFiltro.SelectedItem?.ToString() ?? "Todos";
 
-            string consulta = @"SELECT PromocionID, Nombre, TipoPromocion, Descuento, AplicarA, FechaInicio, FechaFin,
-                                CASE WHEN Estado = 1 THEN 'Activa' ELSE 'Inactiva' END AS Estado
+            string consulta = @"SELECT
+                                PromocionID,
+                                Nombre,
+                                TipoPromocion,
+                                Descuento,
+                                AplicarA,
+                                FechaInicio,
+                                FechaFin,
+                                CASE
+                                    WHEN Estado = 1 THEN 'Activa'
+                                    ELSE 'Inactiva'
+                                END AS Estado
                                 FROM Promociones";
 
             if (!string.IsNullOrWhiteSpace(texto))
@@ -82,19 +117,26 @@ namespace login
                         break;
 
                     case "Estado":
-                        consulta += " WHERE CASE WHEN Estado = 1 THEN 'Activa' ELSE 'Inactiva' END LIKE @Texto";
+                        consulta += @" WHERE
+                            CASE
+                                WHEN Estado = 1 THEN 'Activa'
+                                ELSE 'Inactiva'
+                            END LIKE @Texto";
                         break;
 
                     default:
                         consulta += @" WHERE CONCAT(
-                                      Nombre, ' ',
-                                      TipoPromocion, ' ',
-                                      CONVERT(VARCHAR(20), Descuento), ' ',
-                                      AplicarA, ' ',
-                                      CONVERT(VARCHAR(10), FechaInicio, 103), ' ',
-                                      CONVERT(VARCHAR(10), FechaFin, 103), ' ',
-                                      CASE WHEN Estado = 1 THEN 'Activa' ELSE 'Inactiva' END
-                                      ) LIKE @Texto";
+                            Nombre, ' ',
+                            TipoPromocion, ' ',
+                            CONVERT(VARCHAR(20), Descuento), ' ',
+                            AplicarA, ' ',
+                            CONVERT(VARCHAR(10), FechaInicio, 103), ' ',
+                            CONVERT(VARCHAR(10), FechaFin, 103), ' ',
+                            CASE
+                                WHEN Estado = 1 THEN 'Activa'
+                                ELSE 'Inactiva'
+                            END
+                        ) LIKE @Texto";
                         break;
                 }
             }
@@ -108,11 +150,13 @@ namespace login
                 {
                     if (!string.IsNullOrWhiteSpace(texto))
                     {
-                        comando.Parameters.Add("@Texto", SqlDbType.VarChar, 150).Value = "%" + texto + "%";
+                        comando.Parameters.Add("@Texto", SqlDbType.VarChar, 150).Value =
+                            "%" + texto + "%";
                     }
 
                     SqlDataAdapter adaptador = new SqlDataAdapter(comando);
                     DataTable tabla = new DataTable();
+
                     adaptador.Fill(tabla);
 
                     dgvPromociones.DataSource = tabla;
@@ -122,8 +166,36 @@ namespace login
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al cargar las promociones:\n\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(
+                    "Error al cargar las promociones:\n\n" + ex.Message,
+                    "Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
             }
+        }
+
+        private bool ObtenerPromocionSeleccionada(out int promocionID)
+        {
+            promocionID = 0;
+
+            if (dgvPromociones.CurrentRow == null)
+            {
+                MessageBox.Show(
+                    "Seleccione una promoción.",
+                    "Aviso",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+
+                return false;
+            }
+
+            DataRowView fila = dgvPromociones.CurrentRow.DataBoundItem as DataRowView;
+
+            if (fila == null)
+                return false;
+
+            promocionID = Convert.ToInt32(fila["PromocionID"]);
+            return promocionID > 0;
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
@@ -150,27 +222,77 @@ namespace login
         private void cmbFiltro_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (!configurandoFiltro && cmbFiltro.SelectedIndex >= 0)
-            {
                 CargarPromociones();
-            }
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
+            if (!ObtenerPromocionSeleccionada(out int promocionID))
+                return;
+
             pnlContenidoo.Controls.Clear();
 
-            frmCrearPromocion frm = new frmCrearPromocion();
-            frm.lblTitulo.Text = "Editar Promoción";
-            frm.lblSubtitulo.Text = "Modifica la información de la promoción para tus clientes";
-            frm.btnGuardar.Text = "Guardar cambios";
-            frm.btnCancelar.FocusedColor = Color.FromArgb(9, 128, 0);
+            frmCrearPromocion frm = new frmCrearPromocion(promocionID);
+
             frm.TopLevel = false;
             frm.FormBorderStyle = FormBorderStyle.None;
             frm.Dock = DockStyle.Fill;
 
             pnlContenidoo.Controls.Add(frm);
             pnlContenidoo.Tag = frm;
+
             frm.Show();
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            if (!ObtenerPromocionSeleccionada(out int promocionID))
+                return;
+
+            DataRowView fila = dgvPromociones.CurrentRow.DataBoundItem as DataRowView;
+            string nombre = fila["Nombre"].ToString();
+
+            DialogResult respuesta = MessageBox.Show(
+                "¿Desea eliminar la promoción \"" + nombre + "\"?",
+                "Eliminar promoción",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question);
+
+            if (respuesta != DialogResult.Yes)
+                return;
+
+            try
+            {
+                using (SqlConnection conexion = new SqlConnection(conexionString))
+                using (SqlCommand comando = new SqlCommand(
+                    "UPDATE Promociones " +
+                    "SET Estado = 0 " +
+                    "WHERE PromocionID = @PromocionID",
+                    conexion))
+                {
+                    comando.Parameters.Add("@PromocionID", SqlDbType.Int).Value =
+                        promocionID;
+
+                    conexion.Open();
+                    comando.ExecuteNonQuery();
+                }
+
+                MessageBox.Show(
+                    "Promoción eliminada correctamente.",
+                    "Éxito",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
+
+                CargarPromociones();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(
+                    "No se pudo eliminar la promoción: " + ex.Message,
+                    "Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
         }
 
         private void txtFiltro_KeyDown(object sender, KeyEventArgs e)
@@ -180,19 +302,6 @@ namespace login
                 CargarPromociones();
                 e.SuppressKeyPress = true;
             }
-        }
-        private void ActualizarPromocionesVencidas()
-        {
-            conSQL.retornaRegistros(
-                "UPDATE Promociones " +
-                "SET Estado = 0 " +
-                "WHERE Estado = 1 " +
-                "AND FechaFin < CAST(GETDATE() AS date)");
-        }
-
-        private void btnEliminar_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

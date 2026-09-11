@@ -1,14 +1,9 @@
 ﻿using Guna.UI2.WinForms;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace login.Promciones
@@ -17,32 +12,127 @@ namespace login.Promciones
     {
         string conexionString = @"Server=LAPTOP-J5U2QS20\SQLEXPRESS01;Database=ComplejoDeportivo;Integrated Security=True;TrustServerCertificate=True;";
 
+        private int promocionID = 0;
+        private bool modoEdicion = false;
+
         public frmCrearPromocion()
         {
             InitializeComponent();
         }
 
+        public frmCrearPromocion(int promocionID)
+        {
+            InitializeComponent();
+
+            this.promocionID = promocionID;
+            modoEdicion = true;
+
+            lblTitulo.Text = "Editar Promoción";
+            lblSubtitulo.Text = "Modifica la información de la promoción para tus clientes";
+            btnGuardar.Text = "Guardar cambios";
+            btnCancelar.FocusedColor = Color.FromArgb(9, 128, 0);
+        }
 
         private void frmCrearPromocion_Load(object sender, EventArgs e)
         {
-            dtpFechaInicio.MinDate = DateTime.Today;
-            dtpFechaFin.MinDate = DateTime.Today;
-            dtpFechaInicio.Value = DateTime.Today;
-            dtpFechaFin.Value = DateTime.Today;
-
             if (cmbUnidadDescuento.Items.Count == 0)
             {
                 cmbUnidadDescuento.Items.Add("%");
                 cmbUnidadDescuento.Items.Add("$");
             }
 
-            cmbUnidadDescuento.SelectedIndex = -1;
+            if (modoEdicion)
+            {
+                CargarPromocion();
+            }
+            else
+            {
+                dtpFechaInicio.MinDate = DateTime.Today;
+                dtpFechaFin.MinDate = DateTime.Today;
+                dtpFechaInicio.Value = DateTime.Today;
+                dtpFechaFin.Value = DateTime.Today;
+                cmbUnidadDescuento.SelectedIndex = -1;
+            }
         }
 
-
-        private void label6_Click(object sender, EventArgs e)
+        private void CargarPromocion()
         {
+            try
+            {
+                using (SqlConnection conexion = new SqlConnection(conexionString))
+                using (SqlCommand cmd = new SqlCommand(
+                    "SELECT Nombre, Descripcion, TipoPromocion, Descuento, UnidadDescuento, " +
+                    "TipoCliente, AplicarA, ServicioIncluido, FechaInicio, FechaFin, " +
+                    "Condiciones, Estado " +
+                    "FROM Promociones WHERE PromocionID = @PromocionID", conexion))
+                {
+                    cmd.Parameters.Add("@PromocionID", SqlDbType.Int).Value = promocionID;
 
+                    conexion.Open();
+
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        if (!reader.Read())
+                        {
+                            MessageBox.Show("No se encontró la promoción.");
+                            return;
+                        }
+
+                        txtNombre.Text = ObtenerTexto(reader["Nombre"]);
+                        txtDescripcion.Text = ObtenerTexto(reader["Descripcion"]);
+                        txtDescuento.Text = Convert.ToDecimal(reader["Descuento"]).ToString("0.##");
+                        txtCondiciones.Text = ObtenerTexto(reader["Condiciones"]);
+
+                        SeleccionarCombo(cmbTipoPromocion, ObtenerTexto(reader["TipoPromocion"]));
+                        SeleccionarCombo(cmbUnidadDescuento, ObtenerTexto(reader["UnidadDescuento"]));
+                        SeleccionarCombo(cmbTipoCliente, ObtenerTexto(reader["TipoCliente"]));
+                        SeleccionarCombo(cmbAplicarA, ObtenerTexto(reader["AplicarA"]));
+                        SeleccionarCombo(cmbServicio, ObtenerTexto(reader["ServicioIncluido"]));
+
+                        cmbEstado.SelectedIndex =
+                            Convert.ToBoolean(reader["Estado"]) ? 0 : 1;
+
+                        DateTime fechaInicio = Convert.ToDateTime(reader["FechaInicio"]).Date;
+                        DateTime fechaFin = Convert.ToDateTime(reader["FechaFin"]).Date;
+
+                        dtpFechaInicio.MinDate = DateTimePicker.MinimumDateTime;
+                        dtpFechaFin.MinDate = DateTimePicker.MinimumDateTime;
+
+                        dtpFechaInicio.Value = fechaInicio;
+                        dtpFechaFin.MinDate = fechaInicio;
+                        dtpFechaFin.Value = fechaFin;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(
+                    "Error al cargar la promoción:\n\n" + ex.Message,
+                    "Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
+        }
+
+        private string ObtenerTexto(object valor)
+        {
+            return valor == DBNull.Value ? "" : Convert.ToString(valor);
+        }
+
+        private void SeleccionarCombo(Guna2ComboBox combo, string valor)
+        {
+            if (string.IsNullOrWhiteSpace(valor))
+            {
+                combo.SelectedIndex = -1;
+                return;
+            }
+
+            int indice = combo.FindStringExact(valor);
+
+            if (indice >= 0)
+                combo.SelectedIndex = indice;
+            else
+                combo.Text = valor;
         }
 
         private bool ValidarCampos(out decimal descuento)
@@ -118,7 +208,7 @@ namespace login.Promciones
                 return false;
             }
 
-            if (dtpFechaInicio.Value.Date < DateTime.Today)
+            if (!modoEdicion && dtpFechaInicio.Value.Date < DateTime.Today)
             {
                 MostrarAviso("La fecha de inicio no puede ser anterior a hoy.", dtpFechaInicio);
                 return false;
@@ -149,11 +239,22 @@ namespace login.Promciones
         {
             texto = texto.Trim();
 
-            if (decimal.TryParse(texto, NumberStyles.Number, CultureInfo.CurrentCulture, out descuento))
+            if (decimal.TryParse(
+                texto,
+                NumberStyles.Number,
+                CultureInfo.CurrentCulture,
+                out descuento))
+            {
                 return true;
+            }
 
             texto = texto.Replace(',', '.');
-            return decimal.TryParse(texto, NumberStyles.Number, CultureInfo.InvariantCulture, out descuento);
+
+            return decimal.TryParse(
+                texto,
+                NumberStyles.Number,
+                CultureInfo.InvariantCulture,
+                out descuento);
         }
 
         private void btnGuardarPromocion_Click(object sender, EventArgs e)
@@ -165,63 +266,124 @@ namespace login.Promciones
             {
                 using (SqlConnection conexion = new SqlConnection(conexionString))
                 {
-                    string consulta = @"INSERT INTO Promociones
-                    (Nombre, Descripcion, TipoPromocion, Descuento, UnidadDescuento,
-                    TipoCliente, AplicarA, ServicioIncluido, FechaInicio, FechaFin,
-                    Condiciones, Estado)
-                    VALUES
-                    (@Nombre, @Descripcion, @TipoPromocion, @Descuento, @UnidadDescuento,
-                    @TipoCliente, @AplicarA, @ServicioIncluido, @FechaInicio, @FechaFin,
-                    @Condiciones, @Estado)";
+                    string consulta;
+
+                    if (modoEdicion)
+                    {
+                        consulta = @"UPDATE Promociones SET
+                            Nombre = @Nombre,
+                            Descripcion = @Descripcion,
+                            TipoPromocion = @TipoPromocion,
+                            Descuento = @Descuento,
+                            UnidadDescuento = @UnidadDescuento,
+                            TipoCliente = @TipoCliente,
+                            AplicarA = @AplicarA,
+                            ServicioIncluido = @ServicioIncluido,
+                            FechaInicio = @FechaInicio,
+                            FechaFin = @FechaFin,
+                            Condiciones = @Condiciones,
+                            Estado = @Estado
+                            WHERE PromocionID = @PromocionID";
+                    }
+                    else
+                    {
+                        consulta = @"INSERT INTO Promociones
+                            (Nombre, Descripcion, TipoPromocion, Descuento, UnidadDescuento,
+                            TipoCliente, AplicarA, ServicioIncluido, FechaInicio, FechaFin,
+                            Condiciones, Estado)
+                            VALUES
+                            (@Nombre, @Descripcion, @TipoPromocion, @Descuento, @UnidadDescuento,
+                            @TipoCliente, @AplicarA, @ServicioIncluido, @FechaInicio, @FechaFin,
+                            @Condiciones, @Estado)";
+                    }
 
                     using (SqlCommand cmd = new SqlCommand(consulta, conexion))
                     {
-                        cmd.Parameters.Add("@Nombre", SqlDbType.NVarChar, 100).Value = txtNombre.Text.Trim();
-                        cmd.Parameters.Add("@Descripcion", SqlDbType.NVarChar, 500).Value = txtDescripcion.Text.Trim();
-                        cmd.Parameters.Add("@TipoPromocion", SqlDbType.NVarChar, 50).Value = cmbTipoPromocion.Text;
-                        cmd.Parameters.Add("@UnidadDescuento", SqlDbType.VarChar, 1).Value = cmbUnidadDescuento.Text;
-                        cmd.Parameters.Add("@TipoCliente", SqlDbType.NVarChar, 50).Value = cmbTipoCliente.Text;
-                        cmd.Parameters.Add("@AplicarA", SqlDbType.NVarChar, 100).Value = cmbAplicarA.Text;
-                        cmd.Parameters.Add("@FechaInicio", SqlDbType.Date).Value = dtpFechaInicio.Value.Date;
-                        cmd.Parameters.Add("@FechaFin", SqlDbType.Date).Value = dtpFechaFin.Value.Date;
-                        cmd.Parameters.Add("@Estado", SqlDbType.Bit).Value = cmbEstado.Text.Equals("Activa", StringComparison.OrdinalIgnoreCase);
+                        cmd.Parameters.Add("@Nombre", SqlDbType.VarChar, 100).Value =
+                            txtNombre.Text.Trim();
 
-                        SqlParameter parametroDescuento = cmd.Parameters.Add("@Descuento", SqlDbType.Decimal);
+                        cmd.Parameters.Add("@Descripcion", SqlDbType.VarChar, 255).Value =
+                            txtDescripcion.Text.Trim();
+
+                        cmd.Parameters.Add("@TipoPromocion", SqlDbType.VarChar, 50).Value =
+                            cmbTipoPromocion.Text.Trim();
+
+                        cmd.Parameters.Add("@UnidadDescuento", SqlDbType.VarChar, 1).Value =
+                            cmbUnidadDescuento.Text.Trim();
+
+                        cmd.Parameters.Add("@TipoCliente", SqlDbType.VarChar, 50).Value =
+                            cmbTipoCliente.Text.Trim();
+
+                        cmd.Parameters.Add("@AplicarA", SqlDbType.VarChar, 100).Value =
+                            cmbAplicarA.Text.Trim();
+
+                        cmd.Parameters.Add("@ServicioIncluido", SqlDbType.VarChar, 100).Value =
+                            cmbServicio.SelectedIndex == -1 ||
+                            string.IsNullOrWhiteSpace(cmbServicio.Text)
+                            ? (object)DBNull.Value
+                            : cmbServicio.Text.Trim();
+
+                        cmd.Parameters.Add("@FechaInicio", SqlDbType.Date).Value =
+                            dtpFechaInicio.Value.Date;
+
+                        cmd.Parameters.Add("@FechaFin", SqlDbType.Date).Value =
+                            dtpFechaFin.Value.Date;
+
+                        cmd.Parameters.Add("@Condiciones", SqlDbType.VarChar, 255).Value =
+                            string.IsNullOrWhiteSpace(txtCondiciones.Text)
+                            ? (object)DBNull.Value
+                            : txtCondiciones.Text.Trim();
+
+                        cmd.Parameters.Add("@Estado", SqlDbType.Bit).Value =
+                            cmbEstado.Text.Equals(
+                                "Activa",
+                                StringComparison.OrdinalIgnoreCase);
+
+                        SqlParameter parametroDescuento =
+                            cmd.Parameters.Add("@Descuento", SqlDbType.Decimal);
+
                         parametroDescuento.Precision = 10;
                         parametroDescuento.Scale = 2;
                         parametroDescuento.Value = descuento;
 
-                        cmd.Parameters.Add("@ServicioIncluido", SqlDbType.NVarChar, 100).Value =
-                            cmbServicio.SelectedIndex == -1 || string.IsNullOrWhiteSpace(cmbServicio.Text)
-                            ? (object)DBNull.Value
-                            : cmbServicio.Text.Trim();
-
-                        cmd.Parameters.Add("@Condiciones", SqlDbType.NVarChar, 500).Value =
-                            string.IsNullOrWhiteSpace(txtCondiciones.Text)
-                            ? (object)DBNull.Value
-                            : txtCondiciones.Text.Trim();
+                        if (modoEdicion)
+                        {
+                            cmd.Parameters.Add("@PromocionID", SqlDbType.Int).Value =
+                                promocionID;
+                        }
 
                         conexion.Open();
                         cmd.ExecuteNonQuery();
                     }
                 }
 
-                MessageBox.Show("Promoción registrada correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(
+                    modoEdicion
+                        ? "Promoción actualizada correctamente."
+                        : "Promoción registrada correctamente.",
+                    "Éxito",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
+
                 DialogResult = DialogResult.OK;
+                btnCancelar_Click(sender, e);
             }
             catch (SqlException ex)
             {
-                MessageBox.Show("Error al guardar la promoción:\n\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(
+                    "Error al guardar la promoción:\n\n" + ex.Message,
+                    "Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
             }
         }
-
-        
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             pnlContenido.Controls.Clear();
 
-            if (btnCancelar.FocusedColor == Color.FromArgb(9, 128, 0))
+            if (modoEdicion ||
+                btnCancelar.FocusedColor == Color.FromArgb(9, 128, 0))
             {
                 frmVerPromociones frm = new frmVerPromociones();
                 frm.TopLevel = false;
@@ -271,19 +433,27 @@ namespace login.Promciones
                 descuento > 100)
             {
                 txtDescuento.Clear();
-                MessageBox.Show("El porcentaje debe estar entre 0 y 100.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                MessageBox.Show(
+                    "El porcentaje debe estar entre 0 y 100.",
+                    "Aviso",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+
                 txtDescuento.Focus();
             }
         }
 
+        private void label6_Click(object sender, EventArgs e)
+        {
+        }
+
         private void pnlContenido_Paint(object sender, PaintEventArgs e)
         {
-
         }
 
         private void cmbServicio_SelectedIndexChanged(object sender, EventArgs e)
         {
-
         }
 
         private void txtNombre_KeyDown(object sender, KeyEventArgs e)
@@ -297,12 +467,10 @@ namespace login.Promciones
 
         private void txtNombre_TextChanged(object sender, EventArgs e)
         {
-
         }
 
         private void txtDescripcion_TextChanged(object sender, EventArgs e)
         {
-
         }
 
         private void txtDescripcion_KeyDown(object sender, KeyEventArgs e)
@@ -316,7 +484,6 @@ namespace login.Promciones
 
         private void cmbTipoPromocion_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
         }
 
         private void txtDescuento_KeyDown(object sender, KeyEventArgs e)
@@ -339,7 +506,6 @@ namespace login.Promciones
 
         private void txtDescuento_TextChanged(object sender, EventArgs e)
         {
-
         }
 
         private void cmbUnidadDescuento_KeyDown(object sender, KeyEventArgs e)
@@ -353,7 +519,6 @@ namespace login.Promciones
 
         private void cmbTipoCliente_SelectedIndexChanged(object sender, EventArgs e)
         {
-
         }
     }
 }

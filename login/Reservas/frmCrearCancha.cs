@@ -19,145 +19,260 @@ namespace login.Reservas
         public frmCrearCancha(int id)
         {
             InitializeComponent();
+
             canchaID = id;
             tipo = 2;
         }
 
-
         private void btnCrear_Click(object sender, EventArgs e)
         {
             string nombre = txtNombre.Text.Trim();
+            string tipoCancha = cmbDeporte.Text.Trim();
+            string estado = cmbEstado.Text.Trim();
 
             if (string.IsNullOrWhiteSpace(nombre))
             {
-                MessageBox.Show("Ingrese el nombre de la cancha.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(
+                    "Ingrese el nombre de la cancha.",
+                    "Aviso",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+
                 txtNombre.Focus();
                 return;
             }
 
             if (nombre.Length < 3 || nombre.Length > 50)
             {
-                MessageBox.Show("El nombre debe tener entre 3 y 50 caracteres.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(
+                    "El nombre debe tener entre 3 y 50 caracteres.",
+                    "Aviso",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+
                 txtNombre.Focus();
                 return;
             }
 
-            if (cmbDeporte.SelectedIndex == -1)
+            if (cmbDeporte.SelectedIndex == -1 ||
+                string.IsNullOrWhiteSpace(tipoCancha))
             {
-                MessageBox.Show("Seleccione el tipo de cancha.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(
+                    "Seleccione el tipo de cancha.",
+                    "Aviso",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+
                 cmbDeporte.Focus();
                 return;
             }
 
-            if (!decimal.TryParse(txtPrecioHora.Text.Trim(), out decimal precioHora))
+            if (!decimal.TryParse(
+                txtPrecioHora.Text.Trim(),
+                out decimal precioHora))
             {
-                MessageBox.Show("Ingrese un precio válido.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(
+                    "Ingrese un precio válido.",
+                    "Aviso",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+
                 txtPrecioHora.Focus();
                 return;
             }
 
             if (precioHora <= 0)
             {
-                MessageBox.Show("El precio por hora debe ser mayor que cero.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(
+                    "El precio por hora debe ser mayor que cero.",
+                    "Aviso",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+
                 txtPrecioHora.Focus();
                 return;
             }
 
-            if (cmbEstado.SelectedIndex == -1)
+            if (cmbEstado.SelectedIndex == -1 ||
+                string.IsNullOrWhiteSpace(estado))
             {
-                MessageBox.Show("Seleccione el estado de la cancha.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(
+                    "Seleccione el estado de la cancha.",
+                    "Aviso",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+
                 cmbEstado.Focus();
                 return;
             }
 
             if (NombreCanchaExiste(nombre))
             {
-                MessageBox.Show("Ya existe una cancha con ese nombre.", "Nombre duplicado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(
+                    "Ya existe una cancha con ese nombre.",
+                    "Nombre duplicado",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+
                 txtNombre.Focus();
                 return;
             }
 
-            string tipoCancha = cmbDeporte.Text.Trim();
-            string estado = cmbEstado.Text.Trim();
-
             if (tipo == 1)
             {
-                if (oCon.insertarCancha(nombre, tipoCancha, precioHora, estado))
+                if (oCon.insertarCancha(
+                    nombre,
+                    tipoCancha,
+                    precioHora,
+                    estado))
                 {
-                    MessageBox.Show("Cancha registrada correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show(
+                        "Cancha registrada correctamente.",
+                        "Éxito",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Information);
+
                     Close();
+                }
+                else
+                {
+                    MessageBox.Show(
+                        "No se pudo registrar la cancha.",
+                        "Error",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
                 }
             }
             else
             {
-                if (oCon.actualizarCancha(canchaID, nombre, tipoCancha, precioHora, estado))
+                if (oCon.actualizarCancha(
+                    canchaID,
+                    nombre,
+                    tipoCancha,
+                    precioHora,
+                    estado))
                 {
-                    MessageBox.Show("Cancha actualizada correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show(
+                        "Cancha actualizada correctamente.",
+                        "Éxito",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Information);
+
                     Close();
+                }
+                else
+                {
+                    MessageBox.Show(
+                        "No se pudo actualizar la cancha.",
+                        "Error",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
                 }
             }
         }
+
         private bool NombreCanchaExiste(string nombre)
         {
-            string nombreConsulta = nombre.Replace("'", "''");
+            string nombreConsulta =
+                nombre.Replace("'", "''");
 
-            string consulta = "SELECT COUNT(*) AS Cantidad FROM Canchas " +
-                              "WHERE LOWER(LTRIM(RTRIM(Nombre))) = LOWER('" + nombreConsulta + "')";
+            string consulta =
+                "SELECT COUNT(*) AS Cantidad " +
+                "FROM Canchas " +
+                "WHERE LOWER(LTRIM(RTRIM(Nombre))) = " +
+                "LOWER('" + nombreConsulta + "')";
 
             if (tipo == 2)
-                consulta += " AND CanchaID <> " + canchaID;
+            {
+                consulta +=
+                    " AND CanchaID <> " + canchaID;
+            }
 
-            DataTable tabla = oCon.retornaRegistros(consulta);
+            DataTable tabla =
+                oCon.retornaRegistros(consulta);
 
             return tabla != null &&
                    tabla.Rows.Count > 0 &&
-                   Convert.ToInt32(tabla.Rows[0]["Cantidad"]) > 0;
+                   Convert.ToInt32(
+                       tabla.Rows[0]["Cantidad"]) > 0;
         }
+
         private void CargarCancha()
         {
-            DataTable tabla = oCon.retornaRegistros("SELECT Nombre, Tipo, PrecioHora, Estado FROM Canchas WHERE CanchaID = " + canchaID);
+            DataTable tabla =
+                oCon.retornaRegistros(
+                    "SELECT Nombre, Tipo, PrecioHora, Estado " +
+                    "FROM Canchas " +
+                    "WHERE CanchaID = " + canchaID);
 
-            if (tabla.Rows.Count == 0)
+            if (tabla == null ||
+                tabla.Rows.Count == 0)
+            {
                 return;
+            }
 
             DataRow fila = tabla.Rows[0];
 
-            txtNombre.Text = fila["Nombre"].ToString();
-            cmbDeporte.Text = fila["Tipo"].ToString();
-            txtPrecioHora.Text = fila["PrecioHora"].ToString();
-            cmbEstado.Text = fila["Estado"].ToString();
+            txtNombre.Text =
+                fila["Nombre"].ToString();
+
+            cmbDeporte.SelectedValue =
+                fila["Tipo"].ToString();
+
+            txtPrecioHora.Text =
+                fila["PrecioHora"].ToString();
+
+            cmbEstado.Text =
+                fila["Estado"].ToString();
         }
 
-        private void frmCrearCancha_Load_1(object sender, EventArgs e)
+        private void frmCrearCancha_Load_1(
+            object sender,
+            EventArgs e)
         {
-            if (tipo == 2)
-            {
-                CargarCancha();
-                btnCrear.Text = "Guardar cambios";
-                lblCrearCancha.Text = "Editar cancha";
-            }
-            DataTable dt = oCon.retornaRegistros("select distinct Tipo from Canchas order by Tipo");
+            DataTable dt =
+                oCon.retornaRegistros(
+                    "SELECT DISTINCT Tipo " +
+                    "FROM Canchas " +
+                    "ORDER BY Tipo");
+
             cmbDeporte.DataSource = dt;
             cmbDeporte.DisplayMember = "Tipo";
             cmbDeporte.ValueMember = "Tipo";
             cmbDeporte.SelectedIndex = -1;
+
+            if (tipo == 2)
+            {
+                CargarCancha();
+
+                btnCrear.Text =
+                    "Guardar cambios";
+
+                lblCrearCancha.Text =
+                    "Editar cancha";
+            }
         }
 
-        private void txtNombre_KeyDown(object sender, KeyEventArgs e)
+        private void txtNombre_KeyDown(
+            object sender,
+            KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
             {
-              txtPrecioHora.Focus();
+                txtPrecioHora.Focus();
                 e.SuppressKeyPress = true;
             }
         }
 
-        private void cmbTipo_SelectedIndexChanged(object sender, EventArgs e)
+        private void cmbTipo_SelectedIndexChanged(
+            object sender,
+            EventArgs e)
         {
-            
         }
 
-        private void cmbTipo_KeyDown(object sender, KeyEventArgs e)
+        private void cmbTipo_KeyDown(
+            object sender,
+            KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
             {
@@ -166,7 +281,9 @@ namespace login.Reservas
             }
         }
 
-        private void cmbEstado_KeyDown(object sender, KeyEventArgs e)
+        private void cmbEstado_KeyDown(
+            object sender,
+            KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
             {
