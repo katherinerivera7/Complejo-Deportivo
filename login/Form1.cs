@@ -1,13 +1,6 @@
 ﻿using login.Bar;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace login
@@ -17,49 +10,44 @@ namespace login
         public frmLogin()
         {
             InitializeComponent();
-            this.DoubleBuffered = true;
-            this.SetStyle(
+
+            DoubleBuffered = true;
+
+            SetStyle(
                 ControlStyles.OptimizedDoubleBuffer |
                 ControlStyles.AllPaintingInWmPaint |
                 ControlStyles.UserPaint,
                 true);
 
-            this.UpdateStyles();
-
+            UpdateStyles();
         }
-
 
         private void guna2Panel1_Paint(object sender, PaintEventArgs e)
         {
-
         }
-
-      
 
         private void frmLogin_Load(object sender, EventArgs e)
         {
-
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
             DialogResult resultado = MessageBox.Show(
-        "¿Está seguro de que desea salir del programa?",
-        "Confirmar salida",
-        MessageBoxButtons.YesNo,
-        MessageBoxIcon.Question);
+                "¿Está seguro de que desea salir del programa?",
+                "Confirmar salida",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question);
 
             if (resultado == DialogResult.Yes)
-            {
                 Application.Exit();
-            }
         }
 
         private void btnIngresar_Click_1(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(txtUsuario.Text))
             {
-                MessageBox.Show("Ingrese su usuario.",
+                MessageBox.Show(
+                    "Ingrese su usuario.",
                     "Aviso",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Warning);
@@ -70,7 +58,8 @@ namespace login
 
             if (string.IsNullOrWhiteSpace(txtClave.Text))
             {
-                MessageBox.Show("Ingrese su contraseña.",
+                MessageBox.Show(
+                    "Ingrese su contraseña.",
                     "Aviso",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Warning);
@@ -79,36 +68,56 @@ namespace login
                 return;
             }
 
-            string conexionString = @"Server=LAPTOP-J5U2QS20\SQLEXPRESS01;Database=ComplejoDeportivo;Integrated Security=True;TrustServerCertificate=True;";
+            string conexionString =
+                @"Server=LAPTOP-J5U2QS20\SQLEXPRESS01;Database=ComplejoDeportivo;Integrated Security=True;TrustServerCertificate=True;";
 
             try
             {
-                using (SqlConnection conexion = new SqlConnection(conexionString))
+                using (SqlConnection conexion =
+                    new SqlConnection(conexionString))
                 {
-                    string consulta = @"
-                SELECT UsuarioID, NombreUsuario, Rol
-                FROM Usuarios
-                WHERE NombreUsuario = @Usuario
-                AND Clave = @Clave";
+                    string consulta =
+                        "SELECT UsuarioID, NombreUsuario, Rol " +
+                        "FROM Usuarios " +
+                        "WHERE NombreUsuario = @Usuario " +
+                        "AND Clave = @Clave";
 
-                    using (SqlCommand cmd = new SqlCommand(consulta, conexion))
+                    using (SqlCommand cmd =
+                        new SqlCommand(consulta, conexion))
                     {
-                        cmd.Parameters.AddWithValue("@Usuario", txtUsuario.Text.Trim());
-                        cmd.Parameters.AddWithValue("@Clave", txtClave.Text);
+                        cmd.Parameters.AddWithValue(
+                            "@Usuario",
+                            txtUsuario.Text.Trim());
+
+                        cmd.Parameters.AddWithValue(
+                            "@Clave",
+                            txtClave.Text);
 
                         conexion.Open();
 
-                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        using (SqlDataReader reader =
+                            cmd.ExecuteReader())
                         {
                             if (reader.Read())
                             {
-                                int usuarioID = Convert.ToInt32(reader["UsuarioID"]);
-                                string nombreUsuario = reader["NombreUsuario"].ToString();
-                                string rol = reader["Rol"].ToString();
+                                int usuarioID =
+                                    Convert.ToInt32(
+                                        reader["UsuarioID"]);
 
-                                csSesionUsuario.UsuarioID = usuarioID;
-                                csSesionUsuario.NombreUsuario = nombreUsuario;
-                                csSesionUsuario.Rol = rol;
+                                string nombreUsuario =
+                                    reader["NombreUsuario"].ToString();
+
+                                string rol =
+                                    reader["Rol"].ToString();
+
+                                csSesionUsuario.UsuarioID =
+                                    usuarioID;
+
+                                csSesionUsuario.NombreUsuario =
+                                    nombreUsuario;
+
+                                csSesionUsuario.Rol =
+                                    rol;
 
                                 MessageBox.Show(
                                     "Bienvenido, " + nombreUsuario,
@@ -116,18 +125,11 @@ namespace login
                                     MessageBoxButtons.OK,
                                     MessageBoxIcon.Information);
 
-                                if (rol == "Admin")
-                                {
-                                    FrmMenu menuAdmin = new FrmMenu();
-                                    menuAdmin.Show();
-                                }
-                                else if (rol == "Usuario")
-                                {
-                                    FormMenuUsuario menuUsuario = new FormMenuUsuario();
-                                    menuUsuario.Show();
-                                }
+                                FrmMenu menu =
+                                    new FrmMenu();
 
-                                this.Hide();
+                                menu.Show();
+                                Hide();
                             }
                             else
                             {
@@ -141,53 +143,65 @@ namespace login
                     }
                 }
             }
-
-
             catch (Exception ex)
             {
                 MessageBox.Show(
-                    "Error al iniciar sesión:\n\n" + ex.Message,
+                    "Error al iniciar sesión:\n\n" +
+                    ex.Message,
                     "Error",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
             }
         }
 
-        private void chkMostrar_CheckedChanged_1(object sender, EventArgs e)
+        private void chkMostrar_CheckedChanged_1(
+            object sender,
+            EventArgs e)
         {
             if (chkMostrar.Checked)
-            {
                 txtClave.PasswordChar = '\0';
-            }
             else
-            {
                 txtClave.PasswordChar = '●';
-            }
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            FormMenuUsuario menuPrincipal = new FormMenuUsuario();
-            menuPrincipal.Show();
-            this.Hide();
+            csSesionUsuario.UsuarioID = 2;
+            csSesionUsuario.NombreUsuario = "usuario";
+            csSesionUsuario.Rol = "Usuario";
+
+            FrmMenu menuUsuario =
+                new FrmMenu();
+
+            menuUsuario.Show();
+            Hide();
         }
 
         private void btnRegistrarse_Click(object sender, EventArgs e)
         {
+            CrearCuenta x =
+                new CrearCuenta();
 
-            CrearCuenta x = new CrearCuenta();
             x.Show();
             Hide();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            FrmMenu menuPrincipal = new FrmMenu();
-            menuPrincipal.Show();
-            this.Hide();
+            csSesionUsuario.UsuarioID = 1;
+            csSesionUsuario.NombreUsuario = "admin";
+            csSesionUsuario.Rol = "Admin";
+
+            FrmMenu menuAdmin =
+                new FrmMenu();
+
+            menuAdmin.Show();
+            Hide();
         }
 
-        private void txtUsuario_KeyDown(object sender, KeyEventArgs e)
+        private void txtUsuario_KeyDown(
+            object sender,
+            KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
             {
@@ -196,7 +210,9 @@ namespace login
             }
         }
 
-        private void txtClave_KeyDown(object sender, KeyEventArgs e)
+        private void txtClave_KeyDown(
+            object sender,
+            KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
             {
@@ -211,9 +227,11 @@ namespace login
             csSesionUsuario.NombreUsuario = "admin";
             csSesionUsuario.Rol = "Admin";
 
-            FrmMenu menuPrincipal = new FrmMenu();
-            menuPrincipal.Show();
-            this.Hide();
+            FrmMenu menuAdmin =
+                new FrmMenu();
+
+            menuAdmin.Show();
+            Hide();
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -222,20 +240,23 @@ namespace login
             csSesionUsuario.NombreUsuario = "usuario";
             csSesionUsuario.Rol = "Usuario";
 
-            FrmMenu menuUsuario = new FrmMenu();
+            FrmMenu menuUsuario =
+                new FrmMenu();
+
             menuUsuario.Show();
-            
-            this.Hide();
+            Hide();
         }
 
-        private void pnlLogin_Paint(object sender, PaintEventArgs e)
+        private void pnlLogin_Paint(
+            object sender,
+            PaintEventArgs e)
         {
-
         }
 
-        private void txtUsuario_TextChanged(object sender, EventArgs e)
+        private void txtUsuario_TextChanged(
+            object sender,
+            EventArgs e)
         {
-
         }
     }
 }

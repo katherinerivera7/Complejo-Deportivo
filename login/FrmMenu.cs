@@ -37,6 +37,7 @@ namespace login
 
         private void FrmMenu_Load(object sender, EventArgs e)
         {
+            lblNombre.Text = "Bienvenido, " + csSesionUsuario.NombreUsuario;
             CargarEstadoCanchas();
             CargarTotalClientes();
             CargarEstadoProductos();
