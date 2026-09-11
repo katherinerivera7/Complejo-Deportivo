@@ -12,6 +12,9 @@ namespace login.Reservas
 
         private int clienteID = 0;
         private int reservaIDEditar = 0;
+        private string ciudadCliente = "";
+        private bool incluyeArbitro = false;
+        private decimal precioArbitro = 5.00m;
 
         public UCNuevaReserva()
         {
@@ -46,6 +49,7 @@ namespace login.Reservas
             lblFecha.Text = dtpFecha.Value.ToString("dd/MM/yyyy");
             lblCancha.Text = "---";
             lblHorario.Text = "---";
+            lblServiciosAdicionales.Text = "Ninguno";
 
             if (reservaIDEditar > 0)
             {
@@ -61,7 +65,7 @@ namespace login.Reservas
                 "R.HoraInicio, R.HoraFin, CA.Tipo, " +
                 "CA.Tipo + ' - ' + CA.Nombre AS Cancha, " +
                 "CL.TipoDocumento, CL.Cedula, CL.Nombre, CL.Apellido, " +
-                "CL.Correo, CL.Telefono, CL.Direccion " +
+                "CL.Correo, CL.Telefono, CL.Direccion, CL.Ciudad " +
                 "FROM Reservas R " +
                 "INNER JOIN Canchas CA ON R.CanchaID = CA.CanchaID " +
                 "INNER JOIN Clientes CL ON R.ClienteID = CL.ClienteID " +
@@ -75,6 +79,7 @@ namespace login.Reservas
             DataRow fila = tabla.Rows[0];
 
             clienteID = Convert.ToInt32(fila["ClienteID"]);
+            ciudadCliente = fila["Ciudad"].ToString();
 
             txtCodigo.Text = fila["ClienteID"].ToString();
             txtTipoDocumento.Text = fila["TipoDocumento"].ToString();
@@ -86,8 +91,8 @@ namespace login.Reservas
             txtDireccion.Text = fila["Direccion"].ToString();
 
             lblCliente.Text =
-                fila["Nombre"].ToString() + " " +
-                fila["Apellido"].ToString();
+                fila["Nombre"] + " " +
+                fila["Apellido"];
 
             dtpFecha.Value = Convert.ToDateTime(fila["Fecha"]);
 
@@ -108,8 +113,10 @@ namespace login.Reservas
             cmbDeporte.SelectedValue = fila["Tipo"].ToString();
 
             if (cmbCancha.DataSource != null)
+            {
                 cmbCancha.SelectedValue =
                     Convert.ToInt32(fila["CanchaID"]);
+            }
 
             lblCancha.Text = fila["Cancha"].ToString();
 
@@ -201,7 +208,9 @@ namespace login.Reservas
             if (filaCancha == null || !cmbCancha.Enabled)
                 return;
 
-            lblCancha.Text = filaCancha["Cancha"].ToString();
+            lblCancha.Text =
+                filaCancha["Cancha"].ToString();
+
             CargarHorariosDisponibles();
         }
 
@@ -231,8 +240,10 @@ namespace login.Reservas
             string excluirReserva = "";
 
             if (reservaIDEditar > 0)
+            {
                 excluirReserva =
                     "AND R.ReservaID <> " + reservaIDEditar + " ";
+            }
 
             string finHorario =
                 "CONVERT(TIME, DATEADD(HOUR, " +
@@ -303,7 +314,8 @@ namespace login.Reservas
                 ConvertirHora(filaHorario["HoraFin"]);
 
             lblHorario.Text =
-                horaInicio.ToString(@"hh\:mm") + " - " +
+                horaInicio.ToString(@"hh\:mm") +
+                " - " +
                 horaFin.ToString(@"hh\:mm");
         }
 
@@ -371,8 +383,7 @@ namespace login.Reservas
                     "SELECT PrecioHora FROM Canchas " +
                     "WHERE CanchaID = " + canchaID);
 
-            if (tablaPrecio == null ||
-                tablaPrecio.Rows.Count == 0)
+            if (tablaPrecio == null || tablaPrecio.Rows.Count == 0)
             {
                 MessageBox.Show(
                     "No se pudo obtener el precio de la cancha.");
@@ -397,7 +408,7 @@ namespace login.Reservas
                         horario,
                         cantidadHoras,
                         precioHora,
-                        0);
+                        incluyeArbitro ? precioArbitro : 0m);
 
                 if (resultado == -1)
                 {
@@ -430,6 +441,17 @@ namespace login.Reservas
                 return;
             }
 
+            Control contenedorOriginal = Parent;
+
+            if (contenedorOriginal == null)
+            {
+                MessageBox.Show(
+                    "No se encontró el panel contenedor.");
+                return;
+            }
+
+            contenedorOriginal.Tag = this;
+
             frmFacturaReserva frm =
                 new frmFacturaReserva(
                     clienteID,
@@ -447,17 +469,20 @@ namespace login.Reservas
                     horaFin,
                     horario,
                     cantidadHoras,
-                    precioHora);
+                    precioHora,
+                    ciudadCliente,
+                    this,
+                    contenedorOriginal,
+                    chkArbitro.Checked,
+                    5.00m);
 
-            pnlContenido.Controls.Clear();
+            contenedorOriginal.Controls.Clear();
 
             frm.TopLevel = false;
             frm.FormBorderStyle = FormBorderStyle.None;
             frm.Dock = DockStyle.Fill;
 
-            pnlContenido.Controls.Add(frm);
-            pnlContenido.Tag = frm;
-
+            contenedorOriginal.Controls.Add(frm);
             frm.Show();
         }
 
@@ -488,6 +513,9 @@ namespace login.Reservas
             {
                 clienteID =
                     Convert.ToInt32(frmC.ClienteID);
+
+                ciudadCliente =
+                    frmC.Ciudad;
 
                 txtTipoDocumento.Text =
                     frmC.TipoDocumento;
@@ -523,10 +551,10 @@ namespace login.Reservas
             object sender,
             EventArgs e)
         {
-            lblServiciosAdicionales.Text = "Árbitro";
+            incluyeArbitro = chkArbitro.Checked;
 
-            if (!chkArbitro.Checked)
-                lblServiciosAdicionales.Text = "Ninguno";
+            lblServiciosAdicionales.Text =
+                incluyeArbitro ? "Árbitro" : "Ninguno";
         }
     }
 }

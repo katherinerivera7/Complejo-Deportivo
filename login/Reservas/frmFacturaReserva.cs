@@ -9,25 +9,35 @@ namespace login.Reservas
     {
         csConectaSQL conSQL = new csConectaSQL();
 
-        int clienteID;
-        int canchaID;
-        TimeSpan horaInicioReserva;
-        TimeSpan horaFinReserva;
-        string cancha;
-        DateTime fechaReserva;
-        string horario;
-        int cantidadHoras;
-        decimal precioHora;
-        decimal descuento;
-        decimal subtotal;
-        decimal iva;
-        decimal total;
-        int? promocionIDSeleccionada;
-        int facturaIDGuardada = 0;
+        private UCNuevaReserva reservaOriginal;
+        private Control contenedorOriginal;
+
+        private bool incluyeArbitro;
+        private decimal precioArbitro;
+        private decimal subtotalCancha;
+
+        private int clienteID;
+        private int canchaID;
+        private TimeSpan horaInicioReserva;
+        private TimeSpan horaFinReserva;
+        private string cancha;
+        private DateTime fechaReserva;
+        private string horario;
+        private int cantidadHoras;
+        private decimal precioHora;
+        private decimal descuento;
+        private decimal subtotal;
+        private decimal iva;
+        private decimal total;
+        private int? promocionIDSeleccionada;
+        private int facturaIDGuardada = 0;
 
         public frmFacturaReserva()
         {
             InitializeComponent();
+
+            precioArbitro = 5.00m;
+
             ConfigurarDetalle();
             InicializarPromociones();
         }
@@ -48,9 +58,14 @@ namespace login.Reservas
             string horario,
             int cantidadHoras,
             decimal precioHora,
-            string ciudad = "")
+            string ciudad = "",
+            UCNuevaReserva reservaOriginal = null,
+            Control contenedorOriginal = null,
+            bool incluyeArbitro = false,
+            decimal precioArbitro = 5.00m)
         {
             InitializeComponent();
+
             ConfigurarDetalle();
 
             this.clienteID = clienteID;
@@ -62,13 +77,24 @@ namespace login.Reservas
             this.horario = horario;
             this.cantidadHoras = cantidadHoras;
             this.precioHora = precioHora;
+            this.reservaOriginal = reservaOriginal;
+            this.contenedorOriginal = contenedorOriginal;
+            this.incluyeArbitro = incluyeArbitro;
+            this.precioArbitro = precioArbitro;
 
-            subtotal = precioHora * cantidadHoras;
+            subtotalCancha = precioHora * cantidadHoras;
+
+            decimal subtotalServicio =
+                incluyeArbitro ? precioArbitro : 0m;
+
+            subtotal = subtotalCancha + subtotalServicio;
             descuento = 0;
             iva = subtotal * 0.15m;
             total = subtotal - descuento + iva;
 
-            txtNumFactura.Text = "FAC-" + DateTime.Now.ToString("yyyyMMddHHmmss");
+            txtNumFactura.Text =
+                "FAC-" + DateTime.Now.ToString("yyyyMMddHHmmss");
+
             dtpFechaEmision.Value = DateTime.Today;
             dtpFechaEmision.Enabled = false;
 
@@ -76,7 +102,11 @@ namespace login.Reservas
                 cmbMetodoPago.SelectedIndex = 0;
 
             PonerTexto(cliente, "txtCliente");
-            PonerTexto(tipoDocumento + " - " + documento, "txtDocumento", "txtCedula");
+            PonerTexto(
+                tipoDocumento + " - " + documento,
+                "txtDocumento",
+                "txtCedula");
+
             PonerTexto(correo, "txtCorreo");
             PonerTexto(telefono, "txtTelefono");
             PonerTexto(direccion, "txtDireccion");
@@ -90,7 +120,18 @@ namespace login.Reservas
                 cantidadHoras,
                 precioHora,
                 descuento,
-                subtotal);
+                subtotalCancha);
+
+            if (incluyeArbitro)
+            {
+                dgvDetalleFactura.Rows.Add(
+                    "Servicio de árbitro",
+                    horario,
+                    1,
+                    precioArbitro,
+                    0m,
+                    precioArbitro);
+            }
 
             MostrarTotales();
             InicializarPromociones();
@@ -100,8 +141,11 @@ namespace login.Reservas
         {
             ActualizarPromocionesVencidas();
 
-            cmbPromocion.SelectedIndexChanged -= cmbPromocion_SelectedIndexChanged;
-            cmbPromocion.SelectedIndexChanged += cmbPromocion_SelectedIndexChanged;
+            cmbPromocion.SelectedIndexChanged -=
+                cmbPromocion_SelectedIndexChanged;
+
+            cmbPromocion.SelectedIndexChanged +=
+                cmbPromocion_SelectedIndexChanged;
 
             CargarPromociones();
         }
@@ -109,7 +153,7 @@ namespace login.Reservas
         private void CargarPromociones()
         {
             DataTable dt = conSQL.retornaRegistros(
-                "SELECT PromocionID, Nombre, Descuento, TipoPromocion " +
+                "SELECT PromocionID, Nombre, Descuento, UnidadDescuento " +
                 "FROM Promociones " +
                 "WHERE Estado = 1 " +
                 "AND CAST(GETDATE() AS date) BETWEEN FechaInicio AND FechaFin " +
@@ -119,10 +163,11 @@ namespace login.Reservas
                 return;
 
             DataRow fila = dt.NewRow();
+
             fila["PromocionID"] = 0;
             fila["Nombre"] = "Sin promoción";
             fila["Descuento"] = 0;
-            fila["TipoPromocion"] = "";
+            fila["UnidadDescuento"] = "$";
 
             dt.Rows.InsertAt(fila, 0);
 
@@ -132,14 +177,18 @@ namespace login.Reservas
             cmbPromocion.SelectedIndex = 0;
         }
 
-        private void cmbPromocion_SelectedIndexChanged(object sender, EventArgs e)
+        private void cmbPromocion_SelectedIndexChanged(
+            object sender,
+            EventArgs e)
         {
-            DataRowView fila = cmbPromocion.SelectedItem as DataRowView;
+            DataRowView fila =
+                cmbPromocion.SelectedItem as DataRowView;
 
             if (fila == null)
                 return;
 
-            int id = Convert.ToInt32(fila["PromocionID"]);
+            int id =
+                Convert.ToInt32(fila["PromocionID"]);
 
             if (id == 0)
             {
@@ -150,33 +199,60 @@ namespace login.Reservas
             {
                 promocionIDSeleccionada = id;
 
-                decimal valor = fila["Descuento"] == DBNull.Value
-                    ? 0
-                    : Convert.ToDecimal(fila["Descuento"]);
+                decimal valorDescuento =
+                    fila["Descuento"] == DBNull.Value
+                        ? 0
+                        : Convert.ToDecimal(fila["Descuento"]);
 
-                string tipo = fila["TipoPromocion"] == DBNull.Value
-                    ? ""
-                    : fila["TipoPromocion"].ToString().ToLower();
+                string unidad =
+                    fila["UnidadDescuento"] == DBNull.Value
+                        ? "$"
+                        : fila["UnidadDescuento"]
+                            .ToString()
+                            .Trim();
 
-                if (tipo.Contains("porcentaje") || tipo.Contains("%"))
-                    descuento = subtotal * valor / 100m;
+                if (unidad == "%")
+                {
+                    descuento =
+                        subtotalCancha *
+                        valorDescuento /
+                        100m;
+                }
                 else
-                    descuento = valor;
+                {
+                    descuento = valorDescuento;
+                }
 
-                if (descuento > subtotal)
-                    descuento = subtotal;
+                if (descuento > subtotalCancha)
+                    descuento = subtotalCancha;
             }
 
-            iva = (subtotal - descuento) * 0.15m;
-            total = subtotal - descuento + iva;
+            iva =
+                (subtotal - descuento) *
+                0.15m;
+
+            total =
+                subtotal -
+                descuento +
+                iva;
 
             MostrarTotales();
 
             if (dgvDetalleFactura.Rows.Count > 0)
             {
-                dgvDetalleFactura.Rows[0].Cells[4].Value = descuento;
-                dgvDetalleFactura.Rows[0].Cells[5].Value = subtotal;
+                dgvDetalleFactura.Rows[0].Cells[4].Value =
+                    descuento;
+
+                dgvDetalleFactura.Rows[0].Cells[5].Value =
+                    subtotalCancha;
             }
+        }
+
+        private void cmbPromocion_SelectedIndexChanged_1(
+            object sender,
+            EventArgs e)
+        {
+            cmbPromocion_SelectedIndexChanged(sender, e);
         }
 
         private void ActualizarPromocionesVencidas()
@@ -195,25 +271,39 @@ namespace login.Reservas
             dgvDetalleFactura.AllowUserToDeleteRows = false;
             dgvDetalleFactura.AllowUserToResizeRows = false;
             dgvDetalleFactura.RowHeadersVisible = false;
-            dgvDetalleFactura.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvDetalleFactura.AutoSizeColumnsMode =
+                DataGridViewAutoSizeColumnsMode.Fill;
 
             if (dgvDetalleFactura.Columns.Count >= 6)
             {
-                dgvDetalleFactura.Columns[3].DefaultCellStyle.Format = "$#,##0.00";
-                dgvDetalleFactura.Columns[4].DefaultCellStyle.Format = "$#,##0.00";
-                dgvDetalleFactura.Columns[5].DefaultCellStyle.Format = "$#,##0.00";
+                dgvDetalleFactura.Columns[3]
+                    .DefaultCellStyle.Format =
+                    "$#,##0.00";
+
+                dgvDetalleFactura.Columns[4]
+                    .DefaultCellStyle.Format =
+                    "$#,##0.00";
+
+                dgvDetalleFactura.Columns[5]
+                    .DefaultCellStyle.Format =
+                    "$#,##0.00";
             }
         }
 
-        private void PonerTexto(string texto, params string[] nombres)
+        private void PonerTexto(
+            string texto,
+            params string[] nombres)
         {
             foreach (string nombre in nombres)
             {
-                Control[] controles = Controls.Find(nombre, true);
+                Control[] controles =
+                    Controls.Find(nombre, true);
 
                 if (controles.Length > 0)
                 {
-                    controles[0].Text = texto ?? "";
+                    controles[0].Text =
+                        texto ?? "";
+
                     return;
                 }
             }
@@ -221,35 +311,78 @@ namespace login.Reservas
 
         private void MostrarTotales()
         {
-            PonerTexto(subtotal.ToString("$#,##0.00"), "lblSubtotal", "lblSubTotal");
-            PonerTexto(descuento.ToString("$#,##0.00"), "lblDescuento");
-            PonerTexto(iva.ToString("$#,##0.00"), "lblIVA", "lblIva");
-            PonerTexto(total.ToString("$#,##0.00"), "lblTotal");
+            PonerTexto(
+                subtotal.ToString("$#,##0.00"),
+                "lblSubtotal",
+                "lblSubTotal");
+
+            PonerTexto(
+                descuento.ToString("$#,##0.00"),
+                "lblDescuento");
+
+            PonerTexto(
+                iva.ToString("$#,##0.00"),
+                "lblIVA",
+                "lblIva");
+
+            PonerTexto(
+                total.ToString("$#,##0.00"),
+                "lblTotal");
         }
 
-        private void dgvDetalleFactura_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void dgvDetalleFactura_CellContentClick(
+            object sender,
+            DataGridViewCellEventArgs e)
         {
             ConfigurarDetalle();
         }
 
-        private void btnEditar_Click(object sender, EventArgs e)
+        private void btnEditar_Click(
+            object sender,
+            EventArgs e)
         {
-            pnlContenido.Controls.Clear();
+            Control contenedor =
+                contenedorOriginal ?? Parent;
 
-            UCNuevaReserva frm = new UCNuevaReserva();
-            frm.Dock = DockStyle.Fill;
+            if (contenedor == null)
+            {
+                MessageBox.Show(
+                    "No se encontró el panel contenedor.");
 
-            pnlContenido.Controls.Add(frm);
-            pnlContenido.Tag = frm;
+                return;
+            }
 
-            frm.Show();
+            UCNuevaReserva reserva =
+                reservaOriginal ??
+                contenedor.Tag as UCNuevaReserva;
+
+            if (reserva == null)
+            {
+                MessageBox.Show(
+                    "No se pudo recuperar la reserva.");
+
+                return;
+            }
+
+            contenedor.Controls.Clear();
+
+            reserva.Dock = DockStyle.Fill;
+
+            contenedor.Controls.Add(reserva);
+            contenedor.Tag = reserva;
+
+            reserva.Show();
         }
 
-        private void txtNombre_TextChanged(object sender, EventArgs e)
+        private void txtNombre_TextChanged(
+            object sender,
+            EventArgs e)
         {
         }
 
-        private void txtNombre_KeyDown(object sender, KeyEventArgs e)
+        private void txtNombre_KeyDown(
+            object sender,
+            KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
             {
@@ -258,7 +391,9 @@ namespace login.Reservas
             }
         }
 
-        private void guna2ComboBox2_KeyDown(object sender, KeyEventArgs e)
+        private void guna2ComboBox2_KeyDown(
+            object sender,
+            KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
             {
@@ -267,73 +402,95 @@ namespace login.Reservas
             }
         }
 
-        private void btnFacturar_Click(object sender, EventArgs e)
+        private void btnFacturar_Click(
+            object sender,
+            EventArgs e)
         {
             if (facturaIDGuardada > 0)
             {
-                MessageBox.Show("Esta factura ya fue guardada.");
+                MessageBox.Show(
+                    "Esta factura ya fue guardada.");
+
                 return;
             }
 
-            string numeroFactura = txtNumFactura.Text.Trim();
-            string metodoPago = cmbMetodoPago.Text.Trim();
+            string numeroFactura =
+                txtNumFactura.Text.Trim();
+
+            string metodoPago =
+                cmbMetodoPago.Text.Trim();
 
             if (string.IsNullOrWhiteSpace(numeroFactura))
             {
-                MessageBox.Show("Ingrese el número de factura.");
+                MessageBox.Show(
+                    "Ingrese el número de factura.");
+
                 return;
             }
 
             if (string.IsNullOrWhiteSpace(metodoPago))
             {
-                MessageBox.Show("Seleccione el método de pago.");
+                MessageBox.Show(
+                    "Seleccione el método de pago.");
+
                 return;
             }
 
-            int facturaID = conSQL.guardarReservaFactura(
-                clienteID,
-                canchaID,
-                fechaReserva,
-                horaInicioReserva,
-                horaFinReserva,
-                numeroFactura,
-                dtpFechaEmision.Value,
-                metodoPago,
-                promocionIDSeleccionada,
-                subtotal,
-                descuento,
-                iva,
-                total,
-                cancha,
-                horario,
-                cantidadHoras,
-                precioHora);
+            int facturaID =
+                conSQL.guardarReservaFactura(
+                    clienteID,
+                    canchaID,
+                    fechaReserva,
+                    horaInicioReserva,
+                    horaFinReserva,
+                    numeroFactura,
+                    dtpFechaEmision.Value,
+                    metodoPago,
+                    promocionIDSeleccionada,
+                    subtotal,
+                    descuento,
+                    iva,
+                    total,
+                    cancha,
+                    horario,
+                    cantidadHoras,
+                    precioHora,
+                    incluyeArbitro,
+                    precioArbitro);
 
             if (facturaID == -1)
             {
-                MessageBox.Show("La cancha está en mantenimiento o no está disponible.");
+                MessageBox.Show(
+                    "La cancha está en mantenimiento o no está disponible.");
+
                 return;
             }
 
             if (facturaID == -2)
             {
-                MessageBox.Show("El horario seleccionado ya fue reservado.");
+                MessageBox.Show(
+                    "El horario seleccionado ya fue reservado.");
+
                 return;
             }
 
             if (facturaID == -3)
             {
-                MessageBox.Show("El número de factura ya existe.");
+                MessageBox.Show(
+                    "El número de factura ya existe.");
+
                 return;
             }
 
             if (facturaID <= 0)
             {
-                MessageBox.Show("No se pudo guardar la reserva y la factura.");
+                MessageBox.Show(
+                    "No se pudo guardar la reserva y la factura.");
+
                 return;
             }
 
-            facturaIDGuardada = facturaID;
+            facturaIDGuardada =facturaID;
 
             MessageBox.Show(
                 "Reserva y factura guardadas correctamente.",

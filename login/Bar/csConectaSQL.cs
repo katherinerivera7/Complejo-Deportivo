@@ -21,14 +21,14 @@ namespace login
         public csConectaSQL()
         {
 
-            /* Server = @"LAPTOP-J5U2QS20\SQLEXPRESS01"; //LAPTOP-J5U2QS20\SQLEXPRESS01         DESKTOP-OSJ26G2\SQLEXPRESS01
+           Server = @"LAPTOP-J5U2QS20\SQLEXPRESS01"; //LAPTOP-J5U2QS20\SQLEXPRESS01         DESKTOP-OSJ26G2\SQLEXPRESS01
              Database = "ComplejoDeportivo";
              Usuario = "Basados777"; // Basados
-             Clave = "Basados888";  //Basados888 */
-            Server = @"HP\SQLEXPRESS";
-             Database = "ComplejoDeportivo";
-             Usuario = "";
-             Clave = "";
+             Clave = "Basados888";  //Basados888
+            /* Server = @"HP\SQLEXPRESS";
+            Database = "ComplejoDeportivo";
+            Usuario = "";
+            Clave = ""; */
         }
 
         public bool abrirConexion()
@@ -666,7 +666,9 @@ namespace login
     string cancha,
     string horario,
     int cantidadHoras,
-    decimal precioHora)
+    decimal precioHora,
+    bool incluyeArbitro,
+    decimal precioArbitro)
         {
             SqlTransaction transaccion = null;
 
@@ -675,16 +677,43 @@ namespace login
                 if (!abrirConexion())
                     return 0;
 
+                decimal subtotalCancha =
+                    precioHora * cantidadHoras;
+
+                decimal subtotalArbitro =
+                    incluyeArbitro ? precioArbitro : 0m;
+
+                subtotal =
+                    subtotalCancha + subtotalArbitro;
+
+                if (descuento < 0)
+                    descuento = 0;
+
+                if (descuento > subtotalCancha)
+                    descuento = subtotalCancha;
+
+                iva =
+                    (subtotal - descuento) * 0.15m;
+
+                total =
+                    subtotal - descuento + iva;
+
                 transaccion = oCon.BeginTransaction();
 
                 using (SqlCommand cmdEstado = new SqlCommand(
-                    "SELECT UPPER(LTRIM(RTRIM(ISNULL(Estado, '')))) FROM Canchas WHERE CanchaID = @CanchaID",
+                    "SELECT UPPER(LTRIM(RTRIM(ISNULL(Estado, '')))) " +
+                    "FROM Canchas " +
+                    "WHERE CanchaID = @CanchaID",
                     oCon,
                     transaccion))
                 {
-                    cmdEstado.Parameters.AddWithValue("@CanchaID", canchaID);
+                    cmdEstado.Parameters.AddWithValue(
+                        "@CanchaID",
+                        canchaID);
 
-                    string estado = Convert.ToString(cmdEstado.ExecuteScalar());
+                    string estado =
+                        Convert.ToString(
+                            cmdEstado.ExecuteScalar());
 
                     if (estado == "MANTENIMIENTO" ||
                         estado == "INACTIVA" ||
@@ -705,12 +734,24 @@ namespace login
                     oCon,
                     transaccion))
                 {
-                    cmdHorario.Parameters.AddWithValue("@CanchaID", canchaID);
-                    cmdHorario.Parameters.AddWithValue("@Fecha", fechaReserva.Date);
-                    cmdHorario.Parameters.Add("@HoraInicio", SqlDbType.Time).Value = horaInicio;
-                    cmdHorario.Parameters.Add("@HoraFin", SqlDbType.Time).Value = horaFin;
+                    cmdHorario.Parameters.AddWithValue(
+                        "@CanchaID",
+                        canchaID);
 
-                    if (Convert.ToInt32(cmdHorario.ExecuteScalar()) > 0)
+                    cmdHorario.Parameters.AddWithValue(
+                        "@Fecha",
+                        fechaReserva.Date);
+
+                    cmdHorario.Parameters.Add(
+                        "@HoraInicio",
+                        SqlDbType.Time).Value = horaInicio;
+
+                    cmdHorario.Parameters.Add(
+                        "@HoraFin",
+                        SqlDbType.Time).Value = horaFin;
+
+                    if (Convert.ToInt32(
+                        cmdHorario.ExecuteScalar()) > 0)
                     {
                         transaccion.Rollback();
                         return -2;
@@ -718,13 +759,17 @@ namespace login
                 }
 
                 using (SqlCommand cmdFacturaExiste = new SqlCommand(
-                    "SELECT COUNT(*) FROM Facturas WHERE NumeroFactura = @NumeroFactura",
+                    "SELECT COUNT(*) FROM Facturas " +
+                    "WHERE NumeroFactura = @NumeroFactura",
                     oCon,
                     transaccion))
                 {
-                    cmdFacturaExiste.Parameters.AddWithValue("@NumeroFactura", numeroFactura);
+                    cmdFacturaExiste.Parameters.AddWithValue(
+                        "@NumeroFactura",
+                        numeroFactura);
 
-                    if (Convert.ToInt32(cmdFacturaExiste.ExecuteScalar()) > 0)
+                    if (Convert.ToInt32(
+                        cmdFacturaExiste.ExecuteScalar()) > 0)
                     {
                         transaccion.Rollback();
                         return -3;
@@ -737,62 +782,176 @@ namespace login
                     "INSERT INTO Reservas " +
                     "(ClienteID, CanchaID, Fecha, HoraInicio, HoraFin, Estado) " +
                     "VALUES " +
-                    "(@ClienteID, @CanchaID, @Fecha, @HoraInicio, @HoraFin, 'Reservada'); " +
+                    "(@ClienteID, @CanchaID, @Fecha, @HoraInicio, @HoraFin, 'Confirmada'); " +
                     "SELECT CAST(SCOPE_IDENTITY() AS INT);",
                     oCon,
                     transaccion))
                 {
-                    cmdReserva.Parameters.AddWithValue("@ClienteID", clienteID);
-                    cmdReserva.Parameters.AddWithValue("@CanchaID", canchaID);
-                    cmdReserva.Parameters.AddWithValue("@Fecha", fechaReserva.Date);
-                    cmdReserva.Parameters.Add("@HoraInicio", SqlDbType.Time).Value = horaInicio;
-                    cmdReserva.Parameters.Add("@HoraFin", SqlDbType.Time).Value = horaFin;
+                    cmdReserva.Parameters.AddWithValue(
+                        "@ClienteID",
+                        clienteID);
 
-                    reservaID = Convert.ToInt32(cmdReserva.ExecuteScalar());
+                    cmdReserva.Parameters.AddWithValue(
+                        "@CanchaID",
+                        canchaID);
+
+                    cmdReserva.Parameters.AddWithValue(
+                        "@Fecha",
+                        fechaReserva.Date);
+
+                    cmdReserva.Parameters.Add(
+                        "@HoraInicio",
+                        SqlDbType.Time).Value = horaInicio;
+
+                    cmdReserva.Parameters.Add(
+                        "@HoraFin",
+                        SqlDbType.Time).Value = horaFin;
+
+                    reservaID =
+                        Convert.ToInt32(
+                            cmdReserva.ExecuteScalar());
                 }
 
                 int facturaID;
 
                 using (SqlCommand cmdFactura = new SqlCommand(
                     "INSERT INTO Facturas " +
-                    "(ReservaID, PromocionID, NumeroFactura, FechaEmision, MetodoPago, Subtotal, Descuento, IVA, Total) " +
+                    "(ReservaID, PromocionID, NumeroFactura, FechaEmision, " +
+                    "MetodoPago, Subtotal, Descuento, IVA, Total) " +
                     "VALUES " +
-                    "(@ReservaID, @PromocionID, @NumeroFactura, @FechaEmision, @MetodoPago, @Subtotal, @Descuento, @IVA, @Total); " +
+                    "(@ReservaID, @PromocionID, @NumeroFactura, @FechaEmision, " +
+                    "@MetodoPago, @Subtotal, @Descuento, @IVA, @Total); " +
                     "SELECT CAST(SCOPE_IDENTITY() AS INT);",
                     oCon,
                     transaccion))
                 {
-                    cmdFactura.Parameters.AddWithValue("@ReservaID", reservaID);
-                    cmdFactura.Parameters.Add("@PromocionID", SqlDbType.Int).Value =
-                        promocionID.HasValue ? (object)promocionID.Value : DBNull.Value;
-                    cmdFactura.Parameters.AddWithValue("@NumeroFactura", numeroFactura);
-                    cmdFactura.Parameters.AddWithValue("@FechaEmision", fechaEmision);
-                    cmdFactura.Parameters.AddWithValue("@MetodoPago", metodoPago);
-                    cmdFactura.Parameters.AddWithValue("@Subtotal", subtotal);
-                    cmdFactura.Parameters.AddWithValue("@Descuento", descuento);
-                    cmdFactura.Parameters.AddWithValue("@IVA", iva);
-                    cmdFactura.Parameters.AddWithValue("@Total", total);
+                    cmdFactura.Parameters.AddWithValue(
+                        "@ReservaID",
+                        reservaID);
 
-                    facturaID = Convert.ToInt32(cmdFactura.ExecuteScalar());
+                    cmdFactura.Parameters.Add(
+                        "@PromocionID",
+                        SqlDbType.Int).Value =
+                        promocionID.HasValue
+                            ? (object)promocionID.Value
+                            : DBNull.Value;
+
+                    cmdFactura.Parameters.AddWithValue(
+                        "@NumeroFactura",
+                        numeroFactura);
+
+                    cmdFactura.Parameters.AddWithValue(
+                        "@FechaEmision",
+                        fechaEmision);
+
+                    cmdFactura.Parameters.AddWithValue(
+                        "@MetodoPago",
+                        metodoPago);
+
+                    cmdFactura.Parameters.AddWithValue(
+                        "@Subtotal",
+                        subtotal);
+
+                    cmdFactura.Parameters.AddWithValue(
+                        "@Descuento",
+                        descuento);
+
+                    cmdFactura.Parameters.AddWithValue(
+                        "@IVA",
+                        iva);
+
+                    cmdFactura.Parameters.AddWithValue(
+                        "@Total",
+                        total);
+
+                    facturaID =
+                        Convert.ToInt32(
+                            cmdFactura.ExecuteScalar());
                 }
 
-                using (SqlCommand cmdDetalle = new SqlCommand(
+                using (SqlCommand cmdDetalleCancha = new SqlCommand(
                     "INSERT INTO DetalleFactura " +
-                    "(FacturaID, Descripcion, Horario, CantidadHoras, PrecioHora, Descuento, Subtotal) " +
+                    "(FacturaID, Descripcion, Horario, CantidadHoras, " +
+                    "PrecioHora, Descuento, Subtotal) " +
                     "VALUES " +
-                    "(@FacturaID, @Descripcion, @Horario, @CantidadHoras, @PrecioHora, @Descuento, @Subtotal)",
+                    "(@FacturaID, @Descripcion, @Horario, @CantidadHoras, " +
+                    "@PrecioHora, @Descuento, @Subtotal)",
                     oCon,
                     transaccion))
                 {
-                    cmdDetalle.Parameters.AddWithValue("@FacturaID", facturaID);
-                    cmdDetalle.Parameters.AddWithValue("@Descripcion", cancha);
-                    cmdDetalle.Parameters.AddWithValue("@Horario", horario);
-                    cmdDetalle.Parameters.AddWithValue("@CantidadHoras", cantidadHoras);
-                    cmdDetalle.Parameters.AddWithValue("@PrecioHora", precioHora);
-                    cmdDetalle.Parameters.AddWithValue("@Descuento", descuento);
-                    cmdDetalle.Parameters.AddWithValue("@Subtotal", subtotal);
+                    cmdDetalleCancha.Parameters.AddWithValue(
+                        "@FacturaID",
+                        facturaID);
 
-                    cmdDetalle.ExecuteNonQuery();
+                    cmdDetalleCancha.Parameters.AddWithValue(
+                        "@Descripcion",
+                        cancha);
+
+                    cmdDetalleCancha.Parameters.AddWithValue(
+                        "@Horario",
+                        horario);
+
+                    cmdDetalleCancha.Parameters.AddWithValue(
+                        "@CantidadHoras",
+                        cantidadHoras);
+
+                    cmdDetalleCancha.Parameters.AddWithValue(
+                        "@PrecioHora",
+                        precioHora);
+
+                    cmdDetalleCancha.Parameters.AddWithValue(
+                        "@Descuento",
+                        descuento);
+
+                    cmdDetalleCancha.Parameters.AddWithValue(
+                        "@Subtotal",
+                        subtotalCancha);
+
+                    cmdDetalleCancha.ExecuteNonQuery();
+                }
+
+                if (incluyeArbitro)
+                {
+                    using (SqlCommand cmdDetalleArbitro = new SqlCommand(
+                        "INSERT INTO DetalleFactura " +
+                        "(FacturaID, Descripcion, Horario, CantidadHoras, " +
+                        "PrecioHora, Descuento, Subtotal) " +
+                        "VALUES " +
+                        "(@FacturaID, @Descripcion, @Horario, @CantidadHoras, " +
+                        "@PrecioHora, @Descuento, @Subtotal)",
+                        oCon,
+                        transaccion))
+                    {
+                        cmdDetalleArbitro.Parameters.AddWithValue(
+                            "@FacturaID",
+                            facturaID);
+
+                        cmdDetalleArbitro.Parameters.AddWithValue(
+                            "@Descripcion",
+                            "Servicio de árbitro");
+
+                        cmdDetalleArbitro.Parameters.AddWithValue(
+                            "@Horario",
+                            horario);
+
+                        cmdDetalleArbitro.Parameters.AddWithValue(
+                            "@CantidadHoras",
+                            1);
+
+                        cmdDetalleArbitro.Parameters.AddWithValue(
+                            "@PrecioHora",
+                            precioArbitro);
+
+                        cmdDetalleArbitro.Parameters.AddWithValue(
+                            "@Descuento",
+                            0m);
+
+                        cmdDetalleArbitro.Parameters.AddWithValue(
+                            "@Subtotal",
+                            precioArbitro);
+
+                        cmdDetalleArbitro.ExecuteNonQuery();
+                    }
                 }
 
                 transaccion.Commit();
@@ -809,8 +968,17 @@ namespace login
                 {
                 }
 
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(
+                    ex.Message,
+                    "Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+
                 return 0;
+            }
+            finally
+            {
+                cerrarConexion();
             }
         }
         public bool eliminarReserva(int reservaID)
