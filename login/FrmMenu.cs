@@ -314,5 +314,12 @@ namespace login
         {
 
         }
+
+        private void btnCambiarClave_Click(object sender, EventArgs e)
+        {
+            frmCambiarClave frm = new frmCambiarClave();
+            frm.StartPosition = FormStartPosition.CenterParent;
+            frm.ShowDialog(this);
+        }
     }
 }
