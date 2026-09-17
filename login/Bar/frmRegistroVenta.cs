@@ -37,9 +37,9 @@ namespace login.Bar
             try
             {
                 string consulta = @"SELECT P.ProductoID, P.Nombre, P.Precio, P.Stock, P.Imagen, C.Nombre AS Categoria
-                                    FROM Productos P
-                                    INNER JOIN Categorias C ON P.CategoriaID = C.CategoriaID
-                                    ORDER BY P.Nombre";
+                                     FROM Productos P
+                                     INNER JOIN Categorias C ON P.CategoriaID = C.CategoriaID
+                                     ORDER BY P.Nombre";
 
                 DataTable productos = oCon.retornaRegistros(consulta);
 
@@ -60,11 +60,9 @@ namespace login.Bar
                         precio,
                         stock,
                         categoria,
-                        imagen
-                    );
+                        imagen);
 
                     tarjeta.ProductoAgregado += tarjeta_ProductoAgregado;
-
                     flpProductos.Controls.Add(tarjeta);
                 }
 
@@ -76,8 +74,7 @@ namespace login.Bar
                     "Error al cargar los productos:\n" + ex.Message,
                     "Error",
                     MessageBoxButtons.OK,
-                    MessageBoxIcon.Error
-                );
+                    MessageBoxIcon.Error);
             }
             finally
             {
@@ -111,16 +108,14 @@ namespace login.Bar
                         string.IsNullOrEmpty(texto) ||
                         tarjeta.NombreProducto.IndexOf(
                             texto,
-                            StringComparison.OrdinalIgnoreCase
-                        ) >= 0;
+                            StringComparison.OrdinalIgnoreCase) >= 0;
 
                     bool coincideCategoria =
                         categoriaSeleccionada == "Todos" ||
                         string.Equals(
                             tarjeta.Categoria,
                             categoriaSeleccionada,
-                            StringComparison.OrdinalIgnoreCase
-                        );
+                            StringComparison.OrdinalIgnoreCase);
 
                     tarjeta.Visible = coincideNombre && coincideCategoria;
                 }
@@ -165,9 +160,7 @@ namespace login.Bar
         private void tarjeta_ProductoAgregado(object sender, EventArgs e)
         {
             if (sender is UCTarjetaProducto tarjeta)
-            {
                 AgregarProductoAVenta(tarjeta);
-            }
         }
 
         private void AgregarProductoAVenta(UCTarjetaProducto producto)
@@ -189,8 +182,7 @@ namespace login.Bar
             tarjetaVenta.CargarProducto(
                 producto.ProductoID,
                 producto.NombreProducto,
-                producto.Precio
-            );
+                producto.Precio);
 
             tarjetaVenta.ProductoEliminado += TarjetaVenta_ProductoEliminado;
 
@@ -231,10 +223,13 @@ namespace login.Bar
                     "No hay productos agregados a la venta.",
                     "Factura",
                     MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning
-                );
+                    MessageBoxIcon.Warning);
+
                 return;
             }
+
+            if (!ValidarStock(detalles))
+                return;
 
             Control pnlContenido = this.Parent;
 
@@ -244,8 +239,8 @@ namespace login.Bar
                     "No se encontró el panel contenedor.",
                     "Error",
                     MessageBoxButtons.OK,
-                    MessageBoxIcon.Error
-                );
+                    MessageBoxIcon.Error);
+
                 return;
             }
 
@@ -262,6 +257,51 @@ namespace login.Bar
             frm.Show();
         }
 
+        private bool ValidarStock(List<DetalleVenta> detalles)
+        {
+            foreach (DetalleVenta detalle in detalles)
+            {
+                string consulta =
+                    "SELECT Nombre, Stock " +
+                    "FROM Productos " +
+                    "WHERE ProductoID = " + detalle.ProductoID;
+
+                DataTable tabla = oCon.retornaRegistros(consulta);
+
+                if (tabla == null || tabla.Rows.Count == 0)
+                {
+                    MessageBox.Show(
+                        "No se encontró el producto " + detalle.Producto + ".",
+                        "Producto no encontrado",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning);
+
+                    return false;
+                }
+
+                int stockDisponible =
+                    Convert.ToInt32(tabla.Rows[0]["Stock"]);
+
+                if (detalle.Cantidad > stockDisponible)
+                {
+                    MessageBox.Show(
+                        "No hay suficiente stock para el producto:\n\n" +
+                        detalle.Producto +
+                        "\n\nStock disponible: " +
+                        stockDisponible +
+                        "\nCantidad solicitada: " +
+                        detalle.Cantidad,
+                        "Stock insuficiente",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning);
+
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
         public void LiberarVenta()
         {
             frmProductos.ProductoGuardado -= CargarProductos;
@@ -274,8 +314,7 @@ namespace login.Bar
                 "¿Está seguro de cancelar la venta?",
                 "Cancelar venta",
                 MessageBoxButtons.YesNo,
-                MessageBoxIcon.Question
-            );
+                MessageBoxIcon.Question);
 
             if (respuesta == DialogResult.Yes)
             {
@@ -311,7 +350,6 @@ namespace login.Bar
 
         private void flpProductos_Paint(object sender, PaintEventArgs e)
         {
-
         }
     }
 }

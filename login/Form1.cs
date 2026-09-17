@@ -146,7 +146,7 @@ namespace login
             catch (Exception ex)
             {
                 MessageBox.Show(
-                    "Error al iniciar sesión:\n\n" +
+                    "Error al iniciar sesión: " +
                     ex.Message,
                     "Error",
                     MessageBoxButtons.OK,

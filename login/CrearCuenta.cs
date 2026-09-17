@@ -40,7 +40,6 @@ namespace login
             if (string.IsNullOrWhiteSpace(txtUsuario.Text) ||
                 string.IsNullOrWhiteSpace(txtClave.Text) ||
                 string.IsNullOrWhiteSpace(txtConfirmarClave.Text) ||
-                string.IsNullOrWhiteSpace(txtCedula.Text) ||
                 string.IsNullOrWhiteSpace(txtDireccion.Text) ||
                 cmbCargo.SelectedIndex == -1)
             {
@@ -53,31 +52,6 @@ namespace login
                 return;
             }
 
-
-            // VALIDAR CÉDULA
-            if (!txtCedula.Text.All(char.IsDigit))
-            {
-                MessageBox.Show(
-                    "La cédula debe contener únicamente números.",
-                    "Cédula inválida",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning);
-
-                txtCedula.Focus();
-                return;
-            }
-
-            if (txtCedula.Text.Length != 10)
-            {
-                MessageBox.Show(
-                    "La cédula debe contener exactamente 10 dígitos.",
-                    "Cédula inválida",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning);
-
-                txtCedula.Focus();
-                return;
-            }
 
 
             // VALIDAR USUARIO
@@ -277,6 +251,8 @@ namespace login
                 // Limpiar campos
                 txtUsuario.Clear();
                 txtClave.Clear();
+                txtCorreo.Clear();
+                txtDireccion.Clear();
                 txtConfirmarClave.Clear();
 
             }
@@ -352,11 +328,7 @@ namespace login
 
         private void txtUsuario_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Enter)
-            {
-                txtCedula.Focus();
-                e.SuppressKeyPress = true;
-            }
+            
         }
 
         private void txtCedula_KeyDown(object sender, KeyEventArgs e)

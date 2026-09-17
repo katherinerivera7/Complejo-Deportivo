@@ -377,7 +377,7 @@
             // 
             this.pictureBox8.Image = global::login.Properties.Resources.ondaazul;
             this.pictureBox8.Location = new System.Drawing.Point(0, 688);
-            this.pictureBox8.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox8.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox8.Name = "pictureBox8";
             this.pictureBox8.Size = new System.Drawing.Size(217, 292);
             this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -637,7 +637,7 @@
             this.guna2CirclePictureBox5.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
             this.guna2CirclePictureBox5.ImageRotate = 0F;
             this.guna2CirclePictureBox5.Location = new System.Drawing.Point(40, 324);
-            this.guna2CirclePictureBox5.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.guna2CirclePictureBox5.Margin = new System.Windows.Forms.Padding(5);
             this.guna2CirclePictureBox5.Name = "guna2CirclePictureBox5";
             this.guna2CirclePictureBox5.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.guna2CirclePictureBox5.Size = new System.Drawing.Size(17, 16);
@@ -661,7 +661,7 @@
             this.guna2CirclePictureBox4.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(201)))), ((int)(((byte)(77)))));
             this.guna2CirclePictureBox4.ImageRotate = 0F;
             this.guna2CirclePictureBox4.Location = new System.Drawing.Point(40, 303);
-            this.guna2CirclePictureBox4.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.guna2CirclePictureBox4.Margin = new System.Windows.Forms.Padding(5);
             this.guna2CirclePictureBox4.Name = "guna2CirclePictureBox4";
             this.guna2CirclePictureBox4.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.guna2CirclePictureBox4.Size = new System.Drawing.Size(17, 16);
@@ -686,7 +686,7 @@
             this.agotadobar.BorderRadius = 8;
             this.agotadobar.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(228)))), ((int)(((byte)(228)))));
             this.agotadobar.Location = new System.Drawing.Point(212, 102);
-            this.agotadobar.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.agotadobar.Margin = new System.Windows.Forms.Padding(5);
             this.agotadobar.Name = "agotadobar";
             this.agotadobar.ProgressColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(124)))), ((int)(((byte)(124)))));
             this.agotadobar.ProgressColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
@@ -704,7 +704,7 @@
             this.stockbar.Cursor = System.Windows.Forms.Cursors.Default;
             this.stockbar.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(235)))), ((int)(((byte)(230)))));
             this.stockbar.Location = new System.Drawing.Point(128, 102);
-            this.stockbar.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.stockbar.Margin = new System.Windows.Forms.Padding(5);
             this.stockbar.Name = "stockbar";
             this.stockbar.ProgressColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(184)))), ((int)(((byte)(92)))));
             this.stockbar.Size = new System.Drawing.Size(51, 192);
@@ -755,7 +755,7 @@
             this.guna2CirclePictureBox3.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(232)))), ((int)(((byte)(250)))));
             this.guna2CirclePictureBox3.ImageRotate = 0F;
             this.guna2CirclePictureBox3.Location = new System.Drawing.Point(31, 322);
-            this.guna2CirclePictureBox3.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.guna2CirclePictureBox3.Margin = new System.Windows.Forms.Padding(5);
             this.guna2CirclePictureBox3.Name = "guna2CirclePictureBox3";
             this.guna2CirclePictureBox3.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.guna2CirclePictureBox3.Size = new System.Drawing.Size(17, 16);
@@ -767,7 +767,7 @@
             this.guna2CirclePictureBox2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(201)))), ((int)(((byte)(77)))));
             this.guna2CirclePictureBox2.ImageRotate = 0F;
             this.guna2CirclePictureBox2.Location = new System.Drawing.Point(29, 300);
-            this.guna2CirclePictureBox2.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.guna2CirclePictureBox2.Margin = new System.Windows.Forms.Padding(5);
             this.guna2CirclePictureBox2.Name = "guna2CirclePictureBox2";
             this.guna2CirclePictureBox2.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.guna2CirclePictureBox2.Size = new System.Drawing.Size(17, 16);
@@ -808,7 +808,7 @@
             this.EstadoCancha.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(105)))), ((int)(((byte)(240)))));
             this.EstadoCancha.InnerColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(249)))), ((int)(((byte)(251)))));
             this.EstadoCancha.Location = new System.Drawing.Point(81, 60);
-            this.EstadoCancha.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.EstadoCancha.Margin = new System.Windows.Forms.Padding(5);
             this.EstadoCancha.Minimum = 0;
             this.EstadoCancha.Name = "EstadoCancha";
             this.EstadoCancha.ProgressColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(255)))));

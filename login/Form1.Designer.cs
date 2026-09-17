@@ -98,23 +98,25 @@
             // button4
             // 
             this.button4.Location = new System.Drawing.Point(133, 902);
-            this.button4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button4.Margin = new System.Windows.Forms.Padding(4);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(144, 27);
             this.button4.TabIndex = 49;
             this.button4.Text = "usuario";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Visible = false;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button3
             // 
             this.button3.Location = new System.Drawing.Point(385, 902);
-            this.button3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button3.Margin = new System.Windows.Forms.Padding(4);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(144, 27);
             this.button3.TabIndex = 48;
             this.button3.Text = "Propietario";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Visible = false;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // pictureBox2
@@ -155,7 +157,7 @@
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(32, 854);
-            this.button1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.button1.Margin = new System.Windows.Forms.Padding(5);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(389, 47);
             this.button1.TabIndex = 50;
@@ -179,7 +181,7 @@
             // button2
             // 
             this.button2.Location = new System.Drawing.Point(471, 854);
-            this.button2.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.button2.Margin = new System.Windows.Forms.Padding(5);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(220, 47);
             this.button2.TabIndex = 52;

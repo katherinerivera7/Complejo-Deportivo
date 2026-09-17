@@ -84,8 +84,6 @@
             this.label14 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.btnImprimir = new Guna.UI2.WinForms.Guna2Button();
-            this.btnGuardarPDF = new Guna.UI2.WinForms.Guna2Button();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox2)).BeginInit();
             this.guna2Panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -103,7 +101,7 @@
             this.guna2PictureBox2.Image = global::login.Properties.Resources.FACTURAA;
             this.guna2PictureBox2.ImageRotate = 0F;
             this.guna2PictureBox2.Location = new System.Drawing.Point(21, 12);
-            this.guna2PictureBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.guna2PictureBox2.Margin = new System.Windows.Forms.Padding(4);
             this.guna2PictureBox2.Name = "guna2PictureBox2";
             this.guna2PictureBox2.Size = new System.Drawing.Size(95, 85);
             this.guna2PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -224,7 +222,7 @@
             this.dtpFechaFin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
             this.dtpFechaFin.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpFechaFin.Location = new System.Drawing.Point(303, 79);
-            this.dtpFechaFin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dtpFechaFin.Margin = new System.Windows.Forms.Padding(4);
             this.dtpFechaFin.MaxDate = new System.DateTime(2026, 12, 31, 0, 0, 0, 0);
             this.dtpFechaFin.MinDate = new System.DateTime(2026, 8, 9, 0, 0, 0, 0);
             this.dtpFechaFin.Name = "dtpFechaFin";
@@ -236,7 +234,7 @@
             // 
             this.pictureBox1.Image = global::login.Properties.Resources.icons8_documento_100;
             this.pictureBox1.Location = new System.Drawing.Point(20, 20);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(44, 28);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -593,7 +591,7 @@
             // 
             this.pictureBox2.Image = global::login.Properties.Resources.icons8_documento_100;
             this.pictureBox2.Location = new System.Drawing.Point(20, 20);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(44, 28);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -781,7 +779,7 @@
             this.txtCedula.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.txtCedula.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.txtCedula.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtCedula.Location = new System.Drawing.Point(113, 59);
+            this.txtCedula.Location = new System.Drawing.Point(130, 59);
             this.txtCedula.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.txtCedula.Name = "txtCedula";
             this.txtCedula.PlaceholderText = "1547854632";
@@ -797,9 +795,9 @@
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(37)))), ((int)(((byte)(87)))));
             this.label5.Location = new System.Drawing.Point(24, 68);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(63, 23);
+            this.label5.Size = new System.Drawing.Size(100, 23);
             this.label5.TabIndex = 70;
-            this.label5.Text = "Cédula";
+            this.label5.Text = "Documento";
             // 
             // txtCliente
             // 
@@ -813,7 +811,7 @@
             this.txtCliente.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.txtCliente.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.txtCliente.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtCliente.Location = new System.Drawing.Point(113, 113);
+            this.txtCliente.Location = new System.Drawing.Point(130, 113);
             this.txtCliente.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.txtCliente.Name = "txtCliente";
             this.txtCliente.PlaceholderText = "Edgar Hidalgo";
@@ -849,63 +847,18 @@
             // 
             this.pictureBox3.Image = global::login.Properties.Resources.icons8_cliente_100;
             this.pictureBox3.Location = new System.Drawing.Point(20, 20);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(44, 28);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox3.TabIndex = 39;
             this.pictureBox3.TabStop = false;
             // 
-            // btnImprimir
-            // 
-            this.btnImprimir.BackColor = System.Drawing.Color.Transparent;
-            this.btnImprimir.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.btnImprimir.BorderRadius = 14;
-            this.btnImprimir.BorderThickness = 1;
-            this.btnImprimir.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnImprimir.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnImprimir.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnImprimir.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnImprimir.FillColor = System.Drawing.Color.White;
-            this.btnImprimir.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnImprimir.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.btnImprimir.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.btnImprimir.Image = global::login.Properties.Resources.icons8_imprimirverde_100;
-            this.btnImprimir.Location = new System.Drawing.Point(867, 23);
-            this.btnImprimir.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnImprimir.Name = "btnImprimir";
-            this.btnImprimir.Size = new System.Drawing.Size(204, 48);
-            this.btnImprimir.TabIndex = 92;
-            this.btnImprimir.Text = "Imprimir";
-            // 
-            // btnGuardarPDF
-            // 
-            this.btnGuardarPDF.BackColor = System.Drawing.Color.Transparent;
-            this.btnGuardarPDF.BorderColor = System.Drawing.Color.White;
-            this.btnGuardarPDF.BorderRadius = 14;
-            this.btnGuardarPDF.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnGuardarPDF.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnGuardarPDF.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnGuardarPDF.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnGuardarPDF.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.btnGuardarPDF.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGuardarPDF.ForeColor = System.Drawing.Color.White;
-            this.btnGuardarPDF.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.btnGuardarPDF.Image = global::login.Properties.Resources.icons8_guardar_50;
-            this.btnGuardarPDF.Location = new System.Drawing.Point(1104, 23);
-            this.btnGuardarPDF.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnGuardarPDF.Name = "btnGuardarPDF";
-            this.btnGuardarPDF.Size = new System.Drawing.Size(204, 48);
-            this.btnGuardarPDF.TabIndex = 91;
-            this.btnGuardarPDF.Text = "Guardar PDF";
-            // 
             // frmFacturaVenta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1339, 902);
-            this.Controls.Add(this.btnImprimir);
-            this.Controls.Add(this.btnGuardarPDF);
             this.Controls.Add(this.guna2Panel4);
             this.Controls.Add(this.btnEditar);
             this.Controls.Add(this.btnFacturar);
@@ -916,7 +869,7 @@
             this.Controls.Add(this.label9);
             this.Controls.Add(this.guna2Panel2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmFacturaVenta";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmFacturaVenta";
@@ -982,8 +935,6 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.PictureBox pictureBox3;
-        private Guna.UI2.WinForms.Guna2Button btnImprimir;
-        private Guna.UI2.WinForms.Guna2Button btnGuardarPDF;
         private Guna.UI2.WinForms.Guna2TextBox txtDescuento;
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.DataGridViewTextBoxColumn colDescripcion;
