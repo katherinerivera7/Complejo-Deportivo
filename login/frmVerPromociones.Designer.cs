@@ -79,6 +79,7 @@
             this.pnlContenidoo.Name = "pnlContenidoo";
             this.pnlContenidoo.Size = new System.Drawing.Size(1062, 796);
             this.pnlContenidoo.TabIndex = 1;
+            this.pnlContenidoo.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlContenidoo_Paint);
             // 
             // btnImprimir
             // 

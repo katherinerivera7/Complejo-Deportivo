@@ -9,8 +9,7 @@ namespace login
 {
     public partial class frmVerPromociones : Form
     {
-        string conexionString = @"Server=string conexionString = csConectaSQL.CadenaConexion;;Database=ComplejoDeportivo;Integrated Security=True;TrustServerCertificate=True;";
-
+        string conexionString = csConectaSQL.CadenaConexion;
         private bool configurandoFiltro = false;
         private bool busquedaAutomaticaAplicada = false;
 
@@ -302,6 +301,11 @@ namespace login
                 CargarPromociones();
                 e.SuppressKeyPress = true;
             }
+        }
+
+        private void pnlContenidoo_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
