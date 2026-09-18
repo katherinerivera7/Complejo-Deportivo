@@ -779,6 +779,18 @@
   <ItemGroup>
     <None Include="Resources\facturailustracion.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\it.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\idb.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\agua splendor.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ipr.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

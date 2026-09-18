@@ -17,7 +17,7 @@ namespace login
         // =========================================================
         // Cuando cambies de computadora, normalmente solo debes
         // modificar el valor de Server.
-        public static string Server = @"HP\SQLEXPRESS";
+        public static string Server = @"LAPTOP-J5U2QS20\SQLEXPRESS01";//HP\SQLEXPRESS
         public static string Database = "ComplejoDeportivo";
         public static string Usuario = "";
         public static string Clave = "";
