@@ -11,6 +11,7 @@ namespace login.Bar
     {
         csConectaSQL oCon = new csConectaSQL();
         private string categoriaSeleccionada = "Todos";
+        private Dictionary<int, bool> productosAplicaIVA = new Dictionary<int, bool>();
 
         public frmRegistroVenta()
         {
@@ -26,6 +27,7 @@ namespace login.Bar
         private void CargarProductos()
         {
             flpProductos.SuspendLayout();
+            productosAplicaIVA.Clear();
 
             while (flpProductos.Controls.Count > 0)
             {
@@ -36,7 +38,7 @@ namespace login.Bar
 
             try
             {
-                string consulta = @"SELECT P.ProductoID, P.Nombre, P.Precio, P.Stock, P.Imagen, C.Nombre AS Categoria
+                string consulta = @"SELECT P.ProductoID, P.Nombre, P.Precio, P.Stock, P.Imagen, P.AplicaIVA, C.Nombre AS Categoria
                                      FROM Productos P
                                      INNER JOIN Categorias C ON P.CategoriaID = C.CategoriaID
                                      ORDER BY P.Nombre";
@@ -50,18 +52,13 @@ namespace login.Bar
                     decimal precio = Convert.ToDecimal(fila["Precio"]);
                     int stock = Convert.ToInt32(fila["Stock"]);
                     string categoria = fila["Categoria"].ToString();
+                    bool aplicaIVA = fila["AplicaIVA"] != DBNull.Value && Convert.ToBoolean(fila["AplicaIVA"]);
                     Image imagen = ConvertirBytesAImagen(fila["Imagen"]);
 
+                    productosAplicaIVA[productoID] = aplicaIVA;
+
                     UCTarjetaProducto tarjeta = new UCTarjetaProducto();
-
-                    tarjeta.CargarDatos(
-                        productoID,
-                        nombre,
-                        precio,
-                        stock,
-                        categoria,
-                        imagen);
-
+                    tarjeta.CargarDatos(productoID, nombre, precio, stock, categoria, imagen);
                     tarjeta.ProductoAgregado += tarjeta_ProductoAgregado;
                     flpProductos.Controls.Add(tarjeta);
                 }
@@ -70,11 +67,7 @@ namespace login.Bar
             }
             catch (Exception ex)
             {
-                MessageBox.Show(
-                    "Error al cargar los productos:\n" + ex.Message,
-                    "Error",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Error);
+                MessageBox.Show("Error al cargar los productos:\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally
             {
@@ -104,19 +97,8 @@ namespace login.Bar
             {
                 if (control is UCTarjetaProducto tarjeta)
                 {
-                    bool coincideNombre =
-                        string.IsNullOrEmpty(texto) ||
-                        tarjeta.NombreProducto.IndexOf(
-                            texto,
-                            StringComparison.OrdinalIgnoreCase) >= 0;
-
-                    bool coincideCategoria =
-                        categoriaSeleccionada == "Todos" ||
-                        string.Equals(
-                            tarjeta.Categoria,
-                            categoriaSeleccionada,
-                            StringComparison.OrdinalIgnoreCase);
-
+                    bool coincideNombre = string.IsNullOrEmpty(texto) || tarjeta.NombreProducto.IndexOf(texto, StringComparison.OrdinalIgnoreCase) >= 0;
+                    bool coincideCategoria = categoriaSeleccionada == "Todos" || string.Equals(tarjeta.Categoria, categoriaSeleccionada, StringComparison.OrdinalIgnoreCase);
                     tarjeta.Visible = coincideNombre && coincideCategoria;
                 }
             }
@@ -167,25 +149,16 @@ namespace login.Bar
         {
             foreach (Control control in flpProduct.Controls)
             {
-                if (control is UCVentasBar tarjetaExistente)
+                if (control is UCVentasBar tarjetaExistente && tarjetaExistente.ProductoID == producto.ProductoID)
                 {
-                    if (tarjetaExistente.ProductoID == producto.ProductoID)
-                    {
-                        tarjetaExistente.AumentarCantidad();
-                        return;
-                    }
+                    tarjetaExistente.AumentarCantidad();
+                    return;
                 }
             }
 
             UCVentasBar tarjetaVenta = new UCVentasBar();
-
-            tarjetaVenta.CargarProducto(
-                producto.ProductoID,
-                producto.NombreProducto,
-                producto.Precio);
-
+            tarjetaVenta.CargarProducto(producto.ProductoID, producto.NombreProducto, producto.Precio);
             tarjetaVenta.ProductoEliminado += TarjetaVenta_ProductoEliminado;
-
             flpProduct.Controls.Add(tarjetaVenta);
             flpProduct.AutoScroll = true;
         }
@@ -207,24 +180,22 @@ namespace login.Bar
             {
                 if (control is UCVentasBar producto)
                 {
+                    bool aplicaIVA = productosAplicaIVA.ContainsKey(producto.ProductoID) && productosAplicaIVA[producto.ProductoID];
+
                     detalles.Add(new DetalleVenta
                     {
                         ProductoID = producto.ProductoID,
                         Producto = producto.NombreProducto,
                         Cantidad = producto.Cantidad,
-                        PrecioUnitario = producto.Precio
+                        PrecioUnitario = producto.Precio,
+                        AplicaIVA = aplicaIVA
                     });
                 }
             }
 
             if (detalles.Count == 0)
             {
-                MessageBox.Show(
-                    "No hay productos agregados a la venta.",
-                    "Factura",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning);
-
+                MessageBox.Show("No hay productos agregados a la venta.", "Factura", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
@@ -235,25 +206,17 @@ namespace login.Bar
 
             if (pnlContenido == null)
             {
-                MessageBox.Show(
-                    "No se encontró el panel contenedor.",
-                    "Error",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Error);
-
+                MessageBox.Show("No se encontró el panel contenedor.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
             frmFacturaVenta frm = new frmFacturaVenta(detalles, this);
-
             frm.TopLevel = false;
             frm.FormBorderStyle = FormBorderStyle.None;
             frm.Dock = DockStyle.Fill;
-
             pnlContenido.Controls.Clear();
             pnlContenido.Controls.Add(frm);
             pnlContenido.Tag = frm;
-
             frm.Show();
         }
 
@@ -261,40 +224,19 @@ namespace login.Bar
         {
             foreach (DetalleVenta detalle in detalles)
             {
-                string consulta =
-                    "SELECT Nombre, Stock " +
-                    "FROM Productos " +
-                    "WHERE ProductoID = " + detalle.ProductoID;
-
-                DataTable tabla = oCon.retornaRegistros(consulta);
+                DataTable tabla = oCon.retornaRegistros("SELECT Nombre, Stock FROM Productos WHERE ProductoID = " + detalle.ProductoID);
 
                 if (tabla == null || tabla.Rows.Count == 0)
                 {
-                    MessageBox.Show(
-                        "No se encontró el producto " + detalle.Producto + ".",
-                        "Producto no encontrado",
-                        MessageBoxButtons.OK,
-                        MessageBoxIcon.Warning);
-
+                    MessageBox.Show("No se encontró el producto " + detalle.Producto + ".", "Producto no encontrado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return false;
                 }
 
-                int stockDisponible =
-                    Convert.ToInt32(tabla.Rows[0]["Stock"]);
+                int stockDisponible = Convert.ToInt32(tabla.Rows[0]["Stock"]);
 
                 if (detalle.Cantidad > stockDisponible)
                 {
-                    MessageBox.Show(
-                        "No hay suficiente stock para el producto:\n\n" +
-                        detalle.Producto +
-                        "\n\nStock disponible: " +
-                        stockDisponible +
-                        "\nCantidad solicitada: " +
-                        detalle.Cantidad,
-                        "Stock insuficiente",
-                        MessageBoxButtons.OK,
-                        MessageBoxIcon.Warning);
-
+                    MessageBox.Show("No hay suficiente stock para el producto:\n\n" + detalle.Producto + "\n\nStock disponible: " + stockDisponible + "\nCantidad solicitada: " + detalle.Cantidad, "Stock insuficiente", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return false;
                 }
             }
@@ -310,11 +252,7 @@ namespace login.Bar
 
         private void guna2Button17_Click(object sender, EventArgs e)
         {
-            DialogResult respuesta = MessageBox.Show(
-                "¿Está seguro de cancelar la venta?",
-                "Cancelar venta",
-                MessageBoxButtons.YesNo,
-                MessageBoxIcon.Question);
+            DialogResult respuesta = MessageBox.Show("¿Está seguro de cancelar la venta?", "Cancelar venta", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
             if (respuesta == DialogResult.Yes)
             {
@@ -332,24 +270,10 @@ namespace login.Bar
             frmProductos.ProductoGuardado -= CargarProductos;
         }
 
-        private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
-        {
-        }
-
-        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
-        {
-        }
-
-        private void pnlProductos_Paint(object sender, PaintEventArgs e)
-        {
-        }
-
-        private void flpProduct_Paint(object sender, PaintEventArgs e)
-        {
-        }
-
-        private void flpProductos_Paint(object sender, PaintEventArgs e)
-        {
-        }
+        private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e) { }
+        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e) { }
+        private void pnlProductos_Paint(object sender, PaintEventArgs e) { }
+        private void flpProduct_Paint(object sender, PaintEventArgs e) { }
+        private void flpProductos_Paint(object sender, PaintEventArgs e) { }
     }
 }
