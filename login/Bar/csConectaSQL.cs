@@ -21,16 +21,16 @@ namespace login
         public csConectaSQL()
         {
 
-             Server = @"LAPTOP-J5U2QS20\SQLEXPRESS01"; //LAPTOP-J5U2QS20\SQLEXPRESS01         DESKTOP-OSJ26G2\SQLEXPRESS01
-             Database = "ComplejoDeportivo";
-             Usuario = "Basados777"; // Basados
-             Clave = "Basados888";  //Basados888
+            /*Server = @"LAPTOP-J5U2QS20\SQLEXPRESS01"; //LAPTOP-J5U2QS20\SQLEXPRESS01         DESKTOP-OSJ26G2\SQLEXPRESS01
+            Database = "ComplejoDeportivo";
+            Usuario = "Basados777"; // Basados
+            Clave = "Basados888";  //Basados888*/
 
 
-            /* Server = @"HP\SQLEXPRESS";
-             Database = "ComplejoDeportivo";
-             Usuario = "";
-             Clave = "";*/
+            Server = @"HP\SQLEXPRESS";
+            Database = "ComplejoDeportivo";
+            Usuario = "";
+            Clave = "";
         }
 
         public bool abrirConexion()
@@ -175,7 +175,13 @@ namespace login
             }
         }
 
-        public bool actualizarProducto(int productoID, int categoriaID, string nombre, decimal precio, byte[] imagen)
+        public bool actualizarProducto(
+            int productoID,
+            int categoriaID,
+            string nombre,
+            decimal precio,
+            byte[] imagen,
+            bool aplicaIVA)
         {
             try
             {
@@ -186,7 +192,8 @@ namespace login
                                   "CategoriaID = @CategoriaID, " +
                                   "Nombre = @Nombre, " +
                                   "Precio = @Precio, " +
-                                  "Imagen = @Imagen " +
+                                  "Imagen = @Imagen, " +
+                                  "AplicaIVA = @AplicaIVA " +
                                   "WHERE ProductoID = @ProductoID";
 
                 using (SqlCommand cmd = new SqlCommand(consulta, oCon))
@@ -197,14 +204,21 @@ namespace login
                     cmd.Parameters.AddWithValue("@Precio", precio);
                     cmd.Parameters.Add("@Imagen", SqlDbType.VarBinary).Value =
                         (object)imagen ?? DBNull.Value;
+                    cmd.Parameters.Add("@AplicaIVA", SqlDbType.Bit).Value = aplicaIVA;
 
                     cmd.ExecuteNonQuery();
                 }
 
                 return true;
             }
-            catch
+            catch (Exception ex)
             {
+                MessageBox.Show(
+                    "Error al actualizar el producto: " + ex.Message,
+                    "Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+
                 return false;
             }
             finally
