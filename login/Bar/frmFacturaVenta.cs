@@ -75,11 +75,22 @@ namespace login.Bar
             {
                 foreach (DetalleVenta detalle in detallesVenta)
                 {
-                    decimal subtotal = detalle.Cantidad * detalle.PrecioUnitario;
-                    decimal descuento = subtotal * porcentajeDescuento / 100;
-                    decimal subtotalConDescuento = subtotal - descuento;
-                    decimal iva = subtotalConDescuento * porcentajeIVA / 100;
-                    decimal total = subtotalConDescuento + iva;
+                    decimal subtotal =
+                        detalle.Cantidad * detalle.PrecioUnitario;
+
+                    decimal descuento =
+                        subtotal * porcentajeDescuento / 100;
+
+                    decimal subtotalConDescuento =
+                        subtotal - descuento;
+
+                    // IVA SOLO SI EL PRODUCTO APLICA IVA
+                    decimal iva = detalle.AplicaIVA
+                        ? subtotalConDescuento * porcentajeIVA / 100
+                        : 0;
+
+                    decimal total =
+                        subtotalConDescuento + iva;
 
                     dgvDetalleFactura.Rows.Add(
                         detalle.Producto,
@@ -97,10 +108,17 @@ namespace login.Bar
                 }
             }
 
-            lblSubtotal.Text = "$" + subtotalFactura.ToString("0.00");
-            lblDescuento.Text = "$" + descuentoFactura.ToString("0.00");
-            lblIva.Text = "$" + ivaFactura.ToString("0.00");
-            lblTotal.Text = "$" + totalFactura.ToString("0.00");
+            lblSubtotal.Text =
+                "$" + subtotalFactura.ToString("0.00");
+
+            lblDescuento.Text =
+                "$" + descuentoFactura.ToString("0.00");
+
+            lblIva.Text =
+                "$" + ivaFactura.ToString("0.00");
+
+            lblTotal.Text =
+                "$" + totalFactura.ToString("0.00");
         }
 
         private void txtDescuento_TextChanged(object sender, EventArgs e)
@@ -114,8 +132,12 @@ namespace login.Bar
                 return;
             }
 
-            if (!decimal.TryParse(txtDescuento.Text, out decimal descuento))
+            if (!decimal.TryParse(
+                txtDescuento.Text,
+                out decimal descuento))
+            {
                 return;
+            }
 
             if (descuento < 0 || descuento > 100)
             {
@@ -126,7 +148,9 @@ namespace login.Bar
                     MessageBoxIcon.Warning);
 
                 txtDescuento.Text = "0";
-                txtDescuento.SelectionStart = txtDescuento.Text.Length;
+                txtDescuento.SelectionStart =
+                    txtDescuento.Text.Length;
+
                 return;
             }
 
@@ -143,7 +167,8 @@ namespace login.Bar
 
         private void BuscarCliente()
         {
-            string documento = txtCedula.Text.Trim();
+            string documento =
+                txtCedula.Text.Trim();
 
             clienteID = 0;
 
@@ -155,7 +180,8 @@ namespace login.Bar
 
             try
             {
-                string documentoSeguro = documento.Replace("'", "''");
+                string documentoSeguro =
+                    documento.Replace("'", "''");
 
                 string consulta =
                     "SELECT TOP 1 ClienteID, TipoDocumento, Cedula, Nombre, Apellido, " +
@@ -164,22 +190,33 @@ namespace login.Bar
                     "WHERE LTRIM(RTRIM(CONVERT(VARCHAR(30), Cedula))) = '" +
                     documentoSeguro + "'";
 
-                DataTable dtCliente = oCon.retornaRegistros(consulta);
+                DataTable dtCliente =
+                    oCon.retornaRegistros(consulta);
 
-                if (dtCliente != null && dtCliente.Rows.Count > 0)
+                if (dtCliente != null &&
+                    dtCliente.Rows.Count > 0)
                 {
-                    DataRow fila = dtCliente.Rows[0];
+                    DataRow fila =
+                        dtCliente.Rows[0];
 
-                    clienteID = Convert.ToInt32(fila["ClienteID"]);
+                    clienteID =
+                        Convert.ToInt32(fila["ClienteID"]);
 
                     txtCliente.Text =
                         fila["Nombre"].ToString() + " " +
                         fila["Apellido"].ToString();
 
-                    txtCorreo.Text = fila["Correo"].ToString();
-                    txtTelefono.Text = fila["Telefono"].ToString();
-                    txtCiudad.Text = fila["Ciudad"].ToString();
-                    txtDireccion.Text = fila["Direccion"].ToString();
+                    txtCorreo.Text =
+                        fila["Correo"].ToString();
+
+                    txtTelefono.Text =
+                        fila["Telefono"].ToString();
+
+                    txtCiudad.Text =
+                        fila["Ciudad"].ToString();
+
+                    txtDireccion.Text =
+                        fila["Direccion"].ToString();
                 }
                 else
                 {
@@ -189,7 +226,8 @@ namespace login.Bar
             catch (Exception ex)
             {
                 MessageBox.Show(
-                    "Error al buscar el documento:\n" + ex.Message,
+                    "Error al buscar el documento:\n" +
+                    ex.Message,
                     "Error",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
@@ -209,7 +247,8 @@ namespace login.Bar
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            Control pnlContenido = this.Parent;
+            Control pnlContenido =
+                this.Parent;
 
             if (pnlContenido == null)
                 return;
@@ -221,24 +260,39 @@ namespace login.Bar
                 !formularioVenta.IsDisposed)
             {
                 formularioVenta.TopLevel = false;
-                formularioVenta.FormBorderStyle = FormBorderStyle.None;
-                formularioVenta.Dock = DockStyle.Fill;
 
-                pnlContenido.Controls.Add(formularioVenta);
-                pnlContenido.Tag = formularioVenta;
+                formularioVenta.FormBorderStyle =
+                    FormBorderStyle.None;
+
+                formularioVenta.Dock =
+                    DockStyle.Fill;
+
+                pnlContenido.Controls.Add(
+                    formularioVenta);
+
+                pnlContenido.Tag =
+                    formularioVenta;
 
                 formularioVenta.Show();
             }
             else
             {
-                frmRegistroVenta nuevaVenta = new frmRegistroVenta();
+                frmRegistroVenta nuevaVenta =
+                    new frmRegistroVenta();
 
                 nuevaVenta.TopLevel = false;
-                nuevaVenta.FormBorderStyle = FormBorderStyle.None;
-                nuevaVenta.Dock = DockStyle.Fill;
 
-                pnlContenido.Controls.Add(nuevaVenta);
-                pnlContenido.Tag = nuevaVenta;
+                nuevaVenta.FormBorderStyle =
+                    FormBorderStyle.None;
+
+                nuevaVenta.Dock =
+                    DockStyle.Fill;
+
+                pnlContenido.Controls.Add(
+                    nuevaVenta);
+
+                pnlContenido.Tag =
+                    nuevaVenta;
 
                 nuevaVenta.Show();
             }
@@ -266,10 +320,12 @@ namespace login.Bar
                     MessageBoxIcon.Warning);
 
                 txtCedula.Focus();
+
                 return;
             }
 
-            if (detallesVenta == null || detallesVenta.Count == 0)
+            if (detallesVenta == null ||
+                detallesVenta.Count == 0)
             {
                 MessageBox.Show(
                     "No hay productos agregados a la factura.",
@@ -298,7 +354,8 @@ namespace login.Bar
                 }
             }
 
-            if (porcentajeDescuento < 0 || porcentajeDescuento > 100)
+            if (porcentajeDescuento < 0 ||
+                porcentajeDescuento > 100)
             {
                 MessageBox.Show(
                     "El descuento debe estar entre 0 y 100.",
@@ -309,20 +366,26 @@ namespace login.Bar
                 return;
             }
 
-            DialogResult respuesta = MessageBox.Show(
-                "¿Está seguro de finalizar la compra?",
-                "Finalizar compra",
-                MessageBoxButtons.YesNo,
-                MessageBoxIcon.Question);
+            DialogResult respuesta =
+                MessageBox.Show(
+                    "¿Está seguro de finalizar la compra?",
+                    "Finalizar compra",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Question);
 
             if (respuesta == DialogResult.Yes)
+            {
                 GuardarFactura();
+            }
         }
 
         private void GuardarFactura()
         {
             decimal porcentajeDescuento = 0;
-            decimal.TryParse(txtDescuento.Text, out porcentajeDescuento);
+
+            decimal.TryParse(
+                txtDescuento.Text,
+                out porcentajeDescuento);
 
             decimal subtotalFactura = 0;
             decimal descuentoFactura = 0;
@@ -331,11 +394,22 @@ namespace login.Bar
 
             foreach (DetalleVenta detalle in detallesVenta)
             {
-                decimal subtotal = detalle.Cantidad * detalle.PrecioUnitario;
-                decimal descuento = subtotal * porcentajeDescuento / 100;
-                decimal subtotalConDescuento = subtotal - descuento;
-                decimal iva = subtotalConDescuento * porcentajeIVA / 100;
-                decimal total = subtotalConDescuento + iva;
+                decimal subtotal =
+                    detalle.Cantidad * detalle.PrecioUnitario;
+
+                decimal descuento =
+                    subtotal * porcentajeDescuento / 100;
+
+                decimal subtotalConDescuento =
+                    subtotal - descuento;
+
+                // IVA SOLO SI EL PRODUCTO APLICA IVA
+                decimal iva = detalle.AplicaIVA
+                    ? subtotalConDescuento * porcentajeIVA / 100
+                    : 0;
+
+                decimal total =
+                    subtotalConDescuento + iva;
 
                 subtotalFactura += subtotal;
                 descuentoFactura += descuento;
@@ -348,7 +422,9 @@ namespace login.Bar
             try
             {
                 oCon.abrirConexion();
-                transaccion = oCon.oCon.BeginTransaction();
+
+                transaccion =
+                    oCon.oCon.BeginTransaction();
 
                 string consultaFactura = @"
                     INSERT INTO FacturasVenta
@@ -378,19 +454,43 @@ namespace login.Bar
                 int facturaID;
 
                 using (SqlCommand cmdFactura =
-                    new SqlCommand(consultaFactura, oCon.oCon, transaccion))
+                    new SqlCommand(
+                        consultaFactura,
+                        oCon.oCon,
+                        transaccion))
                 {
-                    cmdFactura.Parameters.AddWithValue("@ClienteID", clienteID);
-                    cmdFactura.Parameters.AddWithValue("@Subtotal", subtotalFactura);
-                    cmdFactura.Parameters.AddWithValue("@PorcentajeDescuento", porcentajeDescuento);
-                    cmdFactura.Parameters.AddWithValue("@Descuento", descuentoFactura);
-                    cmdFactura.Parameters.AddWithValue("@IVA", ivaFactura);
-                    cmdFactura.Parameters.AddWithValue("@Total", totalFactura);
+                    cmdFactura.Parameters.AddWithValue(
+                        "@ClienteID",
+                        clienteID);
 
-                    facturaID = Convert.ToInt32(cmdFactura.ExecuteScalar());
+                    cmdFactura.Parameters.AddWithValue(
+                        "@Subtotal",
+                        subtotalFactura);
+
+                    cmdFactura.Parameters.AddWithValue(
+                        "@PorcentajeDescuento",
+                        porcentajeDescuento);
+
+                    cmdFactura.Parameters.AddWithValue(
+                        "@Descuento",
+                        descuentoFactura);
+
+                    cmdFactura.Parameters.AddWithValue(
+                        "@IVA",
+                        ivaFactura);
+
+                    cmdFactura.Parameters.AddWithValue(
+                        "@Total",
+                        totalFactura);
+
+                    facturaID =
+                        Convert.ToInt32(
+                            cmdFactura.ExecuteScalar());
                 }
 
-                string numeroFactura = "FAC-V" + facturaID.ToString("D4");
+                string numeroFactura =
+                    "FAC-V" +
+                    facturaID.ToString("D4");
 
                 string consultaNumero = @"
                     UPDATE FacturasVenta
@@ -398,20 +498,43 @@ namespace login.Bar
                     WHERE FacturaID = @FacturaID";
 
                 using (SqlCommand cmdNumero =
-                    new SqlCommand(consultaNumero, oCon.oCon, transaccion))
+                    new SqlCommand(
+                        consultaNumero,
+                        oCon.oCon,
+                        transaccion))
                 {
-                    cmdNumero.Parameters.AddWithValue("@NumeroFactura", numeroFactura);
-                    cmdNumero.Parameters.AddWithValue("@FacturaID", facturaID);
+                    cmdNumero.Parameters.AddWithValue(
+                        "@NumeroFactura",
+                        numeroFactura);
+
+                    cmdNumero.Parameters.AddWithValue(
+                        "@FacturaID",
+                        facturaID);
+
                     cmdNumero.ExecuteNonQuery();
                 }
 
                 foreach (DetalleVenta detalle in detallesVenta)
                 {
-                    decimal subtotal = detalle.Cantidad * detalle.PrecioUnitario;
-                    decimal descuento = subtotal * porcentajeDescuento / 100;
-                    decimal subtotalConDescuento = subtotal - descuento;
-                    decimal iva = subtotalConDescuento * porcentajeIVA / 100;
-                    decimal total = subtotalConDescuento + iva;
+                    decimal subtotal =
+                        detalle.Cantidad *
+                        detalle.PrecioUnitario;
+
+                    decimal descuento =
+                        subtotal *
+                        porcentajeDescuento / 100;
+
+                    decimal subtotalConDescuento =
+                        subtotal - descuento;
+
+                    // IVA SOLO SI EL PRODUCTO APLICA IVA
+                    decimal iva = detalle.AplicaIVA
+                        ? subtotalConDescuento *
+                          porcentajeIVA / 100
+                        : 0;
+
+                    decimal total =
+                        subtotalConDescuento + iva;
 
                     string consultaStock = @"
                         UPDATE Productos
@@ -420,12 +543,21 @@ namespace login.Bar
                         AND Stock >= @Cantidad";
 
                     using (SqlCommand cmdStock =
-                        new SqlCommand(consultaStock, oCon.oCon, transaccion))
+                        new SqlCommand(
+                            consultaStock,
+                            oCon.oCon,
+                            transaccion))
                     {
-                        cmdStock.Parameters.AddWithValue("@Cantidad", detalle.Cantidad);
-                        cmdStock.Parameters.AddWithValue("@ProductoID", detalle.ProductoID);
+                        cmdStock.Parameters.AddWithValue(
+                            "@Cantidad",
+                            detalle.Cantidad);
 
-                        int resultadoStock = cmdStock.ExecuteNonQuery();
+                        cmdStock.Parameters.AddWithValue(
+                            "@ProductoID",
+                            detalle.ProductoID);
+
+                        int resultadoStock =
+                            cmdStock.ExecuteNonQuery();
 
                         if (resultadoStock == 0)
                         {
@@ -460,16 +592,42 @@ namespace login.Bar
                         )";
 
                     using (SqlCommand cmdDetalle =
-                        new SqlCommand(consultaDetalle, oCon.oCon, transaccion))
+                        new SqlCommand(
+                            consultaDetalle,
+                            oCon.oCon,
+                            transaccion))
                     {
-                        cmdDetalle.Parameters.AddWithValue("@FacturaID", facturaID);
-                        cmdDetalle.Parameters.AddWithValue("@ProductoID", detalle.ProductoID);
-                        cmdDetalle.Parameters.AddWithValue("@Cantidad", detalle.Cantidad);
-                        cmdDetalle.Parameters.AddWithValue("@PrecioUnitario", detalle.PrecioUnitario);
-                        cmdDetalle.Parameters.AddWithValue("@Descuento", descuento);
-                        cmdDetalle.Parameters.AddWithValue("@IVA", iva);
-                        cmdDetalle.Parameters.AddWithValue("@Subtotal", subtotal);
-                        cmdDetalle.Parameters.AddWithValue("@Total", total);
+                        cmdDetalle.Parameters.AddWithValue(
+                            "@FacturaID",
+                            facturaID);
+
+                        cmdDetalle.Parameters.AddWithValue(
+                            "@ProductoID",
+                            detalle.ProductoID);
+
+                        cmdDetalle.Parameters.AddWithValue(
+                            "@Cantidad",
+                            detalle.Cantidad);
+
+                        cmdDetalle.Parameters.AddWithValue(
+                            "@PrecioUnitario",
+                            detalle.PrecioUnitario);
+
+                        cmdDetalle.Parameters.AddWithValue(
+                            "@Descuento",
+                            descuento);
+
+                        cmdDetalle.Parameters.AddWithValue(
+                            "@IVA",
+                            iva);
+
+                        cmdDetalle.Parameters.AddWithValue(
+                            "@Subtotal",
+                            subtotal);
+
+                        cmdDetalle.Parameters.AddWithValue(
+                            "@Total",
+                            total);
 
                         cmdDetalle.ExecuteNonQuery();
                     }
@@ -478,7 +636,9 @@ namespace login.Bar
                 transaccion.Commit();
 
                 compraFinalizada = true;
-                txtNumerodeFactura.Text = numeroFactura;
+
+                txtNumerodeFactura.Text =
+                    numeroFactura;
 
                 txtCedula.ReadOnly = true;
                 txtDescuento.ReadOnly = true;
@@ -498,7 +658,8 @@ namespace login.Bar
                 MessageBox.Show(
                     "Compra finalizada correctamente.\n\n" +
                     "Factura: " + numeroFactura +
-                    "\nTotal: $" + totalFactura.ToString("0.00"),
+                    "\nTotal: $" +
+                    totalFactura.ToString("0.00"),
                     "Venta realizada",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Information);
@@ -517,7 +678,8 @@ namespace login.Bar
                 }
 
                 MessageBox.Show(
-                    "Error al finalizar la compra:\n" + ex.Message,
+                    "Error al finalizar la compra:\n" +
+                    ex.Message,
                     "Error",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
