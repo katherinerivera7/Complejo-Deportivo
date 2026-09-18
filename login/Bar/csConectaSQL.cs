@@ -12,25 +12,31 @@ namespace login
         SqlDataAdapter oDA;
         DataTable oDT;
 
-        string Server;
-        string Database;
-        string Usuario;
-        string Clave;
-        string Cadena;
+        // =========================================================
+        // CONFIGURACIÓN CENTRAL DE LA BASE DE DATOS
+        // =========================================================
+        // Cuando cambies de computadora, normalmente solo debes
+        // modificar el valor de Server.
+        public static string Server = @"HP\SQLEXPRESS";
+        public static string Database = "ComplejoDeportivo";
+        public static string Usuario = "";
+        public static string Clave = "";
+
+        // Todos los formularios pueden utilizar:
+        // csConectaSQL.CadenaConexion
+        public static string CadenaConexion
+        {
+            get
+            {
+                return "Server=" + Server +
+                       ";Database=" + Database +
+                       ";Integrated Security=True;" +
+                       "TrustServerCertificate=True;";
+            }
+        }
 
         public csConectaSQL()
         {
-
-            Server = @"LAPTOP-J5U2QS20\SQLEXPRESS01"; //LAPTOP-J5U2QS20\SQLEXPRESS01         DESKTOP-OSJ26G2\SQLEXPRESS01
-            Database = "ComplejoDeportivo";
-            Usuario = "Basados777"; // Basados
-            Clave = "Basados888";  //Basados888
-
-
-            /* Server = @"HP\SQLEXPRESS";
-             Database = "ComplejoDeportivo";
-             Usuario = "";
-             Clave = "";*/
         }
 
         public bool abrirConexion()
@@ -39,13 +45,7 @@ namespace login
 
             try
             {
-                Cadena =
-                    "Server=" + Server +
-                    ";Database=" + Database +
-                    ";Integrated Security=True;" +
-                    "TrustServerCertificate=True;";
-
-                oCon.ConnectionString = Cadena;
+                oCon.ConnectionString = CadenaConexion;
                 oCon.Open();
 
                 return true;

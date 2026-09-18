@@ -32,7 +32,7 @@ namespace login.Reservas
                 return;
             }
 
-            string conexion = @"Server=LAPTOP-J5U2QS20\SQLEXPRESS01;Database=ComplejoDeportivo;Integrated Security=True;TrustServerCertificate=True;";
+            string conexion = @"Server=string conexionString = csConectaSQL.CadenaConexion;;Database=ComplejoDeportivo;Integrated Security=True;TrustServerCertificate=True;";
 
             using (SqlConnection cn = new SqlConnection(conexion))
             {
@@ -71,7 +71,7 @@ namespace login.Reservas
 
         private void frmEditarUsuario_Load(object sender, EventArgs e)
         {
-            string conexion = @"Server=LAPTOP-J5U2QS20\SQLEXPRESS01;Database=ComplejoDeportivo;Integrated Security=True;TrustServerCertificate=True;";
+            string conexion = @"Server=string conexionString = csConectaSQL.CadenaConexion;;Database=ComplejoDeportivo;Integrated Security=True;TrustServerCertificate=True;";
 
             using (SqlConnection cn = new SqlConnection(conexion))
             {

@@ -68,8 +68,9 @@ namespace login
                 return;
             }
 
+            // CONEXIÓN CENTRALIZADA
             string conexionString =
-                @"Server=LAPTOP-J5U2QS20\SQLEXPRESS01;Database=ComplejoDeportivo;Integrated Security=True;TrustServerCertificate=True;";
+                csConectaSQL.CadenaConexion;
 
             try
             {
@@ -261,7 +262,6 @@ namespace login
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-
         }
     }
 }

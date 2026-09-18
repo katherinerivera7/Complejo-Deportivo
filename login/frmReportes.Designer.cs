@@ -31,6 +31,9 @@
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dtpDesde = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.dtpHasta = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.btnGenerar = new Guna.UI2.WinForms.Guna2Button();
@@ -76,7 +79,7 @@
             this.dtpDesde.FillColor = System.Drawing.Color.White;
             this.dtpDesde.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.dtpDesde.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.dtpDesde.Format = System.Windows.Forms.DateTimePickerFormat.Long;
+            this.dtpDesde.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpDesde.Location = new System.Drawing.Point(15, 31);
             this.dtpDesde.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
             this.dtpDesde.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
@@ -94,14 +97,14 @@
             this.dtpHasta.FillColor = System.Drawing.Color.White;
             this.dtpHasta.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.dtpHasta.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.dtpHasta.Format = System.Windows.Forms.DateTimePickerFormat.Long;
+            this.dtpHasta.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpHasta.Location = new System.Drawing.Point(18, 101);
             this.dtpHasta.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
             this.dtpHasta.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.dtpHasta.Name = "dtpHasta";
             this.dtpHasta.Size = new System.Drawing.Size(170, 38);
             this.dtpHasta.TabIndex = 4;
-            this.dtpHasta.Value = new System.DateTime(2026, 9, 17, 20, 15, 8, 822);
+            this.dtpHasta.Value = new System.DateTime(2026, 9, 17, 22, 53, 5, 2);
             // 
             // btnGenerar
             // 
@@ -122,17 +125,23 @@
             // 
             // chartReporte
             // 
+            this.chartReporte.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(249)))), ((int)(((byte)(251)))));
+            this.chartReporte.BorderlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(231)))), ((int)(((byte)(237)))));
+            this.chartReporte.BorderlineWidth = 0;
+            chartArea1.BackColor = System.Drawing.Color.White;
+            chartArea1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(231)))), ((int)(((byte)(237)))));
             chartArea1.Name = "ChartArea1";
             this.chartReporte.ChartAreas.Add(chartArea1);
             legend1.Name = "Legend1";
             this.chartReporte.Legends.Add(legend1);
-            this.chartReporte.Location = new System.Drawing.Point(159, 46);
+            this.chartReporte.Location = new System.Drawing.Point(88, 15);
             this.chartReporte.Name = "chartReporte";
+            this.chartReporte.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Pastel;
             series1.ChartArea = "ChartArea1";
             series1.Legend = "Legend1";
             series1.Name = "Series1";
             this.chartReporte.Series.Add(series1);
-            this.chartReporte.Size = new System.Drawing.Size(331, 260);
+            this.chartReporte.Size = new System.Drawing.Size(510, 265);
             this.chartReporte.TabIndex = 8;
             this.chartReporte.Text = "chart1";
             // 
@@ -169,12 +178,14 @@
             // lblIngresosTotales2
             // 
             this.lblIngresosTotales2.BackColor = System.Drawing.Color.Transparent;
+            this.lblIngresosTotales2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblIngresosTotales2.ForeColor = System.Drawing.Color.Black;
-            this.lblIngresosTotales2.Location = new System.Drawing.Point(20, 43);
+            this.lblIngresosTotales2.Location = new System.Drawing.Point(-3, 45);
             this.lblIngresosTotales2.Name = "lblIngresosTotales2";
-            this.lblIngresosTotales2.Size = new System.Drawing.Size(81, 15);
+            this.lblIngresosTotales2.Size = new System.Drawing.Size(141, 26);
             this.lblIngresosTotales2.TabIndex = 14;
             this.lblIngresosTotales2.Text = "Ingresos Totales";
+            this.lblIngresosTotales2.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblIngresosTotales
             // 
@@ -223,10 +234,41 @@
             // 
             // dgvReporte
             // 
-            this.dgvReporte.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvReporte.Location = new System.Drawing.Point(0, 461);
+            this.dgvReporte.AllowUserToAddRows = false;
+            this.dgvReporte.AllowUserToDeleteRows = false;
+            this.dgvReporte.AllowUserToResizeColumns = false;
+            this.dgvReporte.AllowUserToResizeRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(249)))), ((int)(((byte)(251)))));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(55)))), ((int)(((byte)(65)))));
+            this.dgvReporte.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvReporte.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvReporte.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvReporte.BackgroundColor = System.Drawing.Color.White;
+            this.dgvReporte.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvReporte.ColumnHeadersHeight = 40;
+            this.dgvReporte.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(55)))), ((int)(((byte)(65)))));
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(235)))), ((int)(((byte)(249)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(45)))), ((int)(((byte)(55)))));
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvReporte.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvReporte.EnableHeadersVisualStyles = false;
+            this.dgvReporte.GridColor = System.Drawing.Color.Black;
+            this.dgvReporte.Location = new System.Drawing.Point(0, 430);
+            this.dgvReporte.MultiSelect = false;
             this.dgvReporte.Name = "dgvReporte";
-            this.dgvReporte.Size = new System.Drawing.Size(342, 272);
+            this.dgvReporte.ReadOnly = true;
+            this.dgvReporte.RowHeadersVisible = false;
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(55)))), ((int)(((byte)(65)))));
+            this.dgvReporte.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            this.dgvReporte.RowTemplate.Height = 36;
+            this.dgvReporte.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvReporte.Size = new System.Drawing.Size(356, 303);
             this.dgvReporte.TabIndex = 19;
             // 
             // cmbTipoReporte
@@ -255,35 +297,39 @@
             // lblIngresosBar
             // 
             this.lblIngresosBar.BackColor = System.Drawing.Color.Transparent;
+            this.lblIngresosBar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblIngresosBar.ForeColor = System.Drawing.Color.Black;
-            this.lblIngresosBar.Location = new System.Drawing.Point(27, 43);
+            this.lblIngresosBar.Location = new System.Drawing.Point(19, 43);
             this.lblIngresosBar.Name = "lblIngresosBar";
-            this.lblIngresosBar.Size = new System.Drawing.Size(61, 15);
+            this.lblIngresosBar.Size = new System.Drawing.Size(107, 26);
             this.lblIngresosBar.TabIndex = 22;
             this.lblIngresosBar.Text = "Ingresos bar";
+            this.lblIngresosBar.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblIngresosReservas
             // 
             this.lblIngresosReservas.BackColor = System.Drawing.Color.Transparent;
+            this.lblIngresosReservas.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblIngresosReservas.ForeColor = System.Drawing.Color.Black;
-            this.lblIngresosReservas.Location = new System.Drawing.Point(19, 56);
+            this.lblIngresosReservas.Location = new System.Drawing.Point(-11, 43);
             this.lblIngresosReservas.Name = "lblIngresosReservas";
-            this.lblIngresosReservas.Size = new System.Drawing.Size(91, 15);
+            this.lblIngresosReservas.Size = new System.Drawing.Size(158, 26);
             this.lblIngresosReservas.TabIndex = 23;
             this.lblIngresosReservas.Text = "Ingresos Reservas";
+            this.lblIngresosReservas.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pnlIngresosBar
             // 
             this.pnlIngresosBar.Controls.Add(this.lblIngresosBar);
-            this.pnlIngresosBar.Location = new System.Drawing.Point(514, 168);
+            this.pnlIngresosBar.Location = new System.Drawing.Point(541, 168);
             this.pnlIngresosBar.Name = "pnlIngresosBar";
-            this.pnlIngresosBar.Size = new System.Drawing.Size(138, 100);
+            this.pnlIngresosBar.Size = new System.Drawing.Size(149, 100);
             this.pnlIngresosBar.TabIndex = 22;
             // 
             // pnlIngresosReservas
             // 
             this.pnlIngresosReservas.Controls.Add(this.lblIngresosReservas);
-            this.pnlIngresosReservas.Location = new System.Drawing.Point(718, 168);
+            this.pnlIngresosReservas.Location = new System.Drawing.Point(772, 168);
             this.pnlIngresosReservas.Name = "pnlIngresosReservas";
             this.pnlIngresosReservas.Size = new System.Drawing.Size(138, 100);
             this.pnlIngresosReservas.TabIndex = 23;
@@ -291,9 +337,9 @@
             // pnlGrafico
             // 
             this.pnlGrafico.Controls.Add(this.chartReporte);
-            this.pnlGrafico.Location = new System.Drawing.Point(338, 398);
+            this.pnlGrafico.Location = new System.Drawing.Point(338, 430);
             this.pnlGrafico.Name = "pnlGrafico";
-            this.pnlGrafico.Size = new System.Drawing.Size(666, 335);
+            this.pnlGrafico.Size = new System.Drawing.Size(666, 303);
             this.pnlGrafico.TabIndex = 24;
             // 
             // guna2HtmlLabel2
@@ -309,38 +355,44 @@
             // lblTituloIngresosTotales
             // 
             this.lblTituloIngresosTotales.BackColor = System.Drawing.Color.Transparent;
-            this.lblTituloIngresosTotales.ForeColor = System.Drawing.Color.Black;
-            this.lblTituloIngresosTotales.Location = new System.Drawing.Point(345, 147);
+            this.lblTituloIngresosTotales.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTituloIngresosTotales.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(81)))), ((int)(((byte)(99)))));
+            this.lblTituloIngresosTotales.Location = new System.Drawing.Point(338, 131);
             this.lblTituloIngresosTotales.Name = "lblTituloIngresosTotales";
-            this.lblTituloIngresosTotales.Size = new System.Drawing.Size(110, 15);
+            this.lblTituloIngresosTotales.Size = new System.Drawing.Size(154, 18);
             this.lblTituloIngresosTotales.TabIndex = 15;
-            this.lblTituloIngresosTotales.Text = "Titulo Ingresos Totales";
+            this.lblTituloIngresosTotales.Text = "INGRESOS TOTALES";
+            this.lblTituloIngresosTotales.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblTituloIngresosBar
             // 
             this.lblTituloIngresosBar.BackColor = System.Drawing.Color.Transparent;
-            this.lblTituloIngresosBar.ForeColor = System.Drawing.Color.Black;
-            this.lblTituloIngresosBar.Location = new System.Drawing.Point(541, 147);
+            this.lblTituloIngresosBar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTituloIngresosBar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(81)))), ((int)(((byte)(99)))));
+            this.lblTituloIngresosBar.Location = new System.Drawing.Point(541, 131);
             this.lblTituloIngresosBar.Name = "lblTituloIngresosBar";
-            this.lblTituloIngresosBar.Size = new System.Drawing.Size(61, 15);
+            this.lblTituloIngresosBar.Size = new System.Drawing.Size(149, 18);
             this.lblTituloIngresosBar.TabIndex = 23;
-            this.lblTituloIngresosBar.Text = "Ingresos bar";
+            this.lblTituloIngresosBar.Text = "INGRESOS DEL BAR";
+            this.lblTituloIngresosBar.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblTituloIngresosReservas
             // 
             this.lblTituloIngresosReservas.BackColor = System.Drawing.Color.Transparent;
-            this.lblTituloIngresosReservas.ForeColor = System.Drawing.Color.Black;
-            this.lblTituloIngresosReservas.Location = new System.Drawing.Point(737, 147);
+            this.lblTituloIngresosReservas.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTituloIngresosReservas.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(81)))), ((int)(((byte)(99)))));
+            this.lblTituloIngresosReservas.Location = new System.Drawing.Point(733, 131);
             this.lblTituloIngresosReservas.Name = "lblTituloIngresosReservas";
-            this.lblTituloIngresosReservas.Size = new System.Drawing.Size(91, 15);
+            this.lblTituloIngresosReservas.Size = new System.Drawing.Size(203, 18);
             this.lblTituloIngresosReservas.TabIndex = 24;
-            this.lblTituloIngresosReservas.Text = "Ingresos Reservas";
+            this.lblTituloIngresosReservas.Text = "INGRESOS POR RESERVAS";
+            this.lblTituloIngresosReservas.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblTituloTabla
             // 
             this.lblTituloTabla.BackColor = System.Drawing.Color.Transparent;
             this.lblTituloTabla.ForeColor = System.Drawing.Color.Black;
-            this.lblTituloTabla.Location = new System.Drawing.Point(373, 319);
+            this.lblTituloTabla.Location = new System.Drawing.Point(426, 409);
             this.lblTituloTabla.Name = "lblTituloTabla";
             this.lblTituloTabla.Size = new System.Drawing.Size(110, 15);
             this.lblTituloTabla.TabIndex = 25;
@@ -350,7 +402,7 @@
             // 
             this.lblTituloGrafico.BackColor = System.Drawing.Color.Transparent;
             this.lblTituloGrafico.ForeColor = System.Drawing.Color.Black;
-            this.lblTituloGrafico.Location = new System.Drawing.Point(492, 319);
+            this.lblTituloGrafico.Location = new System.Drawing.Point(30, 409);
             this.lblTituloGrafico.Name = "lblTituloGrafico";
             this.lblTituloGrafico.Size = new System.Drawing.Size(110, 15);
             this.lblTituloGrafico.TabIndex = 26;

@@ -11,7 +11,7 @@ namespace login.GestionDeUsuarios
         private int clienteID = 0;
 
         private string conexionString =
-            @"Server=LAPTOP-J5U2QS20\SQLEXPRESS01;Database=ComplejoDeportivo;Integrated Security=True;TrustServerCertificate=True;";
+            @"Server=string conexionString = csConectaSQL.CadenaConexion;;Database=ComplejoDeportivo;Integrated Security=True;TrustServerCertificate=True;";
 
         public UCRegistrarUsuario()
         {

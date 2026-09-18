@@ -321,5 +321,21 @@ namespace login
             frm.StartPosition = FormStartPosition.CenterParent;
             frm.ShowDialog(this);
         }
+
+        private void btnReporte_Click(object sender, EventArgs e)
+        {
+            pnlContenido.Controls.Clear();
+
+            frmReportes frm = new frmReportes();
+
+            frm.TopLevel = false;
+            frm.FormBorderStyle = FormBorderStyle.None;
+            frm.Dock = DockStyle.Fill;
+
+            pnlContenido.Controls.Add(frm);
+            pnlContenido.Tag = frm;
+
+            frm.Show();
+        }
     }
 }

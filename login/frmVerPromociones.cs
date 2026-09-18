@@ -9,7 +9,7 @@ namespace login
 {
     public partial class frmVerPromociones : Form
     {
-        string conexionString = @"Server=LAPTOP-J5U2QS20\SQLEXPRESS01;Database=ComplejoDeportivo;Integrated Security=True;TrustServerCertificate=True;";
+        string conexionString = @"Server=string conexionString = csConectaSQL.CadenaConexion;;Database=ComplejoDeportivo;Integrated Security=True;TrustServerCertificate=True;";
 
         private bool configurandoFiltro = false;
         private bool busquedaAutomaticaAplicada = false;

@@ -10,7 +10,7 @@ namespace login.Promciones
 {
     public partial class frmCrearPromocion : Form
     {
-        string conexionString = @"Server=LAPTOP-J5U2QS20\SQLEXPRESS01;Database=ComplejoDeportivo;Integrated Security=True;TrustServerCertificate=True;";
+        string conexionString = @"Server=string conexionString = csConectaSQL.CadenaConexion;;Database=ComplejoDeportivo;Integrated Security=True;TrustServerCertificate=True;";
         private int promocionID = 0;
         private bool modoEdicion = false;
 

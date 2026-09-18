@@ -17,7 +17,7 @@ namespace login
         int ClientexPag = 40;
         int Bandera = 0;
 
-        string conexionString = @"Server=LAPTOP-J5U2QS20\SQLEXPRESS01;Database=ComplejoDeportivo;Integrated Security=True;TrustServerCertificate=True;";
+        string conexionString = @"Server=string conexionString = csConectaSQL.CadenaConexion;;Database=ComplejoDeportivo;Integrated Security=True;TrustServerCertificate=True;";
 
         public UCClientes()
         {
