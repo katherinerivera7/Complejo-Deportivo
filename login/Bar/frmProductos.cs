@@ -31,11 +31,15 @@ namespace login.Bar
         private void frmProductos_Load(object sender, EventArgs e)
         {
             CargarCategorias();
+
             pbImagen.SizeMode = PictureBoxSizeMode.Zoom;
+
+            chkAplicaIVA.Checked = false;
 
             if (tipo == 2)
             {
                 CargarProducto();
+
                 lblCrearProducto.Text = "Editar producto";
                 btnCrear.Text = "Guardar cambios";
             }
@@ -44,7 +48,9 @@ namespace login.Bar
         private void CargarCategorias()
         {
             DataTable tabla = oCon.retornaRegistros(
-                "SELECT CategoriaID, Nombre FROM Categorias ORDER BY Nombre");
+                "SELECT CategoriaID, Nombre " +
+                "FROM Categorias " +
+                "ORDER BY Nombre");
 
             cmbCategoria.DataSource = tabla;
             cmbCategoria.DisplayMember = "Nombre";
@@ -79,34 +85,67 @@ namespace login.Bar
         {
             if (cmbCategoria.SelectedIndex == -1)
             {
-                MessageBox.Show("Seleccione una categoría.");
+                MessageBox.Show(
+                    "Seleccione una categoría.",
+                    "Aviso",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+
                 return;
             }
 
             if (string.IsNullOrWhiteSpace(txtNombre.Text))
             {
-                MessageBox.Show("Ingrese el nombre del producto.");
+                MessageBox.Show(
+                    "Ingrese el nombre del producto.",
+                    "Aviso",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+
                 return;
             }
 
-            if (!decimal.TryParse(txtPrecio.Text, out decimal precio))
+            if (!decimal.TryParse(txtPrecio.Text.Trim(), out decimal precio))
             {
-                MessageBox.Show("Ingrese un precio válido.");
+                MessageBox.Show(
+                    "Ingrese un precio válido.",
+                    "Aviso",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+
                 return;
             }
 
             if (precio < 0)
             {
-                MessageBox.Show("El precio no puede ser negativo.");
+                MessageBox.Show(
+                    "El precio no puede ser negativo.",
+                    "Aviso",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+
                 return;
             }
 
-            int categoriaID = Convert.ToInt32(cmbCategoria.SelectedValue);
-            string nombre = txtNombre.Text.Trim();
+            int categoriaID =
+                Convert.ToInt32(cmbCategoria.SelectedValue);
+
+            string nombre =
+                txtNombre.Text.Trim();
+
+            bool aplicaIVA =
+                chkAplicaIVA.Checked;
 
             if (tipo == 1)
             {
-                if (oCon.insertarProducto(categoriaID, nombre, precio, imagenProducto))
+                bool registrado = oCon.insertarProducto(
+                    categoriaID,
+                    nombre,
+                    precio,
+                    imagenProducto,
+                    aplicaIVA);
+
+                if (registrado)
                 {
                     MessageBox.Show(
                         "Producto registrado correctamente.",
@@ -115,18 +154,22 @@ namespace login.Bar
                         MessageBoxIcon.Information);
 
                     ProductoGuardado?.Invoke();
+
                     DialogResult = DialogResult.OK;
                     Close();
                 }
             }
             else
             {
-                if (oCon.actualizarProducto(
+                bool actualizado = oCon.actualizarProducto(
                     productoID,
                     categoriaID,
                     nombre,
                     precio,
-                    imagenProducto))
+                    imagenProducto,
+                    aplicaIVA);
+
+                if (actualizado)
                 {
                     MessageBox.Show(
                         "Producto actualizado correctamente.",
@@ -135,6 +178,7 @@ namespace login.Bar
                         MessageBoxIcon.Information);
 
                     ProductoGuardado?.Invoke();
+
                     DialogResult = DialogResult.OK;
                     Close();
                 }
@@ -144,34 +188,63 @@ namespace login.Bar
         private void CargarProducto()
         {
             DataTable tabla = oCon.retornaRegistros(
-                "SELECT CategoriaID, Nombre, Precio, Imagen " +
-                "FROM Productos WHERE ProductoID = " + productoID);
+                "SELECT CategoriaID, Nombre, Precio, Imagen, AplicaIVA " +
+                "FROM Productos " +
+                "WHERE ProductoID = " + productoID);
 
             if (tabla.Rows.Count == 0)
                 return;
 
             DataRow fila = tabla.Rows[0];
 
-            cmbCategoria.SelectedValue = Convert.ToInt32(fila["CategoriaID"]);
-            txtNombre.Text = fila["Nombre"].ToString();
-            txtPrecio.Text = Convert.ToDecimal(fila["Precio"]).ToString("0.##");
+            cmbCategoria.SelectedValue =
+                Convert.ToInt32(fila["CategoriaID"]);
+
+            txtNombre.Text =
+                fila["Nombre"].ToString();
+
+            txtPrecio.Text =
+                Convert.ToDecimal(fila["Precio"]).ToString("0.##");
+
+            if (fila["AplicaIVA"] != DBNull.Value)
+            {
+                chkAplicaIVA.Checked =
+                    Convert.ToBoolean(fila["AplicaIVA"]);
+            }
+            else
+            {
+                chkAplicaIVA.Checked = false;
+            }
 
             if (fila["Imagen"] != DBNull.Value)
             {
-                imagenProducto = (byte[])fila["Imagen"];
+                imagenProducto =
+                    (byte[])fila["Imagen"];
 
-                using (MemoryStream ms = new MemoryStream(imagenProducto))
-                using (Image imagenTemporal = Image.FromStream(ms))
+                using (MemoryStream ms =
+                    new MemoryStream(imagenProducto))
+                using (Image imagenTemporal =
+                    Image.FromStream(ms))
                 {
                     pbImagen.Image?.Dispose();
-                    pbImagen.Image = new Bitmap(imagenTemporal);
+
+                    pbImagen.Image =
+                        new Bitmap(imagenTemporal);
                 }
+
+                pbImagen.SizeMode =
+                    PictureBoxSizeMode.Zoom;
             }
             else
             {
                 imagenProducto = null;
                 pbImagen.Image = null;
             }
+        }
+
+        private void guna2Panel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

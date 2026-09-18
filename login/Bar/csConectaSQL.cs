@@ -22,13 +22,15 @@ namespace login
         {
 
              Server = @"LAPTOP-J5U2QS20\SQLEXPRESS01"; //LAPTOP-J5U2QS20\SQLEXPRESS01         DESKTOP-OSJ26G2\SQLEXPRESS01
-              Database = "ComplejoDeportivo";
-              Usuario = "Basados777"; // Basados
-              Clave = "Basados888";  //Basados888
+             Database = "ComplejoDeportivo";
+             Usuario = "Basados777"; // Basados
+             Clave = "Basados888";  //Basados888
+
+
             /* Server = @"HP\SQLEXPRESS";
-              Database = "ComplejoDeportivo";
-              Usuario = "";
-              Clave = ""; */
+             Database = "ComplejoDeportivo";
+             Usuario = "";
+             Clave = "";*/
         }
 
         public bool abrirConexion()
@@ -128,7 +130,12 @@ namespace login
                 return false;
             }
         }
-        public bool insertarProducto(int categoriaID, string nombre, decimal precio, byte[] imagen)
+        public bool insertarProducto(
+    int categoriaID,
+    string nombre,
+    decimal precio,
+    byte[] imagen,
+    bool aplicaIVA)
         {
             try
             {
@@ -136,24 +143,34 @@ namespace login
                     return false;
 
                 string consulta = "INSERT INTO Productos " +
-                                  "(CategoriaID, Nombre, Precio, Imagen) " +
-                                  "VALUES (@CategoriaID, @Nombre, @Precio, @Imagen)";
+                                  "(CategoriaID, Nombre, Precio, Imagen, AplicaIVA) " +
+                                  "VALUES (@CategoriaID, @Nombre, @Precio, @Imagen, @AplicaIVA)";
 
                 using (SqlCommand cmd = new SqlCommand(consulta, oCon))
                 {
                     cmd.Parameters.AddWithValue("@CategoriaID", categoriaID);
                     cmd.Parameters.AddWithValue("@Nombre", nombre);
                     cmd.Parameters.AddWithValue("@Precio", precio);
+
                     cmd.Parameters.Add("@Imagen", SqlDbType.VarBinary).Value =
                         (object)imagen ?? DBNull.Value;
+
+                    cmd.Parameters.Add("@AplicaIVA", SqlDbType.Bit).Value =
+                        aplicaIVA;
 
                     cmd.ExecuteNonQuery();
                 }
 
                 return true;
             }
-            catch
+            catch (Exception ex)
             {
+                MessageBox.Show(
+                    "Error al registrar el producto: " + ex.Message,
+                    "Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+
                 return false;
             }
         }
