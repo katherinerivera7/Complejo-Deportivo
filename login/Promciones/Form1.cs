@@ -11,7 +11,6 @@ namespace login.Promciones
     public partial class frmCrearPromocion : Form
     {
         string conexionString = @"Server=LAPTOP-J5U2QS20\SQLEXPRESS01;Database=ComplejoDeportivo;Integrated Security=True;TrustServerCertificate=True;";
-
         private int promocionID = 0;
         private bool modoEdicion = false;
 
@@ -23,10 +22,8 @@ namespace login.Promciones
         public frmCrearPromocion(int promocionID)
         {
             InitializeComponent();
-
             this.promocionID = promocionID;
             modoEdicion = true;
-
             lblTitulo.Text = "Editar Promoción";
             lblSubtitulo.Text = "Modifica la información de la promoción para tus clientes";
             btnGuardar.Text = "Guardar cambios";
@@ -35,6 +32,8 @@ namespace login.Promciones
 
         private void frmCrearPromocion_Load(object sender, EventArgs e)
         {
+            CargarCanchas();
+
             if (cmbUnidadDescuento.Items.Count == 0)
             {
                 cmbUnidadDescuento.Items.Add("%");
@@ -46,14 +45,27 @@ namespace login.Promciones
                 CargarPromocion();
             }
             else
-            {
+            { 
                 dtpFechaInicio.MinDate = DateTime.Today;
                 dtpFechaFin.MinDate = DateTime.Today.AddDays(1);
-
                 dtpFechaInicio.Value = DateTime.Today;
                 dtpFechaFin.Value = DateTime.Today.AddDays(1);
-
                 cmbUnidadDescuento.SelectedIndex = -1;
+            }
+        }
+
+        private void CargarCanchas()
+        {
+            using (SqlConnection conexion = new SqlConnection(conexionString))
+            using (SqlCommand cmd = new SqlCommand("SELECT CanchaID, Tipo + ' - ' + Nombre AS Cancha FROM Canchas ORDER BY Tipo, Nombre", conexion))
+            {
+                SqlDataAdapter adaptador = new SqlDataAdapter(cmd);
+                DataTable tabla = new DataTable();
+                adaptador.Fill(tabla);
+                cmbAplicarA.DataSource = tabla;
+                cmbAplicarA.DisplayMember = "Cancha";
+                cmbAplicarA.ValueMember = "CanchaID";
+                cmbAplicarA.SelectedIndex = -1;
             }
         }
 
@@ -62,14 +74,9 @@ namespace login.Promciones
             try
             {
                 using (SqlConnection conexion = new SqlConnection(conexionString))
-                using (SqlCommand cmd = new SqlCommand(
-                    "SELECT Nombre, Descripcion, TipoPromocion, Descuento, UnidadDescuento, " +
-                    "TipoCliente, AplicarA, ServicioIncluido, FechaInicio, FechaFin, " +
-                    "Condiciones, Estado FROM Promociones " +
-                    "WHERE PromocionID = @PromocionID", conexion))
+                using (SqlCommand cmd = new SqlCommand("SELECT Nombre, Descripcion, TipoPromocion, Descuento, UnidadDescuento, TipoCliente, AplicarA, ServicioIncluido, FechaInicio, FechaFin, Condiciones, Estado, CanchaID FROM Promociones WHERE PromocionID = @PromocionID", conexion))
                 {
                     cmd.Parameters.Add("@PromocionID", SqlDbType.Int).Value = promocionID;
-
                     conexion.Open();
 
                     using (SqlDataReader reader = cmd.ExecuteReader())
@@ -84,23 +91,21 @@ namespace login.Promciones
                         txtDescripcion.Text = ObtenerTexto(reader["Descripcion"]);
                         txtDescuento.Text = Convert.ToDecimal(reader["Descuento"]).ToString("0.##");
                         txtCondiciones.Text = ObtenerTexto(reader["Condiciones"]);
-
                         SeleccionarCombo(cmbTipoPromocion, ObtenerTexto(reader["TipoPromocion"]));
                         SeleccionarCombo(cmbUnidadDescuento, ObtenerTexto(reader["UnidadDescuento"]));
                         SeleccionarCombo(cmbTipoCliente, ObtenerTexto(reader["TipoCliente"]));
                         SeleccionarCombo(cmbAplicarA, ObtenerTexto(reader["AplicarA"]));
                         SeleccionarCombo(cmbServicio, ObtenerTexto(reader["ServicioIncluido"]));
 
-                        cmbEstado.SelectedIndex = Convert.ToBoolean(reader["Estado"]) ? 0 : 1;
+                        if (reader["CanchaID"] != DBNull.Value)
+                            cmbAplicarA.SelectedValue = Convert.ToInt32(reader["CanchaID"]);
 
+                        cmbEstado.SelectedIndex = Convert.ToBoolean(reader["Estado"]) ? 0 : 1;
                         DateTime fechaInicio = Convert.ToDateTime(reader["FechaInicio"]).Date;
                         DateTime fechaFin = Convert.ToDateTime(reader["FechaFin"]).Date;
-
                         dtpFechaInicio.MinDate = DateTimePicker.MinimumDateTime;
                         dtpFechaFin.MinDate = DateTimePicker.MinimumDateTime;
-
                         dtpFechaInicio.Value = fechaInicio;
-
                         dtpFechaFin.MinDate = fechaInicio.AddDays(1);
 
                         if (fechaFin <= fechaInicio)
@@ -112,11 +117,7 @@ namespace login.Promciones
             }
             catch (Exception ex)
             {
-                MessageBox.Show(
-                    "Error al cargar la promoción:\n\n" + ex.Message,
-                    "Error",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Error);
+                MessageBox.Show("Error al cargar la promoción:\n\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -134,7 +135,6 @@ namespace login.Promciones
             }
 
             int indice = combo.FindStringExact(valor);
-
             if (indice >= 0)
                 combo.SelectedIndex = indice;
             else
@@ -214,6 +214,12 @@ namespace login.Promciones
                 return false;
             }
 
+            if (cmbAplicarA.SelectedIndex == -1)
+            {
+                MostrarAviso("Seleccione la cancha de la promoción.", cmbAplicarA);
+                return false;
+            }
+
             if (!modoEdicion && dtpFechaInicio.Value.Date < DateTime.Today)
             {
                 MostrarAviso("La fecha de inicio no puede ser anterior a hoy.", dtpFechaInicio);
@@ -245,28 +251,57 @@ namespace login.Promciones
         {
             texto = texto.Trim();
 
-            if (decimal.TryParse(
-                texto,
-                NumberStyles.Number,
-                CultureInfo.CurrentCulture,
-                out descuento))
-            {
+            if (decimal.TryParse(texto, NumberStyles.Number, CultureInfo.CurrentCulture, out descuento))
                 return true;
-            }
 
             texto = texto.Replace(',', '.');
+            return decimal.TryParse(texto, NumberStyles.Number, CultureInfo.InvariantCulture, out descuento);
+        }
 
-            return decimal.TryParse(
-                texto,
-                NumberStyles.Number,
-                CultureInfo.InvariantCulture,
-                out descuento);
+        private bool ExistePromocionEnLaSemana(DateTime fechaInicio, DateTime fechaFin)
+        {
+            int diferenciaInicio = ((int)fechaInicio.DayOfWeek + 6) % 7;
+            int diferenciaFin = ((int)fechaFin.DayOfWeek + 6) % 7;
+            DateTime inicioSemana = fechaInicio.Date.AddDays(-diferenciaInicio);
+            DateTime finSemana = fechaFin.Date.AddDays(6 - diferenciaFin);
+
+            string consulta = @"SELECT COUNT(*) FROM Promociones
+                WHERE CanchaID = @CanchaID
+                AND Estado = 1
+                AND FechaInicio <= @FinSemana
+                AND FechaFin >= @InicioSemana";
+
+            if (modoEdicion)
+                consulta += " AND PromocionID <> @PromocionID";
+
+            using (SqlConnection conexion = new SqlConnection(conexionString))
+            using (SqlCommand cmd = new SqlCommand(consulta, conexion))
+            {
+                cmd.Parameters.Add("@CanchaID", SqlDbType.Int).Value = Convert.ToInt32(cmbAplicarA.SelectedValue);
+                cmd.Parameters.Add("@InicioSemana", SqlDbType.Date).Value = inicioSemana;
+                cmd.Parameters.Add("@FinSemana", SqlDbType.Date).Value = finSemana;
+
+                if (modoEdicion)
+                    cmd.Parameters.Add("@PromocionID", SqlDbType.Int).Value = promocionID;
+
+                conexion.Open();
+                return Convert.ToInt32(cmd.ExecuteScalar()) > 0;
+            }
         }
 
         private void btnGuardarPromocion_Click(object sender, EventArgs e)
         {
             if (!ValidarCampos(out decimal descuento))
                 return;
+
+            bool promocionActiva = cmbEstado.Text.Equals("Activa", StringComparison.OrdinalIgnoreCase);
+
+            if (promocionActiva && ExistePromocionEnLaSemana(dtpFechaInicio.Value.Date, dtpFechaFin.Value.Date))
+            {
+                MessageBox.Show("Esta cancha ya tiene una promoción activa dentro de esa semana.", "Promoción repetida", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                cmbAplicarA.Focus();
+                return;
+            }
 
             try
             {
@@ -284,6 +319,7 @@ namespace login.Promciones
                             UnidadDescuento = @UnidadDescuento,
                             TipoCliente = @TipoCliente,
                             AplicarA = @AplicarA,
+                            CanchaID = @CanchaID,
                             ServicioIncluido = @ServicioIncluido,
                             FechaInicio = @FechaInicio,
                             FechaFin = @FechaFin,
@@ -295,11 +331,11 @@ namespace login.Promciones
                     {
                         consulta = @"INSERT INTO Promociones
                             (Nombre, Descripcion, TipoPromocion, Descuento, UnidadDescuento,
-                            TipoCliente, AplicarA, ServicioIncluido, FechaInicio, FechaFin,
+                            TipoCliente, AplicarA, CanchaID, ServicioIncluido, FechaInicio, FechaFin,
                             Condiciones, Estado)
                             VALUES
                             (@Nombre, @Descripcion, @TipoPromocion, @Descuento, @UnidadDescuento,
-                            @TipoCliente, @AplicarA, @ServicioIncluido, @FechaInicio, @FechaFin,
+                            @TipoCliente, @AplicarA, @CanchaID, @ServicioIncluido, @FechaInicio, @FechaFin,
                             @Condiciones, @Estado)";
                     }
 
@@ -311,27 +347,19 @@ namespace login.Promciones
                         cmd.Parameters.Add("@UnidadDescuento", SqlDbType.VarChar, 1).Value = cmbUnidadDescuento.Text.Trim();
                         cmd.Parameters.Add("@TipoCliente", SqlDbType.VarChar, 50).Value = cmbTipoCliente.Text.Trim();
                         cmd.Parameters.Add("@AplicarA", SqlDbType.VarChar, 100).Value = cmbAplicarA.Text.Trim();
+                        cmd.Parameters.Add("@CanchaID", SqlDbType.Int).Value = Convert.ToInt32(cmbAplicarA.SelectedValue);
 
                         cmd.Parameters.Add("@ServicioIncluido", SqlDbType.VarChar, 100).Value =
-                            cmbServicio.SelectedIndex == -1 ||
-                            string.IsNullOrWhiteSpace(cmbServicio.Text)
-                            ? (object)DBNull.Value
-                            : cmbServicio.Text.Trim();
+                            cmbServicio.SelectedIndex == -1 || string.IsNullOrWhiteSpace(cmbServicio.Text)
+                            ? (object)DBNull.Value : cmbServicio.Text.Trim();
 
                         cmd.Parameters.Add("@FechaInicio", SqlDbType.Date).Value = dtpFechaInicio.Value.Date;
                         cmd.Parameters.Add("@FechaFin", SqlDbType.Date).Value = dtpFechaFin.Value.Date;
-
                         cmd.Parameters.Add("@Condiciones", SqlDbType.VarChar, 255).Value =
-                            string.IsNullOrWhiteSpace(txtCondiciones.Text)
-                            ? (object)DBNull.Value
-                            : txtCondiciones.Text.Trim();
+                            string.IsNullOrWhiteSpace(txtCondiciones.Text) ? (object)DBNull.Value : txtCondiciones.Text.Trim();
+                        cmd.Parameters.Add("@Estado", SqlDbType.Bit).Value = promocionActiva;
 
-                        cmd.Parameters.Add("@Estado", SqlDbType.Bit).Value =
-                            cmbEstado.Text.Equals("Activa", StringComparison.OrdinalIgnoreCase);
-
-                        SqlParameter parametroDescuento =
-                            cmd.Parameters.Add("@Descuento", SqlDbType.Decimal);
-
+                        SqlParameter parametroDescuento = cmd.Parameters.Add("@Descuento", SqlDbType.Decimal);
                         parametroDescuento.Precision = 10;
                         parametroDescuento.Scale = 2;
                         parametroDescuento.Value = descuento;
@@ -344,24 +372,13 @@ namespace login.Promciones
                     }
                 }
 
-                MessageBox.Show(
-                    modoEdicion
-                        ? "Promoción actualizada correctamente."
-                        : "Promoción registrada correctamente.",
-                    "Éxito",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Information);
-
+                MessageBox.Show(modoEdicion ? "Promoción actualizada correctamente." : "Promoción registrada correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 DialogResult = DialogResult.OK;
                 btnCancelar_Click(sender, e);
             }
             catch (SqlException ex)
             {
-                MessageBox.Show(
-                    "Error al guardar la promoción:\n\n" + ex.Message,
-                    "Error",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Error);
+                MessageBox.Show("Error al guardar la promoción:\n\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -396,9 +413,7 @@ namespace login.Promciones
             if (char.IsControl(e.KeyChar) || char.IsDigit(e.KeyChar))
                 return;
 
-            if ((e.KeyChar == ',' || e.KeyChar == '.') &&
-                !txtDescuento.Text.Contains(",") &&
-                !txtDescuento.Text.Contains("."))
+            if ((e.KeyChar == ',' || e.KeyChar == '.') && !txtDescuento.Text.Contains(",") && !txtDescuento.Text.Contains("."))
                 return;
 
             e.Handled = true;
@@ -407,7 +422,6 @@ namespace login.Promciones
         private void dtpFechaInicio_ValueChanged(object sender, EventArgs e)
         {
             DateTime fechaMinima = dtpFechaInicio.Value.Date.AddDays(1);
-
             dtpFechaFin.MinDate = fechaMinima;
 
             if (dtpFechaFin.Value.Date < fechaMinima)
@@ -416,33 +430,22 @@ namespace login.Promciones
 
         private void cmbUnidadDescuento_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cmbUnidadDescuento.Text == "%" &&
-                IntentarConvertirDescuento(txtDescuento.Text, out decimal descuento) &&
-                descuento > 100)
+            if (cmbUnidadDescuento.Text == "%" && IntentarConvertirDescuento(txtDescuento.Text, out decimal descuento) && descuento > 100)
             {
                 txtDescuento.Clear();
-
-                MessageBox.Show(
-                    "El porcentaje debe estar entre 0 y 100%.",
-                    "Aviso",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning);
-
+                MessageBox.Show("El porcentaje debe estar entre 0 y 100%.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtDescuento.Focus();
             }
         }
 
-        private void label6_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void pnlContenido_Paint(object sender, PaintEventArgs e)
-        {
-        }
-
-        private void cmbServicio_SelectedIndexChanged(object sender, EventArgs e)
-        {
-        }
+        private void label6_Click(object sender, EventArgs e) { }
+        private void pnlContenido_Paint(object sender, PaintEventArgs e) { }
+        private void cmbServicio_SelectedIndexChanged(object sender, EventArgs e) { }
+        private void txtNombre_TextChanged(object sender, EventArgs e) { }
+        private void txtDescripcion_TextChanged(object sender, EventArgs e) { }
+        private void cmbTipoPromocion_SelectedIndexChanged(object sender, EventArgs e) { }
+        private void txtDescuento_TextChanged(object sender, EventArgs e) { }
+        private void cmbTipoCliente_SelectedIndexChanged(object sender, EventArgs e) { }
 
         private void txtNombre_KeyDown(object sender, KeyEventArgs e)
         {
@@ -453,14 +456,6 @@ namespace login.Promciones
             }
         }
 
-        private void txtNombre_TextChanged(object sender, EventArgs e)
-        {
-        }
-
-        private void txtDescripcion_TextChanged(object sender, EventArgs e)
-        {
-        }
-
         private void txtDescripcion_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
@@ -468,10 +463,6 @@ namespace login.Promciones
                 cmbTipoPromocion.Focus();
                 e.SuppressKeyPress = true;
             }
-        }
-
-        private void cmbTipoPromocion_SelectedIndexChanged(object sender, EventArgs e)
-        {
         }
 
         private void txtDescuento_KeyDown(object sender, KeyEventArgs e)
@@ -492,10 +483,6 @@ namespace login.Promciones
             }
         }
 
-        private void txtDescuento_TextChanged(object sender, EventArgs e)
-        {
-        }
-
         private void cmbUnidadDescuento_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
@@ -503,10 +490,6 @@ namespace login.Promciones
                 cmbTipoCliente.Focus();
                 e.SuppressKeyPress = true;
             }
-        }
-
-        private void cmbTipoCliente_SelectedIndexChanged(object sender, EventArgs e)
-        {
         }
     }
 }
